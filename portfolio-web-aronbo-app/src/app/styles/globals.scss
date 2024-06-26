@@ -1,0 +1,61 @@
+@mixin flCtBase {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+:root {
+  --primary: #5c4dce;
+  --secondary: rgba(92, 77, 206, 0.2);
+}
+
+html {
+  font-size: 1rem;
+  font-size: 100%;
+}
+
+html body {
+  scroll-behavior: smooth;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#root {
+  width: 100vw;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  @include flCtBase;
+  min-height: 100vh;
+  > div {
+    @include flCtBase;
+    flex-flow: column wrap;
+    gap: 2rem;
+  }
+}
+
+main {
+  @include flCtBase;
+}
+
+#homeRoot,
+main,
+.sc-dLMFU.dDyDWj {
+  min-width: 100%;
+}
