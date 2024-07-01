@@ -34,7 +34,7 @@ export default function PlaceHolderKipperMain(): JSX.Element {
             alt="Next.js Logo"
             width={180}
             height={37}
-            style={{ marginBottom: "2rem", filter: "invert(1')" }}
+            style={{ marginBottom: "2rem", filter: "invert(1)" }}
             priority
           />
           <div className="Typewriter" data-testid="typewriter-wrapper">
@@ -188,26 +188,21 @@ export default function PlaceHolderKipperMain(): JSX.Element {
         <section className="sc-jXbUNg bXvGWx">
           <div style={{ width: "90%" }} className="sc-aXZVg gYXrHp container">
             <div className="sc-dhKdcB kpKwGl">
-              <img src="./assets/about-me.png" alt="Fernanda Kipper" />
+              <img
+                src="./assets/about-me.png"
+                alt="Aron Barbosa"
+                style={{ filter: "invert(1)" }}
+              />
             </div>
             <div
               style={{ height: "100%", flexDirection: "column" }}
               className="sc-aXZVg kXOFKB"
             >
-              <h2 className="sc-imWYAI fSfeIW">Olá! Eu sou a Fernanda</h2>
-              <p>
-                Apaixonada pelo desenvolvimento web desde os 18 anos, brasileira
-                e nascida em 2001. Sou estudante de Ciência da Computação na
-                Universidade Federal de Pelotas e Engenheira de Software no
-                maior banco da América Latina. Sou uma pessoa que adora
-                desafios, assim como todo desenvolvedor, mas em especial aqueles
-                que me tiram da minha zona de conforto, pois as minhas maiores
-                evoluções e aprendizados vierem de momentos em que me vi
-                obrigada a sair dela e enfrentar a vida. Estudante assídua, que
-                aprecia tomar café e nas horas vagas compartilha conhecimento
-                nas redes sociais. Assisto romances e séries investigativas e
-                também adoro ir na academia 😊
-              </p>
+              <h2 className="sc-imWYAI fSfeIW">
+                Olá! Eu sou o{" "}
+                <strong style={{ fontWeight: "900" }}>Aron</strong>
+              </h2>
+              <p>DESCRIÇÃO</p>
             </div>
           </div>
         </section>
@@ -220,116 +215,29 @@ export default function PlaceHolderKipperMain(): JSX.Element {
             </div>
             <div id="timeline">
               <div id="event">
-                <h3>Engenheira de Software no Itaú Unibanco</h3>
-                <h4>Julho 2022 - Hoje</h4>
-                <p>
-                  O{" "}
-                  <a href="https://www.itau.com.br/" target="_blank">
-                    Itaú
-                  </a>{" "}
-                  é o maior banco privado da América Latina, com mais de 5 mil
-                  agências espalhadas pela américa e impactando diariamente a
-                  vida de milhões de pessoas. Atuo na squad de Jornada
-                  Personalizada que pertence a comunidade de Onboarding e
-                  Abertura de Contas, somos a porta de entrada do cliente no
-                  banco, responsáveis pela jornada de abertura de conta e
-                  onboarding dos nossos clientes, e nosso objetivo é oferecer o
-                  melhor onboarding do mercado.
-                  <br />
-                  Como Engenheira de Software minhas responsabilidades incluem
-                  desenvolvimento de novas features, code review, escrita de
-                  testes unitários, resolução de chamados e bugs, monitoramento
-                  e deploy da aplicação.
-                  <br />
-                  <br />
-                  <b>Tecnologias:</b> Typescript, Javascript, Angular, Micro
-                  Frontends, Micro Seviços, Angular, Git, AWS Services, Google
-                  Analytics.
-                </p>
+                <h3>EXPERIÊNCIA 1</h3>
+                <h4>DATA 1</h4>
+                <p>DESCRIÇÃO 1</p>
               </div>
               <div id="event">
-                <h3>Desenvolvedora Frontend na Stone</h3>
-                <h4>Março 2022 - Julho 2022</h4>
-                <p>
-                  A{" "}
-                  <a href="https://www.stone.com.br/" target="_blank">
-                    Stone
-                  </a>{" "}
-                  é uma fintech brasileira de meios de pagamentos, terceira
-                  maior adquirente do Brasil. Pertencia ao time de Marketing
-                  &amp; Growth, onde nossos maiores objetivo eram aquisição,
-                  retenção e encantar os clientes Stone.
-                  <br />
-                  Como desenvolvedora Frontend minhas responsabilidades incluíam
-                  implementação de features nos sites institucionais da empresa
-                  e manutenção dos mesmos.
-                  <br />
-                  <br />
-                  <b>Tecnologias: </b>HTML, CSS, Javascript, Typescript, Jquery,
-                  ReactJS, NextJs, Google Optmize, Google Analytics.
-                </p>
+                <h3>EXPERIÊNCIA 2</h3>
+                <h4>DATA 2</h4>
+                <p>DESCRIÇÃO 2</p>
               </div>
               <div id="event">
-                <h3>Desenvolvedora Frontend Júnior na Aftersale</h3>
-                <h4>Novembro 2021 - Março 2022</h4>
-                <p>
-                  A{" "}
-                  <a href="https://after.sale/" target="_blank">
-                    Aftersale
-                  </a>{" "}
-                  é uma startup que oferece soluções inteligentes e
-                  automatizadas de pós venda para e-commerces, que auxiliam na
-                  fidelização e retenção dos consumidores.
-                  <br />
-                  Como desenvolvedora Frontend minhas responsabilidades incluíam
-                  desenvolvimento de novas features, escrita de testes
-                  unitários, code review, resolução de chamados, refatorações e
-                  migração de arquitetura. Além da atuação em projetos backend
-                  desenvolvidos em&nbsp; GraphQL e Node JS.
-                  <br />
-                  <br />
-                  <b>Tecnologias:</b> HTML, CSS, Javascript, Typescript,
-                  ReactJS, NextJs, GraphQL, Node Js, Micro serviços, Jest,
-                  Testing Library, Google Analytics, Google Tag Manager.
-                </p>
+                <h3>EXPERIÊNCIA 3</h3>
+                <h4>DATA 3</h4>
+                <p>DESCRIÇÃO 3</p>
               </div>
               <div id="event">
-                <h3>Frontend Tech Trainee na Aftersale</h3>
-                <h4>Março 2021 - Novembro 2021</h4>
-                <p>
-                  Como Frontend Trainee, auxiliei na manutenção e refatoração de
-                  projetos que impactaram na melhora da qualidade e legibilidade
-                  do sistema e junto aos meus colegas conseguimos reduzir á zero
-                  o número de bugs Frontend em backlog. Além disso, auxiliei na
-                  escrita da documentação de fluxos da aplicação.
-                </p>
+                <h3>EXPERIÊNCIA 4</h3>
+                <h4>DATA 4</h4>
+                <p>DESCRIÇÃO 4</p>
               </div>
               <div id="event">
-                <h3>Bolsista de Desenvolvimento Tecnológico pela FAPERGS</h3>
-                <h4>Agosto 2020 - Agosto 2021</h4>
-                <p>
-                  Como bolsista da{" "}
-                  <a href="https://fapergs.rs.gov.br/inicial">
-                    Fundação de Amparo à Pesquisa do Estado do Rio Grande do Sul
-                  </a>{" "}
-                  na Universidade Federal de Pelotas (UFPEL), contribui desde a
-                  etapa da concepção da ideia até o desenvolvimento de um
-                  indexador digital para Recursos Educacionais Abertos, o qual
-                  trará para a comunidade acadêmica um grande impacto positivo
-                  nas questões de reaproveitamento e universalização desses
-                  materiais. O estudo foi publicado em conferências de pesquisa
-                  e educação como a{" "}
-                  <a href="https://www.laclolala.com/#/laclo">
-                    Conferência Latino-americana de Tecnologias
-                  </a>{" "}
-                  de Aprendizagem e em duas edições da{" "}
-                  <a href="https://wp.ufpel.edu.br/congressoinovacao/sobre/">
-                    Semana Integrada de Inovação da UFPEL
-                  </a>
-                  . A ferramenta está em desenvolvimento e fase de testes com
-                  docentes locais, e foi construída utilizando conhecimentos de{" "}
-                  <b>JavaScript, NodeJS e React JS.</b>
-                </p>
+                <h3>EXPERIÊNCIA 5</h3>
+                <h4>DATA 5</h4>
+                <p>DESCRIÇÃO 5</p>
               </div>
             </div>
           </div>
@@ -369,7 +277,7 @@ export default function PlaceHolderKipperMain(): JSX.Element {
                     <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1H4z"></path>
                     <path d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"></path>
                   </svg>
-                  <strong>Fernanda-Kipper</strong>
+                  <strong>PROJETO 1</strong>
                 </div>
                 <svg
                   stroke="currentColor"
@@ -386,7 +294,7 @@ export default function PlaceHolderKipperMain(): JSX.Element {
                   <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"></path>
                 </svg>
               </div>
-              <p></p>
+              <p>DESCRIÇÃO 1</p>
               <div className="languages"></div>
             </a>
             <a
@@ -410,7 +318,7 @@ export default function PlaceHolderKipperMain(): JSX.Element {
                     <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1H4z"></path>
                     <path d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"></path>
                   </svg>
-                  <strong>email-service-backend</strong>
+                  <strong>PROJETO 2</strong>
                 </div>
                 <svg
                   stroke="currentColor"
@@ -427,12 +335,9 @@ export default function PlaceHolderKipperMain(): JSX.Element {
                   <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"></path>
                 </svg>
               </div>
-              <p>
-                This repository contains an Rest API that works as email sender
-                working with queues
-              </p>
+              <p>DESCRIÇÃO 2</p>
               <div className="languages">
-                <span className="sc-dAlyuH ifzPQN">JavaScript</span>
+                <span className="sc-dAlyuH ifzPQN">LINGUAGEM 1</span>
               </div>
             </a>
             <a
@@ -456,7 +361,7 @@ export default function PlaceHolderKipperMain(): JSX.Element {
                     <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1H4z"></path>
                     <path d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"></path>
                   </svg>
-                  <strong>eventostec-frontend</strong>
+                  <strong>PROJETO 3</strong>
                 </div>
                 <svg
                   stroke="currentColor"
@@ -475,10 +380,10 @@ export default function PlaceHolderKipperMain(): JSX.Element {
               </div>
               <p></p>
               <div className="languages">
-                <span className="sc-dAlyuH ifzPQN">HTML</span>
-                <span className="sc-dAlyuH ifzPQN">TypeScript</span>
-                <span className="sc-dAlyuH ifzPQN">JavaScript</span>
-                <span className="sc-dAlyuH ifzPQN">SCSS</span>
+                <span className="sc-dAlyuH ifzPQN">LINGUAGEM 1</span>
+                <span className="sc-dAlyuH ifzPQN">LINGUAGEM 2</span>
+                <span className="sc-dAlyuH ifzPQN">LINGUAGEM 3</span>
+                <span className="sc-dAlyuH ifzPQN">LINGUAGEM 4</span>
               </div>
             </a>
             <a
@@ -502,7 +407,7 @@ export default function PlaceHolderKipperMain(): JSX.Element {
                     <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1H4z"></path>
                     <path d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"></path>
                   </svg>
-                  <strong>auth-api</strong>
+                  <strong>PROJETO 4</strong>
                 </div>
                 <svg
                   stroke="currentColor"
@@ -519,13 +424,9 @@ export default function PlaceHolderKipperMain(): JSX.Element {
                   <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"></path>
                 </svg>
               </div>
-              <p>
-                This repository contains a simple Java Spring project that
-                implements authentication and authorization using Spring
-                Security
-              </p>
+              <p>DESCRIÇÃO 4</p>
               <div className="languages">
-                <span className="sc-dAlyuH ifzPQN">Java</span>
+                <span className="sc-dAlyuH ifzPQN">LINGUAGEM 1</span>
               </div>
             </a>
             <a
@@ -549,7 +450,7 @@ export default function PlaceHolderKipperMain(): JSX.Element {
                     <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1H4z"></path>
                     <path d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"></path>
                   </svg>
-                  <strong>backend-cardapio-digital</strong>
+                  <strong>PROJETO 5</strong>
                 </div>
                 <svg
                   stroke="currentColor"
@@ -566,12 +467,9 @@ export default function PlaceHolderKipperMain(): JSX.Element {
                   <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"></path>
                 </svg>
               </div>
-              <p>
-                Esse projeto é a API REST da aplicação de Cardápio Digital
-                desenvolvido durante meu tutorial no Youtube
-              </p>
+              <p>DESCRIÇÃO 5</p>
               <div className="languages">
-                <span className="sc-dAlyuH ifzPQN">Java</span>
+                <span className="sc-dAlyuH ifzPQN">LINGUAGEM 1</span>
               </div>
             </a>
             <a
@@ -595,7 +493,7 @@ export default function PlaceHolderKipperMain(): JSX.Element {
                     <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1H4z"></path>
                     <path d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"></path>
                   </svg>
-                  <strong>desafio-backend-uber</strong>
+                  <strong>PROJETO 6</strong>
                 </div>
                 <svg
                   stroke="currentColor"
@@ -612,12 +510,9 @@ export default function PlaceHolderKipperMain(): JSX.Element {
                   <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"></path>
                 </svg>
               </div>
-              <p>
-                Solução do desafio de backend da Uber desenvolvido durante o
-                vídeo https://youtu.be/eFgeO9M9lLw
-              </p>
+              <p>DESCRIÇÃO 6</p>
               <div className="languages">
-                <span className="sc-dAlyuH ifzPQN">Java</span>
+                <span className="sc-dAlyuH ifzPQN">LINGUAGEM 1</span>
               </div>
             </a>
           </ul>
@@ -637,11 +532,9 @@ export default function PlaceHolderKipperMain(): JSX.Element {
                   src="https://media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fj32yu8zhdg1yxrr8xsl9.png"
                   alt="Funções Serverless na AWS: Simplificando o nosso Processo de Desenvolvimento"
                 />
-                <strong>
-                  Funções Serverless na AWS: Simplificando o nosso P...
-                </strong>
-                <p>Publicado em: 13/0/2024</p>
-                <p>Reações: 22</p>
+                <strong>LEITURA 1</strong>
+                <p>DATA 1</p>
+                <p>N REAÇÕES 1</p>
               </a>
             </li>
             <li>
@@ -654,9 +547,9 @@ export default function PlaceHolderKipperMain(): JSX.Element {
                   src="https://media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F74wnlu3oxmgpy9jqnewe.png"
                   alt="Introdução ao SSH"
                 />
-                <strong>Introdução ao SSH</strong>
-                <p>Publicado em: 24/9/2023</p>
-                <p>Reações: 27</p>
+                <strong>LEITURA 2</strong>
+                <p>DATA 2</p>
+                <p>N REAÇÕES 2</p>
               </a>
             </li>
             <li>
@@ -669,11 +562,9 @@ export default function PlaceHolderKipperMain(): JSX.Element {
                   src="https://media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fr6lrz6xiy0cz7yozy59s.png"
                   alt="A Beginner's Guide to JavaScript's Single Thread and Event Loop"
                 />
-                <strong>
-                  A Beginner's Guide to JavaScript's Single Thread a...
-                </strong>
-                <p>Publicado em: 9/3/2023</p>
-                <p>Reações: 5</p>
+                <strong>LEITURA 3</strong>
+                <p>DATA 3</p>
+                <p>N REAÇÕES 3</p>
               </a>
             </li>
             <li>
@@ -686,9 +577,9 @@ export default function PlaceHolderKipperMain(): JSX.Element {
                   src="https://media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F5tkx3l0tk2qkaeke7lo0.png"
                   alt="A Beginner's Guide to Github Actions"
                 />
-                <strong>A Beginner's Guide to Github Actions</strong>
-                <p>Publicado em: 12/1/2023</p>
-                <p>Reações: 8</p>
+                <strong>LEITURA 4</strong>
+                <p>DATA 4</p>
+                <p>N REAÇÕES 4</p>
               </a>
             </li>
             <li>
@@ -701,9 +592,9 @@ export default function PlaceHolderKipperMain(): JSX.Element {
                   src="https://media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fvh7r1oaywz5jr78li4qb.png"
                   alt="Iniciando estudos de RxJs em Angular"
                 />
-                <strong>Iniciando estudos de RxJs em Angular</strong>
-                <p>Publicado em: 20/9/2022</p>
-                <p>Reações: 10</p>
+                <strong>LEITURA 5</strong>
+                <p>DATA 5</p>
+                <p>N REAÇÕES 5</p>
               </a>
             </li>
             <li>
@@ -716,11 +607,9 @@ export default function PlaceHolderKipperMain(): JSX.Element {
                   src="https://media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F9fhcrfmyf18zkvjf165f.jpg"
                   alt="Programação Orientada Objetos e Programação Procedural - entendendo a diferença"
                 />
-                <strong>
-                  Programação Orientada Objetos e Programação Proced...
-                </strong>
-                <p>Publicado em: 29/0/2022</p>
-                <p>Reações: 16</p>
+                <strong>LEITURA 6</strong>
+                <p>DATA 6</p>
+                <p>N REAÇÕES 6</p>
               </a>
             </li>
           </ul>
