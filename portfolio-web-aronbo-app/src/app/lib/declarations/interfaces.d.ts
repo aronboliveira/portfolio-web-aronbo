@@ -7,10 +7,3 @@ export interface RouterState {
 export interface RouterSelectState {
   router: AppRouterInstance | NextRouter;
 }
-
-export interface RoutedProps extends Partial<RouterSelectState> {
-  routerState?: AppRouterInstance | NextRouter | string | function;
-  isServerComponent?: boolean;
-}
-
-export interface AppContextProps extends RouterSelectState {}
