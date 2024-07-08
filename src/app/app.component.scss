@@ -1,0 +1,21 @@
+.toggle-circle {
+  transition: transform 0.15s ease-in-out;
+  transform: translate(0%, -50%);
+  &.checked {
+    transform: translate(150%, -50%);
+  }
+}
+
+.hTxSNb .toggle-circle:not(.checked) {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  transition: right 500ms ease 0s;
+  background-color: rgb(39, 39, 39);
+  border: 2px solid rgb(245, 245, 239);
+  box-shadow: rgba(0, 0, 0, 0.41) 0px 1px 6px 1px;
+}

@@ -1,0 +1,22 @@
+<div></div>
+<nav>
+  <div class="sc-gEvEer cTTYjJ">
+    <div class="sc-eqUAAy hTxSNb">
+      <div class="toggle-container">
+        <div class="toggle-circle uncheck"></div>
+      </div>
+      <input
+        class="toggle-input"
+        type="checkbox"
+        aria-label="Toggle Button"
+        [(ngModel)]="isChecked"
+        [ngClass]="{ checked: isChecked }"
+        (click)="handleToggle()"
+      />
+    </div>
+    <div class="legend">
+      <span>BR-</span>
+      <span>US</span>
+    </div>
+  </div>
+</nav>
