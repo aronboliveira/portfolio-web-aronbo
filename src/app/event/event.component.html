@@ -1,0 +1,14 @@
+<div class="event" [id]="id">
+  <h3 class="event-heading event-title" [id]="'title-' + id">
+    {{ title | titlecase }}
+  </h3>
+  <h4 class="event-heading event-date" [id]="'date-' + id">{{ date }}</h4>
+  <p
+    class="event-description"
+    [innerHTML]="description"
+    id="'description' + id"
+  ></p>
+  <a class="event-anchor" [href]="href" [id]="'anchor-' + id" target="_blank">{{
+    href
+  }}</a>
+</div>

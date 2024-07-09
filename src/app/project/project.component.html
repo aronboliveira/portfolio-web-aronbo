@@ -1,0 +1,18 @@
+<div class="event" [id]="id">
+  <h3 class="course-heading course-title" [id]="'title-' + id">
+    {{ title | titlecase }}
+  </h3>
+  <h4 class="course-heading course-date" [id]="'date-' + id">{{ date }}</h4>
+  <p
+    class="course-description"
+    [innerHTML]="description"
+    id="'description' + id"
+  ></p>
+  <a
+    class="course-anchor"
+    [href]="href"
+    [id]="'anchor-' + id"
+    target="_blank"
+    >{{ href }}</a
+  >
+</div>
