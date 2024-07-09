@@ -11,9 +11,11 @@
   }
 }
 
-.courses {
+.courses,
+.works {
   min-width: 91vw;
-  #courses-heading-container {
+  #courses-heading-container,
+  #experience-heading-container {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -43,9 +45,9 @@
       transition: transform 0.2s ease-in-out;
       fill: rgba(153, 0, 180, 0.498);
       stroke: rgba(225, 0, 112, 0.859);
-      transform: translate(0.5rem, -0.4rem);
+      transform: translate(0.6rem, -1rem);
       &.toggled {
-        transform: translate(0.5rem, -0.4rem) rotate(-180deg);
+        transform: translate(0.6rem, -1rem) rotate(-180deg);
       }
     }
   }
@@ -92,7 +94,8 @@
   .fSfeIW {
     text-align: left;
     width: 70vw;
-    transform: translateX(-7rem);
+    transform: translateX(-13.75vw);
+    margin-bottom: 3rem;
   }
 }
 
@@ -105,6 +108,10 @@
 
 .main-container {
   height: auto;
+}
+
+#courses {
+  transform: translateY(-0.75rem);
 }
 
 #description {

@@ -184,6 +184,12 @@ app-root {
   padding: 0px;
 }
 
+.experience {
+  &.works {
+    margin-bottom: 3rem;
+  }
+}
+
 .eZsukd {
   max-width: 100%;
   height: auto;
@@ -278,7 +284,7 @@ app-root {
       padding-bottom: 1rem;
       margin-left: 1rem;
       border-left: 0.25rem solid rgb(225, 0, 112);
-      border-radius: 0.25rem;
+      border-radius: 0.25rem 0.25rem 0.5rem 0.5rem;
       position: relative;
       &::before {
         content: "";
@@ -296,6 +302,9 @@ app-root {
         background-color: white;
       }
     }
+  }
+  #content-courses {
+    padding-block: 2.25rem;
   }
 }
 

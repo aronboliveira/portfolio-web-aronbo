@@ -24,7 +24,70 @@ export class PlaceHolderKipperMainComponent implements OnInit {
   @ViewChild('ptBrTemplate', { static: true }) ptBrTemplate!: TemplateRef<any>;
   @ViewChild('enUsTemplate', { static: true }) enUsTemplate!: TemplateRef<any>;
   @ViewChild('coursesArrow') coursesArrowRef!: TemplateRef<any>;
+  @ViewChild('expArrow') expArrowRef!: TemplateRef<any>;
   @ViewChild('topArrow') topArrowRef!: TemplateRef<any>;
+  ngOnInit(): void {
+    [
+      document.getElementById('timeline'),
+      document.getElementById('timeline-courses'),
+    ].forEach((timeline, i) => {
+      try {
+        if (timeline instanceof HTMLElement) {
+          iniHeights[`${timeline.id}`] = parseFinite(
+            getComputedStyle(timeline).height.replace('px', '').trim()
+          );
+          if (!(timeline.id === 'timeline-courses')) return;
+          const arrow = document.getElementById('courses-arrow');
+          arrow instanceof Element && arrow.classList.add('toggled');
+          if (
+            !iniHeights[`${timeline.id}`] &&
+            getComputedStyle(timeline).display !== 'none' &&
+            parseFinite(
+              getComputedStyle(timeline).height.replace('px', '').trim()
+            ) > 0
+          )
+            iniHeights[`${timeline.id}`] = parseFinite(
+              getComputedStyle(timeline).height.replace('px', '').trim()
+            );
+          const iniHeight = iniHeights[`${timeline.id}`];
+          if (iniHeight <= 0 || !Number.isFinite(iniHeight)) return;
+          const htFract = iniHeight / 20;
+          const interv = setInterval(interv => {
+            if (!(timeline instanceof HTMLElement)) return;
+            if (
+              !document
+                .getElementById('courses-arrow')
+                ?.classList.contains('toggled')
+            ) {
+              clearInterval(interv);
+              return;
+            }
+            const htReduced =
+              parseFinite(
+                getComputedStyle(timeline).height.replace('px', '').trim()
+              ) - htFract;
+            if (!Number.isFinite(htReduced)) return;
+            if (htReduced <= 0) {
+              timeline.style.display = 'none';
+              clearInterval(interv);
+              return;
+            }
+            if (htReduced > 0) timeline.style.height = `${htReduced}px`;
+          }, 15);
+          setTimeout(() => clearInterval(interv), 1000);
+        } else {
+          iniHeights[`${'timelin-courses'}`] = 400;
+          iniHeights['timeline'] = 200;
+        }
+      } catch (e) {
+        console.error(
+          `Error executing iteration ${i} during onInit:\n${
+            (e as Error).message
+          }`
+        );
+      }
+    });
+  }
   changeLanguage(ev: Event): void {
     try {
       this.isChecked = !this.isChecked;
@@ -209,12 +272,14 @@ export class PlaceHolderKipperMainComponent implements OnInit {
       );
     }
   }
-  toggleArrow(ev: MouseEvent): void {
+  toggleArrow(ev: MouseEvent, timelineIdf: string = 'timeline-courses'): void {
     try {
       if (!(ev instanceof MouseEvent))
         throw new Error(`Invalid Event passed to toggleArrow`);
       if (!(ev.currentTarget instanceof HTMLElement))
         throw new Error(`Invalid target passed to toggleArrow`);
+      if (typeof timelineIdf !== 'string')
+        throw new Error(`Invalid type passed as timelineIdf`);
       let targ: voidishEl = ev.currentTarget;
       if (ev.currentTarget instanceof HTMLButtonElement)
         targ = ev.currentTarget.querySelector('svg');
@@ -227,8 +292,9 @@ export class PlaceHolderKipperMainComponent implements OnInit {
       const targId = targ.id;
       targ.classList.toggle('toggled');
       const timeline =
-        document.getElementById('timeline-courses') ||
-        targ.closest('button')?.nextElementSibling;
+        document.getElementById(timelineIdf) ||
+        document.querySelector(timelineIdf);
+      targ.closest('button')?.nextElementSibling;
       if (!(timeline instanceof HTMLElement))
         throw htmlElementNotFound(timeline, `Validation of timeline instance`);
       if (!timeline.querySelector('.event')) {
@@ -311,51 +377,5 @@ export class PlaceHolderKipperMainComponent implements OnInit {
   }
   scrollToTop(): void {
     scrollTo({ top: 0, behavior: 'smooth' });
-  }
-  ngOnInit(): void {
-    const timeline = document.getElementById('timeline-courses');
-    if (timeline instanceof HTMLElement) {
-      iniHeights[`${timeline.id}`] = parseFinite(
-        getComputedStyle(timeline).height.replace('px', '').trim()
-      );
-      const arrow = document.getElementById('courses-arrow');
-      arrow instanceof Element && arrow.classList.add('toggled');
-      if (
-        !iniHeights[`${timeline.id}`] &&
-        getComputedStyle(timeline).display !== 'none' &&
-        parseFinite(
-          getComputedStyle(timeline).height.replace('px', '').trim()
-        ) > 0
-      )
-        iniHeights[`${timeline.id}`] = parseFinite(
-          getComputedStyle(timeline).height.replace('px', '').trim()
-        );
-      const iniHeight = iniHeights[`${timeline.id}`];
-      if (iniHeight <= 0 || !Number.isFinite(iniHeight)) return;
-      const htFract = iniHeight / 20;
-      const interv = setInterval(interv => {
-        if (!(timeline instanceof HTMLElement)) return;
-        if (
-          !document
-            .getElementById('courses-arrow')
-            ?.classList.contains('toggled')
-        ) {
-          clearInterval(interv);
-          return;
-        }
-        const htReduced =
-          parseFinite(
-            getComputedStyle(timeline).height.replace('px', '').trim()
-          ) - htFract;
-        if (!Number.isFinite(htReduced)) return;
-        if (htReduced <= 0) {
-          timeline.style.display = 'none';
-          clearInterval(interv);
-          return;
-        }
-        if (htReduced > 0) timeline.style.height = `${htReduced}px`;
-      }, 15);
-      setTimeout(() => clearInterval(interv), 1000);
-    } else iniHeights[`${'timelin-courses'}`] = 400;
   }
 }

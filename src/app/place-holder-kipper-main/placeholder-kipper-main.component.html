@@ -246,7 +246,24 @@
       <div id="content-experience">
         <div id="timeline-container"></div>
         <div id="timeline-head">
-          <h2 class="sc-imWYAI fSfeIW" id="experience">Minha experiência</h2>
+          <button
+            id="experience-heading-container"
+            #expArrow
+            (click)="toggleArrow($event, 'timeline')"
+          >
+            <h2 class="sc-imWYAI fSfeIW" id="experience">Minha experiência</h2>
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                id="exp-arrow"
+              >
+                <path d="M2 5L8 11L14 5" />
+              </svg>
+            </span>
+          </button>
           <div id="timeline">
             <app-event
               [title]="'Projeto de Extensão PROSSaúde — UFRJ'"
