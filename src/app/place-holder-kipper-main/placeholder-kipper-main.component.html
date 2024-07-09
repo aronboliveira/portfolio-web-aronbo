@@ -173,8 +173,7 @@
             <br />
             <br />
             <span
-              >Secundariamente, tenho experiência de trabalho com
-              <b>Design Gráfico</b
+              >Também tenho experiência de trabalho com <b>Design Gráfico</b
               ><b>, Educação com foco em Gamificação e Saúde</b
               ><b>, e em Biologia Geral</b
               ><span
@@ -213,7 +212,7 @@
             <br />
             <br />
             <span
-              >Secondarily, I have experience with <b>Graphic Design</b
+              >I also have experience with <b>Graphic Design</b
               ><b>, Teaching with focus on Gamification and Health</b
               ><b>, as well in General Biology</b
               ><span
@@ -242,7 +241,7 @@
       </div>
     </section>
   </div>
-  <div class="experience">
+  <div class="experience works">
     <section class="sc-kpDqfm eZsukd">
       <div id="content-experience">
         <div id="timeline-container"></div>
@@ -270,6 +269,93 @@
       </div>
     </section>
   </div>
+  <div class="experience courses">
+    <section class="sc-kpDqfm eZsukd">
+      <div id="content-courses">
+        <div id="timeline-container-courses"></div>
+        <div id="timeline-head-courses">
+          <button
+            id="courses-heading-container"
+            #coursesArrow
+            (click)="toggleArrow($event)"
+          >
+            <h2 class="sc-imWYAI fSfeIW" id="courses">Cursos realizados</h2>
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                id="courses-arrow"
+              >
+                <path d="M2 5L8 11L14 5" />
+              </svg>
+            </span>
+          </button>
+          <div id="timeline-courses">
+            <app-event
+              [title]="'Introduction to Cybersecurity'"
+              [date]="'09/2023'"
+              [description]="'Coordenador(a): Laura Quintana'"
+              [href]="
+                'https://drive.google.com/file/d/16nTFgxqwqttl5aZcwavJQKb0HVpnZU89/view?usp=sharing'
+              "
+            />
+            <app-event
+              [title]="'Curso Online de Java — Rocketseat'"
+              [date]="'10/2023'"
+              [description]="'Coordenador(a): Mayk Brito'"
+              [href]="
+                'https://app.rocketseat.com.br/certificates/26dd9160-febb-4465-8b35-fa3fb9ece848'
+              "
+            />
+            <app-event
+              [title]="'Java Essentials — Linux Tips'"
+              [date]="'10/2023'"
+              [description]="'Instrutor(a): Kamila Santos'"
+              [href]="
+                'https://www.linuxtips.io/certificate_v2/64c39e086ecad6568408a59e/user/651c733fce4e2410560f688a'
+              "
+            />
+            <app-event
+              [title]="'Mastering TypeScript — 2023 Edition'"
+              [date]="'12/2023'"
+              [description]="'Instrutor(a): Colt Steele'"
+              [href]="
+                'https://udemy.com/certificate/UC-45c23af3-87fb-406b-9724-172d33184118'
+              "
+            />
+            <app-event
+              [title]="
+                'The Complete JavaScript Course 2024: From Zero to Expert!'
+              "
+              [date]="'04/2024'"
+              [description]="'Instrutor(a): Jonas Schmedtmann'"
+              [href]="
+                'https://www.udemy.com/certificate/UC-129ff335-210e-4ff9-a05c-8625756db5d0/'
+              "
+            />
+            <app-event
+              [title]="'Build Responsive Real-Word Websites with HTML and CSS'"
+              [date]="'05/2024'"
+              [description]="'Instrutor(a): Jonas Schmedtmann'"
+              [href]="
+                'https://www.udemy.com/certificate/UC-118ebff4-6cdb-4ea0-8da4-468b98edfa09/'
+              "
+            />
+            <app-event
+              [title]="'The Complete 2024 Web Development Bootcamp!'"
+              [date]="'04/2024'"
+              [description]="'Instrutor(a): Angela Yu'"
+              [href]="
+                'https://www.udemy.com/certificate/UC-90804997-c6c8-4654-b301-68cf3ce6273d/'
+              "
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
   <div
     class="projects"
     style="
@@ -281,7 +367,7 @@
     "
   >
     <section class="sc-cwHptR hiOkY">
-      <h2 class="sc-imWYAI fSfeIW">Projetos</h2>
+      <h2 class="sc-imWYAI fSfeIW">Projetos em Construção</h2>
       <ul>
         <a
           href="https://github.com/Fernanda-Kipper/Fernanda-Kipper"
@@ -593,104 +679,7 @@
       </ul>
     </section>
   </div>
-  <div class="posts">
-    <section class="sc-jEACwC jzPXwg">
-      <h2 class="sc-imWYAI fSfeIW">Leituras rápidas</h2>
-      <ul class="posts">
-        <li>
-          <a
-            href="https://dev.to/nodebr/funcoes-serverless-na-aws-simplificando-o-nosso-processo-de-desenvolvimento-3l5i"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              src="https://media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fj32yu8zhdg1yxrr8xsl9.png"
-              alt="Funções Serverless na AWS: Simplificando o nosso Processo de Desenvolvimento"
-            />
-            <strong>LEITURA 1</strong>
-            <p>DATA 1</p>
-            <p>N REAÇÕES 1</p>
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://dev.to/fernandakipper/introducao-ao-ssh-12j5"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              src="https://media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F74wnlu3oxmgpy9jqnewe.png"
-              alt="Introdução ao SSH"
-            />
-            <strong>LEITURA 2</strong>
-            <p>DATA 2</p>
-            <p>N REAÇÕES 2</p>
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://dev.to/fernandakipper/a-beginners-guide-to-javascripts-single-thread-and-event-loop-1a9h"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              src="https://media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fr6lrz6xiy0cz7yozy59s.png"
-              alt="A Beginner's Guide to JavaScript's Single Thread and Event Loop"
-            />
-            <strong>LEITURA 3</strong>
-            <p>DATA 3</p>
-            <p>N REAÇÕES 3</p>
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://dev.to/fernandakipper/github-actions-for-begginers-2m3"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              src="https://media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F5tkx3l0tk2qkaeke7lo0.png"
-              alt="A Beginner's Guide to Github Actions"
-            />
-            <strong>LEITURA 4</strong>
-            <p>DATA 4</p>
-            <p>N REAÇÕES 4</p>
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://dev.to/fernandakipper/iniciando-estudos-de-rxjs-em-angular-17mm"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              src="https://media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fvh7r1oaywz5jr78li4qb.png"
-              alt="Iniciando estudos de RxJs em Angular"
-            />
-            <strong>LEITURA 5</strong>
-            <p>DATA 5</p>
-            <p>N REAÇÕES 5</p>
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://dev.to/fernandakipper/programacao-orientada-objetos-e-programacao-procedural-qual-a-diferenca-22lj"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              src="https://media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F9fhcrfmyf18zkvjf165f.jpg"
-              alt="Programação Orientada Objetos e Programação Procedural - entendendo a diferença"
-            />
-            <strong>LEITURA 6</strong>
-            <p>DATA 6</p>
-            <p>N REAÇÕES 6</p>
-          </a>
-        </li>
-      </ul>
-    </section>
-  </div>
-  <span class="sc-cPiKLX fdDTVb">
+  <span class="sc-cPiKLX fdDTVb" #topArrow (click)="scrollToTop()">
     <svg
       stroke="currentColor"
       fill="currentColor"

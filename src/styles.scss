@@ -195,14 +195,16 @@ app-root {
   justify-content: center;
   box-shadow: rgba(0, 0, 0, 0.25) 6px 6px 80px 8px;
   border-radius: 32px;
-  #content-experience {
+  #content-experience,
+  #content-courses {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     -webkit-box-pack: center;
     justify-content: center;
     padding-block: 1.5rem;
-    #timeline {
+    #timeline,
+    #timeline-courses {
       width: 90vw;
       display: flex;
       flex-direction: column;
@@ -222,7 +224,7 @@ app-root {
           display: inline-block;
           position: absolute;
           left: 0px;
-          transform: translateX(-58%);
+          transform: translate(-58%, 0.3rem);
         }
         h3 {
           font-size: 1.25rem;
@@ -271,11 +273,12 @@ app-root {
         }
       }
     }
-    #timeline-head {
+    #timeline-head,
+    #timeline-head-courses {
       padding-bottom: 1rem;
       margin-left: 1rem;
       border-left: 0.25rem solid rgb(225, 0, 112);
-      border-radius: 0.35rem;
+      border-radius: 0.25rem;
       position: relative;
       &::before {
         content: "";
@@ -285,8 +288,8 @@ app-root {
         display: inline-block;
         position: absolute;
         top: 0px;
-        left: -1px;
-        border-top-left-radius: 2rem;
+        transform: translateX(-0.2rem);
+        border-top-left-radius: 1rem;
       }
       h2 {
         margin: -20px 0px 0px 48px;

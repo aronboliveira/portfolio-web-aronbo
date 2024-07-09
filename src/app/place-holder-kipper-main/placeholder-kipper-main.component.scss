@@ -2,6 +2,107 @@
   width: 100vw;
 }
 
+.bXvGWx {
+  .container {
+    p {
+      margin-inline: 2rem;
+      max-width: unset;
+    }
+  }
+}
+
+.courses {
+  min-width: 91vw;
+  #courses-heading-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    background-color: transparent;
+    border: none;
+    &:focus {
+      outline: none;
+    }
+    &::after {
+      background-image: url("data:image/svg+xml,%3csvgxmlns='http://www.w3.org/2000/svg'viewBox='0 0 16 16'fill='none'stroke='%23212529'stroke-linecap='round'stroke-linejoin='round'%3e%3cpathd='M2 5L8 11L14 5'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-size: 1.25rem;
+      content: "";
+      width: 1.25rem;
+      height: 1.25rem;
+      flex-shrink: 0;
+      margin-left: auto;
+      transition: transform 0.2s ease-in-out;
+    }
+    svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      flex-shrink: 0;
+      margin-left: auto;
+      transition: transform 0.2s ease-in-out;
+      fill: rgba(153, 0, 180, 0.498);
+      stroke: rgba(225, 0, 112, 0.859);
+      transform: translate(0.5rem, -0.4rem);
+      &.toggled {
+        transform: translate(0.5rem, -0.4rem) rotate(-180deg);
+      }
+    }
+  }
+  .event {
+    overflow: hidden;
+    &::before {
+      overflow: hidden;
+    }
+    .event-heading {
+      overflow: hidden;
+    }
+  }
+}
+
+.eZsukd {
+  #content-experience,
+  #content-courses {
+    #timeline,
+    #timeline-courses {
+      :first-child {
+        margin-top: 0.25rem;
+      }
+      .event {
+        border-left-width: 0;
+        &::before {
+          transform: translate(-58%, 0.25rem);
+        }
+      }
+    }
+    #timeline-head,
+    #timeline-head-courses {
+      h2 {
+        width: fit-content;
+        margin: -1.25rem 0 0 2.5rem;
+      }
+    }
+  }
+  #courses-heading-container {
+    margin-bottom: 0.25rem;
+  }
+}
+
+.projects {
+  .fSfeIW {
+    text-align: left;
+    width: 70vw;
+    transform: translateX(-7rem);
+  }
+}
+
+.hiOkY {
+  align-items: flex-end;
+  ul {
+    padding-left: 6vw;
+  }
+}
+
 .main-container {
   height: auto;
 }
@@ -20,21 +121,6 @@
 
 #en-us {
   font-weight: normal;
-}
-
-.eZsukd {
-  #content-experience {
-    #timeline {
-      .event {
-        border-left-width: 0;
-      }
-    }
-    #timeline-head {
-      h2 {
-        margin: -1.25rem 0 0 -18.25rem;
-      }
-    }
-  }
 }
 
 #fs-lang {
@@ -63,4 +149,17 @@
 
 #typewriter {
   margin-bottom: 0.75rem;
+}
+
+@media screen and (min-width: 801px) {
+  .eZsukd {
+    #content-experience {
+      padding-block: 2.5rem;
+      #timeline-head {
+        h2 {
+          transform: translate(0, -0.75rem);
+        }
+      }
+    }
+  }
 }
