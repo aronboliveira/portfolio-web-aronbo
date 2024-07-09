@@ -35,6 +35,18 @@
   }
 }
 
+@keyframes highlight {
+  0% {
+    filter: contrast(0%);
+  }
+  50% {
+    filter: contrast(100%);
+  }
+  100% {
+    filter: contrast(0%);
+  }
+}
+
 app-root {
   width: 100vw;
 }
@@ -189,6 +201,7 @@ app-root {
     align-items: flex-start;
     -webkit-box-pack: center;
     justify-content: center;
+    padding-block: 1.5rem;
     #timeline {
       width: 90vw;
       display: flex;
@@ -196,21 +209,20 @@ app-root {
       -webkit-box-pack: center;
       justify-content: center;
       position: relative;
-      #event {
-        border-left: 4px solid rgb(225, 0, 112);
-        padding-left: 24px;
-        padding-bottom: 16px;
+      .event {
+        padding-inline: 1.5rem;
+        padding-bottom: 1rem;
         &::before {
           content: "";
           border: 2px solid rgb(225, 0, 112);
           background-color: white;
           border-radius: 50%;
-          width: 16px;
-          height: 16px;
+          width: 1rem;
+          height: 1rem;
           display: inline-block;
           position: absolute;
           left: 0px;
-          transform: translateX(-49%);
+          transform: translateX(-58%);
         }
         h3 {
           font-size: 1.25rem;
@@ -248,11 +260,22 @@ app-root {
             color: rgb(245, 245, 239);
           }
         }
+        a {
+          color: #5f9ea0;
+          &:hover {
+            animation: highlight ease-in-out infinite 2s;
+          }
+          &:visited {
+            color: #3fb5bb;
+          }
+        }
       }
     }
     #timeline-head {
-      padding-bottom: 16px;
-      border-left: 4px solid rgb(225, 0, 112);
+      padding-bottom: 1rem;
+      margin-left: 1rem;
+      border-left: 0.25rem solid rgb(225, 0, 112);
+      border-radius: 0.35rem;
       position: relative;
       &::before {
         content: "";
@@ -262,6 +285,8 @@ app-root {
         display: inline-block;
         position: absolute;
         top: 0px;
+        left: -1px;
+        border-top-left-radius: 2rem;
       }
       h2 {
         margin: -20px 0px 0px 48px;
@@ -496,7 +521,7 @@ app-root {
       max-width: 380px;
     }
     .arrow-bottom {
-      animation: 0.4s ease 0s infinite alternate none running jump-arrow;
+      animation: 0.8s ease-in-out 0s infinite alternate none running jump-arrow;
       cursor: pointer;
       margin-top: 48px;
     }

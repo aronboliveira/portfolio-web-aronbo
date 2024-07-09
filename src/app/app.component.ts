@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PlaceholderKipperHeaderComponent } from './placeholder-kipper-header/placeholder-kipper-header.component';
 import { HomeComponent } from './home/home.component';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -9,12 +8,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   standalone: true,
-  imports: [
-    PlaceholderKipperHeaderComponent,
-    HomeComponent,
-    RouterOutlet,
-    FormsModule,
-  ],
+  imports: [HomeComponent, RouterOutlet, FormsModule],
 })
 export class AppComponent implements OnInit {
   title = 'portfolio-web-aronbo-ng';

@@ -1,3 +1,66 @@
 :host {
   width: 100vw;
 }
+
+.main-container {
+  height: auto;
+}
+
+#description {
+  b {
+    font-weight: 650;
+  }
+  strong {
+    font-weight: 800;
+  }
+  em {
+    font-weight: 500;
+  }
+}
+
+#en-us {
+  font-weight: normal;
+}
+
+.eZsukd {
+  #content-experience {
+    #timeline {
+      .event {
+        border-left-width: 0;
+      }
+    }
+    #timeline-head {
+      h2 {
+        margin: -1.25rem 0 0 -18.25rem;
+      }
+    }
+  }
+}
+
+#fs-lang {
+  border: none;
+}
+
+#main-logo {
+  margin-bottom: 1rem;
+}
+
+#name-presentation {
+  font-weight: 900;
+}
+
+#profile-img {
+  width: 25rem;
+  height: 25rem;
+  border: outset 1rem var(--secondary);
+  border-radius: 25%;
+  filter: grayscale(30%);
+}
+
+#pt-br {
+  font-weight: bolder;
+}
+
+#typewriter {
+  margin-bottom: 0.75rem;
+}

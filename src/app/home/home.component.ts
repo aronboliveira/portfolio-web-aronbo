@@ -4,14 +4,13 @@ import { Component, OnInit, AfterViewInit, Inject } from '@angular/core';
 import { applyDefaultPoppins } from '../..//lib/handlers/handlersStyle';
 import { HomeFooterComponent } from '../home-footer/home-footer.component';
 import { HomeMainBodyComponent } from '../home-main-body/home-main-body.component';
-import { HomeHeaderComponent } from '../home-header/home-header.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: `./home.component.html`,
   styleUrls: ['./home.component.scss'],
   standalone: true,
-  imports: [HomeFooterComponent, HomeMainBodyComponent, HomeHeaderComponent],
+  imports: [HomeFooterComponent, HomeMainBodyComponent],
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   // constructor(
