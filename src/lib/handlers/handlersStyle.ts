@@ -63,7 +63,7 @@ export const ptBrDict: Map<string, { title: string } | { innerText: string }> =
       'github',
       { title: 'Acesse aqui meus repositórios no Github clicando aqui!' },
     ],
-    ['tech-content', { innerText: 'Conteúdos Tech' }],
+    ['tech-content', { innerText: 'Desenvolvimento Web' }],
   ]);
 export const enUsDict: Map<string, { title: string } | { innerText: string }> =
   new Map([
@@ -77,5 +77,5 @@ export const enUsDict: Map<string, { title: string } | { innerText: string }> =
       { title: 'Access my complete curriculum on LinkedIn clicking here!' },
     ],
     ['github', { title: 'Check my repositories on Github clicking here!' }],
-    ['tech-content', { innerText: 'Tech Content' }],
+    ['tech-content', { innerText: 'Web Development' }],
   ]);
