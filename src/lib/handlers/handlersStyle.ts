@@ -64,6 +64,13 @@ export const ptBrDict: Map<string, { title: string } | { innerText: string }> =
       { title: 'Acesse aqui meus repositórios no Github clicando aqui!' },
     ],
     ['tech-content', { innerText: 'Desenvolvimento Web' }],
+    ['hi-presentation', { innerText: 'Olá! Eu sou o ' }],
+    ['present-arrow-span', { title: 'Esconder parágrafo' }],
+    ['experience', { innerText: 'Minha experiência' }],
+    ['exp-arrow-span', { title: 'Esconder experiência' }],
+    ['courses', { innerText: 'Cursos realizados' }],
+    ['courses-arrow-span', { title: 'Mostrar cursos' }],
+    ['working-projects', { innerText: 'Projetos em Construção' }],
   ]);
 export const enUsDict: Map<string, { title: string } | { innerText: string }> =
   new Map([
@@ -78,4 +85,11 @@ export const enUsDict: Map<string, { title: string } | { innerText: string }> =
     ],
     ['github', { title: 'Check my repositories on Github clicking here!' }],
     ['tech-content', { innerText: 'Web Development' }],
+    ['present-arrow-span', { title: 'Hide paragraph' }],
+    ['hi-presentation', { innerText: "Hello! I'm " }],
+    ['experience', { innerText: 'My experience' }],
+    ['exp-arrow-span', { title: 'Hide experience' }],
+    ['courses', { innerText: 'Complete courses' }],
+    ['courses-arrow-span', { title: 'Show courses' }],
+    ['working-projects', { innerText: 'Projects under Construction' }],
   ]);

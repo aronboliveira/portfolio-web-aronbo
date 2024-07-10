@@ -142,6 +142,14 @@
   font-weight: 900;
 }
 
+#present-arrow-span,
+#courses-arrow,
+#exp-arrow {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 #profile-img {
   width: 25rem;
   height: 25rem;
@@ -155,7 +163,7 @@
 }
 
 #typewriter {
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 @media screen and (min-width: 801px) {

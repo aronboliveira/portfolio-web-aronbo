@@ -11,6 +11,7 @@ import { voidishEl } from '../../lib/declarations/types';
 import { parseFinite } from '../../lib/handlers/handlersMath';
 
 export const iniHeights: { [k: string]: number } = {};
+export const iniDisplays: { [k: string]: string } = {};
 
 @Component({
   selector: 'app-placeholder-kipper-main',
@@ -23,6 +24,7 @@ export class PlaceHolderKipperMainComponent implements OnInit {
   isChecked = false;
   @ViewChild('ptBrTemplate', { static: true }) ptBrTemplate!: TemplateRef<any>;
   @ViewChild('enUsTemplate', { static: true }) enUsTemplate!: TemplateRef<any>;
+  @ViewChild('presentArrow') presentArrowRef!: TemplateRef<any>;
   @ViewChild('coursesArrow') coursesArrowRef!: TemplateRef<any>;
   @ViewChild('expArrow') expArrowRef!: TemplateRef<any>;
   @ViewChild('topArrow') topArrowRef!: TemplateRef<any>;
@@ -30,15 +32,13 @@ export class PlaceHolderKipperMainComponent implements OnInit {
     [
       document.getElementById('timeline'),
       document.getElementById('timeline-courses'),
+      document.getElementById('description'),
     ].forEach((timeline, i) => {
       try {
         if (timeline instanceof HTMLElement) {
           iniHeights[`${timeline.id}`] = parseFinite(
             getComputedStyle(timeline).height.replace('px', '').trim()
           );
-          if (!(timeline.id === 'timeline-courses')) return;
-          const arrow = document.getElementById('courses-arrow');
-          arrow instanceof Element && arrow.classList.add('toggled');
           if (
             !iniHeights[`${timeline.id}`] &&
             getComputedStyle(timeline).display !== 'none' &&
@@ -49,6 +49,17 @@ export class PlaceHolderKipperMainComponent implements OnInit {
             iniHeights[`${timeline.id}`] = parseFinite(
               getComputedStyle(timeline).height.replace('px', '').trim()
             );
+          if (
+            !iniHeights[`${timeline.id}`] &&
+            getComputedStyle(timeline).display !== 'none' &&
+            parseFinite(
+              getComputedStyle(timeline).height.replace('px', '').trim()
+            ) > 0
+          )
+            iniDisplays[`${timeline.id}`] = getComputedStyle(timeline).display;
+          if (!(timeline.id === 'timeline-courses')) return;
+          const arrow = document.getElementById('courses-arrow');
+          arrow instanceof Element && arrow.classList.add('toggled');
           const iniHeight = iniHeights[`${timeline.id}`];
           if (iniHeight <= 0 || !Number.isFinite(iniHeight)) return;
           const htFract = iniHeight / 20;
@@ -76,8 +87,12 @@ export class PlaceHolderKipperMainComponent implements OnInit {
           }, 15);
           setTimeout(() => clearInterval(interv), 1000);
         } else {
-          iniHeights[`${'timelin-courses'}`] = 400;
-          iniHeights['timeline'] = 200;
+          iniHeights['timeline-courses'] = 400;
+          iniDisplays['timeline-courses'] = 'block';
+          iniHeights['timeline'] = 326;
+          iniDisplays['timeline'] = 'block';
+          iniHeights['description'] = 342;
+          iniDisplays['description'] = 'block';
         }
       } catch (e) {
         console.error(
@@ -153,6 +168,18 @@ export class PlaceHolderKipperMainComponent implements OnInit {
                           (currEl as any)[`${attr[0]}`]))
                   )
                     (currEl as any)[`${attr[0]}`] = attr[1];
+                  if (currEl.id === 'present-arrow')
+                    currEl.classList.contains('toggled')
+                      ? ((currEl as any).title = 'Show paragraph')
+                      : ((currEl as any).title = 'Hide paragraph');
+                  if (currEl.id === 'exp-arrow')
+                    currEl.classList.contains('toggled')
+                      ? ((currEl as any).title = 'Show experience')
+                      : ((currEl as any).title = 'Hide experience');
+                  if (currEl.id === 'courses-arrow')
+                    !currEl.classList.contains('toggled')
+                      ? ((currEl as any).title = 'Hide courses')
+                      : ((currEl as any).title = 'Show courses');
                 });
               } catch (e) {
                 console.error(
@@ -239,6 +266,18 @@ export class PlaceHolderKipperMainComponent implements OnInit {
                         (currEl as any)[`${attr[0]}`])
                   )
                     (currEl as any)[`${attr[0]}`] = attr[1];
+                  if (currEl.id === 'present-arrow')
+                    currEl.classList.contains('toggled')
+                      ? ((currEl as any).title = 'Mostrar parágrafo')
+                      : ((currEl as any).title = 'Esconder parágrafo');
+                  if (currEl.id === 'exp-arrow')
+                    currEl.classList.contains('toggled')
+                      ? ((currEl as any).title = 'Mostrar experiência')
+                      : ((currEl as any).title = 'Esconder experiência');
+                  if (currEl.id === 'courses-arrow')
+                    !currEl.classList.contains('toggled')
+                      ? ((currEl as any).title = 'Esconder cursos')
+                      : ((currEl as any).title = 'Mostrar cursos');
                 });
               } catch (e) {
                 console.error(
@@ -291,6 +330,25 @@ export class PlaceHolderKipperMainComponent implements OnInit {
       }
       const targId = targ.id;
       targ.classList.toggle('toggled');
+      if (targ.id === 'exp-arrow' && targ.closest('span')) {
+        if (this.isChecked)
+          targ.classList.contains('toggled')
+            ? (targ.closest('span')!.title = 'Show experience')
+            : (targ.closest('span')!.title = 'Hide experience');
+        else
+          targ.classList.contains('toggled')
+            ? (targ.closest('span')!.title = 'Mostrar experiência')
+            : (targ.closest('span')!.title = 'Esconder experiência');
+      } else if (targ.id === 'courses-arrow' && targ.closest('span')) {
+        if (this.isChecked)
+          targ.classList.contains('toggled')
+            ? (targ.closest('span')!.title = 'Show courses')
+            : (targ.closest('span')!.title = 'Hide courses');
+        else
+          targ.classList.contains('toggled')
+            ? (targ.closest('span')!.title = 'Mostrar cursos')
+            : (targ.closest('span')!.title = 'Esconder cursos');
+      }
       const timeline =
         document.getElementById(timelineIdf) ||
         document.querySelector(timelineIdf);
@@ -303,7 +361,7 @@ export class PlaceHolderKipperMainComponent implements OnInit {
       }
       if (targ.classList.contains('toggled')) {
         if (
-          !iniHeights[`${timeline.id}`] &&
+          !iniHeights[timeline.id] &&
           getComputedStyle(timeline).display !== 'none' &&
           parseFinite(
             getComputedStyle(timeline).height.replace('px', '').trim()
@@ -312,7 +370,7 @@ export class PlaceHolderKipperMainComponent implements OnInit {
           iniHeights[`${timeline.id}`] = parseFinite(
             getComputedStyle(timeline).height.replace('px', '').trim()
           );
-        const iniHeight = iniHeights[`${timeline.id}`];
+        const iniHeight = iniHeights[timeline.id];
         if (iniHeight <= 0 || !Number.isFinite(iniHeight)) return;
         const htFract = iniHeight / 20;
         const interv = setInterval(interv => {
@@ -336,19 +394,19 @@ export class PlaceHolderKipperMainComponent implements OnInit {
         setTimeout(() => clearInterval(interv), 1000);
       } else {
         if (
-          !iniHeights[`${timeline.id}`] &&
+          !iniHeights[timeline.id] &&
           getComputedStyle(timeline).display !== 'none' &&
           parseFinite(
             getComputedStyle(timeline).height.replace('px', '').trim()
           ) > 0
         )
-          iniHeights[`${timeline.id}`] = parseFinite(
+          iniHeights[timeline.id] = parseFinite(
             getComputedStyle(timeline).height.replace('px', '').trim()
           );
-        const iniHeight = iniHeights[`${timeline.id}`];
+        const iniHeight = iniHeights[timeline.id];
         if (iniHeight <= 0 || !Number.isFinite(iniHeight)) return;
         const htFract = iniHeight / 20;
-        timeline.style.display = 'block';
+        timeline.style.display = iniDisplays[timeline.id] || 'block';
         const interv = setInterval(interv => {
           if (!(timeline instanceof HTMLElement)) return;
           const htAdded =
@@ -373,6 +431,126 @@ export class PlaceHolderKipperMainComponent implements OnInit {
       }
     } catch (e) {
       console.error(`Error executing toggleArrow:\n${(e as Error).message}`);
+    }
+  }
+  toggleParagraphArrow(ev: MouseEvent, idf: string = 'description'): void {
+    try {
+      if (!(ev instanceof MouseEvent))
+        throw new Error(`Invalid Event passed to toggleArrow`);
+      if (!(ev.currentTarget instanceof HTMLElement))
+        throw new Error(`Invalid target passed to toggleArrow`);
+      if (typeof idf !== 'string')
+        throw new Error(`Invalid type passed as idf`);
+      let targ: voidishEl = ev.currentTarget;
+      if (
+        ev.currentTarget instanceof HTMLButtonElement ||
+        ev.currentTarget instanceof HTMLSpanElement
+      )
+        targ = ev.currentTarget.querySelector('svg');
+      if (!(targ instanceof SVGElement)) {
+        if (targ?.closest('button'))
+          targ = targ.closest('button')?.querySelector('svg');
+        if (!(targ instanceof SVGElement))
+          throw new Error(`Failed to fetch SVG`);
+      }
+      const targId = targ.id;
+      targ.classList.toggle('toggled');
+      if (targ.id === 'present-arrow' && targ.closest('span')) {
+        if (this.isChecked)
+          targ.classList.contains('toggled')
+            ? (targ.closest('span')!.title = 'Show paragraph')
+            : (targ.closest('span')!.title = 'Hide paragraph ');
+        else
+          targ.classList.contains('toggled')
+            ? (targ.closest('span')!.title = 'Mostrar parágrafo')
+            : (targ.closest('span')!.title = 'Esconder parágrafo');
+      }
+      const paragraph =
+        document.getElementById(idf) || document.querySelector(idf);
+      targ.closest('button')?.nextElementSibling;
+      if (!(paragraph instanceof HTMLElement))
+        throw htmlElementNotFound(
+          paragraph,
+          `Validation of paragraph instance`
+        );
+      if (!paragraph.querySelector('span')) {
+        console.warn(`No span found for paragraph. Aborting process.`);
+        return;
+      }
+      if (targ.classList.contains('toggled')) {
+        if (
+          !iniHeights[`${paragraph.id}`] &&
+          getComputedStyle(paragraph).display !== 'none' &&
+          parseFinite(
+            getComputedStyle(paragraph).height.replace('px', '').trim()
+          ) > 0
+        )
+          iniHeights[`${paragraph.id}`] = parseFinite(
+            getComputedStyle(paragraph).height.replace('px', '').trim()
+          );
+        const iniHeight = iniHeights[`${paragraph.id}`];
+        if (iniHeight <= 0 || !Number.isFinite(iniHeight)) return;
+        const htFract = iniHeight / 20;
+        const interv = setInterval(interv => {
+          if (!(paragraph instanceof HTMLElement)) return;
+          if (!document.getElementById(targId)?.classList.contains('toggled')) {
+            clearInterval(interv);
+            return;
+          }
+          const htReduced =
+            parseFinite(
+              getComputedStyle(paragraph).height.replace('px', '').trim()
+            ) - htFract;
+          if (!Number.isFinite(htReduced)) return;
+          if (htReduced <= 0) {
+            paragraph.style.display = 'none';
+            clearInterval(interv);
+            return;
+          }
+          if (htReduced > 0) paragraph.style.height = `${htReduced}px`;
+        }, 15);
+        setTimeout(() => clearInterval(interv), 1000);
+      } else {
+        if (
+          !iniHeights[`${paragraph.id}`] &&
+          getComputedStyle(paragraph).display !== 'none' &&
+          parseFinite(
+            getComputedStyle(paragraph).height.replace('px', '').trim()
+          ) > 0
+        )
+          iniHeights[`${paragraph.id}`] = parseFinite(
+            getComputedStyle(paragraph).height.replace('px', '').trim()
+          );
+        const iniHeight = iniHeights[`${paragraph.id}`];
+        if (iniHeight <= 0 || !Number.isFinite(iniHeight)) return;
+        const htFract = iniHeight / 20;
+        paragraph.style.display = iniDisplays[paragraph.id] || 'block';
+        const interv = setInterval(interv => {
+          if (!(paragraph instanceof HTMLElement)) return;
+          const htAdded =
+            parseFinite(
+              getComputedStyle(paragraph).height.replace('px', '').trim()
+            ) + htFract;
+          if (!Number.isFinite(htAdded)) return;
+          if (htAdded < iniHeight) paragraph.style.height = `${htAdded}px`;
+          else if (
+            parseFinite(
+              getComputedStyle(paragraph).height.replace('px', '').trim()
+            ) >= iniHeight
+          ) {
+            clearInterval(interv);
+            return;
+          }
+        }, 15);
+        setTimeout(() => {
+          paragraph.style.height = `${iniHeight}px`;
+          clearInterval(interv);
+        }, 1000);
+      }
+    } catch (e) {
+      console.error(
+        `Error executing toggleParagraphArrow:\n${(e as Error).message}`
+      );
     }
   }
   scrollToTop(): void {

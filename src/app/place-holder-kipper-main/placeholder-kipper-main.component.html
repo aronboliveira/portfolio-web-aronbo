@@ -129,6 +129,22 @@
           <h2 class="sc-imWYAI fSfeIW">
             <span id="hi-presentation">Olá! Eu sou o </span>
             <strong id="name-presentation">Aron Barbosa</strong>
+            <span
+              id="present-arrow-span"
+              title="Esconder parágrafo"
+              (click)="toggleParagraphArrow($event)"
+              #presentArrow
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                id="present-arrow"
+              >
+                <path d="M2 5L8 11L14 5" />
+              </svg>
+            </span>
           </h2>
           <p id="description" *ngIf="!isChecked">
             <span>
@@ -227,7 +243,7 @@
             (click)="toggleArrow($event, 'timeline')"
           >
             <h2 class="sc-imWYAI fSfeIW" id="experience">Minha experiência</h2>
-            <span>
+            <span id="exp-arrow-span" title="Esconder experiência">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
@@ -272,7 +288,7 @@
             (click)="toggleArrow($event)"
           >
             <h2 class="sc-imWYAI fSfeIW" id="courses">Cursos realizados</h2>
-            <span>
+            <span id="courses-arrow-span" title="Mostrar cursos">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
@@ -359,7 +375,9 @@
     "
   >
     <section class="sc-cwHptR hiOkY">
-      <h2 class="sc-imWYAI fSfeIW">Projetos em Construção</h2>
+      <h2 class="sc-imWYAI fSfeIW" id="working-projects">
+        Projetos em Construção
+      </h2>
       <ul>
         <a
           href="https://github.com/Fernanda-Kipper/Fernanda-Kipper"
