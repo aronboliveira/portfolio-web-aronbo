@@ -255,7 +255,7 @@
               </svg>
             </span>
           </button>
-          <div id="timeline">
+          <div id="timeline" *ngIf="!isChecked">
             <app-event
               [title]="'Projeto de Extensão PROSSaúde — UFRJ'"
               [date]="'08/2023 — Presente'"
@@ -268,7 +268,25 @@
               [title]="'Ana Doces — Confeitaria Criativa'"
               [date]="'06/2024 — Presente'"
               [description]="
-                'Atuação como <em>Desenvolvedor</em> no <b>desenvolvimento frontend em ReactJS</b> do Cardápio Digital da <em>Ana Doces ©</em><span>, confeitaria gourmet no Rio de Janeiro, Rio de Janeiro.</span>'
+                'Atuação como <em>Desenvolvedor Fullstack</em> no <b>desenvolvimento frontend em ReactJS e backend em Node.JS com MySQL</b> do Cardápio Digital da <em>Ana Doces ©</em><span>, confeitaria gourmet no Rio de Janeiro, Rio de Janeiro.</span>'
+              "
+              [href]="'https://anadocesapp.netlify.app'"
+            />
+          </div>
+          <div id="timeline" *ngIf="isChecked">
+            <app-event
+              [title]="'University Extension Program PROSSaúde — UFRJ'"
+              [date]="'08/2023 — Present'"
+              [description]="
+                'Work as an <em>Technical Extension Program Student</em> in the <b>frontend development using Next.js</b> for the web app used for the health profissional in the <em>clinic, on the Fundão Village</em><span>, Rio de Janeiro.</span>'
+              "
+              [href]="'https://prossaude-client.netlify.app'"
+            />
+            <app-event
+              [title]="'Ana Doces — Creative Confectionery'"
+              [date]="'06/2024 — Present'"
+              [description]="
+                'Work as a <em>Fullstack Developer</em> on the <b>development in ReactJS and Node.JS with MySQL</b> for the Digital Menu used by <em>Ana Doces ©</em><span>, a gourmet candy story in Rio de Janeiro, Rio de Janeiro.</span>'
               "
               [href]="'https://anadocesapp.netlify.app'"
             />
@@ -300,7 +318,7 @@
               </svg>
             </span>
           </button>
-          <div id="timeline-courses">
+          <div id="timeline-courses" *ngIf="!isChecked">
             <app-event
               [title]="'Introduction to Cybersecurity'"
               [date]="'09/2023'"
@@ -360,6 +378,66 @@
               "
             />
           </div>
+          <div id="timeline-courses" *ngIf="isChecked">
+            <app-event
+              [title]="'Introduction to Cybersecurity'"
+              [date]="'09/2023'"
+              [description]="'Coordinator: Laura Quintana'"
+              [href]="
+                'https://drive.google.com/file/d/16nTFgxqwqttl5aZcwavJQKb0HVpnZU89/view?usp=sharing'
+              "
+            />
+            <app-event
+              [title]="'Java Online Course — Rocketseat'"
+              [date]="'10/2023'"
+              [description]="'Coordinator: Mayk Brito'"
+              [href]="
+                'https://app.rocketseat.com.br/certificates/26dd9160-febb-4465-8b35-fa3fb9ece848'
+              "
+            />
+            <app-event
+              [title]="'Java Essentials — Linux Tips'"
+              [date]="'10/2023'"
+              [description]="'Instructor: Kamila Santos'"
+              [href]="
+                'https://www.linuxtips.io/certificate_v2/64c39e086ecad6568408a59e/user/651c733fce4e2410560f688a'
+              "
+            />
+            <app-event
+              [title]="'Mastering TypeScript — 2023 Edition'"
+              [date]="'12/2023'"
+              [description]="'Instructor: Colt Steele'"
+              [href]="
+                'https://udemy.com/certificate/UC-45c23af3-87fb-406b-9724-172d33184118'
+              "
+            />
+            <app-event
+              [title]="
+                'The Complete JavaScript Course 2024: From Zero to Expert!'
+              "
+              [date]="'04/2024'"
+              [description]="'Instructor: Jonas Schmedtmann'"
+              [href]="
+                'https://www.udemy.com/certificate/UC-129ff335-210e-4ff9-a05c-8625756db5d0/'
+              "
+            />
+            <app-event
+              [title]="'Build Responsive Real-Word Websites with HTML and CSS'"
+              [date]="'05/2024'"
+              [description]="'Instructor: Jonas Schmedtmann'"
+              [href]="
+                'https://www.udemy.com/certificate/UC-118ebff4-6cdb-4ea0-8da4-468b98edfa09/'
+              "
+            />
+            <app-event
+              [title]="'The Complete 2024 Web Development Bootcamp!'"
+              [date]="'04/2024'"
+              [description]="'Instructor: Angela Yu'"
+              [href]="
+                'https://www.udemy.com/certificate/UC-90804997-c6c8-4654-b301-68cf3ce6273d/'
+              "
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -404,7 +482,7 @@
                   d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"
                 ></path>
               </svg>
-              <strong>PROJETO 1</strong>
+              <strong>Songs of Anhangá and Oxalá</strong>
             </div>
             <svg
               stroke="currentColor"
@@ -453,7 +531,7 @@
                   d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"
                 ></path>
               </svg>
-              <strong>PROJETO 2</strong>
+              <strong>Math Plus</strong>
             </div>
             <svg
               stroke="currentColor"
@@ -504,7 +582,7 @@
                   d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"
                 ></path>
               </svg>
-              <strong>PROJETO 3</strong>
+              <strong>WebFlora</strong>
             </div>
             <svg
               stroke="currentColor"
@@ -533,177 +611,24 @@
             <span class="sc-dAlyuH ifzPQN">LINGUAGEM 4</span>
           </div>
         </a>
-        <a
-          href="https://github.com/Fernanda-Kipper/auth-api"
-          target="_blank"
-          class="sc-jlZhew buqYtc"
-        >
-          <div class="heading">
-            <div>
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                strokeWidth="0"
-                viewBox="0 0 16 16"
-                color="#373738"
-                height="1.5rem"
-                width="1.5rem"
-                xmlns="http://www.w3.org/2000/svg"
-                style="color: rgb(55, 55, 56)"
-              >
-                <path
-                  d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1H4z"
-                ></path>
-                <path
-                  d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"
-                ></path>
-              </svg>
-              <strong>PROJETO 4</strong>
-            </div>
-            <svg
-              stroke="currentColor"
-              fill="currentColor"
-              strokeWidth="0"
-              viewBox="0 0 16 16"
-              color="#373738"
-              height="1.5rem"
-              width="1.5rem"
-              xmlns="http://www.w3.org/2000/svg"
-              style="color: rgb(55, 55, 56)"
-            >
-              <path
-                d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-              ></path>
-              <path
-                d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-              ></path>
-            </svg>
-          </div>
-          <p>DESCRIÇÃO 4</p>
-          <div class="languages">
-            <span class="sc-dAlyuH ifzPQN">LINGUAGEM 1</span>
-          </div>
-        </a>
-        <a
-          href="https://github.com/Fernanda-Kipper/backend-cardapio-digital"
-          target="_blank"
-          class="sc-jlZhew buqYtc"
-        >
-          <div class="heading">
-            <div>
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                strokeWidth="0"
-                viewBox="0 0 16 16"
-                color="#373738"
-                height="1.5rem"
-                width="1.5rem"
-                xmlns="http://www.w3.org/2000/svg"
-                style="color: rgb(55, 55, 56)"
-              >
-                <path
-                  d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1H4z"
-                ></path>
-                <path
-                  d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"
-                ></path>
-              </svg>
-              <strong>PROJETO 5</strong>
-            </div>
-            <svg
-              stroke="currentColor"
-              fill="currentColor"
-              strokeWidth="0"
-              viewBox="0 0 16 16"
-              color="#373738"
-              height="1.5rem"
-              width="1.5rem"
-              xmlns="http://www.w3.org/2000/svg"
-              style="color: rgb(55, 55, 56)"
-            >
-              <path
-                d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-              ></path>
-              <path
-                d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-              ></path>
-            </svg>
-          </div>
-          <p>DESCRIÇÃO 5</p>
-          <div class="languages">
-            <span class="sc-dAlyuH ifzPQN">LINGUAGEM 1</span>
-          </div>
-        </a>
-        <a
-          href="https://github.com/Fernanda-Kipper/desafio-backend-uber"
-          target="_blank"
-          class="sc-jlZhew buqYtc"
-        >
-          <div class="heading">
-            <div>
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                strokeWidth="0"
-                viewBox="0 0 16 16"
-                color="#373738"
-                height="1.5rem"
-                width="1.5rem"
-                xmlns="http://www.w3.org/2000/svg"
-                style="color: rgb(55, 55, 56)"
-              >
-                <path
-                  d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1H4z"
-                ></path>
-                <path
-                  d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"
-                ></path>
-              </svg>
-              <strong>PROJETO 6</strong>
-            </div>
-            <svg
-              stroke="currentColor"
-              fill="currentColor"
-              strokeWidth="0"
-              viewBox="0 0 16 16"
-              color="#373738"
-              height="1.5rem"
-              width="1.5rem"
-              xmlns="http://www.w3.org/2000/svg"
-              style="color: rgb(55, 55, 56)"
-            >
-              <path
-                d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-              ></path>
-              <path
-                d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-              ></path>
-            </svg>
-          </div>
-          <p>DESCRIÇÃO 6</p>
-          <div class="languages">
-            <span class="sc-dAlyuH ifzPQN">LINGUAGEM 1</span>
-          </div>
-        </a>
+        <span class="sc-cPiKLX fdDTVb" #topArrow (click)="scrollToTop()">
+          <svg
+            stroke="currentColor"
+            fill="currentColor"
+            strokeWidth="0"
+            viewBox="0 0 24 24"
+            color="#F5F5EF"
+            height="2rem"
+            width="2rem"
+            xmlns="http://www.w3.org/2000/svg"
+            style="color: rgb(245, 245, 239)"
+          >
+            <path
+              d="M6 4h12v2H6zm.707 11.707L11 11.414V20h2v-8.586l4.293 4.293 1.414-1.414L12 7.586l-6.707 6.707z"
+            ></path>
+          </svg>
+        </span>
       </ul>
     </section>
   </div>
-  <span class="sc-cPiKLX fdDTVb" #topArrow (click)="scrollToTop()">
-    <svg
-      stroke="currentColor"
-      fill="currentColor"
-      strokeWidth="0"
-      viewBox="0 0 24 24"
-      color="#F5F5EF"
-      height="2rem"
-      width="2rem"
-      xmlns="http://www.w3.org/2000/svg"
-      style="color: rgb(245, 245, 239)"
-    >
-      <path
-        d="M6 4h12v2H6zm.707 11.707L11 11.414V20h2v-8.586l4.293 4.293 1.414-1.414L12 7.586l-6.707 6.707z"
-      ></path>
-    </svg>
-  </span>
 </div>

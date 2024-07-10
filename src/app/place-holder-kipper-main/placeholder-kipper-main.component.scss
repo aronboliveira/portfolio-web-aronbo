@@ -168,8 +168,9 @@
 
 @media screen and (min-width: 801px) {
   .eZsukd {
-    #content-experience {
-      padding-block: 2.5rem;
+    #content-experience,
+    #content-courses {
+      padding-block: 3rem 2.5rem;
       #timeline-head {
         h2 {
           transform: translate(0, -0.75rem);
