@@ -445,7 +445,6 @@
   <div
     class="projects"
     style="
-      width: 100%;
       background-size: cover;
       background-image: url('quot;./assets/bg-pattern-projects.png');
       background-position: center top;
@@ -453,182 +452,116 @@
     "
   >
     <section class="sc-cwHptR hiOkY">
-      <h2 class="sc-imWYAI fSfeIW" id="working-projects">
-        Projetos em Construção
-      </h2>
-      <ul>
-        <a
-          href="https://github.com/Fernanda-Kipper/Fernanda-Kipper"
-          target="_blank"
-          class="sc-jlZhew buqYtc"
+      <button
+        id="projects-heading-container"
+        #projectsArrow
+        (click)="toggleArrow($event, 'projects-list')"
+      >
+        <h2 class="sc-imWYAI fSfeIW" id="working-projects" *ngIf="!isChecked">
+          Projetos em Construção
+        </h2>
+        <h2
+          class="sc-imWYAI fSfeIW"
+          id="working-projects"
+          *ngIf="isChecked"
+          style="width: 47.5vw"
         >
-          <div class="heading">
-            <div>
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                strokeWidth="0"
-                viewBox="0 0 16 16"
-                color="#373738"
-                height="1.5rem"
-                width="1.5rem"
-                xmlns="http://www.w3.org/2000/svg"
-                style="color: rgb(55, 55, 56)"
-              >
-                <path
-                  d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1H4z"
-                ></path>
-                <path
-                  d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"
-                ></path>
-              </svg>
-              <strong>Songs of Anhangá and Oxalá</strong>
-            </div>
-            <svg
-              stroke="currentColor"
-              fill="currentColor"
-              strokeWidth="0"
-              viewBox="0 0 16 16"
-              color="#373738"
-              height="1.5rem"
-              width="1.5rem"
-              xmlns="http://www.w3.org/2000/svg"
-              style="color: rgb(55, 55, 56)"
-            >
-              <path
-                d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-              ></path>
-              <path
-                d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-              ></path>
-            </svg>
-          </div>
-          <p>DESCRIÇÃO 1</p>
-          <div class="languages"></div>
-        </a>
-        <a
-          href="https://github.com/Fernanda-Kipper/email-service-backend"
-          target="_blank"
-          class="sc-jlZhew buqYtc"
-        >
-          <div class="heading">
-            <div>
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                strokeWidth="0"
-                viewBox="0 0 16 16"
-                color="#373738"
-                height="1.5rem"
-                width="1.5rem"
-                xmlns="http://www.w3.org/2000/svg"
-                style="color: rgb(55, 55, 56)"
-              >
-                <path
-                  d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1H4z"
-                ></path>
-                <path
-                  d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"
-                ></path>
-              </svg>
-              <strong>Math Plus</strong>
-            </div>
-            <svg
-              stroke="currentColor"
-              fill="currentColor"
-              strokeWidth="0"
-              viewBox="0 0 16 16"
-              color="#373738"
-              height="1.5rem"
-              width="1.5rem"
-              xmlns="http://www.w3.org/2000/svg"
-              style="color: rgb(55, 55, 56)"
-            >
-              <path
-                d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-              ></path>
-              <path
-                d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-              ></path>
-            </svg>
-          </div>
-          <p>DESCRIÇÃO 2</p>
-          <div class="languages">
-            <span class="sc-dAlyuH ifzPQN">LINGUAGEM 1</span>
-          </div>
-        </a>
-        <a
-          href="https://github.com/Fernanda-Kipper/eventostec-frontend"
-          target="_blank"
-          class="sc-jlZhew buqYtc"
-        >
-          <div class="heading">
-            <div>
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                strokeWidth="0"
-                viewBox="0 0 16 16"
-                color="#373738"
-                height="1.5rem"
-                width="1.5rem"
-                xmlns="http://www.w3.org/2000/svg"
-                style="color: rgb(55, 55, 56)"
-              >
-                <path
-                  d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1H4z"
-                ></path>
-                <path
-                  d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"
-                ></path>
-              </svg>
-              <strong>WebFlora</strong>
-            </div>
-            <svg
-              stroke="currentColor"
-              fill="currentColor"
-              strokeWidth="0"
-              viewBox="0 0 16 16"
-              color="#373738"
-              height="1.5rem"
-              width="1.5rem"
-              xmlns="http://www.w3.org/2000/svg"
-              style="color: rgb(55, 55, 56)"
-            >
-              <path
-                d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-              ></path>
-              <path
-                d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-              ></path>
-            </svg>
-          </div>
-          <p></p>
-          <div class="languages">
-            <span class="sc-dAlyuH ifzPQN">LINGUAGEM 1</span>
-            <span class="sc-dAlyuH ifzPQN">LINGUAGEM 2</span>
-            <span class="sc-dAlyuH ifzPQN">LINGUAGEM 3</span>
-            <span class="sc-dAlyuH ifzPQN">LINGUAGEM 4</span>
-          </div>
-        </a>
-        <span class="sc-cPiKLX fdDTVb" #topArrow (click)="scrollToTop()">
+          Projects under construction
+        </h2>
+        <span id="projects-arrow-span" title="Esconder projetos">
           <svg
-            stroke="currentColor"
-            fill="currentColor"
-            strokeWidth="0"
-            viewBox="0 0 24 24"
-            color="#F5F5EF"
-            height="2rem"
-            width="2rem"
             xmlns="http://www.w3.org/2000/svg"
-            style="color: rgb(245, 245, 239)"
+            viewBox="0 0 16 16"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            id="projects-arrow"
+            class="toggled"
           >
-            <path
-              d="M6 4h12v2H6zm.707 11.707L11 11.414V20h2v-8.586l4.293 4.293 1.414-1.414L12 7.586l-6.707 6.707z"
-            ></path>
+            <path d="M2 5L8 11L14 5" />
           </svg>
         </span>
+      </button>
+      <ul id="projects-list" *ngIf="!isChecked">
+        <li>
+          <app-project
+            [href]="'https://aronboliveira.github.io/MathPlus/'"
+            [title]="'Math Plus'"
+            [desc]="
+              'Calculadora web para fórmulas voltadas para análise combinatória e estatística.'
+            "
+            [stacks]="projectStacks['math']"
+          />
+        </li>
+        <li>
+          <app-project
+            [href]="'https://github.com/aronboliveira/app-jogo-folk'"
+            [title]="'Website para jogo — Songs of Anhangá'"
+            [desc]="
+              'Website para jogo inspirado em D&D com forte presença da cultura brasileira.'
+            "
+            [stacks]="projectStacks['anhanga']"
+          />
+        </li>
+        <li>
+          <app-project
+            [href]="'https://github.com/aronboliveira/georefPlantsIlhaGov'"
+            [title]="'Webflora'"
+            [desc]="
+              'Webapp interativo com fins de educação e divulgação científica de fitosociologia e botânica em bairros do Rio de Janeiro.'
+            "
+            [stacks]="projectStacks['webflora']"
+          />
+        </li>
+      </ul>
+      <ul id="projects-list" *ngIf="isChecked">
+        <li>
+          <app-project
+            [href]="'https://aronboliveira.github.io/MathPlus/'"
+            [title]="'Math Plus'"
+            [desc]="
+              'Web calculator for formulas focused on combinatorial analysis and statistics.'
+            "
+            [stacks]="projectStacks['math']"
+          />
+        </li>
+        <li>
+          <app-project
+            [href]="'https://github.com/aronboliveira/app-jogo-folk'"
+            [title]="'Game Website — Songs of Anhangá'"
+            [desc]="
+              'Website for a game inspired by D&D with a strong presence of Brazilian culture.'
+            "
+            [stacks]="projectStacks['anhanga']"
+          />
+        </li>
+        <li>
+          <app-project
+            [href]="'https://github.com/aronboliveira/georefPlantsIlhaGov'"
+            [title]="'Webflora'"
+            [desc]="
+              'Interactive web app for education and scientific dissemination of phytosociology and botany in neighborhoods of Rio de Janeiro.'
+            "
+            [stacks]="projectStacks['webflora']"
+          />
+        </li>
       </ul>
     </section>
+    <span class="sc-cPiKLX fdDTVb" #topArrow (click)="scrollToTop()">
+      <svg
+        stroke="currentColor"
+        fill="currentColor"
+        strokeWidth="0"
+        viewBox="0 0 24 24"
+        color="#F5F5EF"
+        height="2rem"
+        width="2rem"
+        xmlns="http://www.w3.org/2000/svg"
+        style="color: rgb(245, 245, 239)"
+      >
+        <path
+          d="M6 4h12v2H6zm.707 11.707L11 11.414V20h2v-8.586l4.293 4.293 1.414-1.414L12 7.586l-6.707 6.707z"
+        ></path>
+      </svg>
+    </span>
   </div>
 </div>

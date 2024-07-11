@@ -12,10 +12,12 @@
 }
 
 .courses,
-.works {
+.works,
+.projects {
   min-width: 91vw;
   #courses-heading-container,
-  #experience-heading-container {
+  #experience-heading-container,
+  #projects-heading-container {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -48,6 +50,19 @@
       transform: translate(0.6rem, -1rem);
       &.toggled {
         transform: translate(0.6rem, -1rem) rotate(-180deg);
+      }
+      &#projects-arrow {
+        width: 1.25rem;
+        height: 1.25rem;
+        flex-shrink: 0;
+        margin-left: auto;
+        transition: transform 0.2s ease-in-out;
+        fill: rgba(153, 0, 180, 0.498);
+        stroke: rgba(225, 0, 112, 0.859);
+        transform: translate(0.7rem, 0.2rem) rotate(0);
+        &.toggled {
+          transform: translate(0.7rem, 0.2rem) rotate(-180deg);
+        }
       }
     }
   }
@@ -91,19 +106,39 @@
 }
 
 .projects {
+  width: 91%;
+  margin-block: 3rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 6px 6px 80px 8px;
+  border-radius: 32px;
   .fSfeIW {
     text-align: left;
     width: 70vw;
-    transform: translateX(-13.75vw);
-    margin-bottom: 3rem;
+    margin: 0 0 0 2rem;
+  }
+  svg#projects-arrow {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+    margin-left: auto;
+    transition: transform 0.2s ease-in-out;
+    fill: rgba(153, 0, 180, 0.498);
+    stroke: rgba(225, 0, 112, 0.859);
+    transform: translate(0.6rem, 0.2rem) rotate(0);
+    &.toggled {
+      transform: translate(0.6rem, 0.2rem) rotate(-180deg);
+    }
   }
 }
 
 .hiOkY {
   align-items: flex-end;
-  ul {
-    padding-left: 6vw;
+  &:has(> #projects-heading-container) {
+    width: 88vw;
   }
+}
+
+#projects-heading-container {
+  width: 100%;
 }
 
 .main-container {
@@ -132,6 +167,19 @@
 
 #fs-lang {
   border: none;
+  margin-bottom: 4px;
+}
+
+#github {
+  svg {
+    transform: translateY(-3px);
+  }
+}
+
+#linkedin {
+  svg {
+    transform: translateY(-4px);
+  }
 }
 
 #main-logo {
@@ -144,7 +192,8 @@
 
 #present-arrow-span,
 #courses-arrow,
-#exp-arrow {
+#exp-arrow,
+#projects-arrow {
   &:hover {
     cursor: pointer;
   }
@@ -164,6 +213,12 @@
 
 #typewriter {
   margin-bottom: 1rem;
+}
+
+#working-projects {
+  margin-left: 1rem;
+  width: 42rem;
+  white-space: nowrap;
 }
 
 @media screen and (min-width: 801px) {

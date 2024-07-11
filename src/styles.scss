@@ -109,6 +109,9 @@ app-root {
     align-items: center;
     flex-wrap: wrap;
   }
+  &.project {
+    width: 75%;
+  }
 }
 
 .bXvGWx {
@@ -375,7 +378,7 @@ header {
 .hiOkY {
   width: 60vw;
   margin: 0px auto;
-  min-height: 120vh;
+  min-height: fit-content;
   display: flex;
   -webkit-box-align: center;
   align-items: center;
@@ -388,10 +391,12 @@ header {
   }
   ul {
     display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    gap: 16px;
-    width: 80vw;
+    flex-flow: column nowrap;
+    gap: 2rem;
+    width: 95vw;
+    padding: 3rem 0 2rem 3rem;
+    margin: 0 0 0 1rem;
+    transform: translateX(calc(5vw + 1rem));
   }
 }
 

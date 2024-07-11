@@ -9,6 +9,8 @@ import { enUsDict, ptBrDict } from '../../lib/handlers/handlersStyle';
 import { EventComponent } from '../event/event.component';
 import { voidishEl } from '../../lib/declarations/types';
 import { parseFinite } from '../../lib/handlers/handlersMath';
+import { ProjectComponent } from '../project/project.component';
+import { StackComponent } from '../stack/stack.component';
 
 export const iniHeights: { [k: string]: number } = {};
 export const iniDisplays: { [k: string]: string } = {};
@@ -16,23 +18,30 @@ export const iniDisplays: { [k: string]: string } = {};
 @Component({
   selector: 'app-placeholder-kipper-main',
   standalone: true,
-  imports: [FormsModule, CommonModule, EventComponent],
+  imports: [FormsModule, CommonModule, EventComponent, ProjectComponent],
   templateUrl: './placeholder-kipper-main.component.html',
   styleUrls: ['./placeholder-kipper-main.component.scss'],
 })
 export class PlaceHolderKipperMainComponent implements OnInit {
   isChecked = false;
+  projectStacks: { [k: string]: string[] } = {
+    anhanga: ['Next.js', 'Typescript', 'Express.js', 'Python'],
+    webflora: ['Next.js', 'Python'],
+    math: ['Typescript'],
+  };
   @ViewChild('ptBrTemplate', { static: true }) ptBrTemplate!: TemplateRef<any>;
   @ViewChild('enUsTemplate', { static: true }) enUsTemplate!: TemplateRef<any>;
   @ViewChild('presentArrow') presentArrowRef!: TemplateRef<any>;
   @ViewChild('coursesArrow') coursesArrowRef!: TemplateRef<any>;
   @ViewChild('expArrow') expArrowRef!: TemplateRef<any>;
   @ViewChild('topArrow') topArrowRef!: TemplateRef<any>;
+  @ViewChild('projectsArrow') projectsArrowRef!: TemplateRef<any>;
   ngOnInit(): void {
     [
       document.getElementById('timeline'),
       document.getElementById('timeline-courses'),
       document.getElementById('description'),
+      document.getElementById('projects-list'),
     ].forEach((timeline, i) => {
       try {
         if (timeline instanceof HTMLElement) {
@@ -57,9 +66,40 @@ export class PlaceHolderKipperMainComponent implements OnInit {
             ) > 0
           )
             iniDisplays[`${timeline.id}`] = getComputedStyle(timeline).display;
-          if (!(timeline.id === 'timeline-courses')) return;
-          const arrow = document.getElementById('courses-arrow');
+          if (
+            !(
+              timeline.id === 'timeline-courses' ||
+              timeline.id === 'projects-list'
+            )
+          )
+            return;
+          const arrow =
+            timeline.id === 'timeline-courses'
+              ? document.getElementById('courses-arrow')
+              : document.getElementById('projects-arrow');
           arrow instanceof Element && arrow.classList.add('toggled');
+          arrow instanceof Element &&
+            arrow.closest('span')?.id === 'projects-arrow-span' &&
+            (arrow.closest('span')!.title = 'Mostrar Projetos');
+          if (arrow?.id === 'projects-arrow') {
+            setTimeout(() => {
+              document
+                .getElementById('projects-list')
+                ?.querySelectorAll('li')
+                .forEach((item, i) => {
+                  try {
+                    console.log(item);
+                    item.style.display = 'none';
+                  } catch (e) {
+                    console.error(
+                      `Error executing iteration ${i} for hidding items in projects list:\n${
+                        (e as Error).message
+                      }`
+                    );
+                  }
+                });
+            }, 200);
+          }
           const iniHeight = iniHeights[`${timeline.id}`];
           if (iniHeight <= 0 || !Number.isFinite(iniHeight)) return;
           const htFract = iniHeight / 20;
@@ -68,6 +108,9 @@ export class PlaceHolderKipperMainComponent implements OnInit {
             if (
               !document
                 .getElementById('courses-arrow')
+                ?.classList.contains('toggled') &&
+              !document
+                .getElementById('projects-arrow')
                 ?.classList.contains('toggled')
             ) {
               clearInterval(interv);
@@ -78,7 +121,7 @@ export class PlaceHolderKipperMainComponent implements OnInit {
                 getComputedStyle(timeline).height.replace('px', '').trim()
               ) - htFract;
             if (!Number.isFinite(htReduced)) return;
-            if (htReduced <= 0) {
+            if (htReduced <= 0.1) {
               timeline.style.display = 'none';
               clearInterval(interv);
               return;
@@ -93,6 +136,8 @@ export class PlaceHolderKipperMainComponent implements OnInit {
           iniDisplays['timeline'] = 'block';
           iniHeights['description'] = 342;
           iniDisplays['description'] = 'block';
+          iniHeights['projects-list'] = 515;
+          iniDisplays['projects-list'] = 'flex';
         }
       } catch (e) {
         console.error(
@@ -348,6 +393,15 @@ export class PlaceHolderKipperMainComponent implements OnInit {
           targ.classList.contains('toggled')
             ? (targ.closest('span')!.title = 'Mostrar cursos')
             : (targ.closest('span')!.title = 'Esconder cursos');
+      } else if (targ.id === 'projects-arrow' && targ.closest('span')) {
+        if (this.isChecked)
+          targ.classList.contains('toggled')
+            ? (targ.closest('span')!.title = 'Show projects')
+            : (targ.closest('span')!.title = 'Hide projects');
+        else
+          targ.classList.contains('toggled')
+            ? (targ.closest('span')!.title = 'Mostrar Projetos')
+            : (targ.closest('span')!.title = 'Esconder Projetos');
       }
       const timeline =
         document.getElementById(timelineIdf) ||
@@ -355,11 +409,35 @@ export class PlaceHolderKipperMainComponent implements OnInit {
       targ.closest('button')?.nextElementSibling;
       if (!(timeline instanceof HTMLElement))
         throw htmlElementNotFound(timeline, `Validation of timeline instance`);
-      if (!timeline.querySelector('.event')) {
-        console.warn(`No event found for timeline. Aborting process.`);
+      if (
+        !timeline.querySelector('.event') &&
+        !timeline.querySelector('.project')
+      ) {
+        console.warn(
+          `No event or project found for timeline. Aborting process.`
+        );
         return;
       }
       if (targ.classList.contains('toggled')) {
+        if (targ.id === 'projects-arrow') {
+          setTimeout(() => {
+            document
+              .getElementById('projects-list')
+              ?.querySelectorAll('li')
+              .forEach((item, i) => {
+                try {
+                  console.log(item);
+                  item.style.display = 'none';
+                } catch (e) {
+                  console.error(
+                    `Error executing iteration ${i} for hidding items in projects list:\n${
+                      (e as Error).message
+                    }`
+                  );
+                }
+              });
+          }, 200);
+        }
         if (
           !iniHeights[timeline.id] &&
           getComputedStyle(timeline).display !== 'none' &&
@@ -393,6 +471,25 @@ export class PlaceHolderKipperMainComponent implements OnInit {
         }, 15);
         setTimeout(() => clearInterval(interv), 1000);
       } else {
+        if (targ.id === 'projects-arrow') {
+          setTimeout(() => {
+            document
+              .getElementById('projects-list')
+              ?.querySelectorAll('li')
+              .forEach((item, i) => {
+                try {
+                  console.log(item);
+                  item.style.display = 'block';
+                } catch (e) {
+                  console.error(
+                    `Error executing iteration ${i} for hidding items in projects list:\n${
+                      (e as Error).message
+                    }`
+                  );
+                }
+              });
+          }, 200);
+        }
         if (
           !iniHeights[timeline.id] &&
           getComputedStyle(timeline).display !== 'none' &&
@@ -406,7 +503,10 @@ export class PlaceHolderKipperMainComponent implements OnInit {
         const iniHeight = iniHeights[timeline.id];
         if (iniHeight <= 0 || !Number.isFinite(iniHeight)) return;
         const htFract = iniHeight / 20;
-        timeline.style.display = iniDisplays[timeline.id] || 'block';
+        timeline.style.display =
+          iniDisplays[timeline.id] ||
+          (timeline.id === 'projects-list' ? 'flex' : 'block');
+        timeline.id === 'projects-list' && (timeline.style.display = 'flex');
         const interv = setInterval(interv => {
           if (!(timeline instanceof HTMLElement)) return;
           const htAdded =
@@ -425,7 +525,9 @@ export class PlaceHolderKipperMainComponent implements OnInit {
           }
         }, 15);
         setTimeout(() => {
-          timeline.style.height = `${iniHeight}px`;
+          timeline.id === 'projects-list'
+            ? (timeline.style.height = `${iniHeight + 50}px`)
+            : (timeline.style.height = `${iniHeight}px`);
           clearInterval(interv);
         }, 1000);
       }
