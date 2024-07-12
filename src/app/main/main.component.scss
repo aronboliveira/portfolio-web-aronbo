@@ -266,6 +266,7 @@
   .eZsukd {
     #content-courses {
       #timeline-head-courses {
+        min-height: 212vh;
         h2 {
           margin: -0.4rem 0 0 2.5rem;
         }
@@ -306,6 +307,17 @@
   #fs-lang {
     transform: translate(-3px, -3px);
   }
+  #desc-Webflora {
+    height: 10rem;
+  }
+  #heading-Website-para-jogo-—-Songs-of-Anhangá {
+    #title-Website-para-jogo-—-Songs-of-Anhangá {
+      margin-left: 1.25rem;
+    }
+    svg {
+      transform: scale(1.5);
+    }
+  }
 }
 
 @media screen and (max-width: 720px) {
@@ -328,6 +340,7 @@
     margin-bottom: 1rem;
     #typewriter {
       margin-bottom: 1.7rem;
+      margin-right: 0;
     }
   }
   #fs-lang {

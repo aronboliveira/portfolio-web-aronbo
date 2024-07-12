@@ -301,6 +301,9 @@ header {
           }
         }
         a {
+          display: block;
+          white-space: nowrap;
+          overflow: hidden;
           color: #5f9ea0;
           &:hover {
             animation: highlight ease-in-out infinite 2s;
@@ -336,7 +339,7 @@ header {
     }
   }
   #content-courses {
-    padding-block: 2.25rem;
+    padding-block: 3.25rem;
   }
 }
 
