@@ -1,6 +1,6 @@
 [build]
   publish = "dist/portfolio-web-aronbo-ng/browser"
-  command = "npx ng build --prod"
+  command = "npx ng build --configuration production"
 
 [[redirects]]
 from = "/*"
