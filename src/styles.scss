@@ -1250,3 +1250,17 @@ h3 {
     font-size: 54px;
   }
 }
+
+@media screen and (max-width: 800px) {
+  #desc-Webflora {
+    height: 10rem;
+  }
+  #heading-Website-para-jogo-—-Songs-of-Anhangá {
+    #title-Website-para-jogo-—-Songs-of-Anhangá {
+      margin-left: 1.25rem;
+    }
+    svg {
+      transform: scale(1.5);
+    }
+  }
+}

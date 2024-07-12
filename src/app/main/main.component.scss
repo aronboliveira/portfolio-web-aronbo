@@ -266,9 +266,6 @@
   .eZsukd {
     #content-courses {
       #timeline-head-courses {
-        &:has(#courses-arrow.toggled) {
-          min-height: 190vh;
-        }
         h2 {
           margin: -0.4rem 0 0 2.5rem;
         }
@@ -309,17 +306,6 @@
   #fs-lang {
     transform: translate(-3px, -3px);
   }
-  #desc-Webflora {
-    height: 15rem;
-  }
-  #heading-Website-para-jogo-—-Songs-of-Anhangá {
-    #title-Website-para-jogo-—-Songs-of-Anhangá {
-      margin-left: 1.25rem;
-    }
-    svg {
-      transform: scale(1.5);
-    }
-  }
 }
 
 @media screen and (max-width: 720px) {
@@ -347,6 +333,17 @@
   }
   #fs-lang {
     margin-right: 1rem;
+  }
+  #desc-Webflora {
+    height: 15rem;
+  }
+  #heading-Website-para-jogo-—-Songs-of-Anhangá {
+    #title-Website-para-jogo-—-Songs-of-Anhangá {
+      margin-left: 1.25rem;
+    }
+    svg {
+      transform: scale(1.5);
+    }
   }
 }
 
