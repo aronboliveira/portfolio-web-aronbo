@@ -1,5 +1,5 @@
 [build]
-  publish = "dist/portfolio-web-aronbo-ng"
+  publish = "dist/portfolio-web-aronbo-ng/browser"
   command = "ng build --prod"
 
 [[redirects]]
