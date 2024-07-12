@@ -236,6 +236,8 @@
   margin-left: 1rem;
   width: 37rem;
   white-space: nowrap;
+  overflow: hidden;
+  max-width: 90%;
 }
 
 @media screen and (min-width: 1500px) {
@@ -351,6 +353,19 @@
     }
     svg {
       transform: scale(1.5);
+    }
+  }
+}
+
+@media screen and (max-width: 518px) and (min-width: 496px) {
+  .projects {
+    #projects-heading-container {
+      #projects-arrow {
+        transform: translate(-0.7rem, 0.2rem) rotate(0deg);
+        &.toggled {
+          transform: translate(-0.7rem, 0.2rem) rotate(-180deg);
+        }
+      }
     }
   }
 }
