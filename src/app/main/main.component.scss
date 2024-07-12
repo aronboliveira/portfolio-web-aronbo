@@ -266,7 +266,9 @@
   .eZsukd {
     #content-courses {
       #timeline-head-courses {
-        min-height: 212vh;
+        &:has(#courses-arrow.toggled) {
+          min-height: 190vh;
+        }
         h2 {
           margin: -0.4rem 0 0 2.5rem;
         }
@@ -308,7 +310,7 @@
     transform: translate(-3px, -3px);
   }
   #desc-Webflora {
-    height: 10rem;
+    height: 15rem;
   }
   #heading-Website-para-jogo-—-Songs-of-Anhangá {
     #title-Website-para-jogo-—-Songs-of-Anhangá {
