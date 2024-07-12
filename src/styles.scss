@@ -47,6 +47,18 @@
   }
 }
 
+@keyframes highlight-weak {
+  0% {
+    filter: contrast(100%);
+  }
+  50% {
+    filter: contrast(50%);
+  }
+  100% {
+    filter: contrast(100%);
+  }
+}
+
 app-root {
   width: 100vw;
 }
@@ -111,6 +123,9 @@ app-root {
   }
   &.project {
     width: 75%;
+    &:hover {
+      animation: highlight-weak ease-in-out infinite 2s;
+    }
   }
 }
 

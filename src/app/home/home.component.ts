@@ -1,9 +1,8 @@
-import { Component, OnInit, AfterViewInit, Inject } from '@angular/core';
-// import { DOCUMENT } from '@angular/common';
-// import { Store } from '@ngrx/store';
-import { applyDefaultPoppins } from '../..//lib/handlers/handlersStyle';
+import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { HomeFooterComponent } from '../home-footer/home-footer.component';
 import { HomeMainBodyComponent } from '../home-main-body/home-main-body.component';
+import { isPlatformBrowser } from '@angular/common';
+import { parseFinite } from '../../lib/handlers/handlersMath';
 
 @Component({
   selector: 'app-home',
@@ -12,31 +11,26 @@ import { HomeMainBodyComponent } from '../home-main-body/home-main-body.componen
   standalone: true,
   imports: [HomeFooterComponent, HomeMainBodyComponent],
 })
-export class HomeComponent implements OnInit, AfterViewInit {
-  // constructor(
-  //   // private store: Store,
-  //   // @Inject(DOCUMENT) private document: Document
-  // ) {}
-  ngOnInit(): void {
-    //   this.store.dispatch(setRouter({ routerState: this.document.location }));
+export class HomeComponent implements AfterViewInit {
+  isBrowser: boolean;
+  constructor(@Inject(PLATFORM_ID) private platformId: any) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
   }
   ngAfterViewInit(): void {
-    applyDefaultPoppins();
-    addEventListener('copy', (ev: ClipboardEvent) => {
-      console.log(
-        ev.clipboardData?.items
-          .add(
-            new File(
-              [
-                'Hello, File',
-                JSON.stringify({ key: 'value' }),
-                new Uint16Array([0x0000, 0xffff, 0x7fff]),
-              ],
-              'newFile.txt'
-            )
-          )
-          ?.webkitGetAsEntry()
-      );
-    });
+    this.isBrowser && this.applyDefaultPoppins();
+  }
+  applyDefaultPoppins(): void {
+    Array.from(document.querySelectorAll('*'))
+      .filter(
+        el =>
+          el instanceof HTMLElement &&
+          !(el instanceof HTMLScriptElement) &&
+          parseFinite(getComputedStyle(el).width) > 0 &&
+          el.innerText !== ''
+      )
+      .forEach(htmlEl => {
+        parseFinite(getComputedStyle(htmlEl).fontSize) >= 16 &&
+          htmlEl.classList.add(`poppins`, `poppins-semibold`);
+      });
   }
 }

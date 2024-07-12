@@ -36,21 +36,6 @@ export function fillWithTag(...els: voidishHtmlEl[]): void {
   }
 }
 
-export function applyDefaultPoppins(): void {
-  Array.from(document.querySelectorAll('*'))
-    .filter(
-      el =>
-        el instanceof HTMLElement &&
-        !(el instanceof HTMLScriptElement) &&
-        parseFinite(getComputedStyle(el).width) > 0 &&
-        el.innerText !== ''
-    )
-    .forEach(htmlEl => {
-      parseFinite(getComputedStyle(htmlEl).fontSize) >= 16 &&
-        htmlEl.classList.add(`poppins`, `poppins-semibold`);
-    });
-}
-
 export const ptBrDict: Map<string, { title: string } | { innerText: string }> =
   new Map([
     ['toggle-language', { title: 'Click here to change to en-US' }],

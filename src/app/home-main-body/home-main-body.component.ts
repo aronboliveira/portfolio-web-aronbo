@@ -1,14 +1,14 @@
 import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { fillWithTag } from '../..//lib/handlers/handlersStyle';
 import { htmlElementNotFound } from '../..//lib/handlers/handlersErrors';
-import { PlaceHolderKipperMainComponent } from '../place-holder-kipper-main/placeholder-kipper-main.component';
+import { MainComponent } from '../main/main.component';
 
 @Component({
   selector: 'app-home-main-body',
   templateUrl: `./home-main-body.component.html`,
   styleUrls: ['./home-main-body.component.scss'],
   standalone: true,
-  imports: [PlaceHolderKipperMainComponent],
+  imports: [MainComponent],
 })
 export class HomeMainBodyComponent implements AfterViewInit {
   @ViewChild('mainRef') mainRef!: ElementRef;

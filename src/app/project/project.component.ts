@@ -13,5 +13,6 @@ export class ProjectComponent {
   @Input() href: string = '';
   @Input() title: string = '';
   @Input() desc: string = '';
+  @Input() hover: string = '';
   @Input() stacks: string[] = [];
 }
