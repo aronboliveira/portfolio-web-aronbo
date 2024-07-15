@@ -60,8 +60,11 @@ export class MainComponent implements AfterViewInit {
         if (innerWidth < 800) {
           const arrLangs = Array.from(document.querySelectorAll('.languages'));
           for (const language of arrLangs) {
-            if (arrLangs.length > 2 && language instanceof HTMLElement)
-              language.style.height = `${(arrLangs.length + 1) * 2}rem`;
+            const arrStacks = Array.from(language.querySelectorAll('.stack'));
+            if (language instanceof HTMLElement) {
+              language.style.height = `${(arrStacks.length + 1) * 3}rem`;
+              language.style.paddingTop = '1rem';
+            }
           }
           try {
             const sumHeights =
@@ -74,27 +77,6 @@ export class MainComponent implements AfterViewInit {
                         `Validation of project instance`
                       );
                     }
-                    console.log('reducing...');
-                    console.log([
-                      parseFinite(
-                        getComputedStyle(project)
-                          .height.replace('px', '')
-                          .trim()
-                      ),
-                      parseFinite(
-                        getComputedStyle(project)
-                          .paddingTop.replace('px', '')
-                          .trim()
-                      ),
-                      parseFinite(
-                        getComputedStyle(project)
-                          .paddingBottom.replace('px', '')
-                          .trim()
-                      ),
-                      parseFinite(
-                        getComputedStyle(list).gap.replace('px', '').trim()
-                      ),
-                    ]);
                     return (
                       acc +
                       ((parseFinite(
@@ -289,7 +271,6 @@ export class MainComponent implements AfterViewInit {
             }
             title.innerText += titleLetters[letterAcc];
             letterAcc += 1;
-            console.log(letterAcc);
           }, 200);
           setTimeout(
             () => clearInterval(letterInterv),
