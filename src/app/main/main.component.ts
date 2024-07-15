@@ -46,84 +46,6 @@ export class MainComponent implements AfterViewInit {
   constructor(@Inject(PLATFORM_ID) private platformId: any) {
     this.isBrowser = isPlatformBrowser(this.platformId);
   }
-  handleResize = () => {
-    const list = document.getElementById('projects-list');
-    const arrow = document.getElementById('projects-arrow');
-    try {
-      if (!(list instanceof HTMLElement))
-        throw htmlElementNotFound(list, `Validation of list instance`);
-      if (!(arrow instanceof Element))
-        throw elementNotFound(arrow, `Validation of projects-arrow`, [
-          'Element',
-        ]);
-      if (!arrow.classList.contains('toggled')) {
-        if (innerWidth < 800) {
-          const arrLangs = Array.from(document.querySelectorAll('.languages'));
-          for (const language of arrLangs) {
-            const arrStacks = Array.from(language.querySelectorAll('.stack'));
-            if (language instanceof HTMLElement) {
-              language.style.height = `${
-                Math.ceil(arrStacks.length / 2) * 4
-              }rem`;
-              language.style.paddingTop = '1rem';
-            }
-          }
-          try {
-            const sumHeights =
-              Array.from(list.querySelectorAll('.project')).reduce(
-                (acc, project, i) => {
-                  try {
-                    if (!(project instanceof HTMLElement)) {
-                      throw htmlElementNotFound(
-                        project,
-                        `Validation of project instance`
-                      );
-                    }
-                    return (
-                      acc +
-                      ((parseFinite(
-                        getComputedStyle(project)
-                          .height.replace('px', '')
-                          .trim()
-                      ) || 250) +
-                        (parseFinite(
-                          getComputedStyle(project)
-                            .paddingTop.replace('px', '')
-                            .trim()
-                        ) || 16) +
-                        (parseFinite(
-                          getComputedStyle(project)
-                            .paddingBottom.replace('px', '')
-                            .trim()
-                        ) || 16) +
-                        (parseFinite(
-                          getComputedStyle(list).gap.replace('px', '').trim()
-                        ) || 32))
-                    );
-                  } catch (e) {
-                    console.error(
-                      `Error executing iteration ${i} for reducer of project heights:\n${
-                        (e as Error).message
-                      }`
-                    );
-                    return acc + 314;
-                  }
-                },
-                0
-              ) + 50;
-            list.style.minHeight = `${sumHeights}px`;
-          } catch (e) {
-            console.error(
-              `Error executing handleResize:\n${(e as Error).message}`
-            );
-            list.style.minHeight = '61rem';
-          }
-        } else list.style.minHeight = '61rem';
-      } else list.style.minHeight = '0';
-    } catch (e) {
-      console.error(`Error executing handleResize:\n${(e as Error).message}`);
-    }
-  };
   ngAfterViewInit(): void {
     if (this.isBrowser) {
       [
@@ -317,6 +239,75 @@ export class MainComponent implements AfterViewInit {
       }
     }
   }
+  handleResize = (): void => {
+    const list = document.getElementById('projects-list');
+    const arrow = document.getElementById('projects-arrow');
+    try {
+      if (!(list instanceof HTMLElement))
+        throw htmlElementNotFound(list, `Validation of list instance`);
+      if (!(arrow instanceof Element))
+        throw elementNotFound(arrow, `Validation of projects-arrow`, [
+          'Element',
+        ]);
+      if (!arrow.classList.contains('toggled')) {
+        if (innerWidth < 800) {
+          try {
+            this.adjustStacksHeight(list, arrow);
+            const sumHeights =
+              Array.from(list.querySelectorAll('.project')).reduce(
+                (acc, project, i) => {
+                  try {
+                    if (!(project instanceof HTMLElement)) {
+                      throw htmlElementNotFound(
+                        project,
+                        `Validation of project instance`
+                      );
+                    }
+                    return (
+                      acc +
+                      ((parseFinite(
+                        getComputedStyle(project)
+                          .height.replace('px', '')
+                          .trim()
+                      ) || 250) +
+                        (parseFinite(
+                          getComputedStyle(project)
+                            .paddingTop.replace('px', '')
+                            .trim()
+                        ) || 16) +
+                        (parseFinite(
+                          getComputedStyle(project)
+                            .paddingBottom.replace('px', '')
+                            .trim()
+                        ) || 16) +
+                        (parseFinite(
+                          getComputedStyle(list).gap.replace('px', '').trim()
+                        ) || 32))
+                    );
+                  } catch (e) {
+                    console.error(
+                      `Error executing iteration ${i} for reducer of project heights:\n${
+                        (e as Error).message
+                      }`
+                    );
+                    return acc + 314;
+                  }
+                },
+                0
+              ) + 50;
+            list.style.minHeight = `${sumHeights}px`;
+          } catch (e) {
+            console.error(
+              `Error executing handleResize:\n${(e as Error).message}`
+            );
+            list.style.minHeight = '61rem';
+          }
+        } else list.style.minHeight = '61rem';
+      } else list.style.minHeight = '0';
+    } catch (e) {
+      console.error(`Error executing handleResize:\n${(e as Error).message}`);
+    }
+  };
   changeLanguage(ev: Event): void {
     try {
       this.isChecked = !this.isChecked;
@@ -655,6 +646,44 @@ export class MainComponent implements AfterViewInit {
     } catch (e) {
       console.error(
         `Error executing procedure for filling title:${(e as Error).message}`
+      );
+    }
+    this.adjustStacksHeight(
+      document.getElementById('projects-list'),
+      document.getElementById('projects-arrow')
+    );
+  }
+  adjustStacksHeight(list: voidishEl, arrow: voidishEl): void {
+    try {
+      if (!(list instanceof HTMLElement))
+        throw htmlElementNotFound(list, `Validation of list instance`);
+      if (!(arrow instanceof Element))
+        throw elementNotFound(arrow, `Validation of projects-arrow`, [
+          'Element',
+        ]);
+      if (!arrow.classList.contains('toggled')) {
+        const arrLangs = Array.from(document.querySelectorAll('.languages'));
+        if (innerWidth < 800) {
+          for (const language of arrLangs) {
+            const arrStacks = Array.from(language.querySelectorAll('.stack'));
+            if (language instanceof HTMLElement) {
+              innerWidth > 425
+                ? (language.style.height = `${
+                    Math.ceil(arrStacks.length / 2) * 4
+                  }rem`)
+                : (language.style.height = `${arrStacks.length * 4}rem`);
+              language.style.paddingTop = '1rem';
+            }
+          }
+        } else {
+          list.style.minHeight = '61rem';
+          for (const language of arrLangs)
+            if (language instanceof HTMLElement) language.style.height = '3rem';
+        }
+      } else list.style.minHeight = '0';
+    } catch (e) {
+      console.error(
+        `Error adjusting stacks elements height:\n${(e as Error).message}`
       );
     }
   }
