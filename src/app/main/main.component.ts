@@ -62,7 +62,9 @@ export class MainComponent implements AfterViewInit {
           for (const language of arrLangs) {
             const arrStacks = Array.from(language.querySelectorAll('.stack'));
             if (language instanceof HTMLElement) {
-              language.style.height = `${(arrStacks.length + 1) * 3}rem`;
+              language.style.height = `${
+                Math.ceil(arrStacks.length / 2) * 4
+              }rem`;
               language.style.paddingTop = '1rem';
             }
           }
