@@ -160,83 +160,7 @@ export class MainComponent implements AfterViewInit {
       });
       this.handleResize();
       addEventListener('resize', this.handleResize);
-      try {
-        const title = document.getElementById('tech-content');
-        if (!(title instanceof HTMLElement))
-          throw htmlElementNotFound(title, `Validation of title instance`);
-        title.innerText = '';
-        if (!this.isChecked) {
-          const titleLetters = [
-            'D',
-            'e',
-            's',
-            'e',
-            'n',
-            'v',
-            'o',
-            'l',
-            'v',
-            'i',
-            'm',
-            'e',
-            'n',
-            't',
-            'o',
-            '.',
-            'w',
-            'e',
-            'b',
-          ];
-          let letterAcc = 0;
-          const letterInterv = setInterval(interv => {
-            if (title.innerText.length === titleLetters.length) {
-              clearInterval(interv);
-              return;
-            }
-            title.innerText += titleLetters[letterAcc];
-            letterAcc += 1;
-          }, 200);
-          setTimeout(
-            () => clearInterval(letterInterv),
-            titleLetters.length * 200
-          );
-        } else {
-          const titleLetters = [
-            'W',
-            'e',
-            'b',
-            '.',
-            'D',
-            'e',
-            'v',
-            'e',
-            'l',
-            'o',
-            'p',
-            'm',
-            'e',
-            'n',
-            't',
-          ];
-          let letterAcc = 0;
-          const letterInterv = setInterval(interv => {
-            if (title.innerText.length === titleLetters.length) {
-              clearInterval(interv);
-              return;
-            }
-            title.innerText += titleLetters[letterAcc];
-            letterAcc = letterAcc++;
-          }, 200);
-          setTimeout(
-            () => clearInterval(letterInterv),
-            titleLetters.length * 200
-          );
-        }
-      } catch (e) {
-        console.error(
-          `Error executing procedure for filling title:${(e as Error).message}`
-        );
-      }
+      this.typeTitle(false);
     }
   }
   handleResize = (): void => {
@@ -515,63 +439,50 @@ export class MainComponent implements AfterViewInit {
         }`
       );
     }
+    this.typeTitle();
+    this.adjustStacksHeight(
+      document.getElementById('projects-list'),
+      document.getElementById('projects-arrow')
+    );
+  }
+  typeTitle(running: boolean = true): void {
     try {
       const title = document.getElementById('tech-content');
       if (!(title instanceof HTMLElement))
         throw htmlElementNotFound(title, `Validation of title instance`);
       title.innerText = '';
       if (!this.isChecked) {
-        const titleLetters = [
-          'D',
-          'e',
-          's',
-          'e',
-          'n',
-          'v',
-          'o',
-          'l',
-          'v',
-          'i',
-          'm',
-          'e',
-          'n',
-          't',
-          'o',
-          '.',
-          'w',
-          'e',
-          'b',
-        ];
-        let letterAcc = 0;
-        const letterInterv = setInterval(interv => {
-          if (title.innerText.length > letterAcc) return;
-          if (this.isChecked) {
-            title.innerText = '';
-            clearInterval(interv);
-            return;
-          }
-          if (title.innerText.length === titleLetters.length) {
-            clearInterval(interv);
-            return;
-          }
-          title.innerText += titleLetters[letterAcc];
-          letterAcc += 1;
-        }, 200);
-        setTimeout(
-          () => clearInterval(letterInterv),
-          titleLetters.length * 200
-        );
-        title.style.marginLeft = '-0.5rem';
-        if (title.innerText !== 'Desenvolvimento.web') {
-          letterAcc = 0;
+        const typePtBr = (): void => {
+          const titleLetters = [
+            'D',
+            'e',
+            's',
+            'e',
+            'n',
+            'v',
+            'o',
+            'l',
+            'v',
+            'i',
+            'm',
+            'e',
+            'n',
+            't',
+            'o',
+            '.',
+            'w',
+            'e',
+            'b',
+          ];
+          let letterAcc = 0;
           const letterInterv = setInterval(interv => {
-            if (title.innerText.length > letterAcc) return;
-            if (!this.isChecked) {
-              title.innerText = '';
+            if (this.isChecked) {
+              letterAcc = 0;
               clearInterval(interv);
               return;
             }
             if (title.innerText.length === titleLetters.length) {
+              letterAcc = 0;
               clearInterval(interv);
               return;
             }
@@ -582,55 +493,40 @@ export class MainComponent implements AfterViewInit {
             () => clearInterval(letterInterv),
             titleLetters.length * 200
           );
-        }
+        };
+        !running
+          ? typePtBr()
+          : setTimeout(() => {
+              title.innerText === '' && typePtBr();
+            }, 300);
       } else {
-        const titleLetters = [
-          'W',
-          'e',
-          'b',
-          '.',
-          'd',
-          'e',
-          'v',
-          'e',
-          'l',
-          'o',
-          'p',
-          'm',
-          'e',
-          'n',
-          't',
-        ];
-        let letterAcc = 0;
-        const letterInterv = setInterval(interv => {
-          if (title.innerText.length > letterAcc) return;
-          if (!this.isChecked) {
-            title.innerText = '';
-            clearInterval(interv);
-            return;
-          }
-          if (title.innerText.length === titleLetters.length) {
-            clearInterval(interv);
-            return;
-          }
-          title.innerText += titleLetters[letterAcc];
-          letterAcc += 1;
-        }, 200);
-        setTimeout(
-          () => clearInterval(letterInterv),
-          titleLetters.length * 200
-        );
-        title.style.marginLeft = '0.8rem';
-        if (title.innerText !== 'Web.development') {
-          letterAcc = 0;
+        const typeEnUs = (): void => {
+          const titleLetters = [
+            'W',
+            'e',
+            'b',
+            '.',
+            'd',
+            'e',
+            'v',
+            'e',
+            'l',
+            'o',
+            'p',
+            'm',
+            'e',
+            'n',
+            't',
+          ];
+          let letterAcc = 0;
           const letterInterv = setInterval(interv => {
-            if (title.innerText.length > letterAcc) return;
             if (!this.isChecked) {
-              title.innerText = '';
+              letterAcc = 0;
               clearInterval(interv);
               return;
             }
             if (title.innerText.length === titleLetters.length) {
+              letterAcc = 0;
               clearInterval(interv);
               return;
             }
@@ -641,17 +537,55 @@ export class MainComponent implements AfterViewInit {
             () => clearInterval(letterInterv),
             titleLetters.length * 200
           );
-        }
+        };
+        !running
+          ? typeEnUs()
+          : setTimeout(() => {
+              title.innerText === '' && typeEnUs();
+            }, 300);
       }
     } catch (e) {
       console.error(
         `Error executing procedure for filling title:${(e as Error).message}`
       );
     }
-    this.adjustStacksHeight(
-      document.getElementById('projects-list'),
-      document.getElementById('projects-arrow')
-    );
+    !this.isChecked
+      ? setTimeout(() => {
+          if (this.isChecked) return;
+          try {
+            const title = document.getElementById('tech-content');
+            if (!(title instanceof HTMLElement))
+              throw htmlElementNotFound(title, `Validation of title instance`);
+            if (!this.isChecked && title.innerText !== 'Desenvolvimento.web')
+              title.innerText = 'Desenvolvimento.web';
+            else if (this.isChecked && title.innerText !== 'Web.development')
+              title.innerText = 'Web.development';
+          } catch (e) {
+            console.error(
+              `Error executing procedure for checking tech-content innerText:\n${
+                (e as Error).message
+              }`
+            );
+          }
+        }, 5000)
+      : setTimeout(() => {
+          if (!this.isChecked) return;
+          try {
+            const title = document.getElementById('tech-content');
+            if (!(title instanceof HTMLElement))
+              throw htmlElementNotFound(title, `Validation of title instance`);
+            if (!this.isChecked && title.innerText !== 'Desenvolvimento.web')
+              title.innerText = 'Desenvolvimento.web';
+            else if (this.isChecked && title.innerText !== 'Web.development')
+              title.innerText = 'Web.development';
+          } catch (e) {
+            console.error(
+              `Error executing procedure for checking tech-content innerText:\n${
+                (e as Error).message
+              }`
+            );
+          }
+        }, 5000);
   }
   adjustStacksHeight(list: voidishEl, arrow: voidishEl): void {
     try {
