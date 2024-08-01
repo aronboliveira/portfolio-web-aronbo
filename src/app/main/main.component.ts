@@ -34,7 +34,7 @@ export class MainComponent implements AfterViewInit {
   projectStacks: { [k: string]: string[] } = {
     anhanga: ['Next.js', 'Typescript', 'Express.js', 'Python'],
     webflora: ['Next.js', 'Typescript', 'Python'],
-    math: ['Typescript'],
+    math: ['Nuxt.js', 'Typescript'],
   };
   @ViewChild('ptBrTemplate', { static: true }) ptBrTemplate!: TemplateRef<any>;
   @ViewChild('enUsTemplate', { static: true }) enUsTemplate!: TemplateRef<any>;
