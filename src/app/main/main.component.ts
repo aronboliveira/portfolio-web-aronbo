@@ -672,15 +672,11 @@ export class MainComponent implements AfterViewInit {
         document.getElementById(timelineIdf) ||
         document.querySelector(timelineIdf);
       targ.closest('button')?.nextElementSibling;
-      if (!(timeline instanceof HTMLElement))
-        throw htmlElementNotFound(timeline, `Validation of timeline instance`);
+      if (!(timeline instanceof HTMLElement)) return;
       if (
         !timeline.querySelector('.event') &&
         !timeline.querySelector('.project')
       ) {
-        console.warn(
-          `No event or project found for timeline. Aborting process.`
-        );
         return;
       }
       if (targ.classList.contains('toggled')) {
