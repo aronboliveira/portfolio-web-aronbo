@@ -33,7 +33,7 @@ export class MainComponent implements AfterViewInit {
   isBrowser: boolean;
   projectStacks: { [k: string]: string[] } = {
     anhanga: ['Next.js', 'Typescript', 'Express.js', 'Python'],
-    webflora: ['Next.js', 'Typescript', 'Python'],
+    anjinhos: ['Vue.js', 'Typescript'],
     math: ['Nuxt.js', 'React Native', 'Typescript', 'Python'],
   };
   @ViewChild('ptBrTemplate', { static: true }) ptBrTemplate!: TemplateRef<any>;
