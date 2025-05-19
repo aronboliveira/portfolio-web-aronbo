@@ -151,7 +151,8 @@
               <span>Sou </span><strong>Desenvolvedor de Softwares</strong
               ><span> com foco em </span> <b>Fullstack</b
               ><span
-                >, atualmente estudando na Faculdade União das Américas
+                >. Tenho aproximadamente <b>2 anos</b> de experiência,
+                atualmente estudando na Faculdade União das Américas
                 (Descomplica) como aluno de Análise e Desenvolvimento de
                 sistemas desde fevereiro de 2023. Minha experiência na
                 programação envolve a atuação no desenvolvimento de sistemas web
@@ -194,7 +195,8 @@
               <span>I'm a </span><strong>Software developer</strong
               ><span> focused on </span> <b>Fullstack development</b
               ><span
-                >, currently studying at the União das Américas (Descomplica)
+                >. I have approximately <b>2 years</b> of working experience,
+                currently studying at the União das Américas (Descomplica)
                 University as an undergraduate of Systems Analysis and
                 Development since February of 2023. My experience in programming
                 revolves mainly the development of web applications for </span
@@ -257,6 +259,14 @@
           </button>
           <div id="timeline" *ngIf="!isChecked">
             <app-event
+              [title]="'Nova Prestech'"
+              [date]="'12/2024 — Presente'"
+              [description]="
+                '<strong>Desenvolvimento Fullstack</strong> baseado em <em>Laravel, Flask e React.js</em>; manutenção de <b>Sistemas Operacionais</b> baseados em <em>Debian e Windows</em>; otimização de <b>Processamento de dados</b>; Suporte Técnico para Sistemas Web, com foco em CMSs e ERPs.'
+              "
+              [href]="'https://prestech.com.br/site/'"
+            />
+            <app-event
               [title]="'Projeto de Extensão PROSSaúde — UFRJ'"
               [date]="'08/2023 — Presente'"
               [description]="
@@ -282,6 +292,14 @@
             />
           </div>
           <div id="timeline" *ngIf="isChecked">
+            <app-event
+              [title]="'Nova Prestech'"
+              [date]="'12/2024 — Present'"
+              [description]="
+                '<strong>Fullstack Development</strong> using <em>Laravel, Flask, and React.js</em>; maintenance of <b>Operating Systems</b> based on <em>Debian and Windows</em>; optimization of <b>Data Processing</b>; Technical Support for Web Systems, focusing on CMSs and ERPs.'
+              "
+              [href]="'https://prestech.com.br/site/'"
+            />
             <app-event
               [title]="'University Extension Program PROSSaúde — UFRJ'"
               [date]="'08/2023 — Present'"
