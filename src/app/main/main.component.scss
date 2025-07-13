@@ -149,6 +149,17 @@
   }
 }
 
+.link-example {
+  color: #8888;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease-in-out;
+  &:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+  }
+}
+
 #projects-heading-container {
   width: 100%;
 }

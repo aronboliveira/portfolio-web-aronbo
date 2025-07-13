@@ -35,6 +35,7 @@ export class MainComponent implements AfterViewInit {
     anhanga: ['Next.js', 'Typescript', 'Express.js', 'Python'],
     anjinhos: ['Vue.js', 'Typescript'],
     math: ['Nuxt.js', 'React Native', 'Typescript', 'Python'],
+    purify: ['Angular', 'Typescript'],
   };
   @ViewChild('ptBrTemplate', { static: true }) ptBrTemplate!: TemplateRef<any>;
   @ViewChild('enUsTemplate', { static: true }) enUsTemplate!: TemplateRef<any>;
