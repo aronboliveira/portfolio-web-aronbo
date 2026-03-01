@@ -90,7 +90,8 @@ export function syncAriaStates(
                   el.type === "password" ||
                   el.type === "search" ||
                   el.type === "month" ||
-                  el.type === "week"))
+                  el.type === "week" ||
+                  el.type === "range"))
             ) {
               if (
                 el instanceof HTMLInputElement &&

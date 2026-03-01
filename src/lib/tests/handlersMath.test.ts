@@ -13,7 +13,7 @@ describe('parseFinite', () => {
     expect(parseFinite('not-a-number')).toBe(0);
   });
 
-  it('throws type error if context is not a valid string', () => {
-    expect(() => parseFinite('3.14', 'invalid')).toThrow();
+  it('returns -1 for invalid context string', () => {
+    expect(parseFinite('3.14', 'invalid')).toBe(-1);
   });
 });

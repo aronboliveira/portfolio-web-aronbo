@@ -105,6 +105,38 @@ describe('handlersMath', () => {
         const result = parseFinite('-Infinity', 'float', 0);
         expect(result).toBe(0);
       });
+
+      it('should return -1 when value is not a string', () => {
+        // Type coercion test - passing number instead of string
+        const result = parseFinite(123 as any, 'float', 0);
+        expect(result).toBe(-1);
+      });
+
+      it('should return -1 when context is not a string', () => {
+        const result = parseFinite('42', 123 as any, 0);
+        expect(result).toBe(-1);
+      });
+
+      it('should return -1 when context is invalid string', () => {
+        const result = parseFinite('42', 'invalid' as any, 0);
+        expect(result).toBe(-1);
+      });
+
+      it('should return -1 when def is not a number', () => {
+        const result = parseFinite('42', 'float', 'default' as any);
+        expect(result).toBe(-1);
+      });
+    });
+
+    describe('integer context edge cases', () => {
+      it('should return default for int context with invalid value', () => {
+        const result = parseFinite('not-a-number', 'int', 10);
+        expect(result).toBe(10);
+      });
+
+      it('should handle int conversion for pixel values', () => {
+        expect(parseFinite('100px', 'int')).toBe(100);
+      });
     });
   });
 });

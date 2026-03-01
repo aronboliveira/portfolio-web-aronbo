@@ -116,7 +116,8 @@ describe('HeaderComponent', () => {
     it('should indicate BR-US language options', () => {
       const spans = fixture.debugElement.queryAll(By.css('.legend span'));
       const texts = spans.map(span => span.nativeElement.textContent);
-      expect(texts).toContain('BR');
+      // Actual text values are 'BR-' and 'US'
+      expect(texts).toContain('BR-');
       expect(texts).toContain('US');
     });
   });

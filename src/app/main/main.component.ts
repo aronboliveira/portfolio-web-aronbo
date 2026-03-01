@@ -116,7 +116,7 @@ export class MainComponent implements AfterViewInit {
             const iniHeight = iniHeights[`${timeline.id}`];
             if (iniHeight <= 0 || !Number.isFinite(iniHeight)) return;
             const htFract = iniHeight / 20;
-            const interv = setInterval(interv => {
+            const interv = setInterval(() => {
               if (!(timeline instanceof HTMLElement)) return;
               if (
                 !document
@@ -477,15 +477,15 @@ export class MainComponent implements AfterViewInit {
             'b',
           ];
           let letterAcc = 0;
-          const letterInterv = setInterval(interv => {
+          const letterInterv = setInterval(() => {
             if (this.isChecked) {
               letterAcc = 0;
-              clearInterval(interv);
+              clearInterval(letterInterv);
               return;
             }
             if (title.innerText.length === titleLetters.length) {
               letterAcc = 0;
-              clearInterval(interv);
+              clearInterval(letterInterv);
               return;
             }
             title.innerText += titleLetters[letterAcc];
@@ -521,15 +521,15 @@ export class MainComponent implements AfterViewInit {
             't',
           ];
           let letterAcc = 0;
-          const letterInterv = setInterval(interv => {
+          const letterInterv = setInterval(() => {
             if (!this.isChecked) {
               letterAcc = 0;
-              clearInterval(interv);
+              clearInterval(letterInterv);
               return;
             }
             if (title.innerText.length === titleLetters.length) {
               letterAcc = 0;
-              clearInterval(interv);
+              clearInterval(letterInterv);
               return;
             }
             title.innerText += titleLetters[letterAcc];
@@ -713,7 +713,7 @@ export class MainComponent implements AfterViewInit {
         const iniHeight = iniHeights[timeline.id];
         if (iniHeight <= 0 || !Number.isFinite(iniHeight)) return;
         const htFract = iniHeight / 20;
-        const interv = setInterval(interv => {
+        const interv = setInterval(() => {
           if (!(timeline instanceof HTMLElement)) return;
           if (!document.getElementById(targId)?.classList.contains('toggled')) {
             clearInterval(interv);
@@ -769,7 +769,7 @@ export class MainComponent implements AfterViewInit {
           iniDisplays[timeline.id] ||
           (timeline.id === 'projects-list' ? 'flex' : 'block');
         timeline.id === 'projects-list' && (timeline.style.display = 'flex');
-        const interv = setInterval(interv => {
+        const interv = setInterval(() => {
           if (!(timeline instanceof HTMLElement)) return;
           const htAdded =
             parseFinite(
@@ -857,7 +857,7 @@ export class MainComponent implements AfterViewInit {
         const iniHeight = iniHeights[`${paragraph.id}`];
         if (iniHeight <= 0 || !Number.isFinite(iniHeight)) return;
         const htFract = iniHeight / 20;
-        const interv = setInterval(interv => {
+        const interv = setInterval(() => {
           if (!(paragraph instanceof HTMLElement)) return;
           if (!document.getElementById(targId)?.classList.contains('toggled')) {
             clearInterval(interv);
@@ -891,7 +891,7 @@ export class MainComponent implements AfterViewInit {
         if (iniHeight <= 0 || !Number.isFinite(iniHeight)) return;
         const htFract = iniHeight / 20;
         paragraph.style.display = iniDisplays[paragraph.id] || 'block';
-        const interv = setInterval(interv => {
+        const interv = setInterval(() => {
           if (!(paragraph instanceof HTMLElement)) return;
           const htAdded =
             parseFinite(

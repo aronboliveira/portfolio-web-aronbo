@@ -1,5 +1,10 @@
-import 'jest-preset-angular/setup-jest';
+import { setupZoneTestEnv } from 'jest-preset-angular/setup-env/zone';
 import '@testing-library/jest-dom';
+
+setupZoneTestEnv();
+
+// Declare global for TypeScript
+declare const global: typeof globalThis;
 
 // Mock window.matchMedia
 Object.defineProperty(window, 'matchMedia', {
@@ -17,14 +22,14 @@ Object.defineProperty(window, 'matchMedia', {
 });
 
 // Mock ResizeObserver
-global.ResizeObserver = jest.fn().mockImplementation(() => ({
+(window as any).ResizeObserver = jest.fn().mockImplementation(() => ({
   observe: jest.fn(),
   unobserve: jest.fn(),
   disconnect: jest.fn(),
 }));
 
 // Mock IntersectionObserver
-global.IntersectionObserver = jest.fn().mockImplementation(() => ({
+(window as any).IntersectionObserver = jest.fn().mockImplementation(() => ({
   observe: jest.fn(),
   unobserve: jest.fn(),
   disconnect: jest.fn(),
@@ -49,6 +54,34 @@ window.getComputedStyle = jest.fn((element) => {
     getPropertyValue: (prop: string) => style.getPropertyValue(prop),
   };
 }) as typeof window.getComputedStyle;
+
+// Add Response to global (for fetch tests) - Node.js 18+ has native fetch
+// If Response is not available, create a minimal mock
+if (typeof global.Response === 'undefined') {
+  (global as any).Response = class Response {
+    ok: boolean;
+    status: number;
+    statusText: string;
+    headers: Headers;
+    body: any;
+    
+    constructor(body?: BodyInit | null, init?: ResponseInit) {
+      this.ok = !init?.status || (init.status >= 200 && init.status < 300);
+      this.status = init?.status || 200;
+      this.statusText = init?.statusText || 'OK';
+      this.headers = new Headers(init?.headers);
+      this.body = body;
+    }
+    
+    json() {
+      return Promise.resolve(JSON.parse(this.body || '{}'));
+    }
+    
+    text() {
+      return Promise.resolve(this.body?.toString() || '');
+    }
+  };
+}
 
 // Console error handling for cleaner test output
 const originalError = console.error;

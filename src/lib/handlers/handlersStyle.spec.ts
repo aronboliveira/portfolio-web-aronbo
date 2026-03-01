@@ -5,15 +5,6 @@
  */
 import { fillWithTag, ptBrDict, enUsDict } from './handlersStyle';
 
-// Suppress console.error during tests
-const originalError = console.error;
-beforeAll(() => {
-  console.error = jest.fn();
-});
-afterAll(() => {
-  console.error = originalError;
-});
-
 describe('handlersStyle', () => {
   describe('fillWithTag', () => {
     beforeEach(() => {
@@ -27,7 +18,8 @@ describe('handlersStyle', () => {
       fillWithTag(div);
       
       expect(div.querySelector('span')).toBeTruthy();
-      expect(div.querySelector('span')?.textContent).toBe('DIV');
+      // The function sets innerText, which in JSDOM may not reflect to textContent immediately
+      expect(div.querySelector('span')?.innerText).toBe('DIV');
     });
 
     it('should not append span when element has children', () => {
@@ -58,8 +50,9 @@ describe('handlersStyle', () => {
       
       fillWithTag(div1, div2);
       
-      expect(div1.querySelector('span')?.textContent).toBe('DIV');
-      expect(div2.querySelector('span')?.textContent).toBe('SECTION');
+      // The function sets innerText, not textContent
+      expect(div1.querySelector('span')?.innerText).toBe('DIV');
+      expect(div2.querySelector('span')?.innerText).toBe('SECTION');
     });
 
     it('should handle null elements gracefully', () => {
@@ -73,7 +66,8 @@ describe('handlersStyle', () => {
     it('should handle mixed valid and invalid elements', () => {
       const div = document.createElement('div');
       expect(() => fillWithTag(div, null as any, undefined as any)).not.toThrow();
-      expect(div.querySelector('span')?.textContent).toBe('DIV');
+      // The function sets innerText, not textContent
+      expect(div.querySelector('span')?.innerText).toBe('DIV');
     });
 
     it('should handle non-array input gracefully', () => {
@@ -108,36 +102,36 @@ describe('handlersStyle', () => {
     });
 
     it('should have correct Portuguese content for tech-content', () => {
-      const entry = ptBrDict.get('tech-content');
-      expect(entry).toHaveProperty('innerText', 'Desenvolvimento Web');
+      const entry = ptBrDict.get('tech-content') as any;
+      expect(entry.innerText).toBe('Desenvolvimento Web');
     });
 
     it('should have correct Portuguese greeting', () => {
-      const entry = ptBrDict.get('hi-presentation');
-      expect(entry).toHaveProperty('innerText', 'Olá! Eu sou o ');
+      const entry = ptBrDict.get('hi-presentation') as any;
+      expect(entry.innerText).toBe('Olá! Eu sou o ');
     });
 
     it('should have correct Portuguese experience heading', () => {
-      const entry = ptBrDict.get('experience');
-      expect(entry).toHaveProperty('innerText', 'Minha experiência');
+      const entry = ptBrDict.get('experience') as any;
+      expect(entry.innerText).toBe('Minha experiência');
     });
 
     it('should have correct mailto title in Portuguese', () => {
-      const entry = ptBrDict.get('mailto');
-      expect(entry).toHaveProperty('title');
-      expect((entry as any).title).toContain('e-mail');
+      const entry = ptBrDict.get('mailto') as any;
+      expect(entry.title).toBeDefined();
+      expect(entry.title).toContain('e-mail');
     });
 
     it('should have correct linkedin title in Portuguese', () => {
-      const entry = ptBrDict.get('linkedin');
-      expect(entry).toHaveProperty('title');
-      expect((entry as any).title).toContain('LinkedIn');
+      const entry = ptBrDict.get('linkedin') as any;
+      expect(entry.title).toBeDefined();
+      expect(entry.title).toContain('LinkedIn');
     });
 
     it('should have correct github title in Portuguese', () => {
-      const entry = ptBrDict.get('github');
-      expect(entry).toHaveProperty('title');
-      expect((entry as any).title).toContain('Github');
+      const entry = ptBrDict.get('github') as any;
+      expect(entry.title).toBeDefined();
+      expect(entry.title).toContain('Github');
     });
   });
 
@@ -168,42 +162,42 @@ describe('handlersStyle', () => {
     });
 
     it('should have correct English content for tech-content', () => {
-      const entry = enUsDict.get('tech-content');
-      expect(entry).toHaveProperty('innerText', 'Web Development');
+      const entry = enUsDict.get('tech-content') as any;
+      expect(entry.innerText).toBe('Web Development');
     });
 
     it('should have correct English greeting', () => {
-      const entry = enUsDict.get('hi-presentation');
-      expect(entry).toHaveProperty('innerText', "Hello! I'm ");
+      const entry = enUsDict.get('hi-presentation') as any;
+      expect(entry.innerText).toBe("Hello! I'm ");
     });
 
     it('should have correct English experience heading', () => {
-      const entry = enUsDict.get('experience');
-      expect(entry).toHaveProperty('innerText', 'My experience');
+      const entry = enUsDict.get('experience') as any;
+      expect(entry.innerText).toBe('My experience');
     });
 
     it('should have correct mailto title in English', () => {
-      const entry = enUsDict.get('mailto');
-      expect(entry).toHaveProperty('title');
-      expect((entry as any).title).toContain('email');
+      const entry = enUsDict.get('mailto') as any;
+      expect(entry.title).toBeDefined();
+      expect(entry.title).toContain('email');
     });
 
     it('should have correct linkedin title in English', () => {
-      const entry = enUsDict.get('linkedin');
-      expect(entry).toHaveProperty('title');
-      expect((entry as any).title).toContain('LinkedIn');
+      const entry = enUsDict.get('linkedin') as any;
+      expect(entry.title).toBeDefined();
+      expect(entry.title).toContain('LinkedIn');
     });
 
     it('should have correct github title in English', () => {
-      const entry = enUsDict.get('github');
-      expect(entry).toHaveProperty('title');
-      expect((entry as any).title).toContain('Github');
+      const entry = enUsDict.get('github') as any;
+      expect(entry.title).toBeDefined();
+      expect(entry.title).toContain('Github');
     });
 
     it('should have toggle-language with Portuguese instructions', () => {
-      const entry = enUsDict.get('toggle-language');
-      expect(entry).toHaveProperty('title');
-      expect((entry as any).title).toContain('pt-BR');
+      const entry = enUsDict.get('toggle-language') as any;
+      expect(entry.title).toBeDefined();
+      expect(entry.title).toContain('pt-BR');
     });
   });
 

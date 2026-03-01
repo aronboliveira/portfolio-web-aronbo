@@ -3,7 +3,7 @@ import { syncAriaStates } from '../../lib/handlers/gHandlers';
 
 @Component({
   selector: 'app-generic-error',
-  templateUrl: './generic-error-component.component.html',
+  templateUrl: './generic-error.component.html',
   styleUrls: ['./generic-error.component.scss'],
   standalone: true,
   imports: [],

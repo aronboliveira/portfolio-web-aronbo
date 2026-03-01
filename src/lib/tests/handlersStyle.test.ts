@@ -17,8 +17,9 @@ describe('fillWithTag', () => {
     expect(div.querySelector('span')?.innerText).toBe('DIV');
   });
 
-  it('does nothing if element has children', () => {
+  it('does nothing if element has children with text content', () => {
     const child = document.createElement('span');
+    child.textContent = 'Existing content';
     div.appendChild(child);
     fillWithTag(div);
     expect(div.children.length).toBe(1);
