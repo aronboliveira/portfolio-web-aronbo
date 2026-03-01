@@ -41,7 +41,7 @@ describe('StackComponent', () => {
       component.stackName = 'React';
       fixture.detectChanges();
       expect(component.stackName).toBe('React');
-      
+
       component.stackName = 'Angular';
       fixture.detectChanges();
       expect(component.stackName).toBe('Angular');

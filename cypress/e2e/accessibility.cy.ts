@@ -38,7 +38,7 @@ describe('Accessibility', () => {
     });
 
     it('should have logical heading hierarchy', () => {
-      cy.get('h1, h2, h3, h4, h5, h6').then(($headings) => {
+      cy.get('h1, h2, h3, h4, h5, h6').then($headings => {
         expect($headings.length).to.be.greaterThan(0);
       });
     });
@@ -55,14 +55,15 @@ describe('Accessibility', () => {
     });
 
     it('should have meaningful alt descriptions', () => {
-      cy.get('.profile img')
-        .should('have.attr', 'alt')
-        .and('not.be.empty');
+      cy.get('.profile img').should('have.attr', 'alt').and('not.be.empty');
     });
 
     it('should have alt text on social icons', () => {
-      cy.get('#social-icons img, #social-icons svg').each(($el) => {
-        const hasAlt = $el.attr('alt') || $el.attr('aria-label') || $el.closest('a').attr('aria-label');
+      cy.get('#social-icons img, #social-icons svg').each($el => {
+        const hasAlt =
+          $el.attr('alt') ||
+          $el.attr('aria-label') ||
+          $el.closest('a').attr('aria-label');
         expect(hasAlt || $el.parents('[aria-label]').length > 0).to.be.true;
       });
     });
@@ -75,10 +76,12 @@ describe('Accessibility', () => {
     });
 
     it('should indicate external links', () => {
-      cy.get('a[target="_blank"]').each(($link) => {
-        const hasIndicator = $link.attr('rel')?.includes('noopener') ||
-                            $link.attr('aria-label')?.length > 0;
-        expect(hasIndicator).to.be.true;
+      cy.get('a[target="_blank"]').each($link => {
+        const ariaLabel = $link.attr('aria-label');
+        const hasIndicator =
+          $link.attr('rel')?.includes('noopener') ||
+          (ariaLabel && ariaLabel.length > 0);
+        expect(!!hasIndicator).to.be.true;
       });
     });
 
@@ -111,7 +114,7 @@ describe('Accessibility', () => {
       cy.get('#profiler-name')
         .should('be.visible')
         .invoke('css', 'color')
-        .then((color) => {
+        .then(color => {
           expect(color).to.not.equal('rgba(0, 0, 0, 0)');
         });
     });
@@ -120,7 +123,7 @@ describe('Accessibility', () => {
       cy.get('#experience')
         .should('be.visible')
         .invoke('css', 'color')
-        .then((color) => {
+        .then(color => {
           expect(color).to.not.equal('rgba(0, 0, 0, 0)');
         });
     });
@@ -174,13 +177,14 @@ describe('Accessibility', () => {
 
   describe('Form Elements', () => {
     it('should have labeled form controls if present', () => {
-      cy.get('input, select, textarea').then(($inputs) => {
+      cy.get('input, select, textarea').then($inputs => {
         if ($inputs.length > 0) {
           $inputs.each((i, el) => {
-            const hasLabel = el.getAttribute('aria-label') ||
-                            el.getAttribute('aria-labelledby') ||
-                            Cypress.$(el).prev('label').length > 0 ||
-                            Cypress.$(el).closest('label').length > 0;
+            const hasLabel =
+              el.getAttribute('aria-label') ||
+              el.getAttribute('aria-labelledby') ||
+              Cypress.$(el).prev('label').length > 0 ||
+              Cypress.$(el).closest('label').length > 0;
             expect(hasLabel || el.getAttribute('type') === 'hidden').to.be.true;
           });
         }
@@ -202,8 +206,9 @@ describe('Accessibility', () => {
   describe('Screen Reader Support', () => {
     it('should not rely solely on color to convey information', () => {
       // Icons should have text alternatives
-      cy.get('#social-icons a').each(($link) => {
-        const hasAccessibleName = $link.attr('aria-label') || $link.text().trim().length > 0;
+      cy.get('#social-icons a').each($link => {
+        const hasAccessibleName =
+          $link.attr('aria-label') || $link.text().trim().length > 0;
         expect(hasAccessibleName).to.be.true;
       });
     });
@@ -224,9 +229,11 @@ describe('Accessibility', () => {
   describe('Reduced Motion', () => {
     it('should respect user motion preferences', () => {
       // Test that animations can be disabled
-      cy.window().then((win) => {
+      cy.window().then(win => {
         // Check if CSS supports prefers-reduced-motion
-        const supportsReducedMotion = win.matchMedia('(prefers-reduced-motion: reduce)').media !== 'not all';
+        const supportsReducedMotion =
+          win.matchMedia('(prefers-reduced-motion: reduce)').media !==
+          'not all';
         expect(supportsReducedMotion).to.be.true;
       });
     });
@@ -237,7 +244,7 @@ describe('Accessibility', () => {
       cy.viewport(640, 400); // Simulates 200% zoom on 1280x800
       cy.visit('/');
       cy.waitForPageLoad();
-      
+
       cy.get('#home').should('be.visible');
       cy.get('#profiler-name').should('be.visible');
     });
@@ -246,8 +253,8 @@ describe('Accessibility', () => {
       cy.viewport(1280, 800);
       cy.visit('/');
       cy.waitForPageLoad();
-      
-      cy.window().then((win) => {
+
+      cy.window().then(win => {
         const docWidth = win.document.documentElement.scrollWidth;
         const viewportWidth = win.innerWidth;
         expect(docWidth).to.be.at.most(viewportWidth + 20); // Allow small margin

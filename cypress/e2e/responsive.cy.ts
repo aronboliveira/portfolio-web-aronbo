@@ -9,7 +9,7 @@ describe('Responsive Design', () => {
     { name: 'Desktop', width: 1280, height: 800 },
     { name: 'Tablet', width: 768, height: 1024 },
     { name: 'Mobile', width: 375, height: 667 },
-    { name: 'Mobile Landscape', width: 667, height: 375 }
+    { name: 'Mobile Landscape', width: 667, height: 375 },
   ];
 
   viewports.forEach(({ name, width, height }) => {
@@ -128,12 +128,12 @@ describe('Responsive Design', () => {
       cy.viewport(375, 667); // Portrait
       cy.visit('/');
       cy.waitForPageLoad();
-      
+
       cy.get('#home').should('be.visible');
-      
+
       cy.viewport(667, 375); // Landscape
       cy.wait(500);
-      
+
       cy.get('#home').should('be.visible');
     });
 
@@ -141,13 +141,13 @@ describe('Responsive Design', () => {
       cy.viewport(1280, 800);
       cy.visit('/');
       cy.waitForPageLoad();
-      
+
       cy.get('#description').should('be.visible');
-      
+
       // Simulate resize
       cy.viewport(768, 1024);
       cy.wait(300);
-      
+
       cy.get('#description').should('be.visible');
     });
   });
@@ -181,7 +181,7 @@ describe('Responsive Design', () => {
       cy.viewport(375, 667);
       cy.visit('/');
       cy.waitForPageLoad();
-      
+
       // Profile picture should be visible if exists
       cy.get('.profile').within(() => {
         cy.get('img').should('exist');
@@ -192,7 +192,7 @@ describe('Responsive Design', () => {
       cy.viewport(1280, 800);
       cy.visit('/');
       cy.waitForPageLoad();
-      
+
       cy.get('.profile img').should('exist');
     });
   });
@@ -202,12 +202,12 @@ describe('Responsive Design', () => {
       cy.viewport(375, 667);
       cy.visit('/');
       cy.waitForPageLoad();
-      
+
       cy.get('#profiler-name')
         .should('be.visible')
         .invoke('css', 'font-size')
-        .then((fontSize) => {
-          const size = parseFloat(fontSize as string);
+        .then(fontSize => {
+          const size = parseFloat(fontSize as unknown as string);
           expect(size).to.be.greaterThan(12); // Minimum readable size
         });
     });
@@ -216,18 +216,20 @@ describe('Responsive Design', () => {
       cy.viewport(1280, 800);
       cy.visit('/');
       cy.waitForPageLoad();
-      
+
       cy.get('#profiler-name')
         .invoke('css', 'font-size')
-        .then((desktopSize) => {
+        .then(desktopSize => {
           cy.viewport(375, 667);
           cy.wait(300);
-          
+
           cy.get('#profiler-name')
             .invoke('css', 'font-size')
-            .then((mobileSize) => {
+            .then(mobileSize => {
               // Font sizes may differ between viewports
-              expect(parseFloat(mobileSize as string)).to.be.greaterThan(0);
+              expect(
+                parseFloat(mobileSize as unknown as string),
+              ).to.be.greaterThan(0);
             });
         });
     });

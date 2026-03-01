@@ -1,7 +1,7 @@
-import { listError } from "./handlersErrors";
+import { listError } from './handlersErrors';
 
 export function syncAriaStates(
-  els: Array<Element> | NodeListOf<Element> = document.querySelectorAll("*")
+  els: Array<Element> | NodeListOf<Element> = document.querySelectorAll('*'),
 ): void {
   try {
     if (els instanceof NodeList) els = Array.from(els);
@@ -13,8 +13,8 @@ export function syncAriaStates(
         Array.from(els).every(el => el instanceof Element)
       )
     )
-      listError(els, "List of elements for synchronizing aria states", [
-        "Elements",
+      listError(els, 'List of elements for synchronizing aria states', [
+        'Elements',
       ]);
     els.forEach(el => {
       if (
@@ -24,15 +24,15 @@ export function syncAriaStates(
         return;
       if (el instanceof HTMLElement) {
         el.hidden && !el.focus
-          ? (el.ariaHidden = "true")
-          : (el.ariaHidden = "false");
-        el.addEventListener("click", () => {
+          ? (el.ariaHidden = 'true')
+          : (el.ariaHidden = 'false');
+        el.addEventListener('click', () => {
           el.hidden && !el.focus
-            ? (el.ariaHidden = "true")
-            : (el.ariaHidden = "false");
+            ? (el.ariaHidden = 'true')
+            : (el.ariaHidden = 'false');
         });
-        if (el.classList.contains("poCaller")) {
-          el.ariaHasPopup = "menu";
+        if (el.classList.contains('poCaller')) {
+          el.ariaHasPopup = 'menu';
         }
         if (
           el instanceof HTMLSelectElement ||
@@ -40,109 +40,109 @@ export function syncAriaStates(
           el instanceof HTMLTextAreaElement
         ) {
           if (el instanceof HTMLSelectElement) {
-            if (el.querySelectorAll("option").length > 0) {
-              el.querySelectorAll("option").forEach(option => {
+            if (el.querySelectorAll('option').length > 0) {
+              el.querySelectorAll('option').forEach(option => {
                 option.selected
-                  ? (option.ariaSelected = "true")
-                  : (option.ariaSelected = "false");
+                  ? (option.ariaSelected = 'true')
+                  : (option.ariaSelected = 'false');
               });
-              el.addEventListener("change", () => {
-                el.querySelectorAll("option").forEach(option => {
+              el.addEventListener('change', () => {
+                el.querySelectorAll('option').forEach(option => {
                   option.selected
-                    ? (option.ariaSelected = "true")
-                    : (option.ariaSelected = "false");
+                    ? (option.ariaSelected = 'true')
+                    : (option.ariaSelected = 'false');
                 });
               });
             }
-            el.addEventListener("click", () => {
-              if (el.ariaExpanded === "false") el.ariaExpanded = "true";
-              if (el.ariaExpanded === "true") el.ariaExpanded = "false";
+            el.addEventListener('click', () => {
+              if (el.ariaExpanded === 'false') el.ariaExpanded = 'true';
+              if (el.ariaExpanded === 'true') el.ariaExpanded = 'false';
             });
           }
           if (
             el instanceof HTMLInputElement ||
             el instanceof HTMLTextAreaElement
           ) {
-            if (el.placeholder && el.placeholder !== "")
+            if (el.placeholder && el.placeholder !== '')
               el.ariaPlaceholder = el.placeholder;
-            if (el.type !== "radio") {
+            if (el.type !== 'radio') {
               el.required
-                ? (el.ariaRequired = "true")
-                : (el.ariaRequired = "false");
+                ? (el.ariaRequired = 'true')
+                : (el.ariaRequired = 'false');
               !el.checkValidity()
-                ? (el.ariaInvalid = "true")
-                : (el.ariaInvalid = "false");
-              el.closest("form")?.addEventListener("submit", () => {
+                ? (el.ariaInvalid = 'true')
+                : (el.ariaInvalid = 'false');
+              el.closest('form')?.addEventListener('submit', () => {
                 !el.checkValidity()
-                  ? (el.ariaInvalid = "true")
-                  : (el.ariaInvalid = "false");
+                  ? (el.ariaInvalid = 'true')
+                  : (el.ariaInvalid = 'false');
               });
             }
             if (
               el instanceof HTMLTextAreaElement ||
               (el instanceof HTMLInputElement &&
-                (el.type === "text" ||
-                  el.type === "tel" ||
-                  el.type === "email" ||
-                  el.type === "number" ||
-                  el.type === "date" ||
-                  el.type === "time" ||
-                  el.type === "password" ||
-                  el.type === "search" ||
-                  el.type === "month" ||
-                  el.type === "week" ||
-                  el.type === "range"))
+                (el.type === 'text' ||
+                  el.type === 'tel' ||
+                  el.type === 'email' ||
+                  el.type === 'number' ||
+                  el.type === 'date' ||
+                  el.type === 'time' ||
+                  el.type === 'password' ||
+                  el.type === 'search' ||
+                  el.type === 'month' ||
+                  el.type === 'week' ||
+                  el.type === 'range'))
             ) {
               if (
                 el instanceof HTMLInputElement &&
                 el.list &&
-                el.list.id !== ""
+                el.list.id !== ''
               )
-                el.ariaAutoComplete = "list";
+                el.ariaAutoComplete = 'list';
               if (
                 el instanceof HTMLInputElement &&
-                (el.type === "number" ||
-                  el.type === "date" ||
-                  el.type === "time")
+                (el.type === 'number' ||
+                  el.type === 'date' ||
+                  el.type === 'time')
               ) {
                 el.ariaValueMax = (el as HTMLInputElement).max;
                 el.ariaValueMin = (el as HTMLInputElement).min;
               }
-              if (el instanceof HTMLInputElement && el.type === "range") {
-                el.addEventListener("change", () => {
+              if (el instanceof HTMLInputElement && el.type === 'range') {
+                el.addEventListener('change', () => {
                   el.ariaValueNow = el.value;
                   el.ariaValueText = el.value;
                 });
               }
             } else if (
               el instanceof HTMLInputElement &&
-              (el.type === "radio" || el.type === "checkbox")
+              (el.type === 'radio' || el.type === 'checkbox')
             ) {
               el.checked
-                ? (el.ariaChecked = "true")
-                : (el.ariaChecked = "false");
+                ? (el.ariaChecked = 'true')
+                : (el.ariaChecked = 'false');
               el.disabled
-                ? (el.ariaDisabled = "true")
-                : (el.ariaDisabled = "false");
-              el.addEventListener("change", () => {
+                ? (el.ariaDisabled = 'true')
+                : (el.ariaDisabled = 'false');
+              el.addEventListener('change', () => {
                 el.checked
-                  ? (el.ariaChecked = "true")
-                  : (el.ariaChecked = "false");
+                  ? (el.ariaChecked = 'true')
+                  : (el.ariaChecked = 'false');
                 el.disabled
-                  ? (el.ariaDisabled = "true")
-                  : (el.ariaDisabled = "false");
+                  ? (el.ariaDisabled = 'true')
+                  : (el.ariaDisabled = 'false');
               });
             } else if (
               el instanceof HTMLInputElement &&
-              (el.type === "button" ||
-                el.type === "submit" ||
-                el.type === "reset")
+              (el.type === 'button' ||
+                el.type === 'submit' ||
+                el.type === 'reset')
             ) {
-              el.addEventListener("mousedown", click => {
-                if (click.button === 0) el.ariaPressed = "true";
+              el.addEventListener('mousedown', click => {
+                if (click.button === 0) el.ariaPressed = 'true';
               });
-              el.addEventListener("mouseup", release => {
-                if (release.button === 0) el.ariaPressed = "false";
+              el.addEventListener('mouseup', release => {
+                if (release.button === 0) el.ariaPressed = 'false';
               });
             }
           }
@@ -153,17 +153,17 @@ export function syncAriaStates(
           }
         }
         if (el instanceof HTMLButtonElement) {
-          el.addEventListener("mousedown", click => {
-            if (click.button === 0) el.ariaPressed = "true";
+          el.addEventListener('mousedown', click => {
+            if (click.button === 0) el.ariaPressed = 'true';
           });
-          el.addEventListener("mouseup", release => {
-            if (release.button === 0) el.ariaPressed = "false";
+          el.addEventListener('mouseup', release => {
+            if (release.button === 0) el.ariaPressed = 'false';
           });
           if (el.textContent?.match(/consultar/gi)) {
-            el.ariaHasPopup = "dialog";
+            el.ariaHasPopup = 'dialog';
           }
         }
-        if (el instanceof HTMLDialogElement) el.ariaModal = "true";
+        if (el instanceof HTMLDialogElement) el.ariaModal = 'true';
       }
     });
   } catch (e) {

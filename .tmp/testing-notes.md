@@ -3,6 +3,7 @@
 ## Project Analysis - Portfolio Web AronBO (Angular)
 
 ### Components to Test
+
 1. **AppComponent** - Root component with router outlet
 2. **HomeComponent** - Main container with font styling logic
 3. **HomeMainBodyComponent** - Main body wrapper
@@ -18,12 +19,14 @@
 9. **Error Components** - GenericError, IconError, RetryError
 
 ### Library Handlers to Test
+
 1. **gHandlers.ts** - Aria states synchronization
 2. **handlersErrors.ts** - Error factory functions
 3. **handlersMath.ts** - parseFinite utility
 4. **handlersStyle.ts** - DOM manipulation, dictionaries
 
 ### UI/UX Test Scenarios
+
 1. Language toggle switches content between PT-BR and EN-US
 2. Navigation links are accessible and properly titled
 3. Timeline sections collapse/expand correctly
@@ -34,6 +37,7 @@
 8. Social links (LinkedIn, GitHub, Email) work correctly
 
 ### ATS Optimization Review
+
 - Ensure semantic HTML structure
 - Proper heading hierarchy (h1, h2, etc.)
 - Meaningful link text
@@ -41,11 +45,13 @@
 - Schema markup considerations
 
 ## Test Coverage Goals
+
 - Unit tests: 80%+ coverage on handlers
 - Component tests: All components with key interactions
 - E2E tests: Critical user flows (language switch, navigation, accordions)
 
 ## Dependencies to Install
+
 - @types/jest
 - jest
 - jest-preset-angular
@@ -55,6 +61,7 @@
 - @testing-library/cypress
 
 ## Progress Tracking
+
 - [x] Jest setup
 - [x] Cypress setup
 - [x] Unit tests for handlers
@@ -84,6 +91,7 @@
 #### Technical Keywords to Emphasize (current ✓ / should add ➕)
 
 **Frontend:**
+
 - ✓ React.js, Next.js, Angular
 - ✓ HTML, CSS (implied)
 - ✓ TypeScript (in courses)
@@ -92,6 +100,7 @@
 - ➕ UI/UX
 
 **Backend:**
+
 - ✓ Laravel, Flask
 - ✓ RESTful APIs
 - ➕ Node.js (if applicable)
@@ -99,6 +108,7 @@
 - ➕ API Development
 
 **DevOps/Tools:**
+
 - ✓ Git, GitHub
 - ✓ Debian, Windows
 - ➕ CI/CD (if applicable)
@@ -106,6 +116,7 @@
 - ➕ AWS/Cloud (if applicable)
 
 **Soft Skills (ATS-friendly terms):**
+
 - ✓ "Comunicação harmoniosa" → Communication
 - ✓ "Trabalho cooperativo" → Team Collaboration
 - ✓ "Eficiência e inovação" → Problem Solving
@@ -116,6 +127,7 @@
 
 1. **Add "Skills" Section**:
    Consider adding a dedicated skills section with categorized technical skills:
+
    ```
    Languages: JavaScript, TypeScript, Python, Java, PHP
    Frameworks: Next.js, Angular, React, Laravel, Flask
@@ -125,9 +137,9 @@
 2. **Action Verbs for ATS**:
    Current descriptions use good action verbs:
    - ✓ "Desenvolvimento" / "Development"
-   - ✓ "Manutenção" / "Maintenance"  
+   - ✓ "Manutenção" / "Maintenance"
    - ✓ "Otimização" / "Optimization"
-   
+
    Consider adding:
    - ➕ Implemented, Built, Designed, Led, Collaborated, Delivered
 
@@ -160,15 +172,17 @@
 **Current Description (EN-US) - Recommended Updates:**
 
 Original:
+
 > "I am a Software Developer focused on Fullstack Web Development"
 
 Suggested improvement:
+
 > "Experienced Software Developer with 3+ years specializing in Fullstack Web Development. Proficient in modern frameworks including Next.js, Angular, React, and Laravel."
 
 **Add Explicit Keyword List at Bottom:**
 
 ```html
-<meta name="keywords" content="Software Developer, Web Developer, Fullstack, JavaScript, TypeScript, React, Angular, Next.js, Laravel, Python, REST API">
+<meta name="keywords" content="Software Developer, Web Developer, Fullstack, JavaScript, TypeScript, React, Angular, Next.js, Laravel, Python, REST API" />
 ```
 
 ### Accessibility for ATS & Screen Readers ♿
@@ -180,18 +194,19 @@ Suggested improvement:
 
 ### Summary of Priority Actions
 
-| Priority | Action | Impact |
-|----------|--------|--------|
-| HIGH | Add "JavaScript" keyword explicitly | ATS Match |
-| HIGH | Add quantifiable metrics | Recruiter Appeal |
-| MEDIUM | Create dedicated Skills section | ATS Structure |
-| MEDIUM | Add Schema.org markup | SEO/ATS Parsing |
-| LOW | Enhance action verbs | Better Readability |
-| LOW | Add meta keywords | SEO Backup |
+| Priority | Action                              | Impact             |
+| -------- | ----------------------------------- | ------------------ |
+| HIGH     | Add "JavaScript" keyword explicitly | ATS Match          |
+| HIGH     | Add quantifiable metrics            | Recruiter Appeal   |
+| MEDIUM   | Create dedicated Skills section     | ATS Structure      |
+| MEDIUM   | Add Schema.org markup               | SEO/ATS Parsing    |
+| LOW      | Enhance action verbs                | Better Readability |
+| LOW      | Add meta keywords                   | SEO Backup         |
 
 ### Sample Enhanced Description
 
 **Portuguese (PT-BR):**
+
 ```
 Desenvolvedor de Software Fullstack com 3+ anos de experiência em desenvolvimento web.
 Especialista em JavaScript, TypeScript, React, Angular, Next.js e Laravel.
@@ -200,6 +215,7 @@ Graduando em Análise e Desenvolvimento de Sistemas.
 ```
 
 **English (EN-US):**
+
 ```
 Experienced Fullstack Software Developer with 3+ years building web applications.
 Expert in JavaScript, TypeScript, React, Angular, Next.js, and Laravel.

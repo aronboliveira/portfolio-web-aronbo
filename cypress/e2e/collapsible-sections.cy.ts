@@ -22,10 +22,10 @@ describe('Collapsible Sections', () => {
 
     it('should toggle description visibility', () => {
       cy.get('#description').should('be.visible');
-      
+
       cy.get('#present-arrow-span').click();
       cy.wait(500);
-      
+
       // Check if description is hidden or has reduced height
       cy.get('#description').should('exist');
     });
@@ -53,19 +53,25 @@ describe('Collapsible Sections', () => {
 
     it('should toggle experience timeline', () => {
       cy.get('#timeline').should('be.visible');
-      
+
       cy.get('#experience-heading-container').click();
       cy.wait(500);
-      
+
       // Verify toggle occurred
       cy.get('#exp-arrow').should('exist');
     });
 
     it('should toggle arrow rotation on collapse', () => {
-      cy.get('#exp-arrow-span').click();
-      cy.wait(300);
-      
-      cy.get('#exp-arrow').should('have.class', 'toggled').or('not.have.class', 'toggled');
+      cy.get('#exp-arrow').then($el => {
+        const hasToggled = $el.hasClass('toggled');
+        cy.get('#exp-arrow-span').click();
+        cy.wait(300);
+        if (hasToggled) {
+          cy.get('#exp-arrow').should('not.have.class', 'toggled');
+        } else {
+          cy.get('#exp-arrow').should('have.class', 'toggled');
+        }
+      });
     });
   });
 
@@ -86,7 +92,7 @@ describe('Collapsible Sections', () => {
     it('should expand courses section on click', () => {
       cy.get('#courses-arrow-span').click();
       cy.wait(500);
-      
+
       cy.get('#timeline-courses').should('exist');
     });
 
@@ -113,14 +119,14 @@ describe('Collapsible Sections', () => {
     it('should expand projects list on click', () => {
       cy.get('#projects-arrow-span').click();
       cy.wait(500);
-      
+
       cy.get('#projects-list').should('exist');
     });
 
     it('should show project cards when expanded', () => {
       cy.get('#projects-arrow-span').click();
       cy.wait(500);
-      
+
       cy.get('.project').should('exist');
     });
   });
@@ -128,7 +134,7 @@ describe('Collapsible Sections', () => {
   describe('Animation Behavior', () => {
     it('should animate collapse smoothly', () => {
       cy.get('#experience-heading-container').click();
-      
+
       // Should have transition during animation
       cy.wait(300);
       cy.get('#timeline').should('exist');
@@ -138,11 +144,11 @@ describe('Collapsible Sections', () => {
       // First collapse
       cy.get('#experience-heading-container').click();
       cy.wait(500);
-      
+
       // Then expand
       cy.get('#experience-heading-container').click();
       cy.wait(500);
-      
+
       cy.get('#timeline').should('exist');
     });
   });
@@ -152,11 +158,11 @@ describe('Collapsible Sections', () => {
       // Toggle experience
       cy.get('#experience-heading-container').click();
       cy.wait(300);
-      
+
       // Toggle courses
       cy.get('#courses-arrow-span').click();
       cy.wait(300);
-      
+
       // Both should have toggled states
       cy.get('#exp-arrow').should('exist');
       cy.get('#courses-arrow').should('exist');
@@ -165,7 +171,7 @@ describe('Collapsible Sections', () => {
     it('should maintain section states independently', () => {
       cy.get('#courses-arrow-span').click();
       cy.wait(500);
-      
+
       // Experience should remain unchanged
       cy.get('#timeline').should('exist');
     });
@@ -187,11 +193,13 @@ describe('Collapsible Sections', () => {
 
     it('should update titles based on state', () => {
       const initialTitle = Cypress.$('#courses-arrow-span').attr('title');
-      
+
       cy.get('#courses-arrow-span').click();
       cy.wait(500);
-      
-      cy.get('#courses-arrow-span').should('have.attr', 'title').and('not.equal', initialTitle);
+
+      cy.get('#courses-arrow-span')
+        .should('have.attr', 'title')
+        .and('not.equal', initialTitle);
     });
   });
 
@@ -200,7 +208,7 @@ describe('Collapsible Sections', () => {
       cy.viewport(768, 1024);
       cy.visit('/');
       cy.waitForPageLoad();
-      
+
       cy.get('#experience-heading-container').should('be.visible').click();
       cy.wait(300);
     });
@@ -209,7 +217,7 @@ describe('Collapsible Sections', () => {
       cy.viewport(375, 667);
       cy.visit('/');
       cy.waitForPageLoad();
-      
+
       cy.get('#courses-arrow-span').should('be.visible').click();
       cy.wait(300);
     });

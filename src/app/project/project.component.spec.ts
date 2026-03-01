@@ -93,7 +93,9 @@ describe('ProjectComponent', () => {
 
     it('should render project link with correct href', () => {
       const link = fixture.debugElement.query(By.css('a'));
-      expect(link.nativeElement.getAttribute('href')).toBe('https://github.com/test/project');
+      expect(link.nativeElement.getAttribute('href')).toBe(
+        'https://github.com/test/project',
+      );
     });
 
     it('should render project link with target="_blank"', () => {
@@ -108,11 +110,15 @@ describe('ProjectComponent', () => {
 
     it('should render project description', () => {
       const desc = fixture.debugElement.query(By.css('.project-desc'));
-      expect(desc.nativeElement.textContent).toContain('A test project description');
+      expect(desc.nativeElement.textContent).toContain(
+        'A test project description',
+      );
     });
 
     it('should render stack components for each stack', () => {
-      const stacks = fixture.debugElement.queryAll(By.directive(StackComponent));
+      const stacks = fixture.debugElement.queryAll(
+        By.directive(StackComponent),
+      );
       expect(stacks.length).toBe(2);
     });
   });
@@ -143,7 +149,9 @@ describe('ProjectComponent', () => {
 
     it('should have title attribute for hover text', () => {
       const link = fixture.debugElement.query(By.css('a'));
-      expect(link.nativeElement.getAttribute('title')).toBe('Click to learn more about this project');
+      expect(link.nativeElement.getAttribute('title')).toBe(
+        'Click to learn more about this project',
+      );
     });
 
     it('should have proper link structure', () => {
@@ -172,7 +180,7 @@ describe('ProjectComponent', () => {
       },
     ];
 
-    projectExamples.forEach((project) => {
+    projectExamples.forEach(project => {
       it(`should render ${project.title} correctly`, () => {
         component.title = project.title;
         component.href = project.href;
@@ -181,7 +189,7 @@ describe('ProjectComponent', () => {
 
         const link = fixture.debugElement.query(By.css('a'));
         expect(link.nativeElement.getAttribute('href')).toBe(project.href);
-        
+
         const title = fixture.debugElement.query(By.css('strong'));
         expect(title.nativeElement.textContent).toContain(project.title);
       });

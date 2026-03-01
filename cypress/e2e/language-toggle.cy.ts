@@ -30,7 +30,10 @@ describe('Language Toggle', () => {
     });
 
     it('should display Portuguese professional description', () => {
-      cy.get('#description').should('contain.text', 'Desenvolvedor de Software');
+      cy.get('#description').should(
+        'contain.text',
+        'Desenvolvedor de Software',
+      );
     });
 
     it('should display Portuguese skills section', () => {
@@ -56,7 +59,10 @@ describe('Language Toggle', () => {
     });
 
     it('should display English skills', () => {
-      cy.get('#description').should('contain.text', 'Fullstack Web Development');
+      cy.get('#description').should(
+        'contain.text',
+        'Fullstack Web Development',
+      );
     });
 
     it('should update toggle button state', () => {
@@ -74,7 +80,7 @@ describe('Language Toggle', () => {
     it('should return to Portuguese after double toggle', () => {
       cy.toggleLanguage(); // To English
       cy.toggleLanguage(); // Back to Portuguese
-      
+
       cy.get('#hi-presentation').should('contain.text', 'Olá! Eu sou o');
       cy.get('#experience').should('contain.text', 'Minha experiência');
     });
@@ -82,7 +88,7 @@ describe('Language Toggle', () => {
     it('should restore Portuguese toggle state', () => {
       cy.toggleLanguage();
       cy.toggleLanguage();
-      
+
       cy.get('#toggle-language').should('not.have.class', 'checked');
     });
   });
@@ -96,7 +102,7 @@ describe('Language Toggle', () => {
 
     it('should switch experience entries to English', () => {
       cy.toggleLanguage();
-      
+
       cy.get('#timeline').within(() => {
         cy.contains('Present').should('exist');
       });
@@ -104,7 +110,7 @@ describe('Language Toggle', () => {
 
     it('should display English job descriptions', () => {
       cy.toggleLanguage();
-      
+
       cy.get('#timeline').within(() => {
         cy.contains('Fullstack Development').should('exist');
       });
@@ -114,14 +120,14 @@ describe('Language Toggle', () => {
   describe('Courses Section Language Switch', () => {
     it('should switch courses heading to English', () => {
       cy.toggleLanguage();
-      
+
       cy.get('#courses').should('contain.text', 'Complete courses');
     });
 
     it('should switch courses heading back to Portuguese', () => {
       cy.toggleLanguage();
       cy.toggleLanguage();
-      
+
       cy.get('#courses').should('contain.text', 'Cursos realizados');
     });
   });
@@ -129,29 +135,31 @@ describe('Language Toggle', () => {
   describe('Projects Section Language Switch', () => {
     it('should switch projects heading to English', () => {
       cy.toggleLanguage();
-      
-      cy.get('#working-projects').should('contain.text', 'Projects under Construction');
+
+      cy.get('#working-projects').should(
+        'contain.text',
+        'Projects under Construction',
+      );
     });
 
     it('should switch back to Portuguese', () => {
       cy.toggleLanguage();
       cy.toggleLanguage();
-      
-      cy.get('#working-projects').should('contain.text', 'Projetos em Construção');
+
+      cy.get('#working-projects').should(
+        'contain.text',
+        'Projetos em Construção',
+      );
     });
   });
 
   describe('Tooltip Language Updates', () => {
     it('should update email tooltip on language change', () => {
-      cy.get('#mailto')
-        .should('have.attr', 'title')
-        .and('include', 'e-mail');
-      
+      cy.get('#mailto').should('have.attr', 'title').and('include', 'e-mail');
+
       cy.toggleLanguage();
-      
-      cy.get('#mailto')
-        .should('have.attr', 'title')
-        .and('include', 'email');
+
+      cy.get('#mailto').should('have.attr', 'title').and('include', 'email');
     });
 
     it('should update LinkedIn tooltip on language change', () => {
@@ -161,9 +169,7 @@ describe('Language Toggle', () => {
     });
 
     it('should update GitHub tooltip on language change', () => {
-      cy.get('#github')
-        .should('have.attr', 'title')
-        .and('include', 'Github');
+      cy.get('#github').should('have.attr', 'title').and('include', 'Github');
     });
   });
 
@@ -172,9 +178,9 @@ describe('Language Toggle', () => {
       cy.get('#exp-arrow-span')
         .should('have.attr', 'title')
         .and('include', 'Esconder');
-      
+
       cy.toggleLanguage();
-      
+
       cy.get('#exp-arrow-span')
         .should('have.attr', 'title')
         .and('include', 'Hide');
@@ -185,13 +191,13 @@ describe('Language Toggle', () => {
     it('should maintain language state during scroll', () => {
       cy.toggleLanguage();
       cy.scrollTo('bottom');
-      
+
       cy.get('#experience').should('contain.text', 'My experience');
     });
 
     it('should apply language consistently to all sections', () => {
       cy.toggleLanguage();
-      
+
       // Check multiple sections are in English
       cy.get('#hi-presentation').should('contain.text', "Hello! I'm");
       cy.get('#experience').should('contain.text', 'My experience');

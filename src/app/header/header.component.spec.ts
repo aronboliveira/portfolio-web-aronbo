@@ -60,7 +60,9 @@ describe('HeaderComponent', () => {
     });
 
     it('should render toggle container', () => {
-      const toggleContainer = fixture.debugElement.query(By.css('.toggle-container'));
+      const toggleContainer = fixture.debugElement.query(
+        By.css('.toggle-container'),
+      );
       expect(toggleContainer).toBeTruthy();
     });
 
@@ -84,7 +86,9 @@ describe('HeaderComponent', () => {
   describe('Toggle input interaction', () => {
     it('should have aria-label for accessibility', () => {
       const toggleInput = fixture.debugElement.query(By.css('.toggle-input'));
-      expect(toggleInput.nativeElement.getAttribute('aria-label')).toBe('Toggle Button');
+      expect(toggleInput.nativeElement.getAttribute('aria-label')).toBe(
+        'Toggle Button',
+      );
     });
 
     it('should be a checkbox type', () => {
@@ -94,21 +98,25 @@ describe('HeaderComponent', () => {
 
     it('should toggle class when clicked', () => {
       const toggleInput = fixture.debugElement.query(By.css('.toggle-input'));
-      
-      expect(toggleInput.nativeElement.classList.contains('checked')).toBe(false);
-      
+
+      expect(toggleInput.nativeElement.classList.contains('checked')).toBe(
+        false,
+      );
+
       toggleInput.nativeElement.click();
       fixture.detectChanges();
-      
+
       expect(component.isChecked).toBe(true);
     });
 
     it('should add checked class when isChecked is true', () => {
       component.isChecked = true;
       fixture.detectChanges();
-      
+
       const toggleInput = fixture.debugElement.query(By.css('.toggle-input'));
-      expect(toggleInput.nativeElement.classList.contains('checked')).toBe(true);
+      expect(toggleInput.nativeElement.classList.contains('checked')).toBe(
+        true,
+      );
     });
   });
 
@@ -124,7 +132,9 @@ describe('HeaderComponent', () => {
 
   describe('Accessibility', () => {
     it('should have proper form structure for toggle', () => {
-      const input = fixture.debugElement.query(By.css('input[type="checkbox"]'));
+      const input = fixture.debugElement.query(
+        By.css('input[type="checkbox"]'),
+      );
       expect(input).toBeTruthy();
     });
 

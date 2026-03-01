@@ -9,7 +9,7 @@ declare const global: typeof globalThis;
 // Mock window.matchMedia
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
-  value: jest.fn().mockImplementation((query) => ({
+  value: jest.fn().mockImplementation(query => ({
     matches: false,
     media: query,
     onchange: null,
@@ -43,7 +43,7 @@ window.scrollTo = jest.fn();
 
 // Mock getComputedStyle for font-related tests
 const originalGetComputedStyle = window.getComputedStyle;
-window.getComputedStyle = jest.fn((element) => {
+window.getComputedStyle = jest.fn(element => {
   const style = originalGetComputedStyle(element);
   return {
     ...style,
@@ -64,7 +64,7 @@ if (typeof global.Response === 'undefined') {
     statusText: string;
     headers: Headers;
     body: any;
-    
+
     constructor(body?: BodyInit | null, init?: ResponseInit) {
       this.ok = !init?.status || (init.status >= 200 && init.status < 300);
       this.status = init?.status || 200;
@@ -72,11 +72,11 @@ if (typeof global.Response === 'undefined') {
       this.headers = new Headers(init?.headers);
       this.body = body;
     }
-    
+
     json() {
       return Promise.resolve(JSON.parse(this.body || '{}'));
     }
-    
+
     text() {
       return Promise.resolve(this.body?.toString() || '');
     }

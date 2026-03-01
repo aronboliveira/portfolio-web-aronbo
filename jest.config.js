@@ -1,29 +1,29 @@
 /** @type {import('jest').Config} */
 module.exports = {
-  preset: 'jest-preset-angular',
-  setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
-  testEnvironment: 'jsdom',
+  preset: "jest-preset-angular",
+  setupFilesAfterEnv: ["<rootDir>/setup-jest.ts"],
+  testEnvironment: "jsdom",
   testPathIgnorePatterns: [
-    '<rootDir>/node_modules/',
-    '<rootDir>/dist/',
-    '<rootDir>/cypress/',
+    "<rootDir>/node_modules/",
+    "<rootDir>/dist/",
+    "<rootDir>/cypress/",
   ],
   moduleNameMapper: {
-    '^src/(.*)$': '<rootDir>/src/$1',
-    '\\.(css|scss|sass)$': 'identity-obj-proxy',
+    "^src/(.*)$": "<rootDir>/src/$1",
+    "\\.(css|scss|sass)$": "identity-obj-proxy",
   },
   collectCoverageFrom: [
-    'src/**/*.ts',
-    '!src/**/*.spec.ts',
-    '!src/**/*.d.ts',
-    '!src/main.ts',
-    '!src/main.server.ts',
-    '!src/**/*.module.ts',
-    '!src/**/*.routes.ts',
-    '!src/**/app.config*.ts',
+    "src/**/*.ts",
+    "!src/**/*.spec.ts",
+    "!src/**/*.d.ts",
+    "!src/main.ts",
+    "!src/main.server.ts",
+    "!src/**/*.module.ts",
+    "!src/**/*.routes.ts",
+    "!src/**/app.config*.ts",
   ],
-  coverageDirectory: '<rootDir>/coverage',
-  coverageReporters: ['html', 'text', 'lcov'],
+  coverageDirectory: "<rootDir>/coverage",
+  coverageReporters: ["html", "text", "lcov"],
   // Coverage thresholds set to 50% due to main.component.ts containing complex
   // DOM manipulation, setInterval animations, and resize handlers that are
   // difficult to unit test without extensive mocking. Consider increasing
@@ -37,16 +37,16 @@ module.exports = {
     },
   },
   transform: {
-    '^.+\\.(ts|mjs|js|html)$': [
-      'jest-preset-angular',
+    "^.+\\.(ts|mjs|js|html)$": [
+      "jest-preset-angular",
       {
-        tsconfig: '<rootDir>/tsconfig.spec.json',
-        stringifyContentPathRegex: '\\.(html|svg)$',
+        tsconfig: "<rootDir>/tsconfig.spec.json",
+        stringifyContentPathRegex: "\\.(html|svg)$",
       },
     ],
   },
-  transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
-  moduleFileExtensions: ['ts', 'html', 'js', 'json', 'mjs'],
-  testMatch: ['**/*.spec.ts', '**/*.test.ts'],
+  transformIgnorePatterns: ["node_modules/(?!.*\\.mjs$)"],
+  moduleFileExtensions: ["ts", "html", "js", "json", "mjs"],
+  testMatch: ["**/*.spec.ts", "**/*.test.ts"],
   verbose: true,
 };

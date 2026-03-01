@@ -89,7 +89,10 @@ describe('handlersErrors', () => {
     });
 
     it('should list accepted types in error message', () => {
-      const result = htmlElementNotFound(null, 'context', ['HTMLDivElement', 'HTMLSpanElement']);
+      const result = htmlElementNotFound(null, 'context', [
+        'HTMLDivElement',
+        'HTMLSpanElement',
+      ]);
       expect(result.message).toContain('HTMLDivElement');
       expect(result.message).toContain('HTMLSpanElement');
     });
@@ -103,8 +106,13 @@ describe('handlersErrors', () => {
     });
 
     it('should handle SVG elements', () => {
-      const svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      const result = elementNotFound(svgElement, 'svg validation', ['SVGElement']);
+      const svgElement = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'svg',
+      );
+      const result = elementNotFound(svgElement, 'svg validation', [
+        'SVGElement',
+      ]);
       expect(result.message).toContain('svg');
     });
 
@@ -263,7 +271,10 @@ describe('handlersErrors', () => {
     });
 
     it('should include accepted types', () => {
-      const result = argsError(['HTMLElement', 'SVGElement'], document.createElement('div'));
+      const result = argsError(
+        ['HTMLElement', 'SVGElement'],
+        document.createElement('div'),
+      );
       expect(result.message).toContain('HTMLElement');
       expect(result.message).toContain('SVGElement');
     });
@@ -310,11 +321,13 @@ describe('handlersErrors', () => {
       const parent = document.createElement('div');
       const child = document.createElement('span');
       parent.appendChild(child);
-      
+
       markWithCommentary(child, 'test context');
-      
+
       expect(parent.firstChild).toBeInstanceOf(Comment);
-      expect((parent.firstChild as Comment).textContent).toContain('test context');
+      expect((parent.firstChild as Comment).textContent).toContain(
+        'test context',
+      );
     });
 
     it('should handle element without parent gracefully', () => {
@@ -327,17 +340,21 @@ describe('handlersErrors', () => {
     });
 
     it('should handle undefined element gracefully', () => {
-      expect(() => markWithCommentary(undefined, 'undefined test')).not.toThrow();
+      expect(() =>
+        markWithCommentary(undefined, 'undefined test'),
+      ).not.toThrow();
     });
 
     it('should include "validation error" in comment', () => {
       const parent = document.createElement('div');
       const child = document.createElement('span');
       parent.appendChild(child);
-      
+
       markWithCommentary(child, 'my context');
-      
-      expect((parent.firstChild as Comment).textContent).toContain('validation error');
+
+      expect((parent.firstChild as Comment).textContent).toContain(
+        'validation error',
+      );
     });
   });
 });

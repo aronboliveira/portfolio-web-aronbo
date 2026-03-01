@@ -21,7 +21,7 @@ describe('Portfolio Homepage', () => {
     });
 
     it('should not have any console errors during load', () => {
-      cy.window().then((win) => {
+      cy.window().then(win => {
         cy.spy(win.console, 'error').as('consoleError');
       });
       cy.get('@consoleError').should('not.have.been.called');

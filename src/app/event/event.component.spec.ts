@@ -101,7 +101,9 @@ describe('EventComponent', () => {
 
     it('should render anchor with correct href', () => {
       const anchorEl = fixture.debugElement.query(By.css('.event-anchor'));
-      expect(anchorEl.nativeElement.getAttribute('href')).toBe('https://example.com');
+      expect(anchorEl.nativeElement.getAttribute('href')).toBe(
+        'https://example.com',
+      );
     });
 
     it('should render anchor with target="_blank"', () => {
@@ -115,24 +117,27 @@ describe('EventComponent', () => {
       {
         title: 'Nova Prestech',
         date: '12/2024 — Presente',
-        description: '<strong>Desenvolvimento Fullstack</strong> baseado em <em>Laravel, Flask e React.js</em>',
+        description:
+          '<strong>Desenvolvimento Fullstack</strong> baseado em <em>Laravel, Flask e React.js</em>',
         href: 'https://prestech.com.br/site/',
       },
       {
         title: 'Projeto de Extensão PROSSaúde — UFRJ',
         date: '08/2023 — Presente',
-        description: '<strong>Desenvolvimento fullstack</strong> e manutenção de <b>CRUDs</b>',
+        description:
+          '<strong>Desenvolvimento fullstack</strong> e manutenção de <b>CRUDs</b>',
         href: 'https://prossaude-client.netlify.app',
       },
       {
         title: 'Tia da Praia da Bica — Cardápio Digital',
         date: '09/2025',
-        description: 'Atuação no <em>Desenvolvimento Frontend</em>com <b>Next.js</b>',
+        description:
+          'Atuação no <em>Desenvolvimento Frontend</em>com <b>Next.js</b>',
         href: 'https://drinks-tia-pdb.netlify.app/',
       },
     ];
 
-    experiences.forEach((exp) => {
+    experiences.forEach(exp => {
       describe(`Experience: ${exp.title}`, () => {
         beforeEach(() => {
           component.title = exp.title;

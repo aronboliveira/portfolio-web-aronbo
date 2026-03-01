@@ -14,9 +14,9 @@ describe('handlersStyle', () => {
     it('should append span with tag name when element is empty', () => {
       const div = document.createElement('div');
       document.body.appendChild(div);
-      
+
       fillWithTag(div);
-      
+
       expect(div.querySelector('span')).toBeTruthy();
       // The function sets innerText, which in JSDOM may not reflect to textContent immediately
       expect(div.querySelector('span')?.innerText).toBe('DIV');
@@ -27,9 +27,9 @@ describe('handlersStyle', () => {
       const child = document.createElement('p');
       child.textContent = 'existing content';
       div.appendChild(child);
-      
+
       fillWithTag(div);
-      
+
       const spans = div.querySelectorAll('span');
       expect(spans.length).toBe(0);
     });
@@ -37,9 +37,9 @@ describe('handlersStyle', () => {
     it('should not append span when element has text content', () => {
       const div = document.createElement('div');
       div.textContent = 'Some text';
-      
+
       fillWithTag(div);
-      
+
       // The div already has text content
       expect(div.textContent).toBe('Some text');
     });
@@ -47,9 +47,9 @@ describe('handlersStyle', () => {
     it('should handle multiple elements', () => {
       const div1 = document.createElement('div');
       const div2 = document.createElement('section');
-      
+
       fillWithTag(div1, div2);
-      
+
       // The function sets innerText, not textContent
       expect(div1.querySelector('span')?.innerText).toBe('DIV');
       expect(div2.querySelector('span')?.innerText).toBe('SECTION');
@@ -65,7 +65,9 @@ describe('handlersStyle', () => {
 
     it('should handle mixed valid and invalid elements', () => {
       const div = document.createElement('div');
-      expect(() => fillWithTag(div, null as any, undefined as any)).not.toThrow();
+      expect(() =>
+        fillWithTag(div, null as any, undefined as any),
+      ).not.toThrow();
       // The function sets innerText, not textContent
       expect(div.querySelector('span')?.innerText).toBe('DIV');
     });
@@ -96,7 +98,7 @@ describe('handlersStyle', () => {
         'working-projects',
       ];
 
-      expectedKeys.forEach((key) => {
+      expectedKeys.forEach(key => {
         expect(ptBrDict.has(key)).toBe(true);
       });
     });
@@ -156,7 +158,7 @@ describe('handlersStyle', () => {
         'working-projects',
       ];
 
-      expectedKeys.forEach((key) => {
+      expectedKeys.forEach(key => {
         expect(enUsDict.has(key)).toBe(true);
       });
     });
@@ -212,7 +214,7 @@ describe('handlersStyle', () => {
       ptBrDict.forEach((ptValue, key) => {
         const enValue = enUsDict.get(key);
         expect(enValue).toBeDefined();
-        
+
         // Both should have same property (either 'title' or 'innerText')
         const ptProps = Object.keys(ptValue);
         const enProps = Object.keys(enValue!);

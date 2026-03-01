@@ -1,5 +1,10 @@
 /// <reference types="jest" />
-import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
+import {
+  ComponentFixture,
+  TestBed,
+  fakeAsync,
+  tick,
+} from '@angular/core/testing';
 
 import { RetryErrorComponent } from './retry-error.component';
 
@@ -17,9 +22,8 @@ describe('RetryErrorComponent', () => {
     window.location = { ...originalLocation, reload: mockReload } as any;
 
     await TestBed.configureTestingModule({
-      declarations: [RetryErrorComponent]
-    })
-    .compileComponents();
+      declarations: [RetryErrorComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(RetryErrorComponent);
     component = fixture.componentInstance;
@@ -75,17 +79,17 @@ describe('RetryErrorComponent', () => {
     it('should set altRoot to main element if not provided', fakeAsync(() => {
       const mainElement = document.createElement('main');
       document.body.appendChild(mainElement);
-      
+
       fixture.detectChanges();
       tick(100);
-      
+
       expect(component.altRoot).toBe(mainElement);
     }));
 
     it('should handle missing main element', fakeAsync(() => {
       fixture.detectChanges();
       tick(100);
-      
+
       // altRoot should be null when no main exists
       expect(component.altRoot).toBeNull();
     }));
@@ -100,7 +104,7 @@ describe('RetryErrorComponent', () => {
       component.altRoot = customRoot;
       fixture.detectChanges();
       tick(100);
-      
+
       // altRoot should remain as preset value, not overwritten
       expect(component.altRoot).toBe(customRoot);
     }));

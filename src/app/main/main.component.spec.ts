@@ -9,9 +9,7 @@ describe('MainComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MainComponent],
-      providers: [
-        { provide: PLATFORM_ID, useValue: 'browser' }
-      ]
+      providers: [{ provide: PLATFORM_ID, useValue: 'browser' }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(MainComponent);
@@ -80,10 +78,10 @@ describe('MainComponent', () => {
       document.body.appendChild(techContent);
 
       const mockEvent = new Event('click');
-      
+
       component.isChecked = true;
       expect(() => component.changeLanguage(mockEvent)).not.toThrow();
-      
+
       component.isChecked = false;
       expect(() => component.changeLanguage(mockEvent)).not.toThrow();
     });
@@ -128,7 +126,7 @@ describe('MainComponent', () => {
       arrow.id = 'projects-arrow';
       document.body.appendChild(list);
       document.body.appendChild(arrow);
-      
+
       expect(() => component.adjustStacksHeight(list, arrow)).not.toThrow();
     });
   });
@@ -153,18 +151,24 @@ describe('MainComponent', () => {
       });
       Object.defineProperty(event, 'currentTarget', { value: arrow });
 
-      expect(() => component.toggleArrow(event, 'timeline-courses')).not.toThrow();
+      expect(() =>
+        component.toggleArrow(event, 'timeline-courses'),
+      ).not.toThrow();
     });
   });
 
   describe('ViewChild references', () => {
     // ViewChild references may be undefined in tests if templates aren't rendered
     it('should have ptBrTemplate property defined on component class', () => {
-      expect(component.hasOwnProperty('ptBrTemplate') || 'ptBrTemplate' in component).toBe(true);
+      expect(
+        component.hasOwnProperty('ptBrTemplate') || 'ptBrTemplate' in component,
+      ).toBe(true);
     });
 
     it('should have enUsTemplate property defined on component class', () => {
-      expect(component.hasOwnProperty('enUsTemplate') || 'enUsTemplate' in component).toBe(true);
+      expect(
+        component.hasOwnProperty('enUsTemplate') || 'enUsTemplate' in component,
+      ).toBe(true);
     });
   });
 
@@ -194,9 +198,7 @@ describe('MainComponent (server)', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MainComponent],
-      providers: [
-        { provide: PLATFORM_ID, useValue: 'server' }
-      ]
+      providers: [{ provide: PLATFORM_ID, useValue: 'server' }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(MainComponent);

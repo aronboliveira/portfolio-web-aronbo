@@ -41,9 +41,9 @@ describe('gHandlers', () => {
         const div = document.createElement('div');
         div.hidden = false;
         document.body.appendChild(div);
-        
+
         syncAriaStates([div]);
-        
+
         expect(div.ariaHidden).toBe('false');
       });
 
@@ -51,9 +51,9 @@ describe('gHandlers', () => {
         const div = document.createElement('div');
         div.hidden = true;
         document.body.appendChild(div);
-        
+
         syncAriaStates([div]);
-        
+
         // Note: Due to the check `el.hidden && !el.focus`, since el.focus is a function
         // (truthy), !el.focus is false, so ariaHidden is always set to "false"
         expect(div.ariaHidden).toBe('false');
@@ -71,12 +71,12 @@ describe('gHandlers', () => {
         select.appendChild(option1);
         select.appendChild(option2);
         document.body.appendChild(select);
-        
+
         // Ensure option1 is selected
         select.selectedIndex = 0;
-        
+
         syncAriaStates([select]);
-        
+
         expect(option1.ariaSelected).toBe('true');
         // Note: In JSDOM, ariaSelected may be set on options that exist
         // Accept either 'false' or 'true' as the function processes all options
@@ -88,9 +88,9 @@ describe('gHandlers', () => {
         const option = document.createElement('option');
         select.appendChild(option);
         document.body.appendChild(select);
-        
+
         syncAriaStates([select]);
-        
+
         // Verify click event listener was added by simulating click
         const clickEvent = new MouseEvent('click');
         expect(() => select.dispatchEvent(clickEvent)).not.toThrow();
@@ -105,14 +105,14 @@ describe('gHandlers', () => {
         select.appendChild(option1);
         select.appendChild(option2);
         document.body.appendChild(select);
-        
+
         syncAriaStates([select]);
-        
+
         // Simulate selection change
         option2.selected = true;
         option1.selected = false;
         select.dispatchEvent(new Event('change'));
-        
+
         expect(option2.ariaSelected).toBe('true');
         expect(option1.ariaSelected).toBe('false');
       });
@@ -124,9 +124,9 @@ describe('gHandlers', () => {
         input.type = 'text';
         input.placeholder = 'Enter your name';
         document.body.appendChild(input);
-        
+
         syncAriaStates([input]);
-        
+
         expect(input.ariaPlaceholder).toBe('Enter your name');
       });
 
@@ -135,9 +135,9 @@ describe('gHandlers', () => {
         input.type = 'text';
         input.required = true;
         document.body.appendChild(input);
-        
+
         syncAriaStates([input]);
-        
+
         expect(input.ariaRequired).toBe('true');
       });
 
@@ -146,9 +146,9 @@ describe('gHandlers', () => {
         input.type = 'text';
         input.required = false;
         document.body.appendChild(input);
-        
+
         syncAriaStates([input]);
-        
+
         expect(input.ariaRequired).toBe('false');
       });
 
@@ -157,9 +157,9 @@ describe('gHandlers', () => {
         input.type = 'email';
         input.value = 'invalid-email';
         document.body.appendChild(input);
-        
+
         syncAriaStates([input]);
-        
+
         // Invalid email should set ariaInvalid to true
         expect(input.ariaInvalid).toBe('true');
       });
@@ -172,9 +172,9 @@ describe('gHandlers', () => {
         input.setAttribute('list', 'test-datalist');
         document.body.appendChild(datalist);
         document.body.appendChild(input);
-        
+
         syncAriaStates([input]);
-        
+
         expect(input.ariaAutoComplete).toBe('list');
       });
     });
@@ -185,9 +185,9 @@ describe('gHandlers', () => {
         checkbox.type = 'checkbox';
         checkbox.checked = true;
         document.body.appendChild(checkbox);
-        
+
         syncAriaStates([checkbox]);
-        
+
         expect(checkbox.ariaChecked).toBe('true');
       });
 
@@ -196,9 +196,9 @@ describe('gHandlers', () => {
         checkbox.type = 'checkbox';
         checkbox.checked = false;
         document.body.appendChild(checkbox);
-        
+
         syncAriaStates([checkbox]);
-        
+
         expect(checkbox.ariaChecked).toBe('false');
       });
 
@@ -207,9 +207,9 @@ describe('gHandlers', () => {
         checkbox.type = 'checkbox';
         checkbox.disabled = true;
         document.body.appendChild(checkbox);
-        
+
         syncAriaStates([checkbox]);
-        
+
         expect(checkbox.ariaDisabled).toBe('true');
       });
 
@@ -218,13 +218,13 @@ describe('gHandlers', () => {
         checkbox.type = 'checkbox';
         checkbox.checked = false;
         document.body.appendChild(checkbox);
-        
+
         syncAriaStates([checkbox]);
-        
+
         // Simulate check
         checkbox.checked = true;
         checkbox.dispatchEvent(new Event('change'));
-        
+
         expect(checkbox.ariaChecked).toBe('true');
       });
 
@@ -233,9 +233,9 @@ describe('gHandlers', () => {
         radio.type = 'radio';
         radio.checked = true;
         document.body.appendChild(radio);
-        
+
         syncAriaStates([radio]);
-        
+
         expect(radio.ariaChecked).toBe('true');
       });
     });
@@ -245,13 +245,13 @@ describe('gHandlers', () => {
         const button = document.createElement('input');
         button.type = 'button';
         document.body.appendChild(button);
-        
+
         syncAriaStates([button]);
-        
+
         // Simulate mousedown
         button.dispatchEvent(new MouseEvent('mousedown', { button: 0 }));
         expect(button.ariaPressed).toBe('true');
-        
+
         // Simulate mouseup
         button.dispatchEvent(new MouseEvent('mouseup', { button: 0 }));
         expect(button.ariaPressed).toBe('false');
@@ -261,9 +261,9 @@ describe('gHandlers', () => {
         const submit = document.createElement('input');
         submit.type = 'submit';
         document.body.appendChild(submit);
-        
+
         syncAriaStates([submit]);
-        
+
         submit.dispatchEvent(new MouseEvent('mousedown', { button: 0 }));
         expect(submit.ariaPressed).toBe('true');
       });
@@ -272,9 +272,9 @@ describe('gHandlers', () => {
         const reset = document.createElement('input');
         reset.type = 'reset';
         document.body.appendChild(reset);
-        
+
         syncAriaStates([reset]);
-        
+
         reset.dispatchEvent(new MouseEvent('mousedown', { button: 0 }));
         expect(reset.ariaPressed).toBe('true');
       });
@@ -287,9 +287,9 @@ describe('gHandlers', () => {
         input.min = '0';
         input.max = '100';
         document.body.appendChild(input);
-        
+
         syncAriaStates([input]);
-        
+
         expect(input.ariaValueMax).toBe('100');
         expect(input.ariaValueMin).toBe('0');
       });
@@ -301,13 +301,13 @@ describe('gHandlers', () => {
         range.max = '100';
         range.value = '50';
         document.body.appendChild(range);
-        
+
         syncAriaStates([range]);
-        
+
         // Simulate value change
         range.value = '75';
         range.dispatchEvent(new Event('change'));
-        
+
         expect(range.ariaValueNow).toBe('75');
         expect(range.ariaValueText).toBe('75');
       });
@@ -318,9 +318,9 @@ describe('gHandlers', () => {
         const textarea = document.createElement('textarea');
         textarea.placeholder = 'Enter description';
         document.body.appendChild(textarea);
-        
+
         syncAriaStates([textarea]);
-        
+
         expect(textarea.ariaPlaceholder).toBe('Enter description');
       });
 
@@ -328,9 +328,9 @@ describe('gHandlers', () => {
         const textarea = document.createElement('textarea');
         textarea.required = true;
         document.body.appendChild(textarea);
-        
+
         syncAriaStates([textarea]);
-        
+
         expect(textarea.ariaRequired).toBe('true');
       });
     });
@@ -340,18 +340,18 @@ describe('gHandlers', () => {
         const label = document.createElement('label');
         label.textContent = 'Username';
         document.body.appendChild(label);
-        
+
         syncAriaStates([label]);
-        
+
         expect(label.ariaLabel).toBe('Username');
       });
 
       it('should not set ariaLabel for empty labels', () => {
         const label = document.createElement('label');
         document.body.appendChild(label);
-        
+
         syncAriaStates([label]);
-        
+
         // Should not throw and ariaLabel should remain null
         expect(() => syncAriaStates([label])).not.toThrow();
       });
@@ -362,12 +362,12 @@ describe('gHandlers', () => {
         const button = document.createElement('button');
         button.textContent = 'Click me';
         document.body.appendChild(button);
-        
+
         syncAriaStates([button]);
-        
+
         button.dispatchEvent(new MouseEvent('mousedown', { button: 0 }));
         expect(button.ariaPressed).toBe('true');
-        
+
         button.dispatchEvent(new MouseEvent('mouseup', { button: 0 }));
         expect(button.ariaPressed).toBe('false');
       });
@@ -376,9 +376,9 @@ describe('gHandlers', () => {
         const button = document.createElement('button');
         button.textContent = 'Consultar dados';
         document.body.appendChild(button);
-        
+
         syncAriaStates([button]);
-        
+
         expect(button.ariaHasPopup).toBe('dialog');
       });
 
@@ -386,9 +386,9 @@ describe('gHandlers', () => {
         const button = document.createElement('button');
         button.textContent = 'Submit';
         document.body.appendChild(button);
-        
+
         syncAriaStates([button]);
-        
+
         expect(button.ariaHasPopup).not.toBe('dialog');
       });
     });
@@ -397,9 +397,9 @@ describe('gHandlers', () => {
       it('should set ariaModal to true for dialog elements', () => {
         const dialog = document.createElement('dialog');
         document.body.appendChild(dialog);
-        
+
         syncAriaStates([dialog]);
-        
+
         expect(dialog.ariaModal).toBe('true');
       });
     });
@@ -409,9 +409,9 @@ describe('gHandlers', () => {
         const div = document.createElement('div');
         div.classList.add('poCaller');
         document.body.appendChild(div);
-        
+
         syncAriaStates([div]);
-        
+
         expect(div.ariaHasPopup).toBe('menu');
       });
     });
@@ -434,7 +434,7 @@ describe('gHandlers', () => {
         const div2 = document.createElement('div');
         document.body.appendChild(div1);
         document.body.appendChild(div2);
-        
+
         const nodeList = document.querySelectorAll('div');
         expect(() => syncAriaStates(nodeList)).not.toThrow();
       });

@@ -59,23 +59,23 @@ export class MainComponent implements AfterViewInit {
         try {
           if (timeline instanceof HTMLElement) {
             iniHeights[`${timeline.id}`] = parseFinite(
-              getComputedStyle(timeline).height.replace('px', '').trim()
+              getComputedStyle(timeline).height.replace('px', '').trim(),
             );
             if (
               !iniHeights[`${timeline.id}`] &&
               getComputedStyle(timeline).display !== 'none' &&
               parseFinite(
-                getComputedStyle(timeline).height.replace('px', '').trim()
+                getComputedStyle(timeline).height.replace('px', '').trim(),
               ) > 0
             )
               iniHeights[`${timeline.id}`] = parseFinite(
-                getComputedStyle(timeline).height.replace('px', '').trim()
+                getComputedStyle(timeline).height.replace('px', '').trim(),
               );
             if (
               !iniHeights[`${timeline.id}`] &&
               getComputedStyle(timeline).display !== 'none' &&
               parseFinite(
-                getComputedStyle(timeline).height.replace('px', '').trim()
+                getComputedStyle(timeline).height.replace('px', '').trim(),
               ) > 0
             )
               iniDisplays[`${timeline.id}`] =
@@ -107,7 +107,7 @@ export class MainComponent implements AfterViewInit {
                       console.error(
                         `Error executing iteration ${i} for hidding items in projects list:\n${
                           (e as Error).message
-                        }`
+                        }`,
                       );
                     }
                   });
@@ -131,7 +131,7 @@ export class MainComponent implements AfterViewInit {
               }
               const htReduced =
                 parseFinite(
-                  getComputedStyle(timeline).height.replace('px', '').trim()
+                  getComputedStyle(timeline).height.replace('px', '').trim(),
                 ) - htFract;
               if (!Number.isFinite(htReduced)) return;
               if (htReduced <= 0.1) {
@@ -156,7 +156,7 @@ export class MainComponent implements AfterViewInit {
           console.error(
             `Error executing iteration ${i} during onInit:\n${
               (e as Error).message
-            }`
+            }`,
           );
         }
       });
@@ -186,7 +186,7 @@ export class MainComponent implements AfterViewInit {
                     if (!(project instanceof HTMLElement)) {
                       throw htmlElementNotFound(
                         project,
-                        `Validation of project instance`
+                        `Validation of project instance`,
                       );
                     }
                     return (
@@ -194,37 +194,37 @@ export class MainComponent implements AfterViewInit {
                       ((parseFinite(
                         getComputedStyle(project)
                           .height.replace('px', '')
-                          .trim()
+                          .trim(),
                       ) || 250) +
                         (parseFinite(
                           getComputedStyle(project)
                             .paddingTop.replace('px', '')
-                            .trim()
+                            .trim(),
                         ) || 16) +
                         (parseFinite(
                           getComputedStyle(project)
                             .paddingBottom.replace('px', '')
-                            .trim()
+                            .trim(),
                         ) || 16) +
                         (parseFinite(
-                          getComputedStyle(list).gap.replace('px', '').trim()
+                          getComputedStyle(list).gap.replace('px', '').trim(),
                         ) || 32))
                     );
                   } catch (e) {
                     console.error(
                       `Error executing iteration ${i} for reducer of project heights:\n${
                         (e as Error).message
-                      }`
+                      }`,
                     );
                     return acc + 314;
                   }
                 },
-                0
+                0,
               ) + 50;
             list.style.minHeight = `${sumHeights}px`;
           } catch (e) {
             console.error(
-              `Error executing handleResize:\n${(e as Error).message}`
+              `Error executing handleResize:\n${(e as Error).message}`,
             );
             list.style.minHeight = '61rem';
           }
@@ -252,7 +252,7 @@ export class MainComponent implements AfterViewInit {
             console.error(
               `Error executing change of language acronyms spans:\n${
                 (e as Error).message
-              }`
+              }`,
             );
             document
               .getElementById('leg-lang')
@@ -262,14 +262,14 @@ export class MainComponent implements AfterViewInit {
                   if (!(textEl instanceof HTMLElement))
                     throw htmlElementNotFound(
                       textEl,
-                      `Validation of Legend Text Element`
+                      `Validation of Legend Text Element`,
                     );
                   textEl.style.fontWeight = 'bold';
                 } catch (e) {
                   console.error(
                     `Error executing iteration ${i} for language text elements in legend:\n${
                       (e as Error).message
-                    }`
+                    }`,
                   );
                 }
               });
@@ -283,7 +283,7 @@ export class MainComponent implements AfterViewInit {
                   throw elementNotFound(
                     currEl,
                     `Validation of element instance`,
-                    ['Element']
+                    ['Element'],
                   );
                 const attrs = enUsDict.get(key);
                 if (!attrs)
@@ -316,7 +316,7 @@ export class MainComponent implements AfterViewInit {
                 console.error(
                   `Error executing iteration ${keyAcc} while iterating over enUsDict keys:\n${
                     (e as Error).message
-                  }`
+                  }`,
                 );
               }
               keyAcc += 1;
@@ -325,14 +325,14 @@ export class MainComponent implements AfterViewInit {
             console.error(
               `Error executing procedure for checking enUsDict:\n${
                 (e as Error).message
-              }`
+              }`,
             );
           }
         } catch (e) {
           console.error(
             `Error executing colateral effects for checked:\n${
               (e as Error).message
-            }`
+            }`,
           );
         }
       } else {
@@ -350,7 +350,7 @@ export class MainComponent implements AfterViewInit {
             console.error(
               `Error executing change of language acronyms spans:\n${
                 (e as Error).message
-              }`
+              }`,
             );
             document
               .getElementById('leg-lang')
@@ -360,14 +360,14 @@ export class MainComponent implements AfterViewInit {
                   if (!(textEl instanceof HTMLElement))
                     throw htmlElementNotFound(
                       textEl,
-                      `Validation of Legend Text Element`
+                      `Validation of Legend Text Element`,
                     );
                   textEl.style.fontWeight = 'bold';
                 } catch (e) {
                   console.error(
                     `Error executing iteration ${i} for language text elements in legend:\n${
                       (e as Error).message
-                    }`
+                    }`,
                   );
                 }
               });
@@ -381,7 +381,7 @@ export class MainComponent implements AfterViewInit {
                   throw elementNotFound(
                     currEl,
                     `Validation of element instance`,
-                    ['Element']
+                    ['Element'],
                   );
                 const attrs = ptBrDict.get(key);
                 if (!attrs)
@@ -414,7 +414,7 @@ export class MainComponent implements AfterViewInit {
                 console.error(
                   `Error executing iteration ${keyAcc} while iterating over ptBrDict keys:\n${
                     (e as Error).message
-                  }`
+                  }`,
                 );
               }
               keyAcc += 1;
@@ -423,14 +423,14 @@ export class MainComponent implements AfterViewInit {
             console.error(
               `Error executing procedure for checking ptBrDict:\n${
                 (e as Error).message
-              }`
+              }`,
             );
           }
         } catch (e) {
           console.error(
             `Error executing colateral effects for unchecked:${
               (e as Error).message
-            }`
+            }`,
           );
         }
       }
@@ -438,13 +438,13 @@ export class MainComponent implements AfterViewInit {
       console.error(
         `Error executing changeLanguage for ${ev.currentTarget}:\n${
           (e as Error).message
-        }`
+        }`,
       );
     }
     this.typeTitle();
     this.adjustStacksHeight(
       document.getElementById('projects-list'),
-      document.getElementById('projects-arrow')
+      document.getElementById('projects-arrow'),
     );
   }
   typeTitle(running: boolean = true): void {
@@ -493,7 +493,7 @@ export class MainComponent implements AfterViewInit {
           }, 200);
           setTimeout(
             () => clearInterval(letterInterv),
-            titleLetters.length * 200
+            titleLetters.length * 200,
           );
         };
         !running
@@ -537,7 +537,7 @@ export class MainComponent implements AfterViewInit {
           }, 200);
           setTimeout(
             () => clearInterval(letterInterv),
-            titleLetters.length * 200
+            titleLetters.length * 200,
           );
         };
         !running
@@ -548,7 +548,7 @@ export class MainComponent implements AfterViewInit {
       }
     } catch (e) {
       console.error(
-        `Error executing procedure for filling title:${(e as Error).message}`
+        `Error executing procedure for filling title:${(e as Error).message}`,
       );
     }
     !this.isChecked
@@ -566,7 +566,7 @@ export class MainComponent implements AfterViewInit {
             console.error(
               `Error executing procedure for checking tech-content innerText:\n${
                 (e as Error).message
-              }`
+              }`,
             );
           }
         }, 5000)
@@ -584,7 +584,7 @@ export class MainComponent implements AfterViewInit {
             console.error(
               `Error executing procedure for checking tech-content innerText:\n${
                 (e as Error).message
-              }`
+              }`,
             );
           }
         }, 5000);
@@ -619,7 +619,7 @@ export class MainComponent implements AfterViewInit {
       } else list.style.minHeight = '0';
     } catch (e) {
       console.error(
-        `Error adjusting stacks elements height:\n${(e as Error).message}`
+        `Error adjusting stacks elements height:\n${(e as Error).message}`,
       );
     }
   }
@@ -694,7 +694,7 @@ export class MainComponent implements AfterViewInit {
                   console.error(
                     `Error executing iteration ${i} for hidding items in projects list:\n${
                       (e as Error).message
-                    }`
+                    }`,
                   );
                 }
               });
@@ -704,11 +704,11 @@ export class MainComponent implements AfterViewInit {
           !iniHeights[timeline.id] &&
           getComputedStyle(timeline).display !== 'none' &&
           parseFinite(
-            getComputedStyle(timeline).height.replace('px', '').trim()
+            getComputedStyle(timeline).height.replace('px', '').trim(),
           ) > 0
         )
           iniHeights[`${timeline.id}`] = parseFinite(
-            getComputedStyle(timeline).height.replace('px', '').trim()
+            getComputedStyle(timeline).height.replace('px', '').trim(),
           );
         const iniHeight = iniHeights[timeline.id];
         if (iniHeight <= 0 || !Number.isFinite(iniHeight)) return;
@@ -721,7 +721,7 @@ export class MainComponent implements AfterViewInit {
           }
           const htReduced =
             parseFinite(
-              getComputedStyle(timeline).height.replace('px', '').trim()
+              getComputedStyle(timeline).height.replace('px', '').trim(),
             ) - htFract;
           if (!Number.isFinite(htReduced)) return;
           if (htReduced <= 0) {
@@ -746,7 +746,7 @@ export class MainComponent implements AfterViewInit {
                   console.error(
                     `Error executing iteration ${i} for hidding items in projects list:\n${
                       (e as Error).message
-                    }`
+                    }`,
                   );
                 }
               });
@@ -756,11 +756,11 @@ export class MainComponent implements AfterViewInit {
           !iniHeights[timeline.id] &&
           getComputedStyle(timeline).display !== 'none' &&
           parseFinite(
-            getComputedStyle(timeline).height.replace('px', '').trim()
+            getComputedStyle(timeline).height.replace('px', '').trim(),
           ) > 0
         )
           iniHeights[timeline.id] = parseFinite(
-            getComputedStyle(timeline).height.replace('px', '').trim()
+            getComputedStyle(timeline).height.replace('px', '').trim(),
           );
         const iniHeight = iniHeights[timeline.id];
         if (iniHeight <= 0 || !Number.isFinite(iniHeight)) return;
@@ -773,13 +773,13 @@ export class MainComponent implements AfterViewInit {
           if (!(timeline instanceof HTMLElement)) return;
           const htAdded =
             parseFinite(
-              getComputedStyle(timeline).height.replace('px', '').trim()
+              getComputedStyle(timeline).height.replace('px', '').trim(),
             ) + htFract;
           if (!Number.isFinite(htAdded)) return;
           if (htAdded < iniHeight) timeline.style.height = `${htAdded}px`;
           else if (
             parseFinite(
-              getComputedStyle(timeline).height.replace('px', '').trim()
+              getComputedStyle(timeline).height.replace('px', '').trim(),
             ) >= iniHeight
           ) {
             clearInterval(interv);
@@ -837,7 +837,7 @@ export class MainComponent implements AfterViewInit {
       if (!(paragraph instanceof HTMLElement))
         throw htmlElementNotFound(
           paragraph,
-          `Validation of paragraph instance`
+          `Validation of paragraph instance`,
         );
       if (!paragraph.querySelector('span')) {
         console.warn(`No span found for paragraph. Aborting process.`);
@@ -848,11 +848,11 @@ export class MainComponent implements AfterViewInit {
           !iniHeights[`${paragraph.id}`] &&
           getComputedStyle(paragraph).display !== 'none' &&
           parseFinite(
-            getComputedStyle(paragraph).height.replace('px', '').trim()
+            getComputedStyle(paragraph).height.replace('px', '').trim(),
           ) > 0
         )
           iniHeights[`${paragraph.id}`] = parseFinite(
-            getComputedStyle(paragraph).height.replace('px', '').trim()
+            getComputedStyle(paragraph).height.replace('px', '').trim(),
           );
         const iniHeight = iniHeights[`${paragraph.id}`];
         if (iniHeight <= 0 || !Number.isFinite(iniHeight)) return;
@@ -865,7 +865,7 @@ export class MainComponent implements AfterViewInit {
           }
           const htReduced =
             parseFinite(
-              getComputedStyle(paragraph).height.replace('px', '').trim()
+              getComputedStyle(paragraph).height.replace('px', '').trim(),
             ) - htFract;
           if (!Number.isFinite(htReduced)) return;
           if (htReduced <= 0) {
@@ -881,11 +881,11 @@ export class MainComponent implements AfterViewInit {
           !iniHeights[`${paragraph.id}`] &&
           getComputedStyle(paragraph).display !== 'none' &&
           parseFinite(
-            getComputedStyle(paragraph).height.replace('px', '').trim()
+            getComputedStyle(paragraph).height.replace('px', '').trim(),
           ) > 0
         )
           iniHeights[`${paragraph.id}`] = parseFinite(
-            getComputedStyle(paragraph).height.replace('px', '').trim()
+            getComputedStyle(paragraph).height.replace('px', '').trim(),
           );
         const iniHeight = iniHeights[`${paragraph.id}`];
         if (iniHeight <= 0 || !Number.isFinite(iniHeight)) return;
@@ -895,13 +895,13 @@ export class MainComponent implements AfterViewInit {
           if (!(paragraph instanceof HTMLElement)) return;
           const htAdded =
             parseFinite(
-              getComputedStyle(paragraph).height.replace('px', '').trim()
+              getComputedStyle(paragraph).height.replace('px', '').trim(),
             ) + htFract;
           if (!Number.isFinite(htAdded)) return;
           if (htAdded < iniHeight) paragraph.style.height = `${htAdded}px`;
           else if (
             parseFinite(
-              getComputedStyle(paragraph).height.replace('px', '').trim()
+              getComputedStyle(paragraph).height.replace('px', '').trim(),
             ) >= iniHeight
           ) {
             clearInterval(interv);
@@ -915,7 +915,7 @@ export class MainComponent implements AfterViewInit {
       }
     } catch (e) {
       console.error(
-        `Error executing toggleParagraphArrow:\n${(e as Error).message}`
+        `Error executing toggleParagraphArrow:\n${(e as Error).message}`,
       );
     }
   }
