@@ -22,7 +22,7 @@ describe('RetryErrorComponent', () => {
     window.location = { ...originalLocation, reload: mockReload } as any;
 
     await TestBed.configureTestingModule({
-      declarations: [RetryErrorComponent],
+      imports: [RetryErrorComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(RetryErrorComponent);
