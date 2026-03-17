@@ -21,12 +21,12 @@ describe('Responsive Design', () => {
       });
 
       it('should display header correctly', () => {
-        cy.get('app-header').should('be.visible');
-        cy.get('#navbar').should('exist');
+        cy.get('header').should('be.visible');
+        cy.get('nav').should('exist');
       });
 
       it('should display main content', () => {
-        cy.get('app-home-main-body').should('be.visible');
+        cy.get('app-main').should('be.visible');
       });
 
       it('should display footer', () => {
@@ -34,20 +34,20 @@ describe('Responsive Design', () => {
       });
 
       it('should have readable profile section', () => {
-        cy.get('.profile').should('be.visible');
-        cy.get('#profiler-name').should('be.visible');
-        cy.get('#profiler-main-role').should('be.visible');
+        cy.get('.gYXrHp').should('be.visible');
+        cy.get('#name-presentation').should('be.visible');
+        cy.get('#typewriter').should('be.visible');
       });
 
       it('should display social icons', () => {
-        cy.get('#social-icons').should('exist');
-        cy.get('#github-link').should('exist');
-        cy.get('#linkedin-link').should('exist');
+        cy.get('.sc-iGgWBj').should('exist');
+        cy.get('#github').should('exist');
+        cy.get('#linkedin').should('exist');
       });
 
       it('should allow scrolling to content', () => {
         cy.scrollTo('bottom', { duration: 1000 });
-        cy.get('#footer').scrollIntoView().should('exist');
+        cy.get('#home-footer').scrollIntoView().should('exist');
       });
     });
   });
@@ -60,7 +60,7 @@ describe('Responsive Design', () => {
     });
 
     it('should show mobile-friendly navigation', () => {
-      cy.get('#navbar').should('exist');
+      cy.get('nav').should('exist');
     });
 
     it('should allow tapping on sections', () => {
@@ -74,8 +74,8 @@ describe('Responsive Design', () => {
     });
 
     it('should maintain usability on small screens', () => {
-      cy.get('#profiler-name').should('be.visible');
-      cy.get('#profiler-main-role').should('be.visible');
+      cy.get('#name-presentation').should('be.visible');
+      cy.get('#typewriter').should('be.visible');
     });
   });
 
@@ -87,11 +87,11 @@ describe('Responsive Design', () => {
     });
 
     it('should display two-column layout if applicable', () => {
-      cy.get('.profile').should('be.visible');
+      cy.get('.gYXrHp').should('be.visible');
     });
 
     it('should show full navigation', () => {
-      cy.get('#social-icons').should('be.visible');
+      cy.get('.sc-iGgWBj').should('be.visible');
     });
 
     it('should display timeline properly', () => {
@@ -107,19 +107,17 @@ describe('Responsive Design', () => {
     });
 
     it('should display full-width sections', () => {
-      cy.get('#home').should('be.visible');
+      cy.get('.kroDeR').should('be.visible');
     });
 
     it('should show all navigation elements', () => {
-      cy.get('#navbar').should('be.visible');
-      cy.get('#social-icons').should('be.visible');
+      cy.get('nav').should('be.visible');
+      cy.get('.sc-iGgWBj').should('be.visible');
     });
 
     it('should display profile info prominently', () => {
-      cy.get('#profiler-name').should('be.visible');
-      cy.get('#profiler-main-role').should('be.visible');
-      cy.get('#profiler-addition-role').should('be.visible');
-      cy.get('#profiler-location').should('be.visible');
+      cy.get('#name-presentation').should('be.visible');
+      cy.get('#typewriter').should('be.visible');
     });
   });
 
@@ -129,12 +127,12 @@ describe('Responsive Design', () => {
       cy.visit('/');
       cy.waitForPageLoad();
 
-      cy.get('#home').should('be.visible');
+      cy.get('.kroDeR').should('be.visible');
 
       cy.viewport(667, 375); // Landscape
       cy.wait(500);
 
-      cy.get('#home').should('be.visible');
+      cy.get('.kroDeR').should('be.visible');
     });
 
     it('should maintain content visibility during resize', () => {
@@ -160,7 +158,7 @@ describe('Responsive Design', () => {
     });
 
     it('should support tap on links', () => {
-      cy.get('#github-link').should('be.visible');
+      cy.get('#github').should('be.visible');
     });
 
     it('should support swipe-like scrolling', () => {
@@ -183,7 +181,7 @@ describe('Responsive Design', () => {
       cy.waitForPageLoad();
 
       // Profile picture should be visible if exists
-      cy.get('.profile').within(() => {
+      cy.get('.gYXrHp').within(() => {
         cy.get('img').should('exist');
       });
     });
@@ -193,7 +191,7 @@ describe('Responsive Design', () => {
       cy.visit('/');
       cy.waitForPageLoad();
 
-      cy.get('.profile img').should('exist');
+      cy.get('#profile-img').should('exist');
     });
   });
 
@@ -203,7 +201,7 @@ describe('Responsive Design', () => {
       cy.visit('/');
       cy.waitForPageLoad();
 
-      cy.get('#profiler-name')
+      cy.get('#name-presentation')
         .should('be.visible')
         .invoke('css', 'font-size')
         .then(fontSize => {
@@ -217,13 +215,13 @@ describe('Responsive Design', () => {
       cy.visit('/');
       cy.waitForPageLoad();
 
-      cy.get('#profiler-name')
+      cy.get('#name-presentation')
         .invoke('css', 'font-size')
         .then(desktopSize => {
           cy.viewport(375, 667);
           cy.wait(300);
 
-          cy.get('#profiler-name')
+          cy.get('#name-presentation')
             .invoke('css', 'font-size')
             .then(mobileSize => {
               // Font sizes may differ between viewports

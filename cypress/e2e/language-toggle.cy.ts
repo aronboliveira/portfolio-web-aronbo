@@ -138,7 +138,7 @@ describe('Language Toggle', () => {
 
       cy.get('#working-projects').should(
         'contain.text',
-        'Projects under Construction',
+        'Experimental Projects',
       );
     });
 
@@ -148,7 +148,7 @@ describe('Language Toggle', () => {
 
       cy.get('#working-projects').should(
         'contain.text',
-        'Projetos em Construção',
+        'Projetos Experimentais',
       );
     });
   });
