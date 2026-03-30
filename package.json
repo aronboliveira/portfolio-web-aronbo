@@ -30,6 +30,7 @@
     "@angular/platform-server": "^19.2.20",
     "@angular/router": "^19.2.20",
     "@angular/ssr": "^19.2.22",
+    "@netlify/angular-runtime": "^3.0.1",
     "express": "^4.21.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
@@ -37,7 +38,6 @@
   },
   "devDependencies": {
     "@angular/compiler-cli": "^19.2.20",
-    "@netlify/angular-runtime": "^3.0.1",
     "@testing-library/angular": "^17.4.0",
     "@testing-library/cypress": "^10.1.0",
     "@testing-library/jest-dom": "^6.9.1",
