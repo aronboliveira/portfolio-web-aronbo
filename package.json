@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@angular/compiler-cli": "^19.2.20",
+    "@netlify/angular-runtime": "^3.0.1",
     "@testing-library/angular": "^17.4.0",
     "@testing-library/cypress": "^10.1.0",
     "@testing-library/jest-dom": "^6.9.1",
