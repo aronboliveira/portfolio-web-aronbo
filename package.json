@@ -78,6 +78,7 @@
     "webpack-dev-server": "^5.2.1",
     "immutable": "^5.1.5",
     "@tootallnate/once": "^3.0.1",
-    "picomatch": "^4.0.4"
+    "picomatch": "^4.0.4",
+    "path-to-regexp": "^8.2.0"
   }
 }
