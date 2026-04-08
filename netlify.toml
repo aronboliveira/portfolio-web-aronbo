@@ -3,7 +3,9 @@
   command = "npx ng build --configuration production"
 
 [build.environment]
-NODE_VERSION = "22"
+  NODE_VERSION = "22"
+  NPM_CONFIG_PREFER_ONLINE = "true"
+  NPM_CONFIG_CACHE = "/dev/null"
 
 [[redirects]]
 from = "/*"
