@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { StackComponent } from '../stack/stack.component';
 
 @Component({
@@ -7,7 +7,7 @@ import { StackComponent } from '../stack/stack.component';
   templateUrl: './project.component.html',
   styleUrl: './project.component.scss',
   standalone: true,
-  imports: [CommonModule, StackComponent],
+  imports: [StackComponent],
 })
 export class ProjectComponent {
   @Input() href: string = '';

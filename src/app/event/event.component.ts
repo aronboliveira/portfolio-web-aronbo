@@ -1,11 +1,11 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-event',
   templateUrl: './event.component.html',
   styleUrl: './event.component.scss',
-  imports: [CommonModule],
+  imports: [],
   standalone: true,
 })
 export class EventComponent implements OnInit {

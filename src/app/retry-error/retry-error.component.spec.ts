@@ -11,15 +11,16 @@ import { RetryErrorComponent } from './retry-error.component';
 describe('RetryErrorComponent', () => {
   let component: RetryErrorComponent;
   let fixture: ComponentFixture<RetryErrorComponent>;
-  let originalLocation: Location;
   let mockReload: jest.Mock;
 
   beforeEach(async () => {
-    // Mock location.reload
-    originalLocation = window.location;
+    // jsdom 26+ Location is non-configurable — patch the prototype instead
     mockReload = jest.fn();
-    delete (window as any).location;
-    window.location = { ...originalLocation, reload: mockReload } as any;
+    const locationProto = Object.getPrototypeOf(window.location);
+    Object.defineProperty(locationProto, 'reload', {
+      configurable: true,
+      value: mockReload,
+    });
 
     await TestBed.configureTestingModule({
       imports: [RetryErrorComponent],
@@ -30,7 +31,12 @@ describe('RetryErrorComponent', () => {
   });
 
   afterEach(() => {
-    window.location = originalLocation;
+    // Restore original reload on the prototype
+    const locationProto = Object.getPrototypeOf(window.location);
+    Object.defineProperty(locationProto, 'reload', {
+      configurable: true,
+      value: Location.prototype.reload,
+    });
     document.body.innerHTML = '';
   });
 
