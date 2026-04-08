@@ -12,4 +12,4 @@ to = "/index.html"
 status = 200
 
 [context.production.environment]
-  NODE_ENV = "production"
+NODE_ENV = "production"
