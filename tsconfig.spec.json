@@ -3,8 +3,8 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "./out-tsc/spec",
     "types": ["jest"]
   },
+  "files": ["setup-jest.ts"],
   "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
 }
