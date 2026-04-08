@@ -2,6 +2,9 @@
   publish = "dist/portfolio-web-aronbo-ng/browser"
   command = "npx ng build --configuration production"
 
+[build.environment]
+  NODE_VERSION = "22"
+
 [[redirects]]
 from = "/*"
 to = "/index.html"
