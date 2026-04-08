@@ -3,7 +3,7 @@
   command = "npx ng build --configuration production"
 
 [build.environment]
-  NODE_VERSION = "22"
+NODE_VERSION = "22"
 
 [[redirects]]
 from = "/*"
