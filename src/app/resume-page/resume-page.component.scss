@@ -1,7 +1,8 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as m;
+
 .resume-page {
-  font-family: "Poppins", sans-serif;
-  color: #f5f5ef;
-  background: #1a1a2e;
+  @include m.page-base;
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem 5vw 4rem;
@@ -15,7 +16,7 @@
   margin-bottom: 2rem;
 
   a {
-    color: #64ffda;
+    color: $color-accent;
     text-decoration: none;
     font-size: 0.9rem;
     &:hover {
@@ -24,18 +25,18 @@
   }
 
   .pdf-link {
-    background: rgba(100, 255, 218, 0.1);
+    background: rgba($color-accent, 0.1);
     padding: 0.4rem 1rem;
     border-radius: 4px;
     &:hover {
-      background: rgba(100, 255, 218, 0.2);
+      background: rgba($color-accent, 0.2);
     }
   }
 }
 
 header {
   margin-bottom: 2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid $color-border;
   padding-bottom: 1.5rem;
 
   h1 {
@@ -45,16 +46,16 @@ header {
 
   .resume-title {
     font-size: 1.1rem;
-    color: #a8b2d1;
+    color: $color-body;
     margin: 0 0 0.75rem;
   }
 
   .contact-line {
     font-size: 0.9rem;
-    color: #8892b0;
+    color: $color-muted;
 
     a {
-      color: #64ffda;
+      color: $color-accent;
       text-decoration: none;
       &:hover {
         text-decoration: underline;
@@ -68,7 +69,7 @@ section {
 
   h2 {
     font-size: 1.3rem;
-    color: #ccd6f6;
+    color: $color-heading;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
@@ -80,17 +81,17 @@ section {
 
     li {
       margin-bottom: 0.35rem;
-      color: #a8b2d1;
+      color: $color-body;
       font-size: 0.95rem;
 
       strong {
-        color: #ccd6f6;
+        color: $color-heading;
       }
     }
   }
 
   p {
-    color: #a8b2d1;
+    color: $color-body;
     font-size: 0.95rem;
   }
 }
@@ -100,13 +101,13 @@ section {
 
   h3 {
     font-size: 1.05rem;
-    color: #ccd6f6;
+    color: $color-heading;
     margin: 0 0 0.15rem;
   }
 
   .date {
     font-size: 0.85rem;
-    color: #64ffda;
+    color: $color-accent;
     margin: 0 0 0.5rem;
   }
 
