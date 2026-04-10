@@ -1,0 +1,317 @@
+<article class="resume-page">
+  <nav class="resume-nav" aria-label="Resume navigation">
+    <a [routerLink]="lang === 'en' ? '/en' : '/pt'" class="back-link">
+      &larr; {{ lang === "en" ? "Home" : "Início" }}
+    </a>
+    <a
+      [href]="
+        lang === 'en' ? '/resume_aronbo_enUS.pdf' : '/curriculo_aronbo_ptBr.pdf'
+      "
+      download
+      class="pdf-link"
+      id="download-resume-pdf-page"
+    >
+      {{ lang === "en" ? "Download PDF" : "Baixar PDF" }}
+    </a>
+  </nav>
+
+  @if (lang === "en") {
+    <header>
+      <h1>Aron Barbosa de Oliveira</h1>
+      <p class="resume-title">
+        Full-Stack Software Developer &mdash; TypeScript, Python, Shell
+        Automation
+      </p>
+      <p class="contact-line">
+        <a href="mailto:aron.b.96&#64;gmail.com">aron.b.96&#64;gmail.com</a>
+        &middot;
+        <a
+          href="https://www.linkedin.com/in/aron-b-oliveira/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >LinkedIn</a
+        >
+        &middot;
+        <a
+          href="https://github.com/aronboliveira"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          >GitHub</a
+        >
+        &middot; Rio de Janeiro, Brazil
+      </p>
+    </header>
+
+    <section>
+      <h2>Summary</h2>
+      <p>
+        Full-stack software developer with approximately 3 years of experience
+        building internal tools and web applications. Focused on
+        maintainability, automation, and practical AI integration. Experienced
+        with TypeScript (Angular, React, Next.js), Python APIs (Flask, Quart),
+        PHP (Laravel), and Bash/PowerShell scripting for developer productivity
+        and system administration. Graduate in Systems Analysis and Development
+        (2025).
+      </p>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <ul>
+        <li>
+          <strong>Languages:</strong> TypeScript, JavaScript, Python, Bash,
+          PowerShell, PHP
+        </li>
+        <li>
+          <strong>Frontend:</strong> Angular, React, Next.js, Vue.js, Vite
+        </li>
+        <li>
+          <strong>Backend:</strong> Python (Flask, Quart), PHP (Laravel),
+          Express.js
+        </li>
+        <li><strong>Testing:</strong> Cypress, Jest, unit tests</li>
+        <li>
+          <strong>Tooling:</strong> Git, Linux, Docker, CI/CD (GitHub Actions),
+          WordPress
+        </li>
+        <li>
+          <strong>Other:</strong> REST APIs, Accessibility (ARIA), LLM
+          integration, Data Sanitization
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+
+      <div class="experience-entry">
+        <h3>Nova Prestech</h3>
+        <p class="date">December 2024 &mdash; Present</p>
+        <p>
+          Fullstack development using Laravel, Flask, and React.js. Maintenance
+          of operating systems based on Debian and Windows. Data processing
+          optimization. Technical support for web systems, focusing on CMSs and
+          ERPs.
+        </p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>University Extension Program PROSSaúde &mdash; UFRJ</h3>
+        <p class="date">August 2023 &mdash; Present</p>
+        <p>
+          Fullstack development and maintenance of CRUDs based on RESTful
+          architecture for complex form filling, including interactive
+          schedules, login subsystems, and tabulation with automated index
+          calculation.
+        </p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>Freelance Web Development</h3>
+        <p class="date">June 2024 &mdash; September 2025</p>
+        <p>
+          Frontend development for small businesses: digital menus (Next.js),
+          e-commerce calculators (WordPress + React), and confectionery websites
+          (Create React App).
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+
+      <div class="experience-entry">
+        <h3>LLM Prompt Purify</h3>
+        <p>
+          Client-side sanitization tool to reduce leakage of sensitive data to
+          third-party LLM APIs. Built with Angular and TypeScript. Focus on
+          privacy, security, and deterministic filtering.
+        </p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>PROSSaúde Client App</h3>
+        <p>
+          Client-side application supporting a real university extension project
+          with complex forms, interactive schedules, and data flow. Built with
+          React and TypeScript.
+        </p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>CRM Test</h3>
+        <p>
+          Portfolio CRM demonstrating auth, CRUD, API integration, tests, and
+          deployment-ready architecture. Full-stack breadth demonstration.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="experience-entry">
+        <h3>Systems Analysis and Development</h3>
+        <p class="date">
+          União das Américas (Descomplica) &mdash; November 2025
+        </p>
+      </div>
+      <div class="experience-entry">
+        <h3>M.Sc. Botany</h3>
+        <p class="date">National Museum &mdash; UFRJ</p>
+      </div>
+      <div class="experience-entry">
+        <h3>B.Sc. Biological Sciences</h3>
+        <p class="date">UFRJ</p>
+      </div>
+    </section>
+  }
+
+  @if (lang === "pt") {
+    <header>
+      <h1>Aron Barbosa de Oliveira</h1>
+      <p class="resume-title">
+        Desenvolvedor Full-stack &mdash; TypeScript, Python e Automação Shell
+      </p>
+      <p class="contact-line">
+        <a href="mailto:aron.b.96&#64;gmail.com">aron.b.96&#64;gmail.com</a>
+        &middot;
+        <a
+          href="https://www.linkedin.com/in/aron-b-oliveira/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >LinkedIn</a
+        >
+        &middot;
+        <a
+          href="https://github.com/aronboliveira"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          >GitHub</a
+        >
+        &middot; Rio de Janeiro, Brasil
+      </p>
+    </header>
+
+    <section>
+      <h2>Resumo</h2>
+      <p>
+        Desenvolvedor full-stack com aproximadamente 3 anos de experiência
+        construindo ferramentas internas e aplicações web. Foco em
+        manutenibilidade, automação e integração prática com IA. Experiência com
+        TypeScript (Angular, React, Next.js), APIs Python (Flask, Quart), PHP
+        (Laravel) e scripts Bash/PowerShell para produtividade e administração
+        de sistemas. Graduado em Análise e Desenvolvimento de Sistemas (2025).
+      </p>
+    </section>
+
+    <section>
+      <h2>Habilidades</h2>
+      <ul>
+        <li>
+          <strong>Linguagens:</strong> TypeScript, JavaScript, Python, Bash,
+          PowerShell, PHP
+        </li>
+        <li>
+          <strong>Frontend:</strong> Angular, React, Next.js, Vue.js, Vite
+        </li>
+        <li>
+          <strong>Backend:</strong> Python (Flask, Quart), PHP (Laravel),
+          Express.js
+        </li>
+        <li><strong>Testes:</strong> Cypress, Jest, testes unitários</li>
+        <li>
+          <strong>Ferramentas:</strong> Git, Linux, Docker, CI/CD (GitHub
+          Actions), WordPress
+        </li>
+        <li>
+          <strong>Outros:</strong> APIs REST, Acessibilidade (ARIA), integração
+          com LLM, Sanitização de dados
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Experiência</h2>
+
+      <div class="experience-entry">
+        <h3>Nova Prestech</h3>
+        <p class="date">Dezembro 2024 &mdash; Presente</p>
+        <p>
+          Desenvolvimento fullstack com Laravel, Flask e React.js. Manutenção de
+          sistemas operacionais baseados em Debian e Windows. Otimização de
+          processamento de dados. Suporte técnico para sistemas web, com foco em
+          CMSs e ERPs.
+        </p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>Projeto de Extensão PROSSaúde &mdash; UFRJ</h3>
+        <p class="date">Agosto 2023 &mdash; Presente</p>
+        <p>
+          Desenvolvimento fullstack e manutenção de CRUDs com base RESTful para
+          preenchimento ágil de formulários complexos, incluindo agendas
+          interativas e sincronizadas, subsistemas de login e tabelamento com
+          cálculo automatizado de índices.
+        </p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>Desenvolvimento Web Freelance</h3>
+        <p class="date">Junho 2024 &mdash; Setembro 2025</p>
+        <p>
+          Desenvolvimento frontend para pequenos negócios: cardápios digitais
+          (Next.js), calculadoras para e-commerce (WordPress + React), e sites
+          para confeitarias (Create React App).
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projetos</h2>
+
+      <div class="experience-entry">
+        <h3>LLM Prompt Purify</h3>
+        <p>
+          Ferramenta de sanitização client-side para reduzir vazamento de dados
+          sensíveis para APIs de LLM de terceiros. Construído com Angular e
+          TypeScript. Foco em privacidade, segurança e filtragem determinística.
+        </p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>PROSSaúde Client App</h3>
+        <p>
+          Aplicação client-side de suporte a projeto de extensão universitária
+          real com formulários complexos, agendas interativas e fluxo de dados.
+          Construído com React e TypeScript.
+        </p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>CRM Test</h3>
+        <p>
+          CRM demonstrando autenticação, CRUD, integração de API, testes e
+          arquitetura pronta para deploy. Demonstração de amplitude full-stack.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Formação</h2>
+      <div class="experience-entry">
+        <h3>Análise e Desenvolvimento de Sistemas</h3>
+        <p class="date">
+          União das Américas (Descomplica) &mdash; Novembro 2025
+        </p>
+      </div>
+      <div class="experience-entry">
+        <h3>Mestrado em Botânica</h3>
+        <p class="date">Museu Nacional &mdash; UFRJ</p>
+      </div>
+      <div class="experience-entry">
+        <h3>Licenciatura em Ciências Biológicas</h3>
+        <p class="date">UFRJ</p>
+      </div>
+    </section>
+  }
+</article>

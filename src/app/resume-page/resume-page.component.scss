@@ -1,0 +1,136 @@
+.resume-page {
+  font-family: "Poppins", sans-serif;
+  color: #f5f5ef;
+  background: #1a1a2e;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 5vw 4rem;
+  line-height: 1.7;
+}
+
+.resume-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  a {
+    color: #64ffda;
+    text-decoration: none;
+    font-size: 0.9rem;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .pdf-link {
+    background: rgba(100, 255, 218, 0.1);
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    &:hover {
+      background: rgba(100, 255, 218, 0.2);
+    }
+  }
+}
+
+header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 1.5rem;
+
+  h1 {
+    font-size: 2rem;
+    margin: 0 0 0.25rem;
+  }
+
+  .resume-title {
+    font-size: 1.1rem;
+    color: #a8b2d1;
+    margin: 0 0 0.75rem;
+  }
+
+  .contact-line {
+    font-size: 0.9rem;
+    color: #8892b0;
+
+    a {
+      color: #64ffda;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+section {
+  margin-bottom: 2rem;
+
+  h2 {
+    font-size: 1.3rem;
+    color: #ccd6f6;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    padding-left: 1.25rem;
+    margin: 0;
+
+    li {
+      margin-bottom: 0.35rem;
+      color: #a8b2d1;
+      font-size: 0.95rem;
+
+      strong {
+        color: #ccd6f6;
+      }
+    }
+  }
+
+  p {
+    color: #a8b2d1;
+    font-size: 0.95rem;
+  }
+}
+
+.experience-entry {
+  margin-bottom: 1.25rem;
+
+  h3 {
+    font-size: 1.05rem;
+    color: #ccd6f6;
+    margin: 0 0 0.15rem;
+  }
+
+  .date {
+    font-size: 0.85rem;
+    color: #64ffda;
+    margin: 0 0 0.5rem;
+  }
+
+  p:not(.date) {
+    margin: 0;
+  }
+}
+
+@media print {
+  .resume-page {
+    color: #000;
+    background: #fff;
+  }
+  .resume-nav {
+    display: none;
+  }
+  header {
+    border-color: #ccc;
+  }
+  section h2 {
+    color: #333;
+    border-color: #ddd;
+  }
+  a {
+    color: #0066cc;
+  }
+}
