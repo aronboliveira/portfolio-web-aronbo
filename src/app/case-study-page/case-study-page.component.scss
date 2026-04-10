@@ -1,7 +1,8 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as m;
+
 .case-study-page {
-  font-family: "Poppins", sans-serif;
-  color: #f5f5ef;
-  background: #1a1a2e;
+  @include m.page-base;
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem 5vw 4rem;
@@ -12,31 +13,21 @@
     padding-top: 4rem;
 
     a {
-      color: #64ffda;
+      color: $color-accent;
       text-decoration: none;
-      &:hover {
-        text-decoration: underline;
-      }
+      &:hover { text-decoration: underline; }
     }
   }
 }
 
 .case-nav {
   margin-bottom: 2rem;
-
-  .back-link {
-    color: #64ffda;
-    text-decoration: none;
-    font-size: 0.9rem;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+  .back-link { @include m.back-link; }
 }
 
 header {
   margin-bottom: 2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid $color-border;
   padding-bottom: 1.5rem;
 
   h1 {
@@ -45,7 +36,7 @@ header {
   }
 
   .stack-line {
-    color: #64ffda;
+    color: $color-accent;
     font-size: 0.95rem;
     margin: 0;
   }
@@ -56,12 +47,12 @@ section {
 
   h2 {
     font-size: 1.2rem;
-    color: #ccd6f6;
+    color: $color-heading;
     margin-bottom: 0.75rem;
   }
 
   p {
-    color: #a8b2d1;
+    color: $color-body;
     font-size: 0.95rem;
   }
 }
@@ -74,31 +65,6 @@ section {
   }
 }
 
-.cta {
-  display: inline-block;
-  padding: 0.6rem 1.25rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition:
-    background 0.2s,
-    color 0.2s;
-}
-
-.cta-primary {
-  background: #64ffda;
-  color: #0a192f;
-  &:hover {
-    background: #4fd1b0;
-  }
-}
-
-.cta-outline {
-  background: transparent;
-  color: #ccd6f6;
-  border: 1px solid #ccd6f6;
-  &:hover {
-    background: rgba(204, 214, 246, 0.08);
-  }
-}
+.cta { @include m.cta-base; }
+.cta-primary { @include m.cta-primary; }
+.cta-outline { @include m.cta-outline; }
