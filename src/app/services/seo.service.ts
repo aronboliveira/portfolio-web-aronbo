@@ -1,7 +1,6 @@
-import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { Router, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { Injectable, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { BASE_URL } from '../data/constants';
 
 export interface SeoData {
   title: string;
@@ -15,13 +14,9 @@ export interface SeoData {
 
 @Injectable({ providedIn: 'root' })
 export class SeoService {
-  private readonly baseUrl = 'https://aronboliveira-dev.netlify.app';
+  private readonly baseUrl = BASE_URL;
 
-  constructor(
-    @Inject(DOCUMENT) private doc: Document,
-    @Inject(PLATFORM_ID) private platformId: object,
-    private router: Router,
-  ) {}
+  constructor(@Inject(DOCUMENT) private doc: Document) {}
 
   update(data: SeoData): void {
     this.doc.documentElement.lang = data.lang;
@@ -116,6 +111,10 @@ export class SeoService {
       el.type = 'application/ld+json';
       this.doc.head.appendChild(el);
     }
-    el.textContent = JSON.stringify(data);
+    try {
+      el.textContent = JSON.stringify(data);
+    } catch {
+      console.error('Failed to serialize JSON-LD data');
+    }
   }
 }
