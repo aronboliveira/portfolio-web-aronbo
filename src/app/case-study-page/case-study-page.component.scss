@@ -1,0 +1,80 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as m;
+
+.case-study-page {
+  @include m.page-base;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 5vw 4rem;
+  line-height: 1.7;
+
+  &.not-found {
+    text-align: center;
+    padding-top: 4rem;
+
+    a {
+      color: $color-accent;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.case-nav {
+  margin-bottom: 2rem;
+  .back-link {
+    @include m.back-link;
+  }
+}
+
+header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid $color-border;
+  padding-bottom: 1.5rem;
+
+  h1 {
+    font-size: 2rem;
+    margin: 0 0 0.35rem;
+  }
+
+  .stack-line {
+    color: $color-accent;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+}
+
+section {
+  margin-bottom: 2rem;
+
+  h2 {
+    font-size: 1.2rem;
+    color: $color-heading;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    color: $color-body;
+    font-size: 0.95rem;
+  }
+}
+
+.links-section {
+  .case-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+}
+
+.cta {
+  @include m.cta-base;
+}
+.cta-primary {
+  @include m.cta-primary;
+}
+.cta-outline {
+  @include m.cta-outline;
+}

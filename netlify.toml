@@ -6,6 +6,17 @@
   NODE_VERSION = "22"
   NPM_CONFIG_PREFER_ONLINE = "true"
 
+# Serve static files first, then fallback to index.html for SPA routing
+[[redirects]]
+from = "/robots.txt"
+to = "/robots.txt"
+status = 200
+
+[[redirects]]
+from = "/sitemap.xml"
+to = "/sitemap.xml"
+status = 200
+
 [[redirects]]
 from = "/*"
 to = "/index.html"

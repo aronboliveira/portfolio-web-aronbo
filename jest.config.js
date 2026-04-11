@@ -9,6 +9,16 @@ module.exports = {
     "<rootDir>/cypress/",
   ],
   moduleNameMapper: {
+    "^@angular/core/testing$":
+      "<rootDir>/node_modules/@angular/core/fesm2022/testing.mjs",
+    "^@angular/common/testing$":
+      "<rootDir>/node_modules/@angular/common/fesm2022/testing.mjs",
+    "^@angular/common/http/testing$":
+      "<rootDir>/node_modules/@angular/common/fesm2022/http/testing.mjs",
+    "^@angular/router/testing$":
+      "<rootDir>/node_modules/@angular/router/fesm2022/testing.mjs",
+    "^@angular/platform-browser/testing$":
+      "<rootDir>/node_modules/@angular/platform-browser/fesm2022/testing.mjs",
     "^src/(.*)$": "<rootDir>/src/$1",
     "\\.(css|scss|sass)$": "identity-obj-proxy",
   },

@@ -1,0 +1,398 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as m;
+
+.home-page {
+  @include m.page-base;
+}
+
+/* Hero */
+.hero {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 5vw;
+  background: linear-gradient(
+    135deg,
+    $color-bg-gradient-start 0%,
+    $color-bg 50%,
+    $color-bg-gradient-end 100%
+  );
+}
+
+.hero-nav {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 2rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.nav-icon {
+  display: inline-flex;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.lang-switch {
+  color: $color-text;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.hero-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: $content-max-width;
+  margin: 0 auto;
+}
+
+.profile-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+}
+
+.hero-text {
+  h1 {
+    font-size: 2.25rem;
+    margin: 0 0 0.25rem;
+    font-weight: 700;
+  }
+
+  .subtitle {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: $color-body;
+    margin: 0 0 1rem;
+  }
+
+  .summary {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: $color-heading;
+    max-width: 600px;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.cta {
+  @include m.cta-base;
+}
+.cta-primary {
+  @include m.cta-primary;
+}
+.cta-secondary {
+  @include m.cta-secondary;
+}
+.cta-outline {
+  @include m.cta-outline;
+}
+
+/* Skills */
+.skills-section {
+  @include m.content-section;
+  h2 {
+    @include m.section-heading;
+  }
+}
+
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 0;
+}
+
+.skill-item {
+  @include m.card-bg;
+  padding: 1rem;
+
+  dt {
+    font-weight: 600;
+    color: $color-accent;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.35rem;
+  }
+
+  dd {
+    margin: 0;
+    color: $color-body;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}
+
+/* Projects */
+.projects-section {
+  @include m.content-section;
+  h2 {
+    @include m.section-heading;
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  @include m.card-bg;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  h3 {
+    font-size: 1.15rem;
+    margin: 0 0 0.5rem;
+
+    a {
+      color: $color-heading;
+      text-decoration: none;
+      &:hover {
+        color: $color-accent;
+      }
+    }
+  }
+
+  p {
+    color: $color-body;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin-bottom: 1rem;
+  }
+}
+
+.project-stacks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.stack-tag {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  background: rgba($color-accent, 0.1);
+  color: $color-accent;
+  font-weight: 500;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+
+  a {
+    font-size: 0.85rem;
+    color: $color-accent;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Automation */
+.automation-section {
+  @include m.content-section;
+
+  h2 {
+    @include m.section-heading;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    color: $color-body;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Experience Timeline */
+.experience-section {
+  @include m.content-section;
+  h2 {
+    @include m.section-heading;
+  }
+}
+
+.timeline {
+  position: relative;
+  padding-inline-start: 1.5rem;
+  border-inline-start: 2px solid rgba($color-accent, 0.3);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 2rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: calc(-1.5rem - 5px);
+    top: 0.25rem;
+    width: 10px;
+    height: 10px;
+    background: $color-accent;
+    border-radius: 50%;
+  }
+
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    margin: 0;
+
+    a {
+      color: $color-heading;
+      text-decoration: none;
+      &:hover {
+        color: $color-accent;
+      }
+    }
+  }
+
+  time {
+    font-size: 0.8rem;
+    color: $color-accent;
+    font-weight: 500;
+  }
+
+  p {
+    color: $color-body;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+}
+
+/* Courses & Certifications */
+.courses-section {
+  @include m.content-section;
+  h2 {
+    @include m.section-heading;
+  }
+}
+
+.courses-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.course-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  padding: 0.75rem 1rem;
+  @include m.card-bg;
+
+  a {
+    color: $color-heading;
+    text-decoration: none;
+    font-weight: 500;
+    &:hover {
+      color: $color-accent;
+    }
+  }
+}
+
+.course-meta {
+  font-size: 0.8rem;
+  color: $color-muted;
+}
+
+.toggle-courses {
+  cursor: pointer;
+}
+
+/* Footer */
+.page-footer {
+  padding: 2rem 5vw;
+  border-top: 1px solid $color-border;
+  text-align: center;
+  max-width: $content-max-width;
+  margin: 0 auto;
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+
+    a {
+      color: $color-body;
+      text-decoration: none;
+      font-size: 0.9rem;
+      &:hover {
+        color: $color-accent;
+      }
+    }
+  }
+
+  p {
+    color: $color-muted;
+    font-size: 0.8rem;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text {
+    h1 {
+      font-size: 1.75rem;
+    }
+    .subtitle {
+      font-size: 1rem;
+    }
+  }
+
+  .cta-group {
+    justify-content: center;
+  }
+}

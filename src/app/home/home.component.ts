@@ -1,3 +1,8 @@
+/**
+ * @deprecated LEGACY COMPONENT — Not routed after ATS/SEO refactoring.
+ * Replaced by `HomePageComponent` at /en and /pt routes.
+ * Mantido comentado para referência futura.
+ */
 import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { HomeFooterComponent } from '../home-footer/home-footer.component';
 import { HomeMainBodyComponent } from '../home-main-body/home-main-body.component';
@@ -26,7 +31,7 @@ export class HomeComponent implements AfterViewInit {
           el instanceof HTMLElement &&
           !(el instanceof HTMLScriptElement) &&
           parseFinite(getComputedStyle(el).width) > 0 &&
-          el.innerText !== ''
+          el.innerText !== '',
       )
       .forEach(htmlEl => {
         parseFinite(getComputedStyle(htmlEl).fontSize) >= 16 &&

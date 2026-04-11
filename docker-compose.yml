@@ -1,0 +1,32 @@
+services:
+  # ── Production-like app server (nginx) ──
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4201:4200"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:4200/ || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # ── Cypress E2E tests against the app ──
+  cypress:
+    image: cypress/included:14.5.0
+    depends_on:
+      app:
+        condition: service_healthy
+    environment:
+      - CYPRESS_baseUrl=http://app:4200
+    working_dir: /e2e
+    volumes:
+      - ./cypress:/e2e/cypress
+      - ./cypress.config.ts:/e2e/cypress.config.ts
+      - ./tsconfig.json:/e2e/tsconfig.json
+      - ./package.json:/e2e/package.json
+    entrypoint: >
+      cypress run
+      --browser electron
+      --config baseUrl=http://app:4200

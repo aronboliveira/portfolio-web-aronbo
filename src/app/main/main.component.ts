@@ -1,3 +1,8 @@
+/**
+ * @deprecated LEGACY COMPONENT — Not routed after ATS/SEO refactoring.
+ * Experience/courses data moved to HomePageComponent.
+ * Mantido comentado para referência futura.
+ */
 import {
   Component,
   ViewChild,

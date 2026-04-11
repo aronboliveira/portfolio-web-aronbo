@@ -39,13 +39,13 @@ declare global {
 }
 
 Cypress.Commands.add('toggleLanguage', () => {
-  cy.get('#toggle-language').click();
-  cy.wait(300); // Wait for language change animation
+  cy.get('.lang-switch').click();
+  cy.wait(300); // Wait for route navigation
 });
 
 Cypress.Commands.add('waitForPageLoad', () => {
-  cy.get('#homeRoot').should('be.visible');
-  cy.get('#home-main').should('be.visible');
+  cy.get('.home-page').should('be.visible');
+  cy.get('.hero').should('be.visible');
   cy.wait(500); // Wait for initial animations
 });
 

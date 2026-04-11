@@ -1,0 +1,326 @@
+<article class="resume-page">
+  <nav class="resume-nav" aria-label="Resume navigation">
+    <a [routerLink]="lang === 'en' ? '/en' : '/pt'" class="back-link">
+      &larr; {{ lang === "en" ? "Home" : "Início" }}
+    </a>
+    <a
+      [href]="
+        lang === 'en' ? '/resume_aronbo_enUS.pdf' : '/curriculo_aronbo_ptBr.pdf'
+      "
+      download
+      class="pdf-link"
+      id="download-resume-pdf-page"
+    >
+      {{ lang === "en" ? "Download PDF" : "Baixar PDF" }}
+    </a>
+  </nav>
+
+  @if (lang === "en") {
+    <header>
+      <h1>Aron Barbosa de Oliveira</h1>
+      <p class="resume-title">
+        Full-Stack Software Developer &mdash; TypeScript, Python, Shell
+        Automation
+      </p>
+      <p class="contact-line">
+        <a href="mailto:aron.b.96&#64;gmail.com">aron.b.96&#64;gmail.com</a>
+        &middot;
+        <a
+          href="https://www.linkedin.com/in/aron-b-oliveira/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >LinkedIn</a
+        >
+        &middot;
+        <a
+          href="https://github.com/aronboliveira"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          >GitHub</a
+        >
+        &middot; Rio de Janeiro, Brazil
+      </p>
+    </header>
+
+    <section>
+      <h2>Summary</h2>
+      <p>
+        Full-stack software developer with approximately 3 years of experience
+        building internal tools and web applications. Focused on
+        maintainability, automation, and practical AI integration. Experienced
+        with TypeScript (Angular, React, Vue.js), Python APIs (Quart, Django),
+        PHP (Laravel, WordPress), and Bash scripting for developer productivity
+        and system administration. Graduate in Systems Analysis and Development
+        (2025).
+      </p>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <ul>
+        <li>
+          <strong>Languages:</strong> TypeScript, Python, Bash, PHP, Java, C#
+        </li>
+        <li>
+          <strong>Frontend:</strong> Angular, React (Vite, Next.js), Vue.js
+          (Vite, Nuxt)
+        </li>
+        <li>
+          <strong>Backend:</strong> Nest.js, Express.js, Python (Quart/Django),
+          PHP (Laravel/WordPress)
+        </li>
+        <li>
+          <strong>Testing:</strong> Jest, Vitest, Cypress, Playwright, Pytest,
+          PHPUnit
+        </li>
+        <li>
+          <strong>Tooling:</strong> Git, Linux (Debian-based), LLM Agents,
+          Docker, CI/CD (GitHub Actions)
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+
+      <div class="experience-entry">
+        <h3>Nova Prestech</h3>
+        <p class="date">December 2024 &mdash; Present</p>
+        <p>
+          Internal tooling: orchestration of LLM Agents within IDEs and TUIs;
+          Event-driven Architecture for WhatsApp Chatbots (MVC); Virtualization
+          monitoring (Hexagonal Architecture); ERP forks (FOSS-based) tuned with
+          Domain-Driven Development and MVC; Prompt engineering for LLM agent
+          pipelines (web scraping for tech news/marketing, social media writing
+          with B2B language and style directives); SEO optimization for
+          portfolio websites. Fullstack development with Laravel, Django, and
+          React.js. Minor experience with WhatsApp Business and Meta Business
+          Suite automations.
+        </p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>University Extension Program PROSSaúde &mdash; UFRJ</h3>
+        <p class="date">August 2023 &mdash; Present</p>
+        <p>
+          Fullstack development and maintenance of CRUDs based on RESTful
+          architecture for complex form filling, including interactive
+          schedules, login subsystems, and tabulation with automated index
+          calculation.
+        </p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>Freelance Web Development</h3>
+        <p class="date">June 2024 &mdash; September 2025</p>
+        <p>
+          Frontend development for small businesses: digital menus (Next.js),
+          e-commerce calculators (WordPress + React), and confectionery websites
+          (Create React App).
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+
+      <div class="experience-entry">
+        <h3>LLM Prompt Purify</h3>
+        <p>
+          Client-side sanitization tool to reduce leakage of sensitive data to
+          third-party LLM APIs. Built with Angular, TypeScript, and C#. Informed
+          by hands-on LLM Agent orchestration at Prestech.
+        </p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>PROSSaúde Client App</h3>
+        <p>
+          Client-side application supporting a real university extension project
+          with complex forms, RESTful data flow, and automated index
+          calculations. Built with React and TypeScript.
+        </p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>CRM Test</h3>
+        <p>
+          Full-stack CRM with Nest.js backend demonstrating auth, CRUD, API
+          integration, tests, and deployment-ready architecture.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="experience-entry">
+        <h3>Systems Analysis and Development</h3>
+        <p class="date">
+          União das Américas (Descomplica) &mdash; November 2025
+        </p>
+      </div>
+      <div class="experience-entry">
+        <h3>M.Sc. Botany</h3>
+        <p class="date">National Museum &mdash; UFRJ</p>
+      </div>
+      <div class="experience-entry">
+        <h3>B.Sc. Biological Sciences</h3>
+        <p class="date">UFRJ</p>
+      </div>
+    </section>
+  }
+
+  @if (lang === "pt") {
+    <header>
+      <h1>Aron Barbosa de Oliveira</h1>
+      <p class="resume-title">
+        Desenvolvedor Full-stack &mdash; TypeScript, Python e Automação Shell
+      </p>
+      <p class="contact-line">
+        <a href="mailto:aron.b.96&#64;gmail.com">aron.b.96&#64;gmail.com</a>
+        &middot;
+        <a
+          href="https://www.linkedin.com/in/aron-b-oliveira/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >LinkedIn</a
+        >
+        &middot;
+        <a
+          href="https://github.com/aronboliveira"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          >GitHub</a
+        >
+        &middot; Rio de Janeiro, Brasil
+      </p>
+    </header>
+
+    <section>
+      <h2>Resumo</h2>
+      <p>
+        Desenvolvedor full-stack com aproximadamente 3 anos de experiência
+        construindo ferramentas internas e aplicações web. Foco em
+        manutenibilidade, automação e integração prática com IA. Experiência com
+        TypeScript (Angular, React, Vue.js), APIs Python (Quart, Django), PHP
+        (Laravel, WordPress) e scripts Bash para produtividade e administração
+        de sistemas. Graduado em Análise e Desenvolvimento de Sistemas (2025).
+      </p>
+    </section>
+
+    <section>
+      <h2>Habilidades</h2>
+      <ul>
+        <li>
+          <strong>Linguagens:</strong> TypeScript, Python, Bash, PHP, Java, C#
+        </li>
+        <li>
+          <strong>Frontend:</strong> Angular, React (Vite, Next.js), Vue.js
+          (Vite, Nuxt)
+        </li>
+        <li>
+          <strong>Backend:</strong> Nest.js, Express.js, Python (Quart/Django),
+          PHP (Laravel/WordPress)
+        </li>
+        <li>
+          <strong>Testes:</strong> Jest, Vitest, Cypress, Playwright, Pytest,
+          PHPUnit
+        </li>
+        <li>
+          <strong>Ferramentas:</strong> Git, Linux (Debian-based), LLM Agents,
+          Docker, CI/CD (GitHub Actions)
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Experiência</h2>
+
+      <div class="experience-entry">
+        <h3>Nova Prestech</h3>
+        <p class="date">Dezembro 2024 &mdash; Presente</p>
+        <p>
+          Ferramentas internas: orquestração de Agentes LLM em IDEs e TUIs;
+          Arquitetura Orientada a Eventos para Chatbots no WhatsApp (MVC);
+          monitoramento de Virtualização (Arquitetura Hexagonal); forks de ERP
+          (baseados em FOSS) ajustados com Domain-Driven Development e MVC;
+          Engenharia de Prompts para pipelines de agentes LLM (scraping web para
+          notícias tech/marketing, redação para redes sociais com linguagem B2B
+          e diretrizes de estilo); otimização de SEO para sites portfólio.
+          Desenvolvimento fullstack com Laravel, Django e React.js. Experiência
+          menor com automações via WhatsApp Business e Meta Business Suite.
+        </p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>Projeto de Extensão PROSSaúde &mdash; UFRJ</h3>
+        <p class="date">Agosto 2023 &mdash; Presente</p>
+        <p>
+          Desenvolvimento fullstack e manutenção de CRUDs com base RESTful para
+          preenchimento ágil de formulários complexos, incluindo agendas
+          interativas e sincronizadas, subsistemas de login e tabelamento com
+          cálculo automatizado de índices.
+        </p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>Desenvolvimento Web Freelance</h3>
+        <p class="date">Junho 2024 &mdash; Setembro 2025</p>
+        <p>
+          Desenvolvimento frontend para pequenos negócios: cardápios digitais
+          (Next.js), calculadoras para e-commerce (WordPress + React), e sites
+          para confeitarias (Create React App).
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projetos</h2>
+
+      <div class="experience-entry">
+        <h3>LLM Prompt Purify</h3>
+        <p>
+          Ferramenta de sanitização client-side para reduzir vazamento de dados
+          sensíveis para APIs de LLM de terceiros. Construído com Angular,
+          TypeScript e C#. Desenvolvido com base em experiência prática com
+          orquestração de Agentes LLM na Prestech.
+        </p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>PROSSaúde Client App</h3>
+        <p>
+          Aplicação client-side de suporte a projeto de extensão universitária
+          real com formulários complexos, fluxo de dados RESTful e cálculo
+          automatizado de índices. Construído com React e TypeScript.
+        </p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>CRM Test</h3>
+        <p>
+          CRM full-stack com backend Nest.js demonstrando autenticação, CRUD,
+          integração de API, testes e arquitetura pronta para deploy.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Formação</h2>
+      <div class="experience-entry">
+        <h3>Análise e Desenvolvimento de Sistemas</h3>
+        <p class="date">
+          União das Américas (Descomplica) &mdash; Novembro 2025
+        </p>
+      </div>
+      <div class="experience-entry">
+        <h3>Mestrado em Botânica</h3>
+        <p class="date">Museu Nacional &mdash; UFRJ</p>
+      </div>
+      <div class="experience-entry">
+        <h3>Licenciatura em Ciências Biológicas</h3>
+        <p class="date">UFRJ</p>
+      </div>
+    </section>
+  }
+</article>

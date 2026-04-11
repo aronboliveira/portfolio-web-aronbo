@@ -1,0 +1,74 @@
+@use "variables" as *;
+
+@mixin page-base {
+  font-family: $font-primary;
+  color: $color-text;
+  background: $color-bg;
+}
+
+@mixin content-section {
+  padding: $section-padding;
+  max-width: $content-max-width;
+  margin: 0 auto;
+}
+
+@mixin section-heading {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: $color-heading;
+}
+
+@mixin cta-base {
+  display: inline-block;
+  padding: 0.6rem 1.25rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+@mixin cta-primary {
+  @include cta-base;
+  background: $color-accent;
+  color: $color-dark;
+  &:hover {
+    background: $color-accent-hover;
+  }
+}
+
+@mixin cta-secondary {
+  @include cta-base;
+  background: transparent;
+  color: $color-accent;
+  border: 1px solid $color-accent;
+  &:hover {
+    background: rgba($color-accent, 0.1);
+  }
+}
+
+@mixin cta-outline {
+  @include cta-base;
+  background: transparent;
+  color: $color-heading;
+  border: 1px solid $color-heading;
+  &:hover {
+    background: rgba($color-heading, 0.08);
+  }
+}
+
+@mixin card-bg {
+  background: $color-card-bg;
+  border-radius: 6px;
+}
+
+@mixin back-link {
+  color: $color-accent;
+  text-decoration: none;
+  font-size: 0.9rem;
+  &:hover {
+    text-decoration: underline;
+  }
+}

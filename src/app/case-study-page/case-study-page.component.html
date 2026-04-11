@@ -1,0 +1,61 @@
+<article class="case-study-page" *ngIf="study">
+  <nav class="case-nav" aria-label="Project navigation">
+    <a [routerLink]="lang === 'en' ? '/en' : '/pt'" class="back-link">
+      &larr; {{ lang === "en" ? "Home" : "Início" }}
+    </a>
+  </nav>
+
+  <header>
+    <h1>{{ study.title }}</h1>
+    <p class="stack-line">{{ study.stack }}</p>
+  </header>
+
+  <section>
+    <h2>{{ lang === "en" ? "Problem" : "Problema" }}</h2>
+    <p>{{ study.problem }}</p>
+  </section>
+
+  <section>
+    <h2>{{ lang === "en" ? "Constraints" : "Restrições" }}</h2>
+    <p>{{ study.constraints }}</p>
+  </section>
+
+  <section>
+    <h2>{{ lang === "en" ? "Solution" : "Solução" }}</h2>
+    <p>{{ study.solution }}</p>
+  </section>
+
+  <section>
+    <h2>{{ lang === "en" ? "Outcome" : "Resultado" }}</h2>
+    <p>{{ study.outcome }}</p>
+  </section>
+
+  <section class="links-section">
+    <h2>Links</h2>
+    <div class="case-links">
+      <a
+        [href]="study.liveUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="cta cta-primary"
+      >
+        {{ lang === "en" ? "Live / Demo" : "Acessar / Demo" }}
+      </a>
+      <a
+        [href]="study.repoUrl"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        class="cta cta-outline"
+      >
+        {{ lang === "en" ? "Repository" : "Repositório" }}
+      </a>
+    </div>
+  </section>
+</article>
+
+<div class="case-study-page not-found" *ngIf="!study">
+  <p>{{ lang === "en" ? "Project not found." : "Projeto não encontrado." }}</p>
+  <a [routerLink]="lang === 'en' ? '/en' : '/pt'">
+    &larr; {{ lang === "en" ? "Back to Home" : "Voltar ao Início" }}
+  </a>
+</div>
