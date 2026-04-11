@@ -2,217 +2,204 @@
 
 /**
  * E2E tests for Language Toggle (PT-BR / EN-US)
- * Tests bilingual content switching functionality
+ * Tests bilingual content switching via route-based language navigation
  */
 describe('Language Toggle', () => {
-  beforeEach(() => {
-    cy.visit('/');
-    cy.waitForPageLoad();
+  describe('English Page', () => {
+    beforeEach(() => {
+      cy.visit('/en');
+      cy.waitForPageLoad();
+    });
+
+    it('should display English name', () => {
+      cy.get('.hero-text h1').should('contain.text', 'Aron Barbosa de Oliveira');
+    });
+
+    it('should display English subtitle', () => {
+      cy.get('.hero-text .subtitle').should(
+        'contain.text',
+        'Full-Stack Software Developer',
+      );
+    });
+
+    it('should display English summary', () => {
+      cy.get('.hero-text .summary').should(
+        'contain.text',
+        'internal tools and web applications',
+      );
+    });
+
+    it('should display English skills heading', () => {
+      cy.get('#skills-heading').should('contain.text', 'Skills');
+    });
+
+    it('should display English projects heading', () => {
+      cy.get('#projects-heading').should('contain.text', 'Featured Projects');
+    });
+
+    it('should display English experience heading', () => {
+      cy.get('#experience-heading').should('contain.text', 'Experience');
+    });
+
+    it('should display English courses heading', () => {
+      cy.get('#courses-heading').should('contain.text', 'Courses');
+    });
+
+    it('should show PT-BR language switch link', () => {
+      cy.get('.lang-switch').should('contain.text', 'PT-BR');
+    });
+
+    it('should have CTA with View Resume text', () => {
+      cy.get('.cta-primary').should('contain.text', 'View Resume');
+    });
   });
 
-  describe('Initial State (Portuguese)', () => {
-    it('should display Portuguese greeting by default', () => {
-      cy.get('#hi-presentation').should('contain.text', 'Olá! Eu sou o');
+  describe('Portuguese Page', () => {
+    beforeEach(() => {
+      cy.visit('/pt');
+      cy.waitForPageLoad();
+    });
+
+    it('should display Portuguese subtitle', () => {
+      cy.get('.hero-text .subtitle').should(
+        'contain.text',
+        'Desenvolvedor Full-stack',
+      );
+    });
+
+    it('should display Portuguese summary', () => {
+      cy.get('.hero-text .summary').should(
+        'contain.text',
+        'ferramentas internas e aplicações web',
+      );
+    });
+
+    it('should display Portuguese skills heading', () => {
+      cy.get('#skills-heading').should('contain.text', 'Habilidades');
+    });
+
+    it('should display Portuguese projects heading', () => {
+      cy.get('#projects-heading').should('contain.text', 'Projetos em Destaque');
     });
 
     it('should display Portuguese experience heading', () => {
-      cy.get('#experience').should('contain.text', 'Minha experiência');
+      cy.get('#experience-heading').should('contain.text', 'Experiência');
     });
 
-    it('should display language toggle with BR-US labels', () => {
-      cy.get('#pt-br').should('contain.text', 'BR');
-      cy.get('#en-us').should('contain.text', 'US');
+    it('should display Portuguese courses heading', () => {
+      cy.get('#courses-heading').should('contain.text', 'Cursos');
     });
 
-    it('should have toggle button with correct initial state', () => {
-      cy.get('#toggle-language').should('exist');
-      cy.get('#toggle-language').should('not.have.class', 'checked');
+    it('should show EN-US language switch link', () => {
+      cy.get('.lang-switch').should('contain.text', 'EN-US');
     });
 
-    it('should display Portuguese professional description', () => {
-      cy.get('#description').should(
+    it('should have CTA with Ver Currículo text', () => {
+      cy.get('.cta-primary').should('contain.text', 'Ver Currículo');
+    });
+  });
+
+  describe('Toggle EN to PT via Language Switch', () => {
+    it('should navigate from EN to PT', () => {
+      cy.visit('/en');
+      cy.waitForPageLoad();
+
+      cy.get('.lang-switch').click();
+      cy.wait(500);
+
+      cy.url().should('include', '/pt');
+      cy.get('.hero-text .subtitle').should(
         'contain.text',
-        'Desenvolvedor de Software',
+        'Desenvolvedor Full-stack',
       );
     });
-
-    it('should display Portuguese skills section', () => {
-      cy.get('#description').should('contain.text', 'Web Fullstack');
-    });
   });
 
-  describe('Toggle to English', () => {
-    beforeEach(() => {
-      cy.toggleLanguage();
-    });
+  describe('Toggle PT to EN via Language Switch', () => {
+    it('should navigate from PT to EN', () => {
+      cy.visit('/pt');
+      cy.waitForPageLoad();
 
-    it('should switch to English greeting', () => {
-      cy.get('#hi-presentation').should('contain.text', "Hello! I'm");
-    });
+      cy.get('.lang-switch').click();
+      cy.wait(500);
 
-    it('should switch to English experience heading', () => {
-      cy.get('#experience').should('contain.text', 'My experience');
-    });
-
-    it('should display English professional description', () => {
-      cy.get('#description').should('contain.text', 'Software Developer');
-    });
-
-    it('should display English skills', () => {
-      cy.get('#description').should(
+      cy.url().should('include', '/en');
+      cy.get('.hero-text .subtitle').should(
         'contain.text',
-        'Fullstack Web Development',
+        'Full-Stack Software Developer',
       );
     });
-
-    it('should update toggle button state', () => {
-      cy.get('#toggle-language').should('have.class', 'checked');
-    });
-
-    it('should change toggle title to Portuguese instructions', () => {
-      cy.get('#toggle-language')
-        .should('have.attr', 'title')
-        .and('include', 'pt-BR');
-    });
   });
 
-  describe('Toggle Back to Portuguese', () => {
-    it('should return to Portuguese after double toggle', () => {
-      cy.toggleLanguage(); // To English
-      cy.toggleLanguage(); // Back to Portuguese
+  describe('Experience Section Language', () => {
+    it('should show English experience dates', () => {
+      cy.visit('/en');
+      cy.waitForPageLoad();
 
-      cy.get('#hi-presentation').should('contain.text', 'Olá! Eu sou o');
-      cy.get('#experience').should('contain.text', 'Minha experiência');
-    });
-
-    it('should restore Portuguese toggle state', () => {
-      cy.toggleLanguage();
-      cy.toggleLanguage();
-
-      cy.get('#toggle-language').should('not.have.class', 'checked');
-    });
-  });
-
-  describe('Experience Section Language Switch', () => {
-    it('should display Portuguese experience entries initially', () => {
-      cy.get('#timeline').within(() => {
-        cy.contains('Presente').should('exist');
+      cy.get('.timeline-item').first().within(() => {
+        cy.get('time').should('exist');
       });
     });
 
-    it('should switch experience entries to English', () => {
-      cy.toggleLanguage();
+    it('should show Portuguese experience content', () => {
+      cy.visit('/pt');
+      cy.waitForPageLoad();
 
-      cy.get('#timeline').within(() => {
-        cy.contains('Present').should('exist');
-      });
-    });
-
-    it('should display English job descriptions', () => {
-      cy.toggleLanguage();
-
-      cy.get('#timeline').within(() => {
-        cy.contains('Fullstack Development').should('exist');
-      });
+      cy.get('.timeline-item').should('have.length.gt', 0);
     });
   });
 
-  describe('Courses Section Language Switch', () => {
-    it('should switch courses heading to English', () => {
-      cy.toggleLanguage();
+  describe('Courses Section Language', () => {
+    it('should display English courses heading', () => {
+      cy.visit('/en');
+      cy.waitForPageLoad();
 
-      cy.get('#courses').should('contain.text', 'Complete courses');
+      cy.get('#courses-heading').should('contain.text', 'Courses & Certifications');
     });
 
-    it('should switch courses heading back to Portuguese', () => {
-      cy.toggleLanguage();
-      cy.toggleLanguage();
+    it('should display Portuguese courses heading', () => {
+      cy.visit('/pt');
+      cy.waitForPageLoad();
 
-      cy.get('#courses').should('contain.text', 'Cursos realizados');
+      cy.get('#courses-heading').should('contain.text', 'Cursos & Certificações');
     });
   });
 
-  describe('Projects Section Language Switch', () => {
-    it('should switch projects heading to English', () => {
-      cy.toggleLanguage();
+  describe('Footer Language', () => {
+    it('should show English footer text', () => {
+      cy.visit('/en');
+      cy.waitForPageLoad();
 
-      cy.get('#working-projects').should(
+      cy.get('.page-footer p').should('contain.text', 'All rights reserved');
+    });
+
+    it('should show Portuguese footer text', () => {
+      cy.visit('/pt');
+      cy.waitForPageLoad();
+
+      cy.get('.page-footer p').should(
         'contain.text',
-        'Experimental Projects',
+        'Todos os direitos reservados',
       );
-    });
-
-    it('should switch back to Portuguese', () => {
-      cy.toggleLanguage();
-      cy.toggleLanguage();
-
-      cy.get('#working-projects').should(
-        'contain.text',
-        'Projetos Experimentais',
-      );
-    });
-  });
-
-  describe('Tooltip Language Updates', () => {
-    it('should update email tooltip on language change', () => {
-      cy.get('#mailto').should('have.attr', 'title').and('include', 'e-mail');
-
-      cy.toggleLanguage();
-
-      cy.get('#mailto').should('have.attr', 'title').and('include', 'email');
-    });
-
-    it('should update LinkedIn tooltip on language change', () => {
-      cy.get('#linkedin')
-        .should('have.attr', 'title')
-        .and('include', 'LinkedIn');
-    });
-
-    it('should update GitHub tooltip on language change', () => {
-      cy.get('#github').should('have.attr', 'title').and('include', 'Github');
-    });
-  });
-
-  describe('Section Arrow Tooltips', () => {
-    it('should update experience arrow title', () => {
-      cy.get('#exp-arrow-span')
-        .should('have.attr', 'title')
-        .and('include', 'Esconder');
-
-      cy.toggleLanguage();
-
-      cy.get('#exp-arrow-span')
-        .should('have.attr', 'title')
-        .and('include', 'Hide');
     });
   });
 
   describe('Persistence and Consistency', () => {
     it('should maintain language state during scroll', () => {
-      cy.toggleLanguage();
-      cy.scrollTo('bottom');
+      cy.visit('/en');
+      cy.waitForPageLoad();
 
-      cy.get('#experience').should('contain.text', 'My experience');
+      cy.scrollTo('bottom');
+      cy.get('#experience-heading').should('contain.text', 'Experience');
     });
 
     it('should apply language consistently to all sections', () => {
-      cy.toggleLanguage();
+      cy.visit('/en');
+      cy.waitForPageLoad();
 
-      // Check multiple sections are in English
-      cy.get('#hi-presentation').should('contain.text', "Hello! I'm");
-      cy.get('#experience').should('contain.text', 'My experience');
-      cy.get('#courses').should('contain.text', 'Complete courses');
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('should have proper aria attributes on toggle', () => {
-      cy.get('input#toggle-language').should('exist');
-    });
-
-    it('should be keyboard accessible', () => {
-      cy.get('#toggle-language').focus().type('{enter}');
-      // Verify state changed (depends on implementation)
+      cy.get('#skills-heading').should('contain.text', 'Skills');
+      cy.get('#experience-heading').should('contain.text', 'Experience');
+      cy.get('#courses-heading').should('contain.text', 'Courses');
     });
   });
 });
