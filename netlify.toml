@@ -24,3 +24,24 @@ status = 200
 
 [context.production.environment]
   NODE_ENV = "production"
+
+# ── Cache headers ──────────────────────────────────────────
+# Favicon: short cache + revalidate so CDN picks up changes quickly
+[[headers]]
+  for = "/dev_aronbo_favicon.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+    Content-Type  = "image/svg+xml"
+
+# SEO / OG logo: cache for 1 day, revalidate after
+[[headers]]
+  for = "/logo_aronb_dev-630.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, must-revalidate"
+    Content-Type  = "image/webp"
+
+# Long cache for other static images (fingerprinted by Angular build)
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
