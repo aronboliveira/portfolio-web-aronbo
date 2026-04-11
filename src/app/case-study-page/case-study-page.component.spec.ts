@@ -45,7 +45,7 @@ describe('CaseStudyPageComponent', () => {
   });
 
   describe('valid slugs', () => {
-    const slugs = ['llm-prompt-purify', 'prossaude-client-app', 'crm-test'];
+    const slugs = ['llm-prompt-purify', 'prossaude-client-app', 'crm-test', 'prompt-shape-creator'];
 
     slugs.forEach(slug => {
       it(`should load study for ${slug} in EN`, () => {

@@ -90,14 +90,14 @@ describe('HomePageComponent', () => {
   });
 
   describe('projects', () => {
-    it('should return 3 featured projects for EN', () => {
+    it('should return 4 featured projects for EN', () => {
       createComponent('en');
-      expect(component.projects.length).toBe(3);
+      expect(component.projects.length).toBe(4);
     });
 
-    it('should return 3 featured projects for PT', () => {
+    it('should return 4 featured projects for PT', () => {
       createComponent('pt');
-      expect(component.projects.length).toBe(3);
+      expect(component.projects.length).toBe(4);
     });
 
     it('should include llm-prompt-purify', () => {
