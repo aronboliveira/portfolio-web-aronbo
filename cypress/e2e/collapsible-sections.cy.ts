@@ -68,7 +68,7 @@ describe('Collapsible Sections', () => {
     });
 
     it('should display project cards', () => {
-      cy.get('.project-card').should('have.length', 3);
+      cy.get('.project-card').should('have.length', 4);
     });
 
     it('should show project stacks', () => {

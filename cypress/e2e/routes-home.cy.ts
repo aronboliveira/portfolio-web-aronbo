@@ -48,10 +48,11 @@ describe('Home Page — EN', () => {
     cy.contains('a', 'Resume').should('be.visible');
   });
 
-  it('should show 3 featured project cards', () => {
+  it('should show 4 featured project cards', () => {
     cy.contains('LLM Prompt Purify').should('exist');
     cy.contains('PROSSaúde').should('exist');
     cy.contains('CRM Test').should('exist');
+    cy.contains('Prompt Shape Creator').should('exist');
   });
 
   it('should have skills section with key technologies', () => {
