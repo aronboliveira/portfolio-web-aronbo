@@ -1,5 +1,5 @@
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as m;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as m;
 
 .case-study-page {
   @include m.page-base;
@@ -15,14 +15,18 @@
     a {
       color: $color-accent;
       text-decoration: none;
-      &:hover { text-decoration: underline; }
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
 
 .case-nav {
   margin-bottom: 2rem;
-  .back-link { @include m.back-link; }
+  .back-link {
+    @include m.back-link;
+  }
 }
 
 header {
@@ -65,6 +69,12 @@ section {
   }
 }
 
-.cta { @include m.cta-base; }
-.cta-primary { @include m.cta-primary; }
-.cta-outline { @include m.cta-outline; }
+.cta {
+  @include m.cta-base;
+}
+.cta-primary {
+  @include m.cta-primary;
+}
+.cta-outline {
+  @include m.cta-outline;
+}

@@ -66,4 +66,3 @@ export class HomePageComponent implements OnInit {
     this.showAllCourses = !this.showAllCourses;
   }
 }
-

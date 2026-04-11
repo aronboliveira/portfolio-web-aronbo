@@ -118,7 +118,7 @@ describe('EventComponent', () => {
         title: 'Nova Prestech',
         date: '12/2024 — Presente',
         description:
-          '<strong>Desenvolvimento Fullstack</strong> baseado em <em>Laravel, Flask e React.js</em>',
+          '<strong>Desenvolvimento Fullstack</strong> baseado em <em>Laravel, Django e React.js</em>',
         href: 'https://prestech.com.br/site/',
       },
       {

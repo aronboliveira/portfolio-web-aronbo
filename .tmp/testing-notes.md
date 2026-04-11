@@ -78,9 +78,9 @@
 
 1. **Clear Professional Title**: "Desenvolvedor de Software" / "Software Developer" prominently displayed
 2. **Technical Skills Highlighted**: Strong emphasis on key technologies:
-   - Next.js, Angular, WordPress, Laravel
-   - PowerShell, Bash, Python, Java
-   - React, Flask
+   - Next.js, Angular, Vue.js WordPress, Laravel
+   - Bash, Python, Java, C#
+   - React, Django, Vite
 3. **Quantifiable Experience**: "3 years of experience" clearly stated
 4. **Education Mentioned**: Graduation in "Análise e Desenvolvimento de Sistemas"
 5. **Portfolio Links**: GitHub and LinkedIn links available
@@ -101,7 +101,7 @@
 
 **Backend:**
 
-- ✓ Laravel, Flask
+- ✓ Laravel, Django
 - ✓ RESTful APIs
 - ➕ Node.js (if applicable)
 - ➕ SQL/Database
@@ -130,7 +130,7 @@
 
    ```
    Languages: JavaScript, TypeScript, Python, Java, PHP
-   Frameworks: Next.js, Angular, React, Laravel, Flask
+   Frameworks: Next.js, Angular, React, Laravel, Django
    Tools: Git, Docker, VS Code, Figma
    ```
 

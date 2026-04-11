@@ -4,9 +4,7 @@ const langChildren: Route[] = [
   {
     path: '',
     loadComponent: () =>
-      import('./home-page/home-page.component').then(
-        m => m.HomePageComponent,
-      ),
+      import('./home-page/home-page.component').then(m => m.HomePageComponent),
   },
   {
     path: 'resume',

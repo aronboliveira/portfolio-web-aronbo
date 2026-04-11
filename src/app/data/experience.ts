@@ -6,7 +6,7 @@ export const EXPERIENCE: I18n<ExperienceEntry[]> = {
       title: 'Nova Prestech',
       date: 'December 2024 — Present',
       description:
-        'Fullstack Development using Laravel, Flask, and React.js; maintenance of Operating Systems based on Debian and Windows; optimization of Data Processing; Technical Support for Web Systems, focusing on CMSs and ERPs.',
+        'Internal tooling: orchestration of LLM Agents within IDEs and TUIs; Event-driven Architecture for WhatsApp Chatbots (MVC); Virtualization monitoring (Hexagonal Architecture); ERP forks (FOSS-based) tuned with Domain-Driven Development and MVC; Prompt engineering for LLM agent pipelines (web scraping for tech news/marketing, social media writing with B2B language and style directives); SEO optimization for portfolio websites. Fullstack development with Laravel, Django, and React.js. Minor experience with WhatsApp Business and Meta Business Suite automations.',
       href: 'https://prestech.com.br/site/',
     },
     {
@@ -43,7 +43,7 @@ export const EXPERIENCE: I18n<ExperienceEntry[]> = {
       title: 'Nova Prestech',
       date: 'Dezembro 2024 — Presente',
       description:
-        'Desenvolvimento Fullstack baseado em Laravel, Flask e React.js; manutenção de Sistemas Operacionais baseados em Debian e Windows; otimização de Processamento de dados; Suporte Técnico para Sistemas Web, com foco em CMSs e ERPs.',
+        'Ferramentas internas: orquestração de Agentes LLM em IDEs e TUIs; Arquitetura Orientada a Eventos para Chatbots no WhatsApp (MVC); monitoramento de Virtualização (Arquitetura Hexagonal); forks de ERP (baseados em FOSS) ajustados com Domain-Driven Development e MVC; Engenharia de Prompts para pipelines de agentes LLM (scraping web para notícias tech/marketing, redação para redes sociais com linguagem B2B e diretrizes de estilo); otimização de SEO para sites portfólio. Desenvolvimento fullstack com Laravel, Django e React.js. Experiência menor com automações via WhatsApp Business e Meta Business Suite.',
       href: 'https://prestech.com.br/site/',
     },
     {

@@ -2,17 +2,21 @@ import type { I18n, SkillSet } from './portfolio.interfaces';
 
 export const SKILLS: I18n<SkillSet> = {
   en: {
-    languages: 'TypeScript, JavaScript, Python, Bash, PowerShell',
-    frontend: 'Angular, React, Next.js, Vite',
-    backend: 'Python (Quart/Flask), PHP (Laravel)',
-    testing: 'Cypress, Jest, unit tests',
-    tooling: 'Git, Linux, Docker, CI/CD (GitHub Actions)',
+    languages: 'TypeScript, Python, Bash, PHP, Java, C#',
+    frontend: 'Angular, React (Vite, Next.js), Vue.js (Vite, Nuxt)',
+    backend:
+      'Nest.js, Express.js, Python (Quart/Django), PHP (Laravel/Wordpress)',
+    testing: 'Jest, Vitest, Cypress, Playwright, Pytest, PHPUnit',
+    tooling:
+      'Git, Linux (Debian-based), LLM Agents, Docker, CI/CD (GitHub Actions)',
   },
   pt: {
-    languages: 'TypeScript, JavaScript, Python, Bash, PowerShell',
-    frontend: 'Angular, React, Next.js, Vite',
-    backend: 'Python (Quart/Flask), PHP (Laravel)',
-    testing: 'Cypress, Jest, testes unitários',
-    tooling: 'Git, Linux, Docker, CI/CD (GitHub Actions)',
+    languages: 'TypeScript, Python, Bash, PHP, Java, C#',
+    frontend: 'Angular, React (Vite, Next.js), Vue.js (Vite, Nuxt)',
+    backend:
+      'Nest.js, Express.js, Python (Quart/Django), PHP (Laravel/Wordpress)',
+    testing: 'Jest, Vitest, Cypress, Playwright, Pytest, PHPUnit',
+    tooling:
+      'Git, Linux (Debian-based), LLM Agents, Docker, CI/CD (GitHub Actions)',
   },
 };

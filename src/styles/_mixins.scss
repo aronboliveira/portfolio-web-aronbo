@@ -1,4 +1,4 @@
-@use 'variables' as *;
+@use "variables" as *;
 
 @mixin page-base {
   font-family: $font-primary;
@@ -25,14 +25,18 @@
   font-size: 0.9rem;
   font-weight: 600;
   text-decoration: none;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 
 @mixin cta-primary {
   @include cta-base;
   background: $color-accent;
   color: $color-dark;
-  &:hover { background: $color-accent-hover; }
+  &:hover {
+    background: $color-accent-hover;
+  }
 }
 
 @mixin cta-secondary {
@@ -40,7 +44,9 @@
   background: transparent;
   color: $color-accent;
   border: 1px solid $color-accent;
-  &:hover { background: rgba($color-accent, 0.1); }
+  &:hover {
+    background: rgba($color-accent, 0.1);
+  }
 }
 
 @mixin cta-outline {
@@ -48,7 +54,9 @@
   background: transparent;
   color: $color-heading;
   border: 1px solid $color-heading;
-  &:hover { background: rgba($color-heading, 0.08); }
+  &:hover {
+    background: rgba($color-heading, 0.08);
+  }
 }
 
 @mixin card-bg {
@@ -60,5 +68,7 @@
   color: $color-accent;
   text-decoration: none;
   font-size: 0.9rem;
-  &:hover { text-decoration: underline; }
+  &:hover {
+    text-decoration: underline;
+  }
 }
