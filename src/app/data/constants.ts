@@ -25,6 +25,8 @@ export const PERSON_JSONLD = {
     'REST API',
     'Automation',
     'LLM',
+    'Next.js',
+    'Tailwind CSS',
     'Web Development',
   ],
   email: 'mailto:aron.b.96@gmail.com',

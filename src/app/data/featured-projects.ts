@@ -30,6 +30,16 @@ export const FEATURED_PROJECTS: I18n<FeaturedProject[]> = {
       href: 'https://github.com/aronboliveira/crm-test',
       repoHref: 'https://github.com/aronboliveira/crm-test',
     },
+    {
+      slug: 'prompt-shape-creator',
+      title: 'Prompt Shape Creator',
+      outcome:
+        'Image-generation prompt briefing form with SMTP email delivery, clipboard fallback, autosave, and bilingual auto-detection. Built with modern React patterns (useActionState, useTransition).',
+      stacks: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS'],
+      href: 'https://prompt-shape-creator.netlify.app/',
+      repoHref:
+        'https://github.com/aronboliveira/prompt-eng-form-basic-pub',
+    },
   ],
   pt: [
     {
@@ -59,6 +69,16 @@ export const FEATURED_PROJECTS: I18n<FeaturedProject[]> = {
       stacks: ['Nest.js', 'TypeScript', 'REST', 'Auth', 'Testing'],
       href: 'https://github.com/aronboliveira/crm-test',
       repoHref: 'https://github.com/aronboliveira/crm-test',
+    },
+    {
+      slug: 'prompt-shape-creator',
+      title: 'Prompt Shape Creator',
+      outcome:
+        'Formulário de briefing para prompts de geração de imagens com envio via SMTP, fallback para clipboard, autosave e detecção automática de idioma. Construído com padrões modernos de React (useActionState, useTransition).',
+      stacks: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS'],
+      href: 'https://prompt-shape-creator.netlify.app/',
+      repoHref:
+        'https://github.com/aronboliveira/prompt-eng-form-basic-pub',
     },
   ],
 };

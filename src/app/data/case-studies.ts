@@ -100,4 +100,36 @@ export const CASE_STUDIES: Record<string, Record<Lang, CaseStudy>> = {
       repoUrl: 'https://github.com/aronboliveira/crm-test',
     },
   },
+  'prompt-shape-creator': {
+    en: {
+      slug: 'prompt-shape-creator',
+      title: 'Prompt Shape Creator',
+      problem:
+        'Image-generation workflows often lack a structured way to collect detailed prompt briefings from clients. Requests arrive as scattered messages, missing critical details about scene, characters, style, and technical preferences.',
+      constraints:
+        'Must work as a standalone form without requiring user accounts. Email delivery must be reliable, with a clipboard fallback when the API is unavailable. Form state must be protected against accidental page closure. Must support bilingual content (EN/PT) without server-side rendering for language detection.',
+      solution:
+        'A Next.js 16 App Router application with a structured briefing form split into logical sections (scene, characters, style, technical prefs, references). Uses React 19 useActionState + useTransition for non-blocking submission, nodemailer for SMTP delivery, and a custom autosave hook that persists form state to sessionStorage with beforeunload protection. Client-side language detection auto-switches between English and Portuguese.',
+      stack: 'Next.js 16, TypeScript, React 19, Tailwind CSS v4, nodemailer',
+      outcome:
+        'Streamlined prompt collection with zero lost briefings. Clipboard fallback ensures delivery even when email fails. Autosave prevents data loss from accidental navigation. Accessible, print-friendly, and responsive across devices.',
+      liveUrl: 'https://prompt-shape-creator.netlify.app/',
+      repoUrl: 'https://github.com/aronboliveira/prompt-eng-form-basic-pub',
+    },
+    pt: {
+      slug: 'prompt-shape-creator',
+      title: 'Prompt Shape Creator',
+      problem:
+        'Fluxos de geração de imagens frequentemente carecem de uma forma estruturada para coletar briefings detalhados de prompts dos clientes. Solicitações chegam como mensagens espalhadas, sem detalhes críticos sobre cenário, personagens, estilo e preferências técnicas.',
+      constraints:
+        'Deve funcionar como formulário standalone sem exigir contas de usuário. O envio por e-mail deve ser confiável, com fallback para clipboard quando a API estiver indisponível. O estado do formulário deve ser protegido contra fechamento acidental da página. Deve suportar conteúdo bilíngue (EN/PT) sem renderização server-side para detecção de idioma.',
+      solution:
+        'Uma aplicação Next.js 16 (App Router) com formulário de briefing estruturado em seções lógicas (cenário, personagens, estilo, preferências técnicas, referências). Usa useActionState + useTransition do React 19 para envio não-bloqueante, nodemailer para SMTP, e um hook de autosave customizado que persiste o estado em sessionStorage com proteção beforeunload. Detecção de idioma client-side alterna automaticamente entre inglês e português.',
+      stack: 'Next.js 16, TypeScript, React 19, Tailwind CSS v4, nodemailer',
+      outcome:
+        'Coleta de prompts simplificada sem briefings perdidos. Fallback para clipboard garante entrega mesmo quando o e-mail falha. Autosave previne perda de dados por navegação acidental. Acessível, amigável para impressão e responsivo em todos os dispositivos.',
+      liveUrl: 'https://prompt-shape-creator.netlify.app/',
+      repoUrl: 'https://github.com/aronboliveira/prompt-eng-form-basic-pub',
+    },
+  },
 };
