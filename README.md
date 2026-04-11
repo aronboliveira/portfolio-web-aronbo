@@ -51,26 +51,26 @@ src/
 
 ### Routes
 
-| Path | Component | Description |
-|:-----|:----------|:------------|
-| `/en` · `/pt` | `HomePageComponent` | Main portfolio (lazy-loaded) |
-| `/en/resume` · `/pt/resume` | `ResumePageComponent` | Printable résumé |
-| `/en/projects/:slug` · `/pt/projects/:slug` | `CaseStudyPageComponent` | Project case study |
-| `/` | — | Redirects to `/en` |
+| Path                                        | Component                | Description                  |
+| :------------------------------------------ | :----------------------- | :--------------------------- |
+| `/en` · `/pt`                               | `HomePageComponent`      | Main portfolio (lazy-loaded) |
+| `/en/resume` · `/pt/resume`                 | `ResumePageComponent`    | Printable résumé             |
+| `/en/projects/:slug` · `/pt/projects/:slug` | `CaseStudyPageComponent` | Project case study           |
+| `/`                                         | —                        | Redirects to `/en`           |
 
 ---
 
 ## ⚙️ Tech Stack
 
-| Layer | Technologies |
-|:------|:------------|
-| **Framework** | Angular 21.2, RxJS 7.8, Zone.js 0.15 |
-| **Language** | TypeScript 5.9, SCSS |
-| **SSR** | `@angular/ssr`, `@netlify/angular-runtime` |
-| **Testing** | Jest 30.3, Cypress 15.11, `jest-preset-angular` |
-| **Deployment** | Netlify (CDN + SPA fallback) |
+| Layer                | Technologies                                    |
+| :------------------- | :---------------------------------------------- |
+| **Framework**        | Angular 21.2, RxJS 7.8, Zone.js 0.15            |
+| **Language**         | TypeScript 5.9, SCSS                            |
+| **SSR**              | `@angular/ssr`, `@netlify/angular-runtime`      |
+| **Testing**          | Jest 30.3, Cypress 15.11, `jest-preset-angular` |
+| **Deployment**       | Netlify (CDN + SPA fallback)                    |
 | **Containerization** | Docker (node:22 + nginx:alpine), Docker Compose |
-| **CI/Tooling** | Node 22, npm, Git |
+| **CI/Tooling**       | Node 22, npm, Git                               |
 
 ---
 
@@ -124,6 +124,7 @@ docker compose down
 ```
 
 The **Dockerfile** uses a multi-stage approach:
+
 1. **Builder** (node:22-bookworm) — `npm ci`, type-check, Jest, production build
 2. **Production** (nginx:stable-alpine) — serves static assets with SPA fallback
 
@@ -131,12 +132,12 @@ The **Dockerfile** uses a multi-stage approach:
 
 ## 🧪 Testing
 
-| Runner | Tests | Command |
-|:-------|------:|:--------|
-| **TypeScript** | type-check | `npx tsc --noEmit -p tsconfig.app.json` |
-| **Jest** | 376 | `npm test` |
-| **Cypress E2E** | 196 | `npx cypress run` |
-| **Total** | **572** | — |
+| Runner          |      Tests | Command                                 |
+| :-------------- | ---------: | :-------------------------------------- |
+| **TypeScript**  | type-check | `npx tsc --noEmit -p tsconfig.app.json` |
+| **Jest**        |        376 | `npm test`                              |
+| **Cypress E2E** |        196 | `npx cypress run`                       |
+| **Total**       |    **572** | —                                       |
 
 ```bash
 # Type-check
@@ -154,22 +155,22 @@ docker compose up cypress
 
 ### Coverage Thresholds (Jest)
 
-| Metric | Threshold |
-|:-------|----------:|
-| Branches | 40% |
-| Functions | 60% |
-| Lines | 50% |
-| Statements | 50% |
+| Metric     | Threshold |
+| :--------- | --------: |
+| Branches   |       40% |
+| Functions  |       60% |
+| Lines      |       50% |
+| Statements |       50% |
 
 ---
 
 ## 🗂️ Featured Projects
 
-| Project | Stack | Description |
-|:--------|:------|:------------|
-| **LLM Prompt Purify** | Angular, TypeScript, C# | Browser tool for sanitizing LLM prompts |
-| **PROSSaúde Client App** | React, TypeScript | Multi-step health forms for UFRJ research (400+ inputs) |
-| **CRM Test** | Nest.js, TypeScript, REST | CRM API with auth, role-based access, and full test coverage |
+| Project                  | Stack                     | Description                                                  |
+| :----------------------- | :------------------------ | :----------------------------------------------------------- |
+| **LLM Prompt Purify**    | Angular, TypeScript, C#   | Browser tool for sanitizing LLM prompts                      |
+| **PROSSaúde Client App** | React, TypeScript         | Multi-step health forms for UFRJ research (400+ inputs)      |
+| **CRM Test**             | Nest.js, TypeScript, REST | CRM API with auth, role-based access, and full test coverage |
 
 ---
 
@@ -181,6 +182,7 @@ docker compose up cypress
 Portfólio pessoal bilíngue (Inglês / Português) desenvolvido com **Angular 21** e implantado na **Netlify**. Apresenta experiência profissional, projetos em destaque com estudos de caso, habilidades técnicas e certificações.
 
 **Funcionalidades:**
+
 - 🌍 Alternância de idioma via rotas (`/en` ↔ `/pt`) com Angular Signals
 - 📑 Página de currículo dedicada com download em PDF
 - 🔍 Estudos de caso por projeto (Problema → Restrições → Solução → Resultado)
