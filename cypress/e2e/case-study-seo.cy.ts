@@ -1,6 +1,11 @@
 /// <reference types="cypress" />
 
-const SLUGS = ['llm-prompt-purify', 'prossaude-client-app', 'crm-test', 'prompt-shape-creator'];
+const SLUGS = [
+  'llm-prompt-purify',
+  'prossaude-client-app',
+  'crm-test',
+  'prompt-shape-creator',
+];
 
 describe('Case Study Pages — EN', () => {
   SLUGS.forEach(slug => {

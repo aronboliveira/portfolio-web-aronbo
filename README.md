@@ -166,12 +166,12 @@ docker compose up cypress
 
 ## 🗂️ Featured Projects
 
-| Project                    | Stack                              | Description                                                       |
-| :------------------------- | :--------------------------------- | :---------------------------------------------------------------- |
-| **LLM Prompt Purify**      | Angular, TypeScript, C#            | Browser tool for sanitizing LLM prompts                           |
-| **PROSSaúde Client App**   | React, TypeScript                  | Multi-step health forms for UFRJ research (400+ inputs)           |
-| **CRM Test**               | Nest.js, TypeScript, REST          | CRM API with auth, role-based access, and full test coverage      |
-| **Prompt Shape Creator**   | Next.js, TypeScript, Tailwind CSS  | Image prompt briefing form with SMTP, autosave, and i18n fallback |
+| Project                  | Stack                             | Description                                                       |
+| :----------------------- | :-------------------------------- | :---------------------------------------------------------------- |
+| **LLM Prompt Purify**    | Angular, TypeScript, C#           | Browser tool for sanitizing LLM prompts                           |
+| **PROSSaúde Client App** | React, TypeScript                 | Multi-step health forms for UFRJ research (400+ inputs)           |
+| **CRM Test**             | Nest.js, TypeScript, REST         | CRM API with auth, role-based access, and full test coverage      |
+| **Prompt Shape Creator** | Next.js, TypeScript, Tailwind CSS | Image prompt briefing form with SMTP, autosave, and i18n fallback |
 
 ---
 
