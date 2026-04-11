@@ -8,7 +8,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Netlify](https://img.shields.io/badge/Deployed_on-Netlify-00C7B7?logo=netlify&logoColor=white)](https://aronboliveira-dev.netlify.app/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](./LICENSE)
-[![Tests](https://img.shields.io/badge/Tests-572_passing-brightgreen)](#-testing)
+[![Tests](https://img.shields.io/badge/Tests-583_passing-brightgreen)](#-testing)
 
 [**🔗 Live Site**](https://aronboliveira-dev.netlify.app/) ·
 [**📄 View Resume**](https://aronboliveira-dev.netlify.app/en/resume) ·
@@ -135,9 +135,9 @@ The **Dockerfile** uses a multi-stage approach:
 | Runner          |      Tests | Command                                 |
 | :-------------- | ---------: | :-------------------------------------- |
 | **TypeScript**  | type-check | `npx tsc --noEmit -p tsconfig.app.json` |
-| **Jest**        |        376 | `npm test`                              |
-| **Cypress E2E** |        196 | `npx cypress run`                       |
-| **Total**       |    **572** | —                                       |
+| **Jest**        |        378 | `npm test`                              |
+| **Cypress E2E** |        205 | `npx cypress run`                       |
+| **Total**       |    **583** | —                                       |
 
 ```bash
 # Type-check
@@ -166,11 +166,12 @@ docker compose up cypress
 
 ## 🗂️ Featured Projects
 
-| Project                  | Stack                     | Description                                                  |
-| :----------------------- | :------------------------ | :----------------------------------------------------------- |
-| **LLM Prompt Purify**    | Angular, TypeScript, C#   | Browser tool for sanitizing LLM prompts                      |
-| **PROSSaúde Client App** | React, TypeScript         | Multi-step health forms for UFRJ research (400+ inputs)      |
-| **CRM Test**             | Nest.js, TypeScript, REST | CRM API with auth, role-based access, and full test coverage |
+| Project                    | Stack                              | Description                                                       |
+| :------------------------- | :--------------------------------- | :---------------------------------------------------------------- |
+| **LLM Prompt Purify**      | Angular, TypeScript, C#            | Browser tool for sanitizing LLM prompts                           |
+| **PROSSaúde Client App**   | React, TypeScript                  | Multi-step health forms for UFRJ research (400+ inputs)           |
+| **CRM Test**               | Nest.js, TypeScript, REST          | CRM API with auth, role-based access, and full test coverage      |
+| **Prompt Shape Creator**   | Next.js, TypeScript, Tailwind CSS  | Image prompt briefing form with SMTP, autosave, and i18n fallback |
 
 ---
 
