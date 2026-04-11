@@ -237,6 +237,13 @@
     color: $color-body;
     margin-bottom: 1rem;
   }
+
+  .automation-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
 }
 
 /* Experience Timeline */
