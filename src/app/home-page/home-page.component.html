@@ -7,7 +7,11 @@
           href="mailto:aron.b.96&#64;gmail.com"
           rel="noopener noreferrer nofollow"
           title="{{
-            lang === 'en' ? 'Contact by email' : 'Contato por e-mail'
+            lang === 'en'
+              ? 'Contact by email'
+              : lang === 'es'
+                ? 'Contacto por correo'
+                : 'Contato por e-mail'
           }}"
           class="nav-icon"
           aria-label="Email"
@@ -73,15 +77,34 @@
             />
           </svg>
         </a>
-        <a
-          [routerLink]="lang === 'en' ? '/pt' : '/en'"
-          class="lang-switch"
-          [attr.aria-label]="
-            lang === 'en' ? 'Mudar para Português' : 'Switch to English'
-          "
-        >
-          {{ lang === "en" ? "PT-BR" : "EN-US" }}
-        </a>
+        @if (lang === "en") {
+          <a
+            routerLink="/pt"
+            class="lang-switch"
+            aria-label="Mudar para Português"
+            >PT-BR</a
+          >
+          <a routerLink="/es" class="lang-switch" aria-label="Cambiar a Español"
+            >ES</a
+          >
+        } @else if (lang === "pt") {
+          <a routerLink="/en" class="lang-switch" aria-label="Switch to English"
+            >EN-US</a
+          >
+          <a routerLink="/es" class="lang-switch" aria-label="Cambiar a Español"
+            >ES</a
+          >
+        } @else {
+          <a routerLink="/en" class="lang-switch" aria-label="Switch to English"
+            >EN-US</a
+          >
+          <a
+            routerLink="/pt"
+            class="lang-switch"
+            aria-label="Mudar para Português"
+            >PT-BR</a
+          >
+        }
       </div>
     </nav>
 
@@ -123,29 +146,57 @@
             para produtividade.
           </p>
         }
+        @if (lang === "es") {
+          <h1>Aron Barbosa de Oliveira</h1>
+          <h2 class="subtitle">
+            Desarrollador Full-Stack &mdash; TypeScript, Python y Automatización
+            Shell
+          </h2>
+          <p class="summary">
+            Desarrollo herramientas internas y aplicaciones web con enfoque en
+            mantenibilidad, automatización e integración práctica con IA.
+            Experiencia con TypeScript (Angular/React/Vue.js), APIs en Python y
+            scripts Bash para productividad.
+          </p>
+        }
         <div class="cta-group">
-          <a
-            [routerLink]="lang === 'en' ? '/en/resume' : '/pt/resume'"
-            class="cta cta-primary"
-          >
-            {{ lang === "en" ? "View Resume" : "Ver Currículo" }}
+          <a [routerLink]="'/' + lang + '/resume'" class="cta cta-primary">
+            {{
+              lang === "en"
+                ? "View Resume"
+                : lang === "es"
+                  ? "Ver Currículum"
+                  : "Ver Currículo"
+            }}
           </a>
           <a
             [href]="
               lang === 'en'
                 ? '/resume_aronbo_enUS.pdf'
-                : '/curriculo_aronbo_ptBr.pdf'
+                : lang === 'es'
+                  ? '/resume_aronbo_enUS.pdf'
+                  : '/curriculo_aronbo_ptBr.pdf'
             "
             download
             class="cta cta-secondary"
             id="download-resume-pdf"
           >
             {{
-              lang === "en" ? "Download Resume (PDF)" : "Baixar Currículo (PDF)"
+              lang === "en"
+                ? "Download Resume (PDF)"
+                : lang === "es"
+                  ? "Descargar Currículum (PDF)"
+                  : "Baixar Currículo (PDF)"
             }}
           </a>
           <a href="#featured-projects" class="cta cta-outline">
-            {{ lang === "en" ? "Projects" : "Projetos" }}
+            {{
+              lang === "en"
+                ? "Projects"
+                : lang === "es"
+                  ? "Proyectos"
+                  : "Projetos"
+            }}
           </a>
         </div>
       </div>
@@ -160,9 +211,20 @@
     @if (lang === "pt") {
       <h2 id="skills-heading">Habilidades</h2>
     }
+    @if (lang === "es") {
+      <h2 id="skills-heading">Habilidades</h2>
+    }
     <dl class="skills-list">
       <div class="skill-item">
-        <dt>{{ lang === "en" ? "Languages" : "Linguagens" }}</dt>
+        <dt>
+          {{
+            lang === "en"
+              ? "Languages"
+              : lang === "es"
+                ? "Lenguajes"
+                : "Linguagens"
+          }}
+        </dt>
         <dd>{{ currentSkills.languages }}</dd>
       </div>
       <div class="skill-item">
@@ -174,11 +236,21 @@
         <dd>{{ currentSkills.backend }}</dd>
       </div>
       <div class="skill-item">
-        <dt>{{ lang === "en" ? "Testing" : "Testes" }}</dt>
+        <dt>
+          {{ lang === "en" ? "Testing" : lang === "es" ? "Testing" : "Testes" }}
+        </dt>
         <dd>{{ currentSkills.testing }}</dd>
       </div>
       <div class="skill-item">
-        <dt>{{ lang === "en" ? "Tooling" : "Ferramentas" }}</dt>
+        <dt>
+          {{
+            lang === "en"
+              ? "Tooling"
+              : lang === "es"
+                ? "Herramientas"
+                : "Ferramentas"
+          }}
+        </dt>
         <dd>{{ currentSkills.tooling }}</dd>
       </div>
     </dl>
@@ -196,6 +268,9 @@
     @if (lang === "pt") {
       <h2 id="projects-heading">Projetos em Destaque</h2>
     }
+    @if (lang === "es") {
+      <h2 id="projects-heading">Proyectos Destacados</h2>
+    }
     <div class="projects-grid">
       @for (project of projects; track project.slug) {
         <article class="project-card">
@@ -212,17 +287,29 @@
           </div>
           <div class="project-links">
             <a [href]="project.href" target="_blank" rel="noopener noreferrer">
-              {{ lang === "en" ? "Live" : "Acessar" }}
+              {{ lang === "en" ? "Live" : lang === "es" ? "Ver" : "Acessar" }}
             </a>
             <a
               [href]="project.repoHref"
               target="_blank"
               rel="noopener noreferrer nofollow"
             >
-              {{ lang === "en" ? "Repository" : "Repositório" }}
+              {{
+                lang === "en"
+                  ? "Repository"
+                  : lang === "es"
+                    ? "Repositorio"
+                    : "Repositório"
+              }}
             </a>
             <a [routerLink]="'/' + lang + '/projects/' + project.slug">
-              {{ lang === "en" ? "Case Study" : "Estudo de Caso" }}
+              {{
+                lang === "en"
+                  ? "Case Study"
+                  : lang === "es"
+                    ? "Caso de Estudio"
+                    : "Estudo de Caso"
+              }}
             </a>
           </div>
         </article>
@@ -250,6 +337,14 @@
         Scripts shell, utilitários JavaScript/TypeScript e ferramentas Python
         para administração de sistemas operacionais, automação de planilhas e
         produtividade do desenvolvedor.
+      </p>
+    }
+    @if (lang === "es") {
+      <h2 id="automation-heading">Automatización &amp; Productividad</h2>
+      <p>
+        Scripts shell, utilidades JavaScript/TypeScript y herramientas Python
+        para administración de sistemas operativos, automatización de hojas de
+        cálculo y productividad del desarrollador.
       </p>
     }
     <div class="automation-links">
@@ -287,7 +382,13 @@
     aria-labelledby="experience-heading"
   >
     <h2 id="experience-heading">
-      {{ lang === "en" ? "Experience" : "Experiência" }}
+      {{
+        lang === "en"
+          ? "Experience"
+          : lang === "es"
+            ? "Experiencia"
+            : "Experiência"
+      }}
     </h2>
     <div class="timeline">
       @for (exp of currentExperience; track exp.title) {
@@ -314,7 +415,11 @@
   >
     <h2 id="courses-heading">
       {{
-        lang === "en" ? "Courses & Certifications" : "Cursos & Certificações"
+        lang === "en"
+          ? "Courses & Certifications"
+          : lang === "es"
+            ? "Cursos y Certificaciones"
+            : "Cursos & Certificações"
       }}
     </h2>
     <ul class="courses-list">
@@ -342,10 +447,14 @@
         showAllCourses
           ? lang === "en"
             ? "Show Less"
-            : "Ver Menos"
+            : lang === "es"
+              ? "Ver Menos"
+              : "Ver Menos"
           : lang === "en"
             ? "Show All Courses"
-            : "Ver Todos os Cursos"
+            : lang === "es"
+              ? "Ver Todos los Cursos"
+              : "Ver Todos os Cursos"
       }}
     </button>
   </section>
@@ -366,8 +475,10 @@
         rel="noopener noreferrer nofollow"
         >GitHub</a
       >
-      <a [routerLink]="lang === 'en' ? '/en/resume' : '/pt/resume'">
-        {{ lang === "en" ? "Resume" : "Currículo" }}
+      <a [routerLink]="'/' + lang + '/resume'">
+        {{
+          lang === "en" ? "Resume" : lang === "es" ? "Currículum" : "Currículo"
+        }}
       </a>
     </div>
     <p>
@@ -375,7 +486,9 @@
       {{
         lang === "en"
           ? "Aron Barbosa de Oliveira. All rights reserved."
-          : "Aron Barbosa de Oliveira. Todos os direitos reservados."
+          : lang === "es"
+            ? "Aron Barbosa de Oliveira. Todos los derechos reservados."
+            : "Aron Barbosa de Oliveira. Todos os direitos reservados."
       }}
     </p>
   </footer>

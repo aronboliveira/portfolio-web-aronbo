@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { LanguageService } from '../services/language.service';
+import { LanguageService, Lang } from '../services/language.service';
 import { SeoService } from '../services/seo.service';
 import { CASE_STUDIES } from '../data/case-studies';
 import type { CaseStudy } from '../data/portfolio.interfaces';
@@ -14,7 +14,7 @@ import type { CaseStudy } from '../data/portfolio.interfaces';
   styleUrls: ['./case-study-page.component.scss'],
 })
 export class CaseStudyPageComponent implements OnInit {
-  lang: 'en' | 'pt' = 'en';
+  lang: Lang = 'en';
   study: CaseStudy | null = null;
   constructor(
     private route: ActivatedRoute,
@@ -29,11 +29,12 @@ export class CaseStudyPageComponent implements OnInit {
     if (data) {
       this.study = data[this.lang];
       const isEn = this.lang === 'en';
+      const isEs = this.lang === 'es';
       this.seo.update({
         title: `${this.study.title} — Aron Barbosa de Oliveira`,
         description: this.study.outcome,
         canonicalPath: `/${this.lang}/projects/${slug}`,
-        lang: isEn ? 'en' : 'pt-BR',
+        lang: isEn ? 'en' : isEs ? 'es-CL' : 'pt-BR',
       });
     }
   }

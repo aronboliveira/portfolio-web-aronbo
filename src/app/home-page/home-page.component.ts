@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { LanguageService } from '../services/language.service';
+import { LanguageService, Lang } from '../services/language.service';
 import { SeoService } from '../services/seo.service';
 import { PERSON_JSONLD } from '../data/constants';
 import { FEATURED_PROJECTS } from '../data/featured-projects';
@@ -17,7 +17,7 @@ import { COURSES } from '../data/courses';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
-  lang: 'en' | 'pt' = 'en';
+  lang: Lang = 'en';
   isBrowser: boolean;
   showAllCourses = false;
 
@@ -32,15 +32,20 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.lang = this.langService.lang();
     const isEn = this.lang === 'en';
+    const isEs = this.lang === 'es';
     this.seo.update({
       title: isEn
         ? 'Aron Barbosa de Oliveira — Full-Stack Developer (TypeScript, Python, Shell)'
-        : 'Aron Barbosa de Oliveira — Desenvolvedor Full-stack (TypeScript, Python, Shell)',
+        : isEs
+          ? 'Aron Barbosa de Oliveira — Desarrollador Full-stack (TypeScript, Python, Shell)'
+          : 'Aron Barbosa de Oliveira — Desenvolvedor Full-stack (TypeScript, Python, Shell)',
       description: isEn
         ? 'Full-stack software developer specializing in TypeScript, Python, and Shell automation. Building internal tools, web applications, and AI integration.'
-        : 'Desenvolvedor full-stack especializado em TypeScript, Python e automação Shell. Construindo ferramentas internas, aplicações web e integração com IA.',
-      canonicalPath: isEn ? '/en' : '/pt',
-      lang: isEn ? 'en' : 'pt-BR',
+        : isEs
+          ? 'Desarrollador full-stack especializado en TypeScript, Python y automatización Shell. Construyendo herramientas internas, aplicaciones web e integración con IA.'
+          : 'Desenvolvedor full-stack especializado em TypeScript, Python e automação Shell. Construindo ferramentas internas, aplicações web e integração com IA.',
+      canonicalPath: `/${this.lang}`,
+      lang: isEn ? 'en' : isEs ? 'es-CL' : 'pt-BR',
       jsonLd: PERSON_JSONLD,
     });
   }

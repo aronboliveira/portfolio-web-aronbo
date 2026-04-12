@@ -1,7 +1,7 @@
 <article class="case-study-page" *ngIf="study">
   <nav class="case-nav" aria-label="Project navigation">
-    <a [routerLink]="lang === 'en' ? '/en' : '/pt'" class="back-link">
-      &larr; {{ lang === "en" ? "Home" : "Início" }}
+    <a [routerLink]="'/' + lang" class="back-link">
+      &larr; {{ lang === "en" ? "Home" : lang === "es" ? "Inicio" : "Início" }}
     </a>
   </nav>
 
@@ -16,17 +16,31 @@
   </section>
 
   <section>
-    <h2>{{ lang === "en" ? "Constraints" : "Restrições" }}</h2>
+    <h2>
+      {{
+        lang === "en"
+          ? "Constraints"
+          : lang === "es"
+            ? "Restricciones"
+            : "Restrições"
+      }}
+    </h2>
     <p>{{ study.constraints }}</p>
   </section>
 
   <section>
-    <h2>{{ lang === "en" ? "Solution" : "Solução" }}</h2>
+    <h2>
+      {{ lang === "en" ? "Solution" : lang === "es" ? "Solución" : "Solução" }}
+    </h2>
     <p>{{ study.solution }}</p>
   </section>
 
   <section>
-    <h2>{{ lang === "en" ? "Outcome" : "Resultado" }}</h2>
+    <h2>
+      {{
+        lang === "en" ? "Outcome" : lang === "es" ? "Resultado" : "Resultado"
+      }}
+    </h2>
     <p>{{ study.outcome }}</p>
   </section>
 
@@ -39,7 +53,13 @@
         rel="noopener noreferrer"
         class="cta cta-primary"
       >
-        {{ lang === "en" ? "Live / Demo" : "Acessar / Demo" }}
+        {{
+          lang === "en"
+            ? "Live / Demo"
+            : lang === "es"
+              ? "Ver / Demo"
+              : "Acessar / Demo"
+        }}
       </a>
       <a
         [href]="study.repoUrl"
@@ -47,15 +67,36 @@
         rel="noopener noreferrer nofollow"
         class="cta cta-outline"
       >
-        {{ lang === "en" ? "Repository" : "Repositório" }}
+        {{
+          lang === "en"
+            ? "Repository"
+            : lang === "es"
+              ? "Repositorio"
+              : "Repositório"
+        }}
       </a>
     </div>
   </section>
 </article>
 
 <div class="case-study-page not-found" *ngIf="!study">
-  <p>{{ lang === "en" ? "Project not found." : "Projeto não encontrado." }}</p>
-  <a [routerLink]="lang === 'en' ? '/en' : '/pt'">
-    &larr; {{ lang === "en" ? "Back to Home" : "Voltar ao Início" }}
+  <p>
+    {{
+      lang === "en"
+        ? "Project not found."
+        : lang === "es"
+          ? "Proyecto no encontrado."
+          : "Projeto não encontrado."
+    }}
+  </p>
+  <a [routerLink]="'/' + lang">
+    &larr;
+    {{
+      lang === "en"
+        ? "Back to Home"
+        : lang === "es"
+          ? "Volver al Inicio"
+          : "Voltar ao Início"
+    }}
   </a>
 </div>

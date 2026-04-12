@@ -1,17 +1,27 @@
 <article class="resume-page">
   <nav class="resume-nav" aria-label="Resume navigation">
-    <a [routerLink]="lang === 'en' ? '/en' : '/pt'" class="back-link">
-      &larr; {{ lang === "en" ? "Home" : "Início" }}
+    <a [routerLink]="'/' + lang" class="back-link">
+      &larr; {{ lang === "en" ? "Home" : lang === "es" ? "Inicio" : "Início" }}
     </a>
     <a
       [href]="
-        lang === 'en' ? '/resume_aronbo_enUS.pdf' : '/curriculo_aronbo_ptBr.pdf'
+        lang === 'en'
+          ? '/resume_aronbo_enUS.pdf'
+          : lang === 'es'
+            ? '/resume_aronbo_enUS.pdf'
+            : '/curriculo_aronbo_ptBr.pdf'
       "
       download
       class="pdf-link"
       id="download-resume-pdf-page"
     >
-      {{ lang === "en" ? "Download PDF" : "Baixar PDF" }}
+      {{
+        lang === "en"
+          ? "Download PDF"
+          : lang === "es"
+            ? "Descargar PDF"
+            : "Baixar PDF"
+      }}
     </a>
   </nav>
 
@@ -338,6 +348,173 @@
       </div>
       <div class="experience-entry">
         <h3>Licenciatura em Ciências Biológicas</h3>
+        <p class="date">UFRJ</p>
+      </div>
+    </section>
+  }
+
+  @if (lang === "es") {
+    <header>
+      <h1>Aron Barbosa de Oliveira</h1>
+      <p class="resume-title">
+        Desarrollador Full-Stack &mdash; TypeScript, Python y Automatización
+        Shell
+      </p>
+      <p class="contact-line">
+        <a href="mailto:aron.b.96&#64;gmail.com">aron.b.96&#64;gmail.com</a>
+        &middot;
+        <a
+          href="https://www.linkedin.com/in/aron-b-oliveira/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >LinkedIn</a
+        >
+        &middot;
+        <a
+          href="https://github.com/aronboliveira"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          >GitHub</a
+        >
+        &middot; Río de Janeiro, Brasil
+      </p>
+    </header>
+
+    <section>
+      <h2>Resumen</h2>
+      <p>
+        Desarrollador full-stack con aproximadamente 3 años de experiencia
+        construyendo herramientas internas y aplicaciones web. Enfocado en
+        mantenibilidad, automatización e integración práctica con IA.
+        Experiencia con TypeScript (Angular, React, Vue.js), APIs Python (Quart,
+        Django), PHP (Laravel, WordPress) y scripts Bash para productividad y
+        administración de sistemas. Graduado en Análisis y Desarrollo de
+        Sistemas (2025).
+      </p>
+    </section>
+
+    <section>
+      <h2>Habilidades</h2>
+      <ul>
+        <li>
+          <strong>Lenguajes:</strong> TypeScript, Python, Bash, PHP, Java, C#
+        </li>
+        <li>
+          <strong>Frontend:</strong> Angular, React (Vite, Next.js), Vue.js
+          (Vite, Nuxt)
+        </li>
+        <li>
+          <strong>Backend:</strong> Nest.js, Express.js, Python (Quart/Django),
+          PHP (Laravel/WordPress)
+        </li>
+        <li>
+          <strong>Testing:</strong> Jest, Vitest, Cypress, Playwright, Pytest,
+          PHPUnit
+        </li>
+        <li>
+          <strong>Herramientas:</strong> Git, Linux (Debian-based), LLM Agents,
+          Docker, CI/CD (GitHub Actions)
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Experiencia</h2>
+
+      <div class="experience-entry">
+        <h3>Nova Prestech</h3>
+        <p class="date">Diciembre 2024 &mdash; Presente</p>
+        <p>
+          Herramientas internas: orquestación de Agentes LLM en IDEs y TUIs;
+          Arquitectura Orientada a Eventos para Chatbots en WhatsApp (MVC);
+          monitoreo de Virtualización (Arquitectura Hexagonal); forks de ERP
+          (basados en FOSS) ajustados con Domain-Driven Development y MVC;
+          Ingeniería de Prompts para pipelines de agentes LLM (scraping web para
+          noticias tech/marketing, redacción para redes sociales con lenguaje
+          B2B y directrices de estilo); optimización de SEO para sitios
+          portafolio. Desarrollo fullstack con Laravel, Django y React.js.
+          Experiencia menor con automatizaciones vía WhatsApp Business y Meta
+          Business Suite.
+        </p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>Proyecto de Extensión PROSSaúde &mdash; UFRJ</h3>
+        <p class="date">Agosto 2023 &mdash; Presente</p>
+        <p>
+          Desarrollo fullstack y mantenimiento de CRUDs basados en arquitectura
+          RESTful para llenado ágil de formularios complejos, incluyendo agendas
+          interactivas y sincronizadas, subsistemas de inicio de sesión y
+          tabulación con cálculo automatizado de índices.
+        </p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>Desarrollo Web Freelance</h3>
+        <p class="date">Junio 2024 &mdash; Septiembre 2025</p>
+        <p>
+          Desarrollo frontend para pequeños negocios: menús digitales (Next.js),
+          calculadoras para e-commerce (WordPress + React) y sitios web para
+          confiterías (Create React App).
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Proyectos</h2>
+
+      <div class="experience-entry">
+        <h3>LLM Prompt Purify</h3>
+        <p>
+          Herramienta de sanitización del lado del cliente para reducir la
+          filtración de datos sensibles hacia APIs de LLM de terceros.
+          Construido con Angular, TypeScript y C#. Desarrollado con base en
+          experiencia práctica con orquestación de Agentes LLM en Prestech.
+        </p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>PROSSaúde Client App</h3>
+        <p>
+          Aplicación del lado del cliente de apoyo a un proyecto de extensión
+          universitaria real con formularios complejos, flujo de datos RESTful y
+          cálculo automatizado de índices. Construido con React y TypeScript.
+        </p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>CRM Test</h3>
+        <p>
+          CRM full-stack con backend Nest.js demostrando autenticación, CRUD,
+          integración de API, pruebas y arquitectura lista para despliegue.
+        </p>
+      </div>
+
+      <div class="experience-entry">
+        <h3>Prompt Shape Creator</h3>
+        <p>
+          Formulario de briefing para prompts de generación de imágenes con
+          envío vía SMTP, fallback al portapapeles, autoguardado y detección
+          automática de idioma. Construido con Next.js 16, React 19, TypeScript
+          y Tailwind CSS v4.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Formación</h2>
+      <div class="experience-entry">
+        <h3>Análisis y Desarrollo de Sistemas</h3>
+        <p class="date">
+          União das Américas (Descomplica) &mdash; Noviembre 2025
+        </p>
+      </div>
+      <div class="experience-entry">
+        <h3>Maestría en Botánica</h3>
+        <p class="date">Museo Nacional &mdash; UFRJ</p>
+      </div>
+      <div class="experience-entry">
+        <h3>Licenciatura en Ciencias Biológicas</h3>
         <p class="date">UFRJ</p>
       </div>
     </section>

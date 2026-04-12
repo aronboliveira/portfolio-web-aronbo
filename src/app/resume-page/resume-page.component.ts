@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { LanguageService } from '../services/language.service';
+import { LanguageService, Lang } from '../services/language.service';
 import { SeoService } from '../services/seo.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { SeoService } from '../services/seo.service';
   styleUrls: ['./resume-page.component.scss'],
 })
 export class ResumePageComponent implements OnInit {
-  lang: 'en' | 'pt' = 'en';
+  lang: Lang = 'en';
 
   constructor(
     public langService: LanguageService,
@@ -22,15 +22,20 @@ export class ResumePageComponent implements OnInit {
   ngOnInit(): void {
     this.lang = this.langService.lang();
     const isEn = this.lang === 'en';
+    const isEs = this.lang === 'es';
     this.seo.update({
       title: isEn
         ? 'Resume — Aron Barbosa de Oliveira — Full-Stack Developer'
-        : 'Currículo — Aron Barbosa de Oliveira — Desenvolvedor Full-stack',
+        : isEs
+          ? 'Currículum — Aron Barbosa de Oliveira — Desarrollador Full-Stack'
+          : 'Currículo — Aron Barbosa de Oliveira — Desenvolvedor Full-stack',
       description: isEn
         ? 'Resume of Aron Barbosa de Oliveira, Full-stack Software Developer. TypeScript, Python, Shell Automation.'
-        : 'Currículo de Aron Barbosa de Oliveira, Desenvolvedor Full-stack. TypeScript, Python, Automação Shell.',
-      canonicalPath: isEn ? '/en/resume' : '/pt/resume',
-      lang: isEn ? 'en' : 'pt-BR',
+        : isEs
+          ? 'Currículum de Aron Barbosa de Oliveira, Desarrollador Full-Stack. TypeScript, Python, Automatización Shell.'
+          : 'Currículo de Aron Barbosa de Oliveira, Desenvolvedor Full-stack. TypeScript, Python, Automação Shell.',
+      canonicalPath: `/${this.lang}/resume`,
+      lang: isEn ? 'en' : isEs ? 'es-CL' : 'pt-BR',
     });
   }
 }
