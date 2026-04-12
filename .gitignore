@@ -44,3 +44,5 @@ testem.log
 Thumbs.db
 .llms/
 .llms/*
+# Local Netlify folder
+.netlify
