@@ -35,7 +35,7 @@ status = 200
 
 # SEO / OG logo: cache for 1 day, revalidate after
 [[headers]]
-  for = "/logo_aronb_dev-1200x627.png"
+  for = "/logo_aronb_dev-630.webp"
   [headers.values]
     Cache-Control = "public, max-age=86400, must-revalidate"
     Content-Type  = "image/png"
