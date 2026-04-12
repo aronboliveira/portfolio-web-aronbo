@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PLATFORM_ID } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HomePageComponent } from './home-page.component';
-import { LanguageService } from '../services/language.service';
+import { LanguageService, Lang } from '../services/language.service';
 import { SeoService } from '../services/seo.service';
 
 describe('HomePageComponent', () => {
@@ -11,7 +11,7 @@ describe('HomePageComponent', () => {
   let langService: LanguageService;
   let seoSpy: jest.SpyInstance;
 
-  function createComponent(lang: 'en' | 'pt') {
+  function createComponent(lang: Lang) {
     TestBed.configureTestingModule({
       imports: [HomePageComponent, RouterModule.forRoot([])],
       providers: [{ provide: PLATFORM_ID, useValue: 'browser' }],

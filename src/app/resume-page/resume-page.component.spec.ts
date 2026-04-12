@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
 import { ResumePageComponent } from './resume-page.component';
-import { LanguageService } from '../services/language.service';
+import { LanguageService, Lang } from '../services/language.service';
 import { SeoService } from '../services/seo.service';
 
 describe('ResumePageComponent', () => {
@@ -10,7 +10,7 @@ describe('ResumePageComponent', () => {
   let langService: LanguageService;
   let seoSpy: jest.SpyInstance;
 
-  function createComponent(lang: 'en' | 'pt') {
+  function createComponent(lang: Lang) {
     TestBed.configureTestingModule({
       imports: [ResumePageComponent, RouterModule.forRoot([])],
     });

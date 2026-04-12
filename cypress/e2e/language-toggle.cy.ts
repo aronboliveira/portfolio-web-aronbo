@@ -12,7 +12,10 @@ describe('Language Toggle', () => {
     });
 
     it('should display English name', () => {
-      cy.get('.hero-text h1').should('contain.text', 'Aron Barbosa de Oliveira');
+      cy.get('.hero-text h1').should(
+        'contain.text',
+        'Aron Barbosa de Oliveira',
+      );
     });
 
     it('should display English subtitle', () => {
@@ -47,6 +50,7 @@ describe('Language Toggle', () => {
 
     it('should show PT-BR language switch link', () => {
       cy.get('.lang-switch').should('contain.text', 'PT-BR');
+      cy.get('.lang-switch').should('contain.text', 'ES');
     });
 
     it('should have CTA with View Resume text', () => {
@@ -79,7 +83,10 @@ describe('Language Toggle', () => {
     });
 
     it('should display Portuguese projects heading', () => {
-      cy.get('#projects-heading').should('contain.text', 'Projetos em Destaque');
+      cy.get('#projects-heading').should(
+        'contain.text',
+        'Projetos em Destaque',
+      );
     });
 
     it('should display Portuguese experience heading', () => {
@@ -92,6 +99,7 @@ describe('Language Toggle', () => {
 
     it('should show EN-US language switch link', () => {
       cy.get('.lang-switch').should('contain.text', 'EN-US');
+      cy.get('.lang-switch').should('contain.text', 'ES');
     });
 
     it('should have CTA with Ver Currículo text', () => {
@@ -104,9 +112,7 @@ describe('Language Toggle', () => {
       cy.visit('/en');
       cy.waitForPageLoad();
 
-      cy.get('.lang-switch').click();
-      cy.wait(500);
-
+      cy.get('.lang-switch').contains('PT-BR').click();
       cy.url().should('include', '/pt');
       cy.get('.hero-text .subtitle').should(
         'contain.text',
@@ -120,9 +126,7 @@ describe('Language Toggle', () => {
       cy.visit('/pt');
       cy.waitForPageLoad();
 
-      cy.get('.lang-switch').click();
-      cy.wait(500);
-
+      cy.get('.lang-switch').contains('EN-US').click();
       cy.url().should('include', '/en');
       cy.get('.hero-text .subtitle').should(
         'contain.text',
@@ -136,9 +140,11 @@ describe('Language Toggle', () => {
       cy.visit('/en');
       cy.waitForPageLoad();
 
-      cy.get('.timeline-item').first().within(() => {
-        cy.get('time').should('exist');
-      });
+      cy.get('.timeline-item')
+        .first()
+        .within(() => {
+          cy.get('time').should('exist');
+        });
     });
 
     it('should show Portuguese experience content', () => {
@@ -154,14 +160,20 @@ describe('Language Toggle', () => {
       cy.visit('/en');
       cy.waitForPageLoad();
 
-      cy.get('#courses-heading').should('contain.text', 'Courses & Certifications');
+      cy.get('#courses-heading').should(
+        'contain.text',
+        'Courses & Certifications',
+      );
     });
 
     it('should display Portuguese courses heading', () => {
       cy.visit('/pt');
       cy.waitForPageLoad();
 
-      cy.get('#courses-heading').should('contain.text', 'Cursos & Certificações');
+      cy.get('#courses-heading').should(
+        'contain.text',
+        'Cursos & Certificações',
+      );
     });
   });
 

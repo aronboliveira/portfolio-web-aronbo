@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { CaseStudyPageComponent } from './case-study-page.component';
-import { LanguageService } from '../services/language.service';
+import { LanguageService, Lang } from '../services/language.service';
 import { SeoService } from '../services/seo.service';
 
 describe('CaseStudyPageComponent', () => {
@@ -10,7 +10,7 @@ describe('CaseStudyPageComponent', () => {
   let fixture: ComponentFixture<CaseStudyPageComponent>;
   let seoSpy: jest.SpyInstance;
 
-  function createComponent(slug: string, lang: 'en' | 'pt' = 'en') {
+  function createComponent(slug: string, lang: Lang = 'en') {
     TestBed.configureTestingModule({
       imports: [CaseStudyPageComponent, RouterModule.forRoot([])],
       providers: [
