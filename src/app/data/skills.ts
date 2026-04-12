@@ -19,4 +19,13 @@ export const SKILLS: I18n<SkillSet> = {
     tooling:
       'Git, Linux (Debian-based), LLM Agents, Docker, CI/CD (GitHub Actions)',
   },
+  es: {
+    languages: 'TypeScript, Python, Bash, PHP, Java, C#',
+    frontend: 'Angular, React (Vite, Next.js), Vue.js (Vite, Nuxt)',
+    backend:
+      'Nest.js, Express.js, Python (Quart/Django), PHP (Laravel/Wordpress)',
+    testing: 'Jest, Vitest, Cypress, Playwright, Pytest, PHPUnit',
+    tooling:
+      'Git, Linux (Debian-based), LLM Agents, Docker, CI/CD (GitHub Actions)',
+  },
 };

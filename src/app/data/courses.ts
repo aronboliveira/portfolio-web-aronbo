@@ -137,4 +137,72 @@ export const COURSES: I18n<CourseEntry[]> = {
       href: 'https://drive.google.com/file/d/16nTFgxqwqttl5aZcwavJQKb0HVpnZU89/view?usp=sharing',
     },
   ],
+  es: [
+    {
+      title: 'The Ultimate React Course 2024: React, Next.js, Redux & More',
+      date: '10/2024',
+      instructor: 'Jonas Schmedtmann',
+      href: 'https://www.udemy.com/certificate/UC-a6a9d297-27c0-4295-a081-6e2000acf3cf/',
+    },
+    {
+      title: 'Mastering TypeScript — 2023 Edition',
+      date: '12/2023',
+      instructor: 'Colt Steele',
+      href: 'https://udemy.com/certificate/UC-45c23af3-87fb-406b-9724-172d33184118',
+    },
+    {
+      title: 'The Complete JavaScript Course 2024: From Zero to Expert!',
+      date: '04/2024',
+      instructor: 'Jonas Schmedtmann',
+      href: 'https://www.udemy.com/certificate/UC-129ff335-210e-4ff9-a05c-8625756db5d0/',
+    },
+    {
+      title: 'Advanced CSS and Sass',
+      date: '11/2024',
+      instructor: 'Jonas Schmedtmann',
+      href: 'https://www.udemy.com/certificate/UC-682780af-b769-4987-840a-9db2e943662c/',
+    },
+    {
+      title: 'Build Responsive Real-World Websites with HTML and CSS',
+      date: '05/2024',
+      instructor: 'Jonas Schmedtmann',
+      href: 'https://www.udemy.com/certificate/UC-118ebff4-6cdb-4ea0-8da4-468b98edfa09/',
+    },
+    {
+      title: 'The Complete 2024 Web Development Bootcamp!',
+      date: '05/2024',
+      instructor: 'Angela Yu',
+      href: 'https://www.udemy.com/certificate/UC-90804997-c6c8-4654-b301-68cf3ce6273d/',
+    },
+    {
+      title: 'The Git & Github Bootcamp',
+      date: '08/2024',
+      instructor: 'Colt Steele',
+      href: 'https://www.udemy.com/certificate/UC-c1f06a41-c9fa-4d0e-8bb7-2811a00b1e98/',
+    },
+    {
+      title: 'Curso Online de Java — Rocketseat',
+      date: '10/2023',
+      instructor: 'Mayk Brito',
+      href: 'https://app.rocketseat.com.br/certificates/26dd9160-febb-4465-8b35-fa3fb9ece848',
+    },
+    {
+      title: 'Java Essentials — Linux Tips',
+      date: '10/2023',
+      instructor: 'Kamila Santos',
+      href: 'https://www.linuxtips.io/certificate_v2/64c39e086ecad6568408a59e/user/651c733fce4e2410560f688a',
+    },
+    {
+      title: 'C++ Fundamentals: Game Programming for Beginners',
+      date: '09/2024',
+      instructor: 'Stephen Ulibarri',
+      href: 'https://www.udemy.com/certificate/UC-293c7fee-978b-4cc2-ba7e-158846cba77c/',
+    },
+    {
+      title: 'Introduction to Cybersecurity — Cisco',
+      date: '09/2023',
+      instructor: 'Laura Quintana',
+      href: 'https://drive.google.com/file/d/16nTFgxqwqttl5aZcwavJQKb0HVpnZU89/view?usp=sharing',
+    },
+  ],
 };

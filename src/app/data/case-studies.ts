@@ -35,6 +35,22 @@ export const CASE_STUDIES: Record<string, Record<Lang, CaseStudy>> = {
       repoUrl:
         'https://github.com/aronboliveira/llm-prompt-purify/tree/develop',
     },
+    es: {
+      slug: 'llm-prompt-purify',
+      title: 'LLM Prompt Purify',
+      problem:
+        'Los prompts para LLMs pueden incluir datos sensibles de usuarios o empresas involuntariamente al ser enviados a APIs de terceros, generando riesgos de privacidad y cumplimiento.',
+      constraints:
+        'El filtrado debe ser del lado del cliente para evitar enviar datos a cualquier servidor antes de la sanitización. Debe ser determinístico y verificable. Debe manejar formatos de datos diversos sin romper la estructura del prompt.',
+      solution:
+        'Un pipeline de sanitización del lado del cliente que escanea el texto del prompt en busca de patrones que coincidan con datos sensibles (correos, teléfonos, IDs, credenciales) y los enmascara o elimina antes de que el prompt llegue a cualquier API externa. Las reglas son configurables y extensibles.',
+      stack: 'Angular, TypeScript',
+      outcome:
+        'Riesgo reducido de filtración accidental de datos en flujos de trabajo con LLM. El filtrado determinístico garantiza un comportamiento predecible. Se puede integrar como etapa de preprocesamiento en cualquier aplicación con LLM.',
+      liveUrl: 'https://llm-prompt-purify.netlify.app/',
+      repoUrl:
+        'https://github.com/aronboliveira/llm-prompt-purify/tree/develop',
+    },
   },
   'prossaude-client-app': {
     en: {
@@ -64,6 +80,21 @@ export const CASE_STUDIES: Record<string, Record<Lang, CaseStudy>> = {
       stack: 'React, TypeScript',
       outcome:
         'Implantado e ativamente usado pelo programa de extensão PROSSaúde da UFRJ. Estável, manutenível e documentado para handoff. Demonstra trabalho com stakeholders não-técnicos em um produto real.',
+      liveUrl: 'https://prossaude-client.netlify.app',
+      repoUrl: 'https://github.com/aronboliveira/prossaude-client-app',
+    },
+    es: {
+      slug: 'prossaude-client-app',
+      title: 'PROSSaúde Client App',
+      problem:
+        'Un proyecto de extensión universitaria en ciencias de la salud necesitaba una aplicación web confiable para el llenado de formularios complejos, gestión de datos y agendamiento interactivo utilizado por interesados no técnicos.',
+      constraints:
+        'Construido para usuarios reales con distintos niveles de alfabetización técnica. Se priorizó la estabilidad sobre la novedad. Mejoras incrementales basadas en retroalimentación de interesados. Preparación de documentación y traspaso.',
+      solution:
+        'Una aplicación del lado del cliente que soporta operaciones CRUD RESTful para formularios complejos de salud, agendas interactivas sincronizadas, subsistemas de login y tabulación con cálculo automatizado de índices. Enfoque en usabilidad y confiabilidad del flujo de datos.',
+      stack: 'React, TypeScript',
+      outcome:
+        'Desplegado y activamente utilizado por el programa de extensión PROSSaúde de la UFRJ. Estable, mantenible y documentado para traspaso. Demuestra trabajo con interesados no técnicos en un producto real.',
       liveUrl: 'https://prossaude-client.netlify.app',
       repoUrl: 'https://github.com/aronboliveira/prossaude-client-app',
     },
@@ -99,6 +130,21 @@ export const CASE_STUDIES: Record<string, Record<Lang, CaseStudy>> = {
       liveUrl: 'https://github.com/aronboliveira/crm-test',
       repoUrl: 'https://github.com/aronboliveira/crm-test',
     },
+    es: {
+      slug: 'crm-test',
+      title: 'CRM Test',
+      problem:
+        'Necesidad de un proyecto de portafolio demostrando amplitud full-stack: autenticación, CRUD, integración de API, pruebas y arquitectura lista para despliegue en una aplicación coherente.',
+      constraints:
+        'Debe ser demostrablemente funcional de punta a punta. Las pruebas deben cubrir caminos críticos. La arquitectura debe ser lo suficientemente limpia para servir como muestra de código para evaluación de contratación.',
+      solution:
+        'Una aplicación CRM implementando flujos de autenticación, operaciones CRUD con integración de base de datos, endpoints de API RESTful y cobertura de pruebas. Estructurado para claridad y preparación de despliegue.',
+      stack: 'Full-stack, REST, Base de Datos, Auth, Pruebas, CI/CD',
+      outcome:
+        'Sirve como señal de full-stack para reclutadores. Demuestra capacidad de punta a punta desde autenticación hasta despliegue. Arquitectura limpia adecuada para evaluación técnica.',
+      liveUrl: 'https://github.com/aronboliveira/crm-test',
+      repoUrl: 'https://github.com/aronboliveira/crm-test',
+    },
   },
   'prompt-shape-creator': {
     en: {
@@ -128,6 +174,21 @@ export const CASE_STUDIES: Record<string, Record<Lang, CaseStudy>> = {
       stack: 'Next.js 16, TypeScript, React 19, Tailwind CSS v4, nodemailer',
       outcome:
         'Coleta de prompts simplificada sem briefings perdidos. Fallback para clipboard garante entrega mesmo quando o e-mail falha. Autosave previne perda de dados por navegação acidental. Acessível, amigável para impressão e responsivo em todos os dispositivos.',
+      liveUrl: 'https://prompt-shape-creator.netlify.app/',
+      repoUrl: 'https://github.com/aronboliveira/prompt-eng-form-basic-pub',
+    },
+    es: {
+      slug: 'prompt-shape-creator',
+      title: 'Prompt Shape Creator',
+      problem:
+        'Los flujos de generación de imágenes frecuentemente carecen de una forma estructurada para recopilar briefings detallados de prompts de los clientes. Las solicitudes llegan como mensajes dispersos, sin detalles críticos sobre escena, personajes, estilo y preferencias técnicas.',
+      constraints:
+        'Debe funcionar como formulario independiente sin requerir cuentas de usuario. El envío por correo electrónico debe ser confiable, con fallback para portapapeles cuando la API no esté disponible. El estado del formulario debe estar protegido contra cierre accidental de la página. Debe soportar contenido bilingüe (EN/PT) sin renderización del lado del servidor para detección de idioma.',
+      solution:
+        'Una aplicación Next.js 16 (App Router) con formulario de briefing estructurado en secciones lógicas (escena, personajes, estilo, preferencias técnicas, referencias). Usa useActionState + useTransition de React 19 para envío no bloqueante, nodemailer para SMTP, y un hook de autoguardado personalizado que persiste el estado en sessionStorage con protección beforeunload. Detección de idioma del lado del cliente alterna automáticamente entre inglés y portugués.',
+      stack: 'Next.js 16, TypeScript, React 19, Tailwind CSS v4, nodemailer',
+      outcome:
+        'Recopilación de prompts simplificada sin briefings perdidos. Fallback para portapapeles garantiza entrega incluso cuando el correo falla. El autoguardado previene pérdida de datos por navegación accidental. Accesible, amigable para impresión y responsivo en todos los dispositivos.',
       liveUrl: 'https://prompt-shape-creator.netlify.app/',
       repoUrl: 'https://github.com/aronboliveira/prompt-eng-form-basic-pub',
     },

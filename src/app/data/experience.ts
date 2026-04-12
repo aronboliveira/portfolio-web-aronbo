@@ -75,4 +75,41 @@ export const EXPERIENCE: I18n<ExperienceEntry[]> = {
       href: 'https://blog.organolab.com.br/calculadora-de-solo/',
     },
   ],
+  es: [
+    {
+      title: 'Nova Prestech',
+      date: 'Diciembre 2024 — Presente',
+      description:
+        'Herramientas internas: orquestación de Agentes LLM en IDEs y TUIs; Arquitectura Orientada a Eventos para Chatbots en WhatsApp (MVC); monitoreo de Virtualización (Arquitectura Hexagonal); forks de ERP (basados en FOSS) ajustados con Domain-Driven Development y MVC; Ingeniería de Prompts para pipelines de agentes LLM (scraping web para noticias tech/marketing, redacción para redes sociales con lenguaje B2B y directrices de estilo); optimización SEO para sitios portafolio. Desarrollo fullstack con Laravel, Django y React.js. Experiencia menor con automatizaciones vía WhatsApp Business y Meta Business Suite.',
+      href: 'https://prestech.com.br/site/',
+    },
+    {
+      title: 'Proyecto de Extensión PROSSaúde — UFRJ',
+      date: 'Agosto 2023 — Presente',
+      description:
+        'Desarrollo fullstack y mantenimiento de CRUDs con base RESTful para llenado ágil de formularios complejos, incluyendo agendas interactivas y sincronizadas, subsistemas de login y tabulación con cálculo automatizado de índices.',
+      href: 'https://prossaude-client.netlify.app',
+    },
+    {
+      title: 'Tia da Praia da Bica — Menú Digital',
+      date: 'Septiembre 2025',
+      description:
+        'Desarrollo Frontend con Next.js y mantenimiento del Menú Digital para un pequeño negocio local en Río de Janeiro.',
+      href: 'https://drinks-tia-pdb.netlify.app/',
+    },
+    {
+      title: 'Ana Doces — Repostería Creativa',
+      date: 'Junio 2024',
+      description:
+        'Desarrollo Frontend con Create React App y mantenimiento del Menú Digital.',
+      href: 'https://anadocesapp.netlify.app',
+    },
+    {
+      title: 'Organo Lab — Calculadora de Suelo',
+      date: 'Agosto 2024 — Septiembre 2024',
+      description:
+        'Desarrollo de Calculadora de insumos en WordPress y React para el E-commerce de Organo Labs.',
+      href: 'https://blog.organolab.com.br/calculadora-de-solo/',
+    },
+  ],
 };

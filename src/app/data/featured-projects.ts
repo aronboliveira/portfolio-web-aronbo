@@ -79,4 +79,43 @@ export const FEATURED_PROJECTS: I18n<FeaturedProject[]> = {
       repoHref: 'https://github.com/aronboliveira/prompt-eng-form-basic-pub',
     },
   ],
+  es: [
+    {
+      slug: 'llm-prompt-purify',
+      title: 'LLM Prompt Purify',
+      outcome:
+        'Sanitización del lado del cliente para reducir la filtración de datos sensibles hacia APIs de LLM de terceros. Desarrollado con base en experiencia práctica con orquestación de Agentes LLM en Prestech.',
+      stacks: ['Angular', 'TypeScript', 'C#'],
+      href: 'https://llm-prompt-purify.netlify.app/',
+      repoHref:
+        'https://github.com/aronboliveira/llm-prompt-purify/tree/develop',
+    },
+    {
+      slug: 'prossaude-client-app',
+      title: 'PROSSaúde Client App',
+      outcome:
+        'Aplicación del lado del cliente de apoyo a un proyecto de extensión universitaria real con formularios complejos, flujo de datos RESTful y cálculo automatizado de índices.',
+      stacks: ['React', 'TypeScript'],
+      href: 'https://prossaude-client.netlify.app',
+      repoHref: 'https://github.com/aronboliveira/prossaude-client-app',
+    },
+    {
+      slug: 'crm-test',
+      title: 'CRM Test',
+      outcome:
+        'CRM full-stack con backend Nest.js demostrando autenticación, CRUD, integración de API, pruebas y arquitectura lista para despliegue.',
+      stacks: ['Nest.js', 'TypeScript', 'REST', 'Auth', 'Testing'],
+      href: 'https://github.com/aronboliveira/crm-test',
+      repoHref: 'https://github.com/aronboliveira/crm-test',
+    },
+    {
+      slug: 'prompt-shape-creator',
+      title: 'Prompt Shape Creator',
+      outcome:
+        'Formulario de briefing para prompts de generación de imágenes con envío vía SMTP, fallback para portapapeles, autoguardado y detección automática de idioma. Construido con patrones modernos de React (useActionState, useTransition).',
+      stacks: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS'],
+      href: 'https://prompt-shape-creator.netlify.app/',
+      repoHref: 'https://github.com/aronboliveira/prompt-eng-form-basic-pub',
+    },
+  ],
 };
