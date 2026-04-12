@@ -28,14 +28,14 @@ status = 200
 # ── Cache headers ──────────────────────────────────────────
 # Favicon: short cache + revalidate so CDN picks up changes quickly
 [[headers]]
-  for = "/dev_aronbo_favicon.svg"
+  for = "/favicon_aronb_dev_v2.svg"
   [headers.values]
     Cache-Control = "public, max-age=3600, must-revalidate"
     Content-Type  = "image/svg+xml"
 
 # SEO / OG logo: cache for 1 day, revalidate after
 [[headers]]
-  for = "/logo_aronb_dev-630.webp"
+  for = "/logo_aronb_dev-1200x627.webp"
   [headers.values]
     Cache-Control = "public, max-age=86400, must-revalidate"
     Content-Type  = "image/webp"
