@@ -35,10 +35,10 @@ status = 200
 
 # SEO / OG logo: cache for 1 day, revalidate after
 [[headers]]
-  for = "/logo_aronb_dev-1200x627.webp"
+  for = "/logo_aronb_dev-1200x627.png"
   [headers.values]
     Cache-Control = "public, max-age=86400, must-revalidate"
-    Content-Type  = "image/webp"
+    Content-Type  = "image/png"
 
 # Long cache for other static images (fingerprinted by Angular build)
 [[headers]]
