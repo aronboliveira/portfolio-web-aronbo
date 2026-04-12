@@ -33,6 +33,7 @@ const langRoute = (lang: string): Route => ({
 export const routes: Routes = [
   langRoute('en'),
   langRoute('pt'),
+  langRoute('es'),
   { path: '', redirectTo: 'en', pathMatch: 'full' },
   { path: '**', redirectTo: 'en' },
 ];

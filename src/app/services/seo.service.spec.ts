@@ -111,10 +111,10 @@ describe('SeoService', () => {
   });
 
   describe('hreflang', () => {
-    it('should create 3 hreflang links for EN path', () => {
+    it('should create 4 hreflang links for EN path', () => {
       service.update(enData);
       const links = doc.querySelectorAll('link[rel="alternate"][hreflang]');
-      expect(links.length).toBe(3);
+      expect(links.length).toBe(4);
     });
 
     it('should include en, pt-BR, x-default for EN path', () => {
@@ -124,6 +124,7 @@ describe('SeoService', () => {
       ).map(el => el.getAttribute('hreflang'));
       expect(hreflangs).toContain('en');
       expect(hreflangs).toContain('pt-BR');
+      expect(hreflangs).toContain('es-CL');
       expect(hreflangs).toContain('x-default');
     });
 
@@ -143,7 +144,7 @@ describe('SeoService', () => {
       service.update(enData);
       service.update(ptData);
       const links = doc.querySelectorAll('link[rel="alternate"][hreflang]');
-      expect(links.length).toBe(3);
+      expect(links.length).toBe(4);
     });
   });
 

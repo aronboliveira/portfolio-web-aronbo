@@ -8,7 +8,7 @@ export interface SeoData {
   canonicalPath: string;
   ogTitle?: string;
   ogDescription?: string;
-  lang: 'en' | 'pt-BR';
+  lang: 'en' | 'pt-BR' | 'es-CL';
   jsonLd?: object;
 }
 
@@ -71,20 +71,13 @@ export class SeoService {
 
   private setHreflang(currentPath: string): void {
     this.removeHreflang();
-    const altLang = currentPath.startsWith('/pt') ? 'en' : 'pt-BR';
-    const altPath = currentPath.startsWith('/pt')
-      ? currentPath.replace(/^\/pt/, '/en')
-      : currentPath.replace(/^\/en/, '/pt');
+    const strip = (p: string) => p.replace(/^\/(en|pt|es)/, '');
+    const suffix = strip(currentPath);
 
-    this.addHreflangLink(
-      'en',
-      currentPath.startsWith('/pt') ? altPath : currentPath,
-    );
-    this.addHreflangLink(
-      'pt-BR',
-      currentPath.startsWith('/pt') ? currentPath : altPath,
-    );
-    this.addHreflangLink('x-default', '/en');
+    this.addHreflangLink('en', `/en${suffix}`);
+    this.addHreflangLink('pt-BR', `/pt${suffix}`);
+    this.addHreflangLink('es-CL', `/es${suffix}`);
+    this.addHreflangLink('x-default', `/en${suffix}`);
   }
 
   private addHreflangLink(hreflang: string, path: string): void {
