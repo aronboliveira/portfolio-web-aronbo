@@ -20,6 +20,7 @@ export class ResumePageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    document.body.style.backgroundColor = '#1A1A34';
     this.lang = this.langService.lang();
     const isEn = this.lang === 'en';
     const isEs = this.lang === 'es';

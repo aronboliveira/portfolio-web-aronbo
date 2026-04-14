@@ -113,7 +113,7 @@ describe('Collapsible Sections', () => {
 
   describe('Scroll Navigation', () => {
     it('should allow scrolling to projects via CTA', () => {
-      cy.get('a[href="#featured-projects"]').click();
+      cy.get('a[href="/en#featured-projects"]').click();
       cy.wait(500);
       cy.get('#featured-projects').should('be.visible');
     });
