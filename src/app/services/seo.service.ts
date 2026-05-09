@@ -19,6 +19,8 @@ export class SeoService {
   constructor(@Inject(DOCUMENT) private doc: Document) {}
 
   update(data: SeoData): void {
+    const canonicalPath = this.normalizePath(data.canonicalPath);
+
     this.doc.documentElement.lang = data.lang;
 
     this.setTitle(data.title);
@@ -29,14 +31,21 @@ export class SeoService {
       data.ogDescription ?? data.description,
       true,
     );
-    this.setMeta('og:url', `${this.baseUrl}${data.canonicalPath}`, true);
+    this.setMeta('og:url', `${this.baseUrl}${canonicalPath}`, true);
 
-    this.setCanonical(`${this.baseUrl}${data.canonicalPath}`);
-    this.setHreflang(data.canonicalPath);
+    this.setCanonical(`${this.baseUrl}${canonicalPath}`);
+    this.setHreflang(canonicalPath);
 
     if (data.jsonLd) {
       this.setJsonLd(data.jsonLd);
     }
+  }
+
+  private normalizePath(path: string): string {
+    if (path.endsWith('/') || /\/[^/]+\.[^/]+$/.test(path)) {
+      return path;
+    }
+    return `${path}/`;
   }
 
   private setTitle(title: string): void {

@@ -93,7 +93,7 @@ describe('SeoService', () => {
       const meta = doc.querySelector(
         'meta[property="og:url"]',
       ) as HTMLMetaElement;
-      expect(meta?.content).toBe('https://aronboliveira-dev.netlify.app/en');
+      expect(meta?.content).toBe('https://aronboliveira-dev.netlify.app/en/');
     });
 
     it('should set canonical link', () => {
@@ -101,7 +101,7 @@ describe('SeoService', () => {
       const link = doc.querySelector(
         'link[rel="canonical"]',
       ) as HTMLLinkElement;
-      expect(link?.href).toContain('/en');
+      expect(link?.href).toBe('https://aronboliveira-dev.netlify.app/en/');
     });
 
     it('should set pt-BR language', () => {
@@ -133,11 +133,11 @@ describe('SeoService', () => {
       const enLink = doc.querySelector(
         'link[hreflang="en"]',
       ) as HTMLLinkElement;
-      expect(enLink?.href).toContain('/en');
+      expect(enLink?.href).toBe('https://aronboliveira-dev.netlify.app/en/');
       const ptLink = doc.querySelector(
         'link[hreflang="pt-BR"]',
       ) as HTMLLinkElement;
-      expect(ptLink?.href).toContain('/pt');
+      expect(ptLink?.href).toBe('https://aronboliveira-dev.netlify.app/pt/');
     });
 
     it('should replace hreflang links on subsequent calls', () => {
