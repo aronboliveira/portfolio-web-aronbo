@@ -91,6 +91,7 @@
     "hono": "4.12.14",
     "@babel/helper-compilation-targets": {
       "lru-cache": "5.1.1"
-    }
+    },
+    "@babel/plugin-transform-modules-systemjs": "7.29.4"
   }
 }
