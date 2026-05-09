@@ -8,6 +8,12 @@
 
 # Serve prerendered SSG files first, then fallback to Angular's browser shell.
 [[redirects]]
+from = "/"
+to = "/en/"
+status = 301
+force = true
+
+[[redirects]]
 from = "/robots.txt"
 to = "/robots.txt"
 status = 200

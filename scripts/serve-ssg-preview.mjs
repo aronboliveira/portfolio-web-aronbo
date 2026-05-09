@@ -76,6 +76,12 @@ const server = createServer((req, res) => {
     return;
   }
 
+  if (new URL(req.url ?? '/', `http://${host}`).pathname === '/') {
+    res.writeHead(301, { Location: '/en/' });
+    res.end();
+    return;
+  }
+
   const result = getStaticPath(req.url ?? '/');
   if (result.status) {
     res.writeHead(result.status, { 'Content-Type': 'text/plain; charset=utf-8' });
