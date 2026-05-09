@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { LanguageService, Lang } from '../services/language.service';
 import { SeoService } from '../services/seo.service';
@@ -17,10 +17,11 @@ export class ResumePageComponent implements OnInit {
   constructor(
     public langService: LanguageService,
     private seo: SeoService,
+    @Inject(DOCUMENT) private doc: Document,
   ) {}
 
   ngOnInit(): void {
-    document.body.style.backgroundColor = '#1A1A34';
+    this.doc.body.style.backgroundColor = '#1A1A34';
     this.lang = this.langService.lang();
     const isEn = this.lang === 'en';
     const isEs = this.lang === 'es';
