@@ -6,7 +6,7 @@
   NODE_VERSION = "22"
   NPM_CONFIG_PREFER_ONLINE = "true"
 
-# Serve static files first, then fallback to index.html for SPA routing
+# Serve prerendered SSG files first, then fallback to Angular's browser shell.
 [[redirects]]
 from = "/robots.txt"
 to = "/robots.txt"
@@ -19,7 +19,7 @@ status = 200
 
 [[redirects]]
 from = "/*"
-to = "/index.html"
+to = "/index.csr.html"
 status = 200
 
 [context.production.environment]
