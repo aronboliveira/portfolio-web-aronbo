@@ -20,13 +20,14 @@
 
 ## 📸 Overview
 
-A bilingual (English / Portuguese) portfolio SPA showcasing professional experience, featured projects with case studies, skills, and certifications. Built with **Angular 21**, **server-side rendering**, and deployed on **Netlify**.
+A multilingual (English / Portuguese / Spanish) portfolio showcasing professional experience, featured projects with case studies, skills, and certifications. Built with **Angular 21** and deployed on **Netlify** as a primarily **SSG/prerendered static site** so crawlers, SEO tools, social preview bots, and ATS-style scanners receive complete HTML without executing client-side JavaScript.
 
 ### Key Features
 
-- 🌍 **Bilingual** — Route-based EN (`/en`) / PT (`/pt`) language switching with Angular Signals
+- 🌍 **Multilingual** — Route-based EN (`/en`) / PT (`/pt`) / ES (`/es`) language switching with Angular Signals
 - 📑 **Interactive Resume** — Dedicated resume page with downloadable PDF
 - 🔍 **Case Studies** — Narrative project pages (Problem → Constraints → Solution → Outcome)
+- 🧾 **SSG-first Rendering** — Known public routes are prerendered at build time and hydrated in the browser
 - 🎨 **Responsive** — Mobile-first design across all viewports
 - ♿ **Accessible** — Semantic HTML, ARIA landmarks, keyboard navigation, reduced-motion support
 - 🔎 **SEO** — Schema.org JSON-LD, canonical URLs, meta tags via `SeoService`
@@ -51,12 +52,16 @@ src/
 
 ### Routes
 
-| Path                                        | Component                | Description                  |
-| :------------------------------------------ | :----------------------- | :--------------------------- |
-| `/en` · `/pt`                               | `HomePageComponent`      | Main portfolio (lazy-loaded) |
-| `/en/resume` · `/pt/resume`                 | `ResumePageComponent`    | Printable résumé             |
-| `/en/projects/:slug` · `/pt/projects/:slug` | `CaseStudyPageComponent` | Project case study           |
-| `/`                                         | —                        | Redirects to `/en`           |
+| Path                                                     | Component                | Description                  |
+| :------------------------------------------------------- | :----------------------- | :--------------------------- |
+| `/en` · `/pt` · `/es`                                    | `HomePageComponent`      | Main portfolio (lazy-loaded) |
+| `/en/resume` · `/pt/resume` · `/es/resume`               | `ResumePageComponent`    | Printable résumé             |
+| `/en/projects/:slug` · `/pt/projects/:slug` · `/es/projects/:slug` | `CaseStudyPageComponent` | Project case study           |
+| `/`                                                      | —                        | Redirects to `/en`           |
+
+### Rendering Strategy
+
+This project is configured as **SSG-first**. Angular prerenders the known public routes at build time using `RenderMode.Prerender`, then ships the browser bundle for hydration and interactivity. This is intentional for a portfolio: the content is mostly static, so prerendered HTML gives robots, SEO crawlers, social link previewers, and ATS-style scanners the same readable document a browser user sees, without requiring a Node SSR server at request time.
 
 ---
 
@@ -66,9 +71,9 @@ src/
 | :------------------- | :---------------------------------------------- |
 | **Framework**        | Angular 21.2, RxJS 7.8, Zone.js 0.15            |
 | **Language**         | TypeScript 5.9, SCSS                            |
-| **SSR**              | `@angular/ssr`, `@netlify/angular-runtime`      |
+| **Rendering**        | Angular SSG/prerender via `@angular/ssr`        |
 | **Testing**          | Jest 30.3, Cypress 15.11, `jest-preset-angular` |
-| **Deployment**       | Netlify (CDN + SPA fallback)                    |
+| **Deployment**       | Netlify CDN serving prerendered static HTML     |
 | **Containerization** | Docker (node:22 + nginx:alpine), Docker Compose |
 | **CI/Tooling**       | Node 22, npm, Git                               |
 
@@ -100,8 +105,16 @@ npx ng serve
 ### Production Build
 
 ```bash
-npx ng build --configuration production
+npm run build:ssg
 # Output: dist/portfolio-web-aronbo-ng/browser/
+```
+
+The production build emits prerendered HTML files for the known route set under `dist/portfolio-web-aronbo-ng/browser/`, including localized home, resume, and project case-study pages.
+
+To preview the built SSG output locally with the same Angular shell fallback used in production:
+
+```bash
+npm run serve:ssg -- --port 4200
 ```
 
 ---
@@ -126,7 +139,7 @@ docker compose down
 The **Dockerfile** uses a multi-stage approach:
 
 1. **Builder** (node:22-bookworm) — `npm ci`, type-check, Jest, production build
-2. **Production** (nginx:stable-alpine) — serves static assets with SPA fallback
+2. **Production** (nginx:stable-alpine) — serves prerendered static HTML/assets with Angular shell fallback
 
 ---
 
