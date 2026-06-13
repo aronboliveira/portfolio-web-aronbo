@@ -60,6 +60,7 @@ describe('Accessibility', () => {
   describe('Links', () => {
     it('should have accessible link labels', () => {
       cy.get('.nav-icon[aria-label="GitHub"]').should('exist');
+      cy.get('.nav-icon[aria-label="GitLab"]').should('exist');
       cy.get('.nav-icon[aria-label="LinkedIn"]').should('exist');
     });
 

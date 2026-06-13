@@ -67,6 +67,7 @@ describe('Home Page — EN', () => {
 
   it('should have social links', () => {
     cy.get('a[href*="github.com"]').should('exist');
+    cy.get('a[href*="gitlab.com"]').should('exist');
     cy.get('a[href*="linkedin.com"]').should('exist');
     cy.get('a[href*="mailto:"]').should('exist');
   });

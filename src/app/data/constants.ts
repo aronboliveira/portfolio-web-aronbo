@@ -6,6 +6,7 @@ export const PERSON_JSONLD = {
   url: 'https://aronboliveira-dev.netlify.app',
   sameAs: [
     'https://github.com/aronboliveira',
+    'https://gitlab.com/aronboliveira',
     'https://www.linkedin.com/in/aron-b-oliveira/',
   ],
   knowsAbout: [
@@ -37,6 +38,7 @@ export const SOCIAL_LINKS = {
   linkedin: 'https://www.linkedin.com/in/aron-b-oliveira/',
   github: 'https://github.com/aronboliveira?tab=repositories',
   githubProfile: 'https://github.com/aronboliveira',
+  gitlab: 'https://gitlab.com/aronboliveira',
 } as const;
 
 export const BASE_URL = 'https://aronboliveira-dev.netlify.app';

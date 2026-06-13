@@ -72,6 +72,12 @@ describe('Portfolio Homepage', () => {
         .and('include', 'github.com');
     });
 
+    it('should have a GitLab link', () => {
+      cy.get('.nav-icon[aria-label="GitLab"]')
+        .should('be.visible')
+        .and('have.attr', 'href', 'https://gitlab.com/aronboliveira');
+    });
+
     it('should open LinkedIn in new tab', () => {
       cy.get('.nav-icon[aria-label="LinkedIn"]').should(
         'have.attr',
@@ -88,11 +94,22 @@ describe('Portfolio Homepage', () => {
       );
     });
 
+    it('should open GitLab in new tab', () => {
+      cy.get('.nav-icon[aria-label="GitLab"]').should(
+        'have.attr',
+        'target',
+        '_blank',
+      );
+    });
+
     it('should have proper security attributes on external links', () => {
       cy.get('.nav-icon[aria-label="LinkedIn"]')
         .should('have.attr', 'rel')
         .and('include', 'noopener');
       cy.get('.nav-icon[aria-label="GitHub"]')
+        .should('have.attr', 'rel')
+        .and('include', 'noreferrer');
+      cy.get('.nav-icon[aria-label="GitLab"]')
         .should('have.attr', 'rel')
         .and('include', 'noreferrer');
     });
@@ -109,6 +126,10 @@ describe('Portfolio Homepage', () => {
 
     it('should display GitHub SVG icon', () => {
       cy.get('.nav-icon[aria-label="GitHub"] svg').should('be.visible');
+    });
+
+    it('should display GitLab SVG icon', () => {
+      cy.get('.nav-icon[aria-label="GitLab"] svg').should('be.visible');
     });
   });
 });
