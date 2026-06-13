@@ -1,0 +1,70 @@
+stages:
+  - test
+  - build
+  - browser
+
+variables:
+  npm_config_cache: "$CI_PROJECT_DIR/.npm"
+
+cache:
+  key: "$CI_COMMIT_REF_SLUG"
+  paths:
+    - .npm/
+
+unit_coverage:
+  image: node:22
+  stage: test
+  before_script:
+    - npm ci
+  script:
+    - npm run ci:test
+  coverage: '/Statements\s+:\s+(\d+\.\d+|\d+)%/'
+  artifacts:
+    when: always
+    expire_in: 14 days
+    paths:
+      - coverage/
+
+ssg_build:
+  image: node:22
+  stage: build
+  needs:
+    - unit_coverage
+  before_script:
+    - npm ci
+  script:
+    - npm run ci:build
+  artifacts:
+    expire_in: 14 days
+    paths:
+      - dist/
+
+browser_smoke:
+  image: cypress/included:15.17.0
+  stage: browser
+  needs:
+    - ssg_build
+  before_script:
+    - npm ci
+  script:
+    - npm run ci:build
+    - |
+      PORT=4200 npm run serve:ssg > /tmp/portfolio-ssg.log 2>&1 &
+      ready=0
+      for attempt in $(seq 1 30); do
+        if curl -fsS http://127.0.0.1:4200/en/ >/dev/null; then
+          ready=1
+          break
+        fi
+        sleep 2
+      done
+      if [ "$ready" -ne 1 ]; then
+        cat /tmp/portfolio-ssg.log
+        exit 1
+      fi
+    - npm run test:cypress:smoke -- --config baseUrl=http://127.0.0.1:4200
+  artifacts:
+    when: on_failure
+    expire_in: 14 days
+    paths:
+      - cypress/screenshots/

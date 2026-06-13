@@ -20,13 +20,14 @@
 
 ## 📸 Overview
 
-A multilingual (English / Portuguese / Spanish) portfolio showcasing professional experience, featured projects with case studies, skills, and certifications. Built with **Angular 21** and deployed on **Netlify** as a primarily **SSG/prerendered static site** so crawlers, SEO tools, social preview bots, and ATS-style scanners receive complete HTML without executing client-side JavaScript.
+A multilingual (English / Portuguese / Spanish) portfolio showcasing professional experience, measured automation impact, featured projects with case studies, skills, and certifications. Built with **Angular 21** and deployed on **Netlify** as a primarily **SSG/prerendered static site** so crawlers, SEO tools, social preview bots, and ATS-style scanners receive complete HTML without executing client-side JavaScript.
 
 ### Key Features
 
 - 🌍 **Multilingual** — Route-based EN (`/en`) / PT (`/pt`) / ES (`/es`) language switching with Angular Signals
 - 📑 **Interactive Resume** — Dedicated resume page with downloadable PDF
 - 🔍 **Case Studies** — Narrative project pages (Problem → Constraints → Solution → Outcome)
+- 📈 **Measured Impact** — LLM-assisted automation results, workflow-input speed gains, and SEO/social reporting metrics
 - 🧾 **SSG-first Rendering** — Known public routes are prerendered at build time and hydrated in the browser
 - 🎨 **Responsive** — Mobile-first design across all viewports
 - ♿ **Accessible** — Semantic HTML, ARIA landmarks, keyboard navigation, reduced-motion support
@@ -43,7 +44,21 @@ A multilingual (English / Portuguese / Spanish) portfolio showcasing professiona
 | **Frontend** | React (Vite, Next.js), Angular, Vue.js (Vite, Nuxt) |
 | **Backend** | TypeScript (Nest.js/Express.js), Python (Quart/Django/FastAPI), PHP (Laravel/WordPress), Java (Spring) |
 | **Testing** | Unit and Features (Jest, Vitest, Pytest, PHPUnit, JUnit), UI (Cypress, Playwright), Behavior (Cucumber, Pytest-BDD) |
-| **Tooling** | Git, Unix-based Shell, LLM Agents, Docker, Container Orchestration (Docker Compose, Kubernetes), Cloud Platforms (AWS, Azure), CI/CD (GitHub Actions) |
+| **Tooling** | Git, Unix-based Shell, LLM Agents, Docker, Container Orchestration (Docker Compose, Kubernetes), Cloud Deployments (Netlify, AWS EKS, Azure Virtual Machines), CI/CD (GitHub Actions, GitLab CI) |
+
+---
+
+## 📈 Measured Impact Snapshot
+
+| Workstream | Result |
+| :--------- | :----- |
+| **LLM-assisted content automation** | Specialized LLM agents plus JavaScript/Python niche scripts helped drive +232.9% impression growth and +183.3% reaction growth in a measured company-page analytics window |
+| **Automation-backed profile workflow** | Automation-supported content planning and publishing routines helped drive +57.1% follower growth in a measured profile analytics window |
+| **LLM workflow tooling** | LLM Prompt Purify secured company interactions with LLM agents and web LLMs; Prompt Shape Creator helped produce higher-quality image-generation outputs roughly 200% faster |
+| **SEO search visibility** | Reached first-to-second-place search-engine positions for strategic targeted keywords across several microregions and 90-100 Lighthouse SEO scores, validated by QA reviews and Gemini assessment using Google Search |
+| **Improvement of speed for input on workflow tools** | PROSSaúde form workflows plus appointment and ticket-intake automations roughly halved manual data-input and collection effort while creating queryable digital records |
+
+Supporting automation work included trained LLM-agent workflows for news discovery, visual-brief suggestions, B2B/newsletter drafting, browser workflow helpers for web-based design tools, approved browser workflow QA and reporting support, platform analytics aggregation, Lighthouse SEO checks, SEO QA over 1,422 keyword-region rows, and statistical dataset correlation.
 
 ---
 
@@ -84,10 +99,10 @@ This project is configured as **SSG-first**. Angular prerenders the known public
 | **Framework**        | Angular 21.2, RxJS 7.8, Zone.js 0.15            |
 | **Language**         | TypeScript 5.9, SCSS                            |
 | **Rendering**        | Angular SSG/prerender via `@angular/ssr`        |
-| **Testing**          | Jest 30.3, Cypress 15.11, `jest-preset-angular` |
-| **Deployment**       | Netlify CDN serving prerendered static HTML     |
+| **Testing**          | Jest 30.3, Cypress 15.17, `jest-preset-angular` |
+| **Deployment**       | Netlify CDN serving prerendered static HTML; deployment experience with AWS EKS and Azure Virtual Machines |
 | **Containerization** | Docker (node:22 + nginx:alpine), Docker Compose |
-| **CI/Tooling**       | Node 22, npm, Git                               |
+| **CI/Tooling**       | Node 22, npm, GitHub Actions, GitLab CI, Git   |
 
 ---
 
@@ -157,12 +172,12 @@ The **Dockerfile** uses a multi-stage approach:
 
 ## 🧪 Testing
 
-| Runner          |      Tests | Command                                 |
-| :-------------- | ---------: | :-------------------------------------- |
-| **TypeScript**  | type-check | `npx tsc --noEmit -p tsconfig.app.json` |
-| **Jest**        |        378 | `npm test`                              |
-| **Cypress E2E** |        205 | `npx cypress run`                       |
-| **Total**       |    **583** | —                                       |
+| Runner            | Scope                      | Command                                 |
+| :---------------- | :------------------------- | :-------------------------------------- |
+| **TypeScript**    | Type-check                 | `npx tsc --noEmit -p tsconfig.app.json` |
+| **Jest**          | Unit tests + coverage gate | `npm run test:jest:ci`                  |
+| **Cypress Smoke** | Browser smoke specs        | `npm run test:cypress:smoke`            |
+| **Cypress E2E**   | Full browser suite         | `npm run test:cypress:run`              |
 
 ```bash
 # Type-check
@@ -170,6 +185,9 @@ npx tsc --noEmit -p tsconfig.app.json
 
 # Unit tests
 npm test
+
+# Unit tests with the CI coverage gate
+npm run test:jest:ci
 
 # E2E tests (requires dev server on :4200)
 npx cypress run --browser electron
@@ -182,10 +200,20 @@ docker compose up cypress
 
 | Metric     | Threshold |
 | :--------- | --------: |
-| Branches   |       40% |
-| Functions  |       60% |
-| Lines      |       50% |
-| Statements |       50% |
+| Branches   |       80% |
+| Functions  |       80% |
+| Lines      |       80% |
+| Statements |       80% |
+
+The coverage gate excludes the deprecated, non-routed legacy `MainComponent` plus declarative SSG route/interface files, so the threshold reflects the current SSG portfolio surface and shared handlers.
+
+### CI Tiers
+
+Both GitHub Actions and GitLab CI run the same tiers:
+
+1. `unit-coverage`: `npm run ci:test`
+2. `ssg-build`: `npm run ci:build`
+3. `browser-smoke`: SSG preview server + Cypress smoke specs
 
 ---
 
@@ -193,10 +221,10 @@ docker compose up cypress
 
 | Project                  | Stack                             | Description                                                       |
 | :----------------------- | :-------------------------------- | :---------------------------------------------------------------- |
-| **LLM Prompt Purify**    | Angular, TypeScript, C#           | Browser tool for sanitizing LLM prompts                           |
+| **LLM Prompt Purify**    | Angular, TypeScript, C#           | Company-used browser tool for safer LLM-agent and web-LLM prompts |
 | **PROSSaúde Client App** | React, TypeScript                 | Multi-step health forms for UFRJ research (400+ inputs)           |
 | **CRM Test**             | Nest.js, TypeScript, REST         | CRM API with auth, role-based access, and full test coverage      |
-| **Prompt Shape Creator** | Next.js, TypeScript, Tailwind CSS | Image prompt briefing form with SMTP, autosave, and i18n fallback |
+| **Prompt Shape Creator** | Next.js, TypeScript, Tailwind CSS | Company-used image prompt workflow, roughly 200% faster to usable drafts |
 
 ---
 

@@ -28,22 +28,24 @@ module.exports = {
     "!src/**/*.d.ts",
     "!src/main.ts",
     "!src/main.server.ts",
+    "!src/app/app.routes.server.ts",
+    "!src/app/main/**",
+    "!src/app/data/portfolio.interfaces.ts",
     "!src/**/*.module.ts",
     "!src/**/*.routes.ts",
     "!src/**/app.config*.ts",
   ],
   coverageDirectory: "<rootDir>/coverage",
-  coverageReporters: ["html", "text", "lcov"],
-  // Coverage thresholds set to 50% due to main.component.ts containing complex
-  // DOM manipulation, setInterval animations, and resize handlers that are
-  // difficult to unit test without extensive mocking. Consider increasing
-  // thresholds as more modular patterns are adopted.
+  coverageReporters: ["html", "text", "text-summary", "json-summary", "lcov"],
+  coverageProvider: "v8",
+  // The deprecated legacy main component is excluded from collection so the
+  // gate reflects the current SSG portfolio surface and reusable handlers.
   coverageThreshold: {
     global: {
-      branches: 40,
-      functions: 60,
-      lines: 50,
-      statements: 50,
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: 80,
     },
   },
   transform: {

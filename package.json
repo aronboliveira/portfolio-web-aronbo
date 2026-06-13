@@ -14,10 +14,14 @@
     "test:jest": "jest",
     "test:jest:watch": "jest --watch",
     "test:jest:coverage": "jest --coverage",
+    "test:jest:ci": "jest --coverage --runInBand --ci",
     "test:cypress": "cypress open",
     "test:cypress:run": "cypress run",
+    "test:cypress:smoke": "cypress run --spec cypress/e2e/accessibility.cy.ts,cypress/e2e/collapsible-sections.cy.ts,cypress/e2e/resume-page.cy.ts",
     "test:e2e": "npm run build && npm run test:cypress:run",
-    "test:all": "npm run test:jest && npm run test:e2e"
+    "test:all": "npm run test:jest && npm run test:e2e",
+    "ci:test": "npm run test:jest:ci",
+    "ci:build": "npm run build:ssg"
   },
   "dependencies": {
     "@angular-devkit/build-angular": "21.2.13",
