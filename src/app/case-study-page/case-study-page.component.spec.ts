@@ -138,6 +138,18 @@ describe('CaseStudyPageComponent', () => {
       expect(component.study!.liveUrl).toContain('https://');
       expect(component.study!.repoUrl).toContain('github.com');
     });
+
+    it('should include company LLM safety outcome', () => {
+      createComponent('llm-prompt-purify', 'en');
+      expect(component.study!.outcome).toContain('company LLM-agent');
+      expect(component.study!.outcome).toContain('web-LLM');
+    });
+
+    it('should include company image workflow outcome', () => {
+      createComponent('prompt-shape-creator', 'en');
+      expect(component.study!.outcome).toContain('image-generation workflows');
+      expect(component.study!.outcome).toContain('200% faster');
+    });
   });
 
   describe('template rendering', () => {

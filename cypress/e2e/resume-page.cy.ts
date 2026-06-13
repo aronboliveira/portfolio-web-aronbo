@@ -10,11 +10,17 @@ describe('Resume Page — EN', () => {
   });
 
   it('should have a back link to home', () => {
-    cy.get('a[href="/en"]').should('exist');
+    cy.get('a[href="/en"]')
+      .should('exist')
+      .and('have.attr', 'aria-label', 'Back to portfolio home')
+      .and('have.attr', 'title', 'Back to portfolio home');
   });
 
   it('should have a PDF download link', () => {
-    cy.get('a[href*=".pdf"]').should('exist');
+    cy.get('a[href*=".pdf"]')
+      .should('exist')
+      .and('have.attr', 'aria-label', 'Download resume PDF')
+      .and('have.attr', 'title', 'Download resume PDF');
   });
 
   it('should display Summary section', () => {
@@ -30,6 +36,31 @@ describe('Resume Page — EN', () => {
 
   it('should display Experience section', () => {
     cy.contains('Experience').should('be.visible');
+  });
+
+  it('should display measured impact and Prestech SEO outcomes', () => {
+    cy.contains('Measured Impact').should('be.visible');
+    cy.contains('+232.9%').should('exist');
+    cy.contains('Lighthouse SEO scores reaching 90-100').should('exist');
+    cy.contains('1,422 keyword-region rows').should('exist');
+    cy.contains('PROSSaúde form workflows').should('exist');
+  });
+
+  it('should display GitLab and site/project links', () => {
+    cy.get('a[href="https://gitlab.com/aronboliveira"]').should(
+      'contain.text',
+      'GitLab',
+    );
+    cy.get('.entry-link a').then($links => {
+      const labels = [...$links].map(link => link.textContent?.trim());
+      expect(labels).to.deep.equal([
+        'Open Site',
+        'Open project',
+        'Open project',
+        'Open project',
+        'Open Site',
+      ]);
+    });
   });
 
   it('should display Projects section', () => {

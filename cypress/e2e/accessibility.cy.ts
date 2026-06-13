@@ -64,6 +64,24 @@ describe('Accessibility', () => {
       cy.get('.nav-icon[aria-label="LinkedIn"]').should('exist');
     });
 
+    it('should provide supplementary titles for icon-only links', () => {
+      cy.get('.nav-icon[aria-label="LinkedIn"]').should(
+        'have.attr',
+        'title',
+        'LinkedIn',
+      );
+      cy.get('.nav-icon[aria-label="GitHub"]').should(
+        'have.attr',
+        'title',
+        'GitHub',
+      );
+      cy.get('.nav-icon[aria-label="GitLab"]').should(
+        'have.attr',
+        'title',
+        'GitLab',
+      );
+    });
+
     it('should indicate external links', () => {
       cy.get('a[target="_blank"]').should('have.length.gt', 0);
     });
@@ -120,6 +138,17 @@ describe('Accessibility', () => {
 
     it('should have nav with aria-label', () => {
       cy.get('nav[aria-label="Main navigation"]').should('exist');
+    });
+  });
+
+  describe('Accordion Controls', () => {
+    it('should expose names, controlled regions, and expanded state', () => {
+      cy.get('.timeline-toggle')
+        .first()
+        .should('have.attr', 'aria-expanded', 'true')
+        .and('have.attr', 'aria-controls', 'experience-content-0')
+        .and('have.attr', 'aria-label', 'Collapse experience: Nova Prestech')
+        .and('have.attr', 'title', 'Collapse experience: Nova Prestech');
     });
   });
 

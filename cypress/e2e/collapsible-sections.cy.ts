@@ -92,6 +92,52 @@ describe('Collapsible Sections', () => {
     it('should display experience heading', () => {
       cy.get('#experience-heading').should('contain.text', 'Experience');
     });
+
+    it('should collapse all but the first experience item by default', () => {
+      cy.get('.timeline-toggle').should('have.length', 5);
+      cy.get('.timeline-toggle').eq(0).should('have.attr', 'aria-expanded', 'true');
+      cy.get('.timeline-toggle').eq(1).should('have.attr', 'aria-expanded', 'false');
+      cy.get('#experience-content-0').should('be.visible');
+      cy.get('#experience-content-1').should('not.be.visible');
+      cy.get('#experience-content-4').should('not.be.visible');
+    });
+
+    it('should toggle experience panels with WCAG-facing state attributes', () => {
+      cy.get('.timeline-toggle')
+        .eq(1)
+        .should(
+          'have.attr',
+          'aria-label',
+          'Expand experience: University Extension Program PROSSaúde — UFRJ',
+        )
+        .and('have.attr', 'aria-controls', 'experience-content-1')
+        .click();
+
+      cy.get('.timeline-toggle')
+        .eq(1)
+        .should('have.attr', 'aria-expanded', 'true')
+        .and(
+          'have.attr',
+          'title',
+          'Collapse experience: University Extension Program PROSSaúde — UFRJ',
+        );
+      cy.get('.timeline-toggle').eq(0).should('have.attr', 'aria-expanded', 'false');
+      cy.get('#experience-content-1').should('be.visible');
+      cy.get('#experience-content-0').should('not.be.visible');
+    });
+
+    it('should label experience links as sites or projects', () => {
+      cy.get('.timeline-link').then($links => {
+        const labels = [...$links].map(link => link.textContent?.trim());
+        expect(labels).to.deep.equal([
+          'Open Site',
+          'Open project',
+          'Open project',
+          'Open project',
+          'Open Site',
+        ]);
+      });
+    });
   });
 
   describe('Automation Section', () => {
@@ -108,6 +154,11 @@ describe('Collapsible Sections', () => {
 
     it('should have link to my-os-scripts', () => {
       cy.get('#automation a.cta').should('contain.text', 'my-os-scripts');
+    });
+
+    it('should include PROSSaúde in the workflow speed impact card', () => {
+      cy.get('#automation').should('contain.text', 'including PROSSaúde');
+      cy.get('#automation').should('contain.text', 'PROSSaúde forms');
     });
   });
 
