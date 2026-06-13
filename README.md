@@ -2,7 +2,7 @@
 
 # 🌐 Portfolio — Aron Barbosa de Oliveira
 
-**Full-Stack Software Developer — TypeScript · Python · Shell Automation**
+**Full-Stack Software Developer — TypeScript · Python · Java APIs · Shell Automation**
 
 [![Angular](https://img.shields.io/badge/Angular-21-DD0031?logo=angular&logoColor=white)](https://angular.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
@@ -32,6 +32,18 @@ A multilingual (English / Portuguese / Spanish) portfolio showcasing professiona
 - ♿ **Accessible** — Semantic HTML, ARIA landmarks, keyboard navigation, reduced-motion support
 - 🔎 **SEO** — Schema.org JSON-LD, canonical URLs, meta tags via `SeoService`
 - 🐳 **Dockerized** — Multi-stage build with nginx serving + Cypress E2E in containers
+
+---
+
+## 🧰 Portfolio Skills Snapshot
+
+| Area         | Skills |
+| :----------- | :----- |
+| **Languages** | TypeScript, Python, Bash, PHP, Java, C# |
+| **Frontend** | React (Vite, Next.js), Angular, Vue.js (Vite, Nuxt) |
+| **Backend** | TypeScript (Nest.js/Express.js), Python (Quart/Django/FastAPI), PHP (Laravel/WordPress), Java (Spring) |
+| **Testing** | Unit and Features (Jest, Vitest, Pytest, PHPUnit, JUnit), UI (Cypress, Playwright), Behavior (Cucumber, Pytest-BDD) |
+| **Tooling** | Git, Unix-based Shell, LLM Agents, Docker, Container Orchestration (Docker Compose, Kubernetes), Cloud Platforms (AWS, Azure), CI/CD (GitHub Actions) |
 
 ---
 
@@ -193,7 +205,7 @@ docker compose up cypress
 
 ### Portfólio Web — Aron Barbosa de Oliveira
 
-Portfólio pessoal bilíngue (Inglês / Português) desenvolvido com **Angular 21** e implantado na **Netlify**. Apresenta experiência profissional, projetos em destaque com estudos de caso, habilidades técnicas e certificações.
+Portfólio pessoal multilíngue (Inglês / Português / Espanhol) desenvolvido com **Angular 21** e implantado na **Netlify**. Apresenta experiência profissional, projetos em destaque com estudos de caso, habilidades técnicas e certificações.
 
 **Funcionalidades:**
 
@@ -211,7 +223,7 @@ Portfólio pessoal bilíngue (Inglês / Português) desenvolvido com **Angular 2
 
 ### Portafolio Web — Aron Barbosa de Oliveira
 
-Portafolio personal bilingüe (Inglés / Portugués) construido con **Angular 21** y desplegado en **Netlify**. Muestra experiencia profesional, proyectos destacados con estudios de caso, habilidades técnicas y certificaciones.
+Portafolio personal multilingüe (Inglés / Portugués / Español) construido con **Angular 21** y desplegado en **Netlify**. Muestra experiencia profesional, proyectos destacados con estudios de caso, habilidades técnicas y certificaciones.
 
 🔗 [**Visitar el sitio**](https://aronboliveira-dev.netlify.app/en)
 
@@ -222,7 +234,7 @@ Portafolio personal bilingüe (Inglés / Portugués) construido con **Angular 21
 
 ### Portfolio Web — Aron Barbosa de Oliveira
 
-Portfolio personnel bilingue (Anglais / Portugais) construit avec **Angular 21** et déployé sur **Netlify**. Présente l'expérience professionnelle, les projets phares avec études de cas, les compétences techniques et les certifications.
+Portfolio personnel multilingue (Anglais / Portugais / Espagnol) construit avec **Angular 21** et déployé sur **Netlify**. Présente l'expérience professionnelle, les projets phares avec études de cas, les compétences techniques et les certifications.
 
 🔗 [**Visiter le site**](https://aronboliveira-dev.netlify.app/en)
 
@@ -233,7 +245,7 @@ Portfolio personnel bilingue (Anglais / Portugais) construit avec **Angular 21**
 
 ### Веб-портфолио — Арон Барбоза де Оливейра
 
-Двуязычное (EN / PT) персональное портфолио на **Angular 21**, развёрнутое на **Netlify**. Демонстрирует профессиональный опыт, избранные проекты с кейсами, технические навыки и сертификации.
+Многоязычное (EN / PT / ES) персональное портфолио на **Angular 21**, развёрнутое на **Netlify**. Демонстрирует профессиональный опыт, избранные проекты с кейсами, технические навыки и сертификации.
 
 🔗 [**Перейти на сайт**](https://aronboliveira-dev.netlify.app/en)
 
@@ -244,7 +256,7 @@ Portfolio personnel bilingue (Anglais / Portugais) construit avec **Angular 21**
 
 ### 个人作品集 — Aron Barbosa de Oliveira
 
-基于 **Angular 21** 构建并部署在 **Netlify** 上的双语（英语/葡萄牙语）个人作品集。展示专业经验、精选项目案例分析、技术技能和认证。
+基于 **Angular 21** 构建并部署在 **Netlify** 上的多语言（英语/葡萄牙语/西班牙语）个人作品集。展示专业经验、精选项目案例分析、技术技能和认证。
 
 🔗 [**访问网站**](https://aronboliveira-dev.netlify.app/en)
 
@@ -255,7 +267,7 @@ Portfolio personnel bilingue (Anglais / Portugais) construit avec **Angular 21**
 
 ### ウェブポートフォリオ — Aron Barbosa de Oliveira
 
-**Angular 21** で構築し **Netlify** にデプロイした、バイリンガル（英語/ポルトガル語）の個人ポートフォリオです。職務経歴、注目プロジェクトのケーススタディ、技術スキル、資格を掲載しています。
+**Angular 21** で構築し **Netlify** にデプロイした、多言語（英語/ポルトガル語/スペイン語）の個人ポートフォリオです。職務経歴、注目プロジェクトのケーススタディ、技術スキル、資格を掲載しています。
 
 🔗 [**サイトを見る**](https://aronboliveira-dev.netlify.app/en)
 
