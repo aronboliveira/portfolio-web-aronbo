@@ -238,6 +238,59 @@
     margin-bottom: 1rem;
   }
 
+  .automation-summary {
+    font-size: 1rem;
+  }
+
+  .automation-detail {
+    color: rgba($color-body, 0.9);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 78ch;
+  }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.25rem 0;
+  }
+
+  .impact-card {
+    @include m.card-bg;
+    border-radius: 8px;
+    padding: 1rem;
+
+    h3 {
+      color: $color-heading;
+      font-size: 0.95rem;
+      line-height: 1.35;
+      margin: 0.35rem 0 0.45rem;
+    }
+
+    p {
+      color: $color-body;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .impact-tools {
+      color: rgba($color-body, 0.82);
+      font-size: 0.82rem;
+      line-height: 1.45;
+      margin-top: 0.6rem;
+    }
+  }
+
+  .impact-value {
+    color: $color-accent;
+    display: block;
+    font-size: 1.45rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
   .automation-links {
     display: flex;
     flex-wrap: wrap;
@@ -278,22 +331,50 @@
   header {
     display: flex;
     flex-wrap: wrap;
-    align-items: baseline;
+    align-items: center;
     gap: 0.5rem 1rem;
     margin-bottom: 0.5rem;
   }
 
-  h3 {
-    font-size: 1.05rem;
+  .timeline-toggle {
+    align-items: center;
+    background: transparent;
+    border: 0;
+    color: $color-heading;
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    gap: 0.55rem;
     margin: 0;
+    padding: 0;
+    text-align: start;
 
-    a {
-      color: $color-heading;
-      text-decoration: none;
-      &:hover {
-        color: $color-accent;
-      }
+    &:hover,
+    &:focus-visible {
+      color: $color-accent;
     }
+
+    &:focus-visible {
+      outline: 2px solid rgba($color-accent, 0.5);
+      outline-offset: 4px;
+    }
+  }
+
+  .timeline-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+
+  .timeline-arrow {
+    color: $color-accent;
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 1;
+    transition: transform 150ms ease;
+  }
+
+  &.timeline-item-open .timeline-arrow {
+    transform: rotate(90deg);
   }
 
   time {
@@ -302,11 +383,32 @@
     font-weight: 500;
   }
 
+  .timeline-content {
+    display: grid;
+    gap: 0.75rem;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
   p {
     color: $color-body;
     font-size: 0.9rem;
     line-height: 1.55;
     margin: 0;
+  }
+
+  .timeline-link {
+    color: $color-accent;
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-decoration: none;
+    width: fit-content;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 

@@ -20,7 +20,7 @@ export interface SkillSet {
 export interface ExperienceEntry {
   title: string;
   date: string;
-  description: string;
+  description: string | string[];
   href: string;
 }
 

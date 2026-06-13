@@ -1,6 +1,23 @@
 <article class="resume-page">
   <nav class="resume-nav" aria-label="Resume navigation">
-    <a [routerLink]="'/' + lang" class="back-link">
+    <a
+      [routerLink]="'/' + lang"
+      class="back-link"
+      [attr.aria-label]="
+        lang === 'en'
+          ? 'Back to portfolio home'
+          : lang === 'es'
+            ? 'Volver al inicio del portafolio'
+            : 'Voltar ao início do portfólio'
+      "
+      [attr.title]="
+        lang === 'en'
+          ? 'Back to portfolio home'
+          : lang === 'es'
+            ? 'Volver al inicio del portafolio'
+            : 'Voltar ao início do portfólio'
+      "
+    >
       &larr; {{ lang === "en" ? "Home" : lang === "es" ? "Inicio" : "Início" }}
     </a>
     <a
@@ -14,6 +31,20 @@
       download
       class="pdf-link"
       id="download-resume-pdf-page"
+      [attr.aria-label]="
+        lang === 'en'
+          ? 'Download resume PDF'
+          : lang === 'es'
+            ? 'Descargar currículum en PDF'
+            : 'Baixar currículo em PDF'
+      "
+      [attr.title]="
+        lang === 'en'
+          ? 'Download resume PDF'
+          : lang === 'es'
+            ? 'Descargar currículum en PDF'
+            : 'Baixar currículo em PDF'
+      "
     >
       {{
         lang === "en"
@@ -29,8 +60,8 @@
     <header>
       <h1>Aron Barbosa de Oliveira</h1>
       <p class="resume-title">
-        Full-Stack Software Developer &mdash; TypeScript, Python, Shell
-        Automation
+        Full-Stack Software Developer &mdash; TypeScript, Python, Java APIs
+        &amp; Shell Automation
       </p>
       <p class="contact-line">
         <a href="mailto:aron.b.96&#64;gmail.com">aron.b.96&#64;gmail.com</a>
@@ -47,6 +78,13 @@
           target="_blank"
           rel="noopener noreferrer nofollow"
           >GitHub</a
+        >
+        &middot;
+        <a
+          href="https://gitlab.com/aronboliveira"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          >GitLab</a
         >
         &middot; Rio de Janeiro, Brazil
       </p>
@@ -86,8 +124,37 @@
         </li>
         <li>
           <strong>Tooling:</strong> Git, Unix-based Shell, LLM Agents, Docker,
-          Container Orchestration (Docker Compose, Kubernetes), Cloud Platforms
-          (AWS, Azure), CI/CD (GitHub Actions)
+          Container Orchestration (Docker Compose, Kubernetes), Cloud
+          Deployments (Netlify, AWS EKS, Azure Virtual Machines), CI/CD (GitHub
+          Actions)
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="impact-heading-en">
+      <h2 id="impact-heading-en">Measured Impact</h2>
+      <ul>
+        <li>
+          Specialized LLM agents plus JavaScript/Python scripts supported
+          curated, optimized, and generated content workflows that increased
+          company-page impressions by +232.9% and reactions by +183.3%.
+        </li>
+        <li>
+          Automation-supported content planning and publishing routines helped
+          increase measured Instagram profile follower growth by +57.1%.
+        </li>
+        <li>
+          WordPress/PHP and JavaScript SEO work reached first-to-second-place
+          search-engine visibility for strategic targeted keywords across
+          several microregions, with Lighthouse SEO scores reaching 90-100 and
+          QA/Gemini assessment over 1,422 keyword-region rows using Google
+          Search.
+        </li>
+        <li>
+          Prompt Shape Creator improved image-generation brief turnaround by
+          roughly 200%; PROSSaúde form workflows plus appointment and
+          ticket-intake workflow tools roughly halved manual data-input and
+          collection effort while creating queryable digital records.
         </li>
       </ul>
     </section>
@@ -99,15 +166,23 @@
         <h3>Nova Prestech</h3>
         <p class="date">December 2024 &mdash; Present</p>
         <p>
-          Internal tooling: orchestration of LLM Agents within IDEs and TUIs;
-          Event-driven Architecture for WhatsApp Chatbots (MVC); Virtualization
-          monitoring (Hexagonal Architecture); ERP forks (FOSS-based) tuned with
-          Domain-Driven Development and MVC; Prompt engineering for LLM agent
-          pipelines (web scraping for tech news/marketing, social media writing
-          with B2B language and style directives); SEO optimization for
-          portfolio websites. Fullstack development with Laravel, Django, and
-          React.js. Minor experience with WhatsApp Business and Meta Business
-          Suite automations.
+          Main responsible for maintaining and developing the Nova Prestech
+          website as a whole, alongside internal IT-service tooling,
+          WordPress/PHP site work, ERP/CSM support, virtualization monitoring,
+          and event-driven WhatsApp chatbot flows.
+        </p>
+        <p>
+          Built JavaScript/Python automation and LLM-agent workflows for content
+          operations, SEO QA, safer LLM usage, image-generation briefs, and
+          support processes. Detailed metrics are summarized in Measured Impact.
+        </p>
+        <p class="entry-link">
+          <a
+            href="https://prestech.com.br/site/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Open Site</a
+          >
         </p>
       </div>
 
@@ -120,6 +195,14 @@
           schedules, login subsystems, and tabulation with automated index
           calculation.
         </p>
+        <p class="entry-link">
+          <a
+            href="https://prossaude-client.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Open project</a
+          >
+        </p>
       </div>
 
       <div class="experience-entry">
@@ -130,6 +213,28 @@
           e-commerce calculators (WordPress + React), and confectionery websites
           (Create React App).
         </p>
+        <p class="entry-link">
+          <a
+            href="https://drinks-tia-pdb.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Open project</a
+          >
+          &middot;
+          <a
+            href="https://anadocesapp.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Open project</a
+          >
+          &middot;
+          <a
+            href="https://blog.organolab.com.br/blog/calculadora-de-solo/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Open Site</a
+          >
+        </p>
       </div>
     </section>
 
@@ -139,9 +244,10 @@
       <div class="experience-entry">
         <h3>LLM Prompt Purify</h3>
         <p>
-          Client-side sanitization tool to reduce leakage of sensitive data to
-          third-party LLM APIs. Built with Angular, TypeScript, and C#. Informed
-          by hands-on LLM Agent orchestration at Prestech.
+          Client-side sanitization used in company workflows to secure
+          interactions with LLM agents and web-based LLM tools by reducing
+          sensitive-data leakage to third-party APIs. Built with Angular,
+          TypeScript, and C#.
         </p>
       </div>
 
@@ -165,9 +271,10 @@
       <div class="experience-entry">
         <h3>Prompt Shape Creator</h3>
         <p>
-          Image-generation prompt briefing form with SMTP email delivery,
-          clipboard fallback, autosave, and bilingual auto-detection. Built with
-          Next.js 16, React 19, TypeScript, and Tailwind CSS v4.
+          Image-generation prompt briefing form used in company workflows to
+          structure creative requests, improve visual output quality, and
+          produce usable image drafts roughly 200% faster. Built with Next.js
+          16, React 19, TypeScript, and Tailwind CSS v4.
         </p>
       </div>
     </section>
@@ -195,7 +302,8 @@
     <header>
       <h1>Aron Barbosa de Oliveira</h1>
       <p class="resume-title">
-        Desenvolvedor Full-stack &mdash; TypeScript, Python e Automação Shell
+        Desenvolvedor Full-stack &mdash; TypeScript, Python, APIs Java e
+        Automação Shell
       </p>
       <p class="contact-line">
         <a href="mailto:aron.b.96&#64;gmail.com">aron.b.96&#64;gmail.com</a>
@@ -212,6 +320,13 @@
           target="_blank"
           rel="noopener noreferrer nofollow"
           >GitHub</a
+        >
+        &middot;
+        <a
+          href="https://gitlab.com/aronboliveira"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          >GitLab</a
         >
         &middot; Rio de Janeiro, Brasil
       </p>
@@ -252,7 +367,38 @@
         <li>
           <strong>Ferramentas:</strong> Git, Shell baseado em Unix, Agentes LLM,
           Docker, Orquestração de Contêineres (Docker Compose, Kubernetes),
-          Plataformas Cloud (AWS, Azure), CI/CD (GitHub Actions)
+          Deploys Cloud (Netlify, AWS EKS, Azure Virtual Machines), CI/CD
+          (GitHub Actions)
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="impact-heading-pt">
+      <h2 id="impact-heading-pt">Impacto Mensurável</h2>
+      <ul>
+        <li>
+          Agentes LLM especializados com scripts JavaScript/Python apoiaram
+          fluxos de conteúdo curado, otimizado e gerado que aumentaram
+          impressões de página corporativa em +232,9% e reações em +183,3%.
+        </li>
+        <li>
+          Rotinas de planejamento e publicação apoiadas por automação ajudaram a
+          aumentar em +57,1% o crescimento de seguidores do perfil no recorte
+          medido.
+        </li>
+        <li>
+          Trabalho SEO com WordPress/PHP e JavaScript alcançou primeira a
+          segunda posição em mecanismos de busca para palavras-chave
+          estratégicas em várias microrregiões, com pontuação SEO no Lighthouse
+          entre 90-100 e avaliação QA/Gemini em 1.422 linhas palavra-chave/região
+          usando Google Search.
+        </li>
+        <li>
+          Prompt Shape Creator melhorou o ciclo de briefings para geração de
+          imagem em cerca de 200%; fluxos de formulários do PROSSaúde somados a
+          ferramentas de agendamento e entrada de tickets reduziram
+          aproximadamente pela metade o esforço manual de input e coleta de
+          dados, criando registros digitais consultáveis.
         </li>
       </ul>
     </section>
@@ -264,15 +410,25 @@
         <h3>Nova Prestech</h3>
         <p class="date">Dezembro 2024 &mdash; Presente</p>
         <p>
-          Ferramentas internas: orquestração de Agentes LLM em IDEs e TUIs;
-          Arquitetura Orientada a Eventos para Chatbots no WhatsApp (MVC);
-          monitoramento de Virtualização (Arquitetura Hexagonal); forks de ERP
-          (baseados em FOSS) ajustados com Domain-Driven Development e MVC;
-          Engenharia de Prompts para pipelines de agentes LLM (scraping web para
-          notícias tech/marketing, redação para redes sociais com linguagem B2B
-          e diretrizes de estilo); otimização de SEO para sites portfólio.
-          Desenvolvimento fullstack com Laravel, Django e React.js. Experiência
-          menor com automações via WhatsApp Business e Meta Business Suite.
+          Principal responsável pela manutenção e desenvolvimento do site da
+          Nova Prestech como um todo, junto de ferramentas internas para
+          serviços de TI, trabalho em WordPress/PHP, suporte a ERP/CSM,
+          monitoramento de virtualização e fluxos de chatbot WhatsApp orientados
+          a eventos.
+        </p>
+        <p>
+          Criei automações JavaScript/Python e fluxos com agentes LLM para
+          operações de conteúdo, QA SEO, uso mais seguro de LLMs, briefings de
+          geração de imagem e processos de suporte. As métricas detalhadas estão
+          resumidas em Impacto Mensurável.
+        </p>
+        <p class="entry-link">
+          <a
+            href="https://prestech.com.br/site/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Abrir site</a
+          >
         </p>
       </div>
 
@@ -285,6 +441,14 @@
           interativas e sincronizadas, subsistemas de login e tabelamento com
           cálculo automatizado de índices.
         </p>
+        <p class="entry-link">
+          <a
+            href="https://prossaude-client.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Abrir projeto</a
+          >
+        </p>
       </div>
 
       <div class="experience-entry">
@@ -295,6 +459,28 @@
           (Next.js), calculadoras para e-commerce (WordPress + React), e sites
           para confeitarias (Create React App).
         </p>
+        <p class="entry-link">
+          <a
+            href="https://drinks-tia-pdb.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Abrir projeto</a
+          >
+          &middot;
+          <a
+            href="https://anadocesapp.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Abrir projeto</a
+          >
+          &middot;
+          <a
+            href="https://blog.organolab.com.br/blog/calculadora-de-solo/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Abrir site</a
+          >
+        </p>
       </div>
     </section>
 
@@ -304,10 +490,10 @@
       <div class="experience-entry">
         <h3>LLM Prompt Purify</h3>
         <p>
-          Ferramenta de sanitização client-side para reduzir vazamento de dados
-          sensíveis para APIs de LLM de terceiros. Construído com Angular,
-          TypeScript e C#. Desenvolvido com base em experiência prática com
-          orquestração de Agentes LLM na Prestech.
+          Sanitização client-side usada em fluxos corporativos para proteger
+          interações com agentes LLM e ferramentas LLM web, reduzindo vazamento
+          de dados sensíveis para APIs de terceiros. Construído com Angular,
+          TypeScript e C#.
         </p>
       </div>
 
@@ -331,10 +517,11 @@
       <div class="experience-entry">
         <h3>Prompt Shape Creator</h3>
         <p>
-          Formulário de briefing para prompts de geração de imagens com envio
-          via SMTP, fallback para clipboard, autosave e detecção automática de
-          idioma. Construído com Next.js 16, React 19, TypeScript e Tailwind CSS
-          v4.
+          Formulário de briefing para prompts de geração de imagens usado em
+          fluxos corporativos para estruturar pedidos criativos, melhorar a
+          qualidade visual de outputs e produzir rascunhos utilizáveis cerca de
+          200% mais rápido. Construído com Next.js 16, React 19, TypeScript e
+          Tailwind CSS v4.
         </p>
       </div>
     </section>
@@ -362,8 +549,8 @@
     <header>
       <h1>Aron Barbosa de Oliveira</h1>
       <p class="resume-title">
-        Desarrollador Full-Stack &mdash; TypeScript, Python y Automatización
-        Shell
+        Desarrollador Full-Stack &mdash; TypeScript, Python, APIs Java y
+        Automatización Shell
       </p>
       <p class="contact-line">
         <a href="mailto:aron.b.96&#64;gmail.com">aron.b.96&#64;gmail.com</a>
@@ -380,6 +567,13 @@
           target="_blank"
           rel="noopener noreferrer nofollow"
           >GitHub</a
+        >
+        &middot;
+        <a
+          href="https://gitlab.com/aronboliveira"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          >GitLab</a
         >
         &middot; Río de Janeiro, Brasil
       </p>
@@ -420,7 +614,39 @@
         <li>
           <strong>Herramientas:</strong> Git, Shell basado en Unix, Agentes LLM,
           Docker, Orquestación de Contenedores (Docker Compose, Kubernetes),
-          Plataformas Cloud (AWS, Azure), CI/CD (GitHub Actions)
+          Despliegues Cloud (Netlify, AWS EKS, Azure Virtual Machines), CI/CD
+          (GitHub Actions)
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="impact-heading-es">
+      <h2 id="impact-heading-es">Impacto Medible</h2>
+      <ul>
+        <li>
+          Agentes LLM especializados con scripts JavaScript/Python apoyaron
+          flujos de contenido curado, optimizado y generado que aumentaron las
+          impresiones de página corporativa en +232,9% y las reacciones en
+          +183,3%.
+        </li>
+        <li>
+          Rutinas de planificación y publicación apoyadas por automatización
+          ayudaron a aumentar en +57,1% el crecimiento de seguidores del perfil
+          en el recorte medido.
+        </li>
+        <li>
+          Trabajo SEO con WordPress/PHP y JavaScript alcanzó primera a segunda
+          posición en motores de búsqueda para palabras clave estratégicas en
+          varias microrregiones, con puntuaciones SEO de Lighthouse de 90-100 y
+          evaluación QA/Gemini en 1.422 filas palabra-clave/región usando Google
+          Search.
+        </li>
+        <li>
+          Prompt Shape Creator mejoró el ciclo de briefings para generación de
+          imágenes en cerca de un 200%; flujos de formularios de PROSSaúde
+          sumados a herramientas de citas y entrada de tickets redujeron
+          aproximadamente a la mitad el esfuerzo manual de input y recolección
+          de datos, creando registros digitales consultables.
         </li>
       </ul>
     </section>
@@ -432,16 +658,24 @@
         <h3>Nova Prestech</h3>
         <p class="date">Diciembre 2024 &mdash; Presente</p>
         <p>
-          Herramientas internas: orquestación de Agentes LLM en IDEs y TUIs;
-          Arquitectura Orientada a Eventos para Chatbots en WhatsApp (MVC);
-          monitoreo de Virtualización (Arquitectura Hexagonal); forks de ERP
-          (basados en FOSS) ajustados con Domain-Driven Development y MVC;
-          Ingeniería de Prompts para pipelines de agentes LLM (scraping web para
-          noticias tech/marketing, redacción para redes sociales con lenguaje
-          B2B y directrices de estilo); optimización de SEO para sitios
-          portafolio. Desarrollo fullstack con Laravel, Django y React.js.
-          Experiencia menor con automatizaciones vía WhatsApp Business y Meta
-          Business Suite.
+          Principal responsable del mantenimiento y desarrollo del sitio de Nova
+          Prestech como un todo, junto con herramientas internas para servicios
+          de TI, trabajo en WordPress/PHP, soporte ERP/CSM, monitoreo de
+          virtualización y flujos de chatbot WhatsApp orientados a eventos.
+        </p>
+        <p>
+          Creé automatizaciones JavaScript/Python y flujos con agentes LLM para
+          operaciones de contenido, QA SEO, uso más seguro de LLMs, briefings de
+          generación de imágenes y procesos de soporte. Las métricas detalladas
+          están resumidas en Impacto Medible.
+        </p>
+        <p class="entry-link">
+          <a
+            href="https://prestech.com.br/site/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Abrir sitio</a
+          >
         </p>
       </div>
 
@@ -454,6 +688,14 @@
           interactivas y sincronizadas, subsistemas de inicio de sesión y
           tabulación con cálculo automatizado de índices.
         </p>
+        <p class="entry-link">
+          <a
+            href="https://prossaude-client.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Abrir proyecto</a
+          >
+        </p>
       </div>
 
       <div class="experience-entry">
@@ -464,6 +706,28 @@
           calculadoras para e-commerce (WordPress + React) y sitios web para
           confiterías (Create React App).
         </p>
+        <p class="entry-link">
+          <a
+            href="https://drinks-tia-pdb.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Abrir proyecto</a
+          >
+          &middot;
+          <a
+            href="https://anadocesapp.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Abrir proyecto</a
+          >
+          &middot;
+          <a
+            href="https://blog.organolab.com.br/blog/calculadora-de-solo/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Abrir sitio</a
+          >
+        </p>
       </div>
     </section>
 
@@ -473,10 +737,10 @@
       <div class="experience-entry">
         <h3>LLM Prompt Purify</h3>
         <p>
-          Herramienta de sanitización del lado del cliente para reducir la
-          filtración de datos sensibles hacia APIs de LLM de terceros.
-          Construido con Angular, TypeScript y C#. Desarrollado con base en
-          experiencia práctica con orquestación de Agentes LLM en Prestech.
+          Sanitización del lado del cliente usada en flujos corporativos para
+          proteger interacciones con agentes LLM y herramientas LLM web,
+          reduciendo filtración de datos sensibles hacia APIs de terceros.
+          Construido con Angular, TypeScript y C#.
         </p>
       </div>
 
@@ -500,10 +764,11 @@
       <div class="experience-entry">
         <h3>Prompt Shape Creator</h3>
         <p>
-          Formulario de briefing para prompts de generación de imágenes con
-          envío vía SMTP, fallback al portapapeles, autoguardado y detección
-          automática de idioma. Construido con Next.js 16, React 19, TypeScript
-          y Tailwind CSS v4.
+          Formulario de briefing para prompts de generación de imágenes usado en
+          flujos corporativos para estructurar pedidos creativos, mejorar la
+          calidad visual de outputs y producir borradores utilizables cerca de
+          un 200% más rápido. Construido con Next.js 16, React 19, TypeScript y
+          Tailwind CSS v4.
         </p>
       </div>
     </section>

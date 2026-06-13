@@ -9,7 +9,7 @@ export const SKILLS: I18n<SkillSet> = {
     testing:
       'Unit and Features (Jest, Vitest, Pytest, PHPUnit, JUnit), UI (Cypress, Playwright), Behavior (Cucumber, Pytest-BDD)',
     tooling:
-      'Git, Unix-based Shell, LLM Agents, Docker, Container Orchestration (Docker Compose, Kubernetes), Cloud Platforms (AWS, Azure), CI/CD (GitHub Actions)',
+      'Git, Unix-based Shell, LLM Agents, Docker, Container Orchestration (Docker Compose, Kubernetes), Cloud Deployments (Netlify, AWS EKS, Azure Virtual Machines), CI/CD (GitHub Actions)',
   },
   pt: {
     languages: 'TypeScript, Python, Bash, PHP, Java, C#',
@@ -19,7 +19,7 @@ export const SKILLS: I18n<SkillSet> = {
     testing:
       'Unidade e Funcionalidades (Jest, Vitest, Pytest, PHPUnit, JUnit), UI (Cypress, Playwright), Comportamento (Cucumber, Pytest-BDD)',
     tooling:
-      'Git, Shell baseado em Unix, Agentes LLM, Docker, Orquestração de Contêineres (Docker Compose, Kubernetes), Plataformas Cloud (AWS, Azure), CI/CD (GitHub Actions)',
+      'Git, Shell baseado em Unix, Agentes LLM, Docker, Orquestração de Contêineres (Docker Compose, Kubernetes), Deploys Cloud (Netlify, AWS EKS, Máquinas Virtuais Azure), CI/CD (GitHub Actions)',
   },
   es: {
     languages: 'TypeScript, Python, Bash, PHP, Java, C#',
@@ -29,6 +29,6 @@ export const SKILLS: I18n<SkillSet> = {
     testing:
       'Unidad y Funcionalidades (Jest, Vitest, Pytest, PHPUnit, JUnit), UI (Cypress, Playwright), Comportamiento (Cucumber, Pytest-BDD)',
     tooling:
-      'Git, Shell basado en Unix, Agentes LLM, Docker, Orquestación de Contenedores (Docker Compose, Kubernetes), Plataformas Cloud (AWS, Azure), CI/CD (GitHub Actions)',
+      'Git, Shell basado en Unix, Agentes LLM, Docker, Orquestación de Contenedores (Docker Compose, Kubernetes), Despliegues Cloud (Netlify, AWS EKS, Máquinas Virtuales Azure), CI/CD (GitHub Actions)',
   },
 };

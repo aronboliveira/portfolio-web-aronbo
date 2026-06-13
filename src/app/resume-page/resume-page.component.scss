@@ -114,6 +114,25 @@ section {
   p:not(.date) {
     margin: 0;
   }
+
+  p:not(.date) + p:not(.date) {
+    margin-top: 0.55rem;
+  }
+
+  .entry-link {
+    color: $color-muted;
+    font-size: 0.9rem;
+
+    a {
+      color: $color-accent;
+      font-weight: 500;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 @media print {

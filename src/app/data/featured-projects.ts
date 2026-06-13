@@ -6,7 +6,7 @@ export const FEATURED_PROJECTS: I18n<FeaturedProject[]> = {
       slug: 'llm-prompt-purify',
       title: 'LLM Prompt Purify',
       outcome:
-        'Client-side sanitization to reduce leakage of sensitive data to third-party LLM APIs. Informed by hands-on LLM Agent orchestration at Prestech.',
+        'Client-side sanitization used in company workflows to secure interactions with LLM agents and web-based LLM tools by reducing sensitive-data leakage to third-party APIs.',
       stacks: ['Angular', 'TypeScript', 'C#'],
       href: 'https://llm-prompt-purify.netlify.app/',
       repoHref:
@@ -34,7 +34,7 @@ export const FEATURED_PROJECTS: I18n<FeaturedProject[]> = {
       slug: 'prompt-shape-creator',
       title: 'Prompt Shape Creator',
       outcome:
-        'Image-generation prompt briefing form with SMTP email delivery, clipboard fallback, autosave, and bilingual auto-detection. Built with modern React patterns (useActionState, useTransition).',
+        'Image-generation prompt briefing form used in company workflows to structure creative requests, improve visual output quality, and produce usable image drafts roughly 200% faster.',
       stacks: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS'],
       href: 'https://prompt-shape-creator.netlify.app/',
       repoHref: 'https://github.com/aronboliveira/prompt-eng-form-basic-pub',
@@ -45,7 +45,7 @@ export const FEATURED_PROJECTS: I18n<FeaturedProject[]> = {
       slug: 'llm-prompt-purify',
       title: 'LLM Prompt Purify',
       outcome:
-        'Sanitização client-side para reduzir vazamento de dados sensíveis para APIs de LLM de terceiros. Desenvolvido com base em experiência prática com orquestração de Agentes LLM na Prestech.',
+        'Sanitização client-side usada em fluxos corporativos para proteger interações com agentes LLM e ferramentas LLM web, reduzindo vazamento de dados sensíveis para APIs de terceiros.',
       stacks: ['Angular', 'TypeScript', 'C#'],
       href: 'https://llm-prompt-purify.netlify.app/',
       repoHref:
@@ -73,7 +73,7 @@ export const FEATURED_PROJECTS: I18n<FeaturedProject[]> = {
       slug: 'prompt-shape-creator',
       title: 'Prompt Shape Creator',
       outcome:
-        'Formulário de briefing para prompts de geração de imagens com envio via SMTP, fallback para clipboard, autosave e detecção automática de idioma. Construído com padrões modernos de React (useActionState, useTransition).',
+        'Formulário de briefing para prompts de geração de imagens usado em fluxos corporativos para estruturar pedidos criativos, melhorar a qualidade visual e produzir rascunhos úteis cerca de 200% mais rápido.',
       stacks: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS'],
       href: 'https://prompt-shape-creator.netlify.app/',
       repoHref: 'https://github.com/aronboliveira/prompt-eng-form-basic-pub',
@@ -84,7 +84,7 @@ export const FEATURED_PROJECTS: I18n<FeaturedProject[]> = {
       slug: 'llm-prompt-purify',
       title: 'LLM Prompt Purify',
       outcome:
-        'Sanitización del lado del cliente para reducir la filtración de datos sensibles hacia APIs de LLM de terceros. Desarrollado con base en experiencia práctica con orquestación de Agentes LLM en Prestech.',
+        'Sanitización del lado del cliente usada en flujos corporativos para proteger interacciones con agentes LLM y herramientas LLM web, reduciendo la filtración de datos sensibles hacia APIs de terceros.',
       stacks: ['Angular', 'TypeScript', 'C#'],
       href: 'https://llm-prompt-purify.netlify.app/',
       repoHref:
@@ -112,7 +112,7 @@ export const FEATURED_PROJECTS: I18n<FeaturedProject[]> = {
       slug: 'prompt-shape-creator',
       title: 'Prompt Shape Creator',
       outcome:
-        'Formulario de briefing para prompts de generación de imágenes con envío vía SMTP, fallback para portapapeles, autoguardado y detección automática de idioma. Construido con patrones modernos de React (useActionState, useTransition).',
+        'Formulario de briefing para prompts de generación de imágenes usado en flujos corporativos para estructurar pedidos creativos, mejorar la calidad visual y producir borradores útiles cerca de un 200% más rápido.',
       stacks: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS'],
       href: 'https://prompt-shape-creator.netlify.app/',
       repoHref: 'https://github.com/aronboliveira/prompt-eng-form-basic-pub',

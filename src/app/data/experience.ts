@@ -5,8 +5,10 @@ export const EXPERIENCE: I18n<ExperienceEntry[]> = {
     {
       title: 'Nova Prestech',
       date: 'December 2024 — Present',
-      description:
-        'Internal tooling: orchestration of LLM Agents within IDEs and TUIs; Event-driven Architecture for WhatsApp Chatbots (MVC); Virtualization monitoring (Hexagonal Architecture); ERP forks (FOSS-based) tuned with Domain-Driven Development and MVC; Prompt engineering for LLM agent pipelines (web scraping for tech news/marketing, social media writing with B2B language and style directives); SEO optimization for portfolio websites. Fullstack development with Laravel, Django, and React.js. Minor experience with WhatsApp Business and Meta Business Suite automations.',
+      description: [
+        'Main responsible for maintaining and developing the Nova Prestech website as a whole, alongside internal IT-service tooling, WordPress/PHP site work, ERP/CSM support, virtualization monitoring, and event-driven WhatsApp chatbot flows.',
+        'Built JavaScript/Python automation and LLM-agent workflows for content operations, SEO QA, safer LLM usage, image-generation briefs, and support processes. Detailed metrics are summarized in Automation & Productivity.',
+      ],
       href: 'https://prestech.com.br/site/',
     },
     {
@@ -35,15 +37,17 @@ export const EXPERIENCE: I18n<ExperienceEntry[]> = {
       date: 'August 2024 — September 2024',
       description:
         'Development of a Soil Calculator using WordPress and React for Organo Labs E-commerce.',
-      href: 'https://blog.organolab.com.br/calculadora-de-solo/',
+      href: 'https://blog.organolab.com.br/blog/calculadora-de-solo/',
     },
   ],
   pt: [
     {
       title: 'Nova Prestech',
       date: 'Dezembro 2024 — Presente',
-      description:
-        'Ferramentas internas: orquestração de Agentes LLM em IDEs e TUIs; Arquitetura Orientada a Eventos para Chatbots no WhatsApp (MVC); monitoramento de Virtualização (Arquitetura Hexagonal); forks de ERP (baseados em FOSS) ajustados com Domain-Driven Development e MVC; Engenharia de Prompts para pipelines de agentes LLM (scraping web para notícias tech/marketing, redação para redes sociais com linguagem B2B e diretrizes de estilo); otimização de SEO para sites portfólio. Desenvolvimento fullstack com Laravel, Django e React.js. Experiência menor com automações via WhatsApp Business e Meta Business Suite.',
+      description: [
+        'Principal responsável pela manutenção e desenvolvimento do site da Nova Prestech como um todo, junto de ferramentas internas para serviços de TI, trabalho em WordPress/PHP, suporte a ERP/CSM, monitoramento de virtualização e fluxos de chatbot WhatsApp orientados a eventos.',
+        'Criei automações JavaScript/Python e fluxos com agentes LLM para operações de conteúdo, QA SEO, uso mais seguro de LLMs, briefings de geração de imagem e processos de suporte. As métricas detalhadas estão resumidas em Automação & Produtividade.',
+      ],
       href: 'https://prestech.com.br/site/',
     },
     {
@@ -72,15 +76,17 @@ export const EXPERIENCE: I18n<ExperienceEntry[]> = {
       date: 'Agosto 2024 — Setembro 2024',
       description:
         'Desenvolvimento de Calculadora de insumos em WordPress e React para o E-commerce da Organo Labs.',
-      href: 'https://blog.organolab.com.br/calculadora-de-solo/',
+      href: 'https://blog.organolab.com.br/blog/calculadora-de-solo/',
     },
   ],
   es: [
     {
       title: 'Nova Prestech',
       date: 'Diciembre 2024 — Presente',
-      description:
-        'Herramientas internas: orquestación de Agentes LLM en IDEs y TUIs; Arquitectura Orientada a Eventos para Chatbots en WhatsApp (MVC); monitoreo de Virtualización (Arquitectura Hexagonal); forks de ERP (basados en FOSS) ajustados con Domain-Driven Development y MVC; Ingeniería de Prompts para pipelines de agentes LLM (scraping web para noticias tech/marketing, redacción para redes sociales con lenguaje B2B y directrices de estilo); optimización SEO para sitios portafolio. Desarrollo fullstack con Laravel, Django y React.js. Experiencia menor con automatizaciones vía WhatsApp Business y Meta Business Suite.',
+      description: [
+        'Principal responsable del mantenimiento y desarrollo del sitio de Nova Prestech como un todo, junto con herramientas internas para servicios de TI, trabajo en WordPress/PHP, soporte ERP/CSM, monitoreo de virtualización y flujos de chatbot WhatsApp orientados a eventos.',
+        'Creé automatizaciones JavaScript/Python y flujos con agentes LLM para operaciones de contenido, QA SEO, uso más seguro de LLMs, briefings de generación de imágenes y procesos de soporte. Las métricas detalladas están resumidas en Automatización & Productividad.',
+      ],
       href: 'https://prestech.com.br/site/',
     },
     {
@@ -109,7 +115,7 @@ export const EXPERIENCE: I18n<ExperienceEntry[]> = {
       date: 'Agosto 2024 — Septiembre 2024',
       description:
         'Desarrollo de Calculadora de insumos en WordPress y React para el E-commerce de Organo Labs.',
-      href: 'https://blog.organolab.com.br/calculadora-de-solo/',
+      href: 'https://blog.organolab.com.br/blog/calculadora-de-solo/',
     },
   ],
 };

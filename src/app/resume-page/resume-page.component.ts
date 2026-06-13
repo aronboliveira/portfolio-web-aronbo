@@ -32,10 +32,10 @@ export class ResumePageComponent implements OnInit {
           ? 'Currículum — Aron Barbosa de Oliveira — Desarrollador Full-Stack'
           : 'Currículo — Aron Barbosa de Oliveira — Desenvolvedor Full-stack',
       description: isEn
-        ? 'Resume of Aron Barbosa de Oliveira, Full-stack Software Developer. TypeScript, Python, Shell Automation.'
+        ? 'Resume of Aron Barbosa de Oliveira, Full-stack Software Developer. TypeScript, Python, Java APIs, AI automation, SEO, and cloud deployments.'
         : isEs
-          ? 'Currículum de Aron Barbosa de Oliveira, Desarrollador Full-Stack. TypeScript, Python, Automatización Shell.'
-          : 'Currículo de Aron Barbosa de Oliveira, Desenvolvedor Full-stack. TypeScript, Python, Automação Shell.',
+          ? 'Currículum de Aron Barbosa de Oliveira, Desarrollador Full-Stack. TypeScript, Python, APIs Java, automatización con IA, SEO y despliegues cloud.'
+          : 'Currículo de Aron Barbosa de Oliveira, Desenvolvedor Full-stack. TypeScript, Python, APIs Java, automação com IA, SEO e deploys cloud.',
       canonicalPath: `/${this.lang}/resume`,
       lang: isEn ? 'en' : isEs ? 'es-CL' : 'pt-BR',
     });

@@ -14,7 +14,7 @@ export const CASE_STUDIES: Record<string, Record<Lang, CaseStudy>> = {
         'A client-side sanitization pipeline that scans prompt text for patterns matching sensitive data (emails, phone numbers, IDs, credentials) and either masks or removes them before the prompt reaches any external API. Rules are configurable and extensible.',
       stack: 'Angular, TypeScript',
       outcome:
-        'Reduced risk of accidental data leakage in LLM workflows. Deterministic filtering ensures predictable behavior. Can be integrated as a pre-processing step in any LLM-powered application.',
+        'Used in company LLM-agent and web-LLM workflows to lower accidental data-leakage risk before prompts reached external tools. Deterministic filtering ensured predictable behavior and reusable pre-processing for LLM-powered applications.',
       liveUrl: 'https://llm-prompt-purify.netlify.app/',
       repoUrl:
         'https://github.com/aronboliveira/llm-prompt-purify/tree/develop',
@@ -30,7 +30,7 @@ export const CASE_STUDIES: Record<string, Record<Lang, CaseStudy>> = {
         'Um pipeline de sanitização client-side que escaneia o texto do prompt em busca de padrões que correspondam a dados sensíveis (emails, telefones, IDs, credenciais) e os mascara ou remove antes do prompt chegar a qualquer API externa. As regras são configuráveis e extensíveis.',
       stack: 'Angular, TypeScript',
       outcome:
-        'Risco reduzido de vazamento acidental de dados em fluxos de trabalho com LLM. Filtragem determinística garante comportamento previsível. Pode ser integrado como etapa de pré-processamento em qualquer aplicação com LLM.',
+        'Usado em fluxos corporativos com agentes LLM e LLMs web para reduzir risco de vazamento acidental de dados antes que os prompts chegassem a ferramentas externas. A filtragem determinística garantiu comportamento previsível e pré-processamento reutilizável para aplicações com LLM.',
       liveUrl: 'https://llm-prompt-purify.netlify.app/',
       repoUrl:
         'https://github.com/aronboliveira/llm-prompt-purify/tree/develop',
@@ -46,7 +46,7 @@ export const CASE_STUDIES: Record<string, Record<Lang, CaseStudy>> = {
         'Un pipeline de sanitización del lado del cliente que escanea el texto del prompt en busca de patrones que coincidan con datos sensibles (correos, teléfonos, IDs, credenciales) y los enmascara o elimina antes de que el prompt llegue a cualquier API externa. Las reglas son configurables y extensibles.',
       stack: 'Angular, TypeScript',
       outcome:
-        'Riesgo reducido de filtración accidental de datos en flujos de trabajo con LLM. El filtrado determinístico garantiza un comportamiento predecible. Se puede integrar como etapa de preprocesamiento en cualquier aplicación con LLM.',
+        'Usado en flujos corporativos con agentes LLM y LLMs web para reducir el riesgo de filtración accidental de datos antes de que los prompts llegaran a herramientas externas. El filtrado determinístico garantizó comportamiento predecible y preprocesamiento reutilizable para aplicaciones con LLM.',
       liveUrl: 'https://llm-prompt-purify.netlify.app/',
       repoUrl:
         'https://github.com/aronboliveira/llm-prompt-purify/tree/develop',
@@ -158,7 +158,7 @@ export const CASE_STUDIES: Record<string, Record<Lang, CaseStudy>> = {
         'A Next.js 16 App Router application with a structured briefing form split into logical sections (scene, characters, style, technical prefs, references). Uses React 19 useActionState + useTransition for non-blocking submission, nodemailer for SMTP delivery, and a custom autosave hook that persists form state to sessionStorage with beforeunload protection. Client-side language detection auto-switches between English and Portuguese.',
       stack: 'Next.js 16, TypeScript, React 19, Tailwind CSS v4, nodemailer',
       outcome:
-        'Streamlined prompt collection with zero lost briefings. Clipboard fallback ensures delivery even when email fails. Autosave prevents data loss from accidental navigation. Accessible, print-friendly, and responsive across devices.',
+        'Used in company image-generation workflows to structure briefs, reduce iteration time, and reach higher-quality usable image outputs roughly 200% faster. Clipboard fallback ensured delivery even when email failed, while autosave prevented data loss from accidental navigation.',
       liveUrl: 'https://prompt-shape-creator.netlify.app/',
       repoUrl: 'https://github.com/aronboliveira/prompt-eng-form-basic-pub',
     },
@@ -173,7 +173,7 @@ export const CASE_STUDIES: Record<string, Record<Lang, CaseStudy>> = {
         'Uma aplicação Next.js 16 (App Router) com formulário de briefing estruturado em seções lógicas (cenário, personagens, estilo, preferências técnicas, referências). Usa useActionState + useTransition do React 19 para envio não-bloqueante, nodemailer para SMTP, e um hook de autosave customizado que persiste o estado em sessionStorage com proteção beforeunload. Detecção de idioma client-side alterna automaticamente entre inglês e português.',
       stack: 'Next.js 16, TypeScript, React 19, Tailwind CSS v4, nodemailer',
       outcome:
-        'Coleta de prompts simplificada sem briefings perdidos. Fallback para clipboard garante entrega mesmo quando o e-mail falha. Autosave previne perda de dados por navegação acidental. Acessível, amigável para impressão e responsivo em todos os dispositivos.',
+        'Usado em fluxos corporativos de geração de imagens para estruturar briefings, reduzir tempo de iteração e chegar a outputs visuais úteis e de maior qualidade cerca de 200% mais rápido. O fallback para clipboard garantiu entrega mesmo quando o e-mail falhou, enquanto o autosave preveniu perda de dados por navegação acidental.',
       liveUrl: 'https://prompt-shape-creator.netlify.app/',
       repoUrl: 'https://github.com/aronboliveira/prompt-eng-form-basic-pub',
     },
@@ -188,7 +188,7 @@ export const CASE_STUDIES: Record<string, Record<Lang, CaseStudy>> = {
         'Una aplicación Next.js 16 (App Router) con formulario de briefing estructurado en secciones lógicas (escena, personajes, estilo, preferencias técnicas, referencias). Usa useActionState + useTransition de React 19 para envío no bloqueante, nodemailer para SMTP, y un hook de autoguardado personalizado que persiste el estado en sessionStorage con protección beforeunload. Detección de idioma del lado del cliente alterna automáticamente entre inglés y portugués.',
       stack: 'Next.js 16, TypeScript, React 19, Tailwind CSS v4, nodemailer',
       outcome:
-        'Recopilación de prompts simplificada sin briefings perdidos. Fallback para portapapeles garantiza entrega incluso cuando el correo falla. El autoguardado previene pérdida de datos por navegación accidental. Accesible, amigable para impresión y responsivo en todos los dispositivos.',
+        'Usado en flujos corporativos de generación de imágenes para estructurar briefings, reducir tiempo de iteración y llegar a salidas visuales útiles y de mayor calidad cerca de un 200% más rápido. El fallback para portapapeles garantizó entrega incluso cuando el correo falló, mientras que el autoguardado previno pérdida de datos por navegación accidental.',
       liveUrl: 'https://prompt-shape-creator.netlify.app/',
       repoUrl: 'https://github.com/aronboliveira/prompt-eng-form-basic-pub',
     },

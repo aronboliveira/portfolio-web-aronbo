@@ -35,6 +35,7 @@
           rel="noopener noreferrer"
           class="nav-icon"
           aria-label="LinkedIn"
+          title="LinkedIn"
         >
           <svg
             width="28"
@@ -63,6 +64,7 @@
           rel="noopener noreferrer nofollow"
           class="nav-icon"
           aria-label="GitHub"
+          title="GitHub"
         >
           <svg
             width="28"
@@ -83,6 +85,7 @@
           rel="noopener noreferrer nofollow"
           class="nav-icon"
           aria-label="GitLab"
+          title="GitLab"
         >
           <svg
             width="28"
@@ -210,7 +213,11 @@
                   : "Baixar Currículo (PDF)"
             }}
           </a>
-          <a [href]="'/' + lang + '#featured-projects'" class="cta cta-outline">
+          <a
+            [href]="'/' + lang + '#featured-projects'"
+            class="cta cta-outline"
+            (click)="onProjectsCtaClick($event)"
+          >
             {{
               lang === "en"
                 ? "Projects"
@@ -346,28 +353,194 @@
   >
     @if (lang === "en") {
       <h2 id="automation-heading">Automation &amp; Productivity</h2>
-      <p>
-        Shell scripts, JavaScript/TypeScript utilities, and Python tools for
-        operating system administration, spreadsheet automation, and developer
-        productivity.
+      <p class="automation-summary">
+        JavaScript/TypeScript utilities, Python scripts, and shell tooling for
+        repeatable reporting, spreadsheet workflows, operating-system tasks,
+        and developer productivity.
+      </p>
+      <p class="automation-detail">
+        At Prestech, this included LLM-agent workflows for news discovery,
+        visual-brief suggestions, and B2B/newsletter drafting; LLM Prompt
+        Purify for safer company interactions with LLM agents and web-based LLM
+        tools; Prompt Shape Creator for faster image-generation briefs; browser
+        scripts for repetitive changes in web-based design tools; approved
+        browser workflow QA and reporting support; and statistical analysis to
+        correlate reporting datasets.
       </p>
     }
     @if (lang === "pt") {
       <h2 id="automation-heading">Automação &amp; Produtividade</h2>
-      <p>
-        Scripts shell, utilitários JavaScript/TypeScript e ferramentas Python
-        para administração de sistemas operacionais, automação de planilhas e
-        produtividade do desenvolvedor.
+      <p class="automation-summary">
+        Utilitários JavaScript/TypeScript, scripts Python e ferramentas shell
+        para reporting recorrente, fluxos com planilhas, tarefas de sistemas
+        operacionais e produtividade do desenvolvedor.
+      </p>
+      <p class="automation-detail">
+        Na Prestech, isso incluiu fluxos com agentes LLM para descoberta de
+        notícias, sugestões de briefing visual e redação B2B/newsletter; LLM
+        Prompt Purify para interações corporativas mais seguras com agentes LLM
+        e ferramentas LLM web; Prompt Shape Creator para briefings de geração
+        de imagem mais rápidos; scripts de navegador para alterações
+        repetitivas em ferramentas de design web; QA de fluxos de navegador
+        aprovados e apoio a reporting; e análise estatística para correlacionar
+        datasets de reporting.
       </p>
     }
     @if (lang === "es") {
       <h2 id="automation-heading">Automatización &amp; Productividad</h2>
-      <p>
-        Scripts shell, utilidades JavaScript/TypeScript y herramientas Python
-        para administración de sistemas operativos, automatización de hojas de
-        cálculo y productividad del desarrollador.
+      <p class="automation-summary">
+        Utilidades JavaScript/TypeScript, scripts Python y herramientas shell
+        para reporting recurrente, flujos con hojas de cálculo, tareas de
+        sistemas operativos y productividad del desarrollador.
+      </p>
+      <p class="automation-detail">
+        En Prestech, esto incluyó flujos con agentes LLM para descubrimiento de
+        noticias, sugerencias de brief visual y redacción B2B/newsletter;
+        LLM Prompt Purify para interacciones corporativas más seguras con
+        agentes LLM y herramientas LLM web; Prompt Shape Creator para briefings
+        de generación de imágenes más rápidos; scripts de navegador para
+        cambios repetitivos en herramientas de diseño web; QA de flujos de
+        navegador aprobados y soporte de reporting; y análisis estadístico para
+        correlacionar datasets de reporting.
       </p>
     }
+    <div
+      class="impact-grid"
+      [attr.aria-label]="
+        lang === 'en'
+          ? 'Measured automation impact'
+          : lang === 'es'
+            ? 'Impacto medido de automatización'
+            : 'Impacto medido de automação'
+      "
+    >
+      <article class="impact-card">
+        <span class="impact-value">+232.9%</span>
+        <h3>
+          {{
+            lang === "en"
+              ? "Company-page impressions increased after specialized LLM agents and niche scripts curated, optimized, and generated content workflows."
+              : lang === "es"
+                ? "Las impresiones de página corporativa aumentaron tras flujos de contenido curados, optimizados y generados por agentes LLM especializados y scripts de nicho."
+                : "As impressões de página corporativa aumentaram após fluxos de conteúdo curados, otimizados e gerados por agentes LLM especializados e scripts de nicho."
+          }}
+        </h3>
+        <p class="impact-tools">
+          {{
+            lang === "en"
+              ? "Tools/languages: trained LLM agents, JavaScript, Python, platform analytics aggregation (LinkedIn)."
+              : lang === "es"
+                ? "Herramientas/lenguajes: agentes LLM entrenados, JavaScript, Python, agregación de analíticas de plataforma (LinkedIn)."
+                : "Ferramentas/linguagens: agentes LLM treinados, JavaScript, Python, agregação de analytics da plataforma (LinkedIn)."
+          }}
+        </p>
+      </article>
+      <article class="impact-card">
+        <span class="impact-value">+183.3%</span>
+        <h3>
+          {{
+            lang === "en"
+              ? "Company-page reactions increased after LLM-assisted content workflows and browser workflow support were adopted."
+              : lang === "es"
+                ? "Las reacciones de página corporativa aumentaron tras adoptar flujos de contenido asistidos por LLM y soporte a flujos de navegador."
+                : "As reações de página corporativa aumentaram após adoção de fluxos de conteúdo assistidos por LLM e apoio a fluxos de navegador."
+          }}
+        </h3>
+        <p class="impact-tools">
+          {{
+            lang === "en"
+              ? "Tools/languages: trained LLM agents, JavaScript, Python, browser workflow scripts, platform analytics aggregation (LinkedIn)."
+              : lang === "es"
+                ? "Herramientas/lenguajes: agentes LLM entrenados, JavaScript, Python, scripts de flujo en navegador, agregación de analíticas de plataforma (LinkedIn)."
+                : "Ferramentas/linguagens: agentes LLM treinados, JavaScript, Python, scripts de fluxo em navegador, agregação de analytics da plataforma (LinkedIn)."
+          }}
+        </p>
+      </article>
+      <article class="impact-card">
+        <span class="impact-value">+57.1%</span>
+        <h3>
+          {{
+            lang === "en"
+              ? "Profile follower growth increased after automation-supported content planning and publishing routines."
+              : lang === "es"
+                ? "El crecimiento de seguidores del perfil aumentó tras rutinas de planificación y publicación apoyadas por automatización."
+                : "O crescimento de seguidores do perfil aumentou após rotinas de planejamento e publicação apoiadas por automação."
+          }}
+        </h3>
+        <p class="impact-tools">
+          {{
+            lang === "en"
+              ? "Tools/languages: trained LLM agents, JavaScript, Python, platform analytics aggregation (Instagram)."
+              : lang === "es"
+                ? "Herramientas/lenguajes: agentes LLM entrenados, JavaScript, Python, agregación de analíticas de plataforma (Instagram)."
+                : "Ferramentas/linguagens: agentes LLM treinados, JavaScript, Python, agregação de analytics da plataforma (Instagram)."
+          }}
+        </p>
+      </article>
+      <article class="impact-card">
+        <span class="impact-value">~200%</span>
+        <h3>
+          {{
+            lang === "en"
+              ? "Image-generation brief turnaround improved with structured prompt workflows for company creative requests."
+              : lang === "es"
+                ? "El ciclo de briefings para generación de imágenes mejoró con flujos estructurados de prompts para pedidos creativos corporativos."
+                : "O ciclo de briefings para geração de imagens melhorou com fluxos estruturados de prompts para pedidos criativos corporativos."
+          }}
+        </h3>
+        <p class="impact-tools">
+          {{
+            lang === "en"
+              ? "Tools/languages: Prompt Shape Creator, Next.js, TypeScript, React, image-generation LLMs."
+              : lang === "es"
+                ? "Herramientas/lenguajes: Prompt Shape Creator, Next.js, TypeScript, React, LLMs de generación de imágenes."
+                : "Ferramentas/linguagens: Prompt Shape Creator, Next.js, TypeScript, React, LLMs de geração de imagem."
+          }}
+        </p>
+      </article>
+      <article class="impact-card">
+        <span class="impact-value">1st-2nd</span>
+        <h3>
+          {{
+            lang === "en"
+              ? "Search-engine visibility reached first-to-second-place positions in several microregions for strategic targeted keywords, with Lighthouse SEO scores reaching 90-100."
+              : lang === "es"
+                ? "La visibilidad en motores de búsqueda llegó a primera-segunda posición en varias microrregiones para palabras clave estratégicas, con puntuaciones SEO de Lighthouse de 90-100."
+                : "A visibilidade em mecanismos de busca chegou à primeira-segunda posição em várias microrregiões para palavras-chave estratégicas, com pontuação SEO no Lighthouse entre 90-100."
+          }}
+        </h3>
+        <p class="impact-tools">
+          {{
+            lang === "en"
+              ? "Tools/languages: WordPress/PHP, JavaScript, Lighthouse, SEO QA, Gemini assessment using Google Search, 1,422 keyword-region rows."
+              : lang === "es"
+                ? "Herramientas/lenguajes: WordPress/PHP, JavaScript, Lighthouse, QA SEO, evaluación de Gemini usando Google Search, 1.422 filas palabra-clave/región."
+                : "Ferramentas/linguagens: WordPress/PHP, JavaScript, Lighthouse, QA SEO, avaliação do Gemini usando Google Search, 1.422 linhas palavra-chave/região."
+          }}
+        </p>
+      </article>
+      <article class="impact-card">
+        <span class="impact-value">~50%</span>
+        <h3>
+          {{
+            lang === "en"
+              ? "Improvement of speed for input on workflow tools, including PROSSaúde"
+              : lang === "es"
+                ? "Mejora de velocidad de input en herramientas de flujo, incluido PROSSaúde"
+                : "Melhoria de velocidade de input em ferramentas de fluxo, incluindo PROSSaúde"
+          }}
+        </h3>
+        <p class="impact-tools">
+          {{
+            lang === "en"
+              ? "Tools/languages: React, TypeScript, PROSSaúde forms, WhatsApp/ticket-intake automation, queryable digital records."
+              : lang === "es"
+                ? "Herramientas/lenguajes: React, TypeScript, formularios PROSSaúde, automatización de citas/tickets, registros digitales consultables."
+                : "Ferramentas/linguagens: React, TypeScript, formulários PROSSaúde, automação de agendamento/tickets, registros digitais consultáveis."
+          }}
+        </p>
+      </article>
+    </div>
     <div class="automation-links">
       <a
         href="https://github.com/aronboliveira/my-os-scripts/tree/main"
@@ -412,17 +585,46 @@
       }}
     </h2>
     <div class="timeline">
-      @for (exp of currentExperience; track exp.title) {
-        <article class="timeline-item">
+      @for (exp of currentExperience; track exp.title; let i = $index) {
+        <article
+          class="timeline-item"
+          [class.timeline-item-open]="isExperienceOpen(i)"
+        >
           <header>
-            <h3>
-              <a [href]="exp.href" target="_blank" rel="noopener noreferrer">
-                {{ exp.title }}
-              </a>
-            </h3>
+            <button
+              type="button"
+              class="timeline-toggle"
+              [attr.aria-label]="experienceToggleLabel(i, exp.title)"
+              [attr.aria-expanded]="isExperienceOpen(i)"
+              [attr.aria-controls]="'experience-content-' + i"
+              [attr.title]="experienceToggleLabel(i, exp.title)"
+              (click)="toggleExperience(i)"
+            >
+              <span class="timeline-arrow" aria-hidden="true">&gt;</span>
+              <span class="timeline-title">{{ exp.title }}</span>
+            </button>
             <time>{{ exp.date }}</time>
           </header>
-          <p>{{ exp.description }}</p>
+          <div
+            class="timeline-content"
+            [id]="'experience-content-' + i"
+            [hidden]="!isExperienceOpen(i)"
+          >
+            @for (
+              paragraph of descriptionParagraphs(exp.description);
+              track paragraph
+            ) {
+              <p>{{ paragraph }}</p>
+            }
+            <a
+              class="timeline-link"
+              [href]="exp.href"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ experienceLinkLabel(exp) }}
+            </a>
+          </div>
         </article>
       }
     </div>
@@ -495,6 +697,12 @@
         target="_blank"
         rel="noopener noreferrer nofollow"
         >GitHub</a
+      >
+      <a
+        href="https://gitlab.com/aronboliveira"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        >GitLab</a
       >
       <a [routerLink]="'/' + lang + '/resume'">
         {{
